@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6615CB07-9B7A-47BC-8379-9CDA5FD4EDFC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LookAndPlayForm</RootNamespace>
+    <AssemblyName>ReadAndPlayForm</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper">
+      <HintPath>packages\CsvHelper.2.13.0.0\lib\net40-client\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PolledDevices">
+      <HintPath>dll\PolledDevices.dll</HintPath>
+    </Reference>
+    <Reference Include="SlimDX">
+      <HintPath>dll\SlimDX.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tobii.Gaze.Core.Net, Version=2.0.3.182, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Tobii.Gaze.Core.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EyeTracking\Calibration\CalibrationError.cs" />
+    <Compile Include="EyeTracking\Calibration\CalibrationResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EyeTracking\Calibration\CalibrationResultForm.designer.cs">
+      <DependentUpon>CalibrationResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EyeTracking\Calibration\CalibrationResultPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EyeTracking\Calibration\CalibrationResultPanel.designer.cs">
+      <DependentUpon>CalibrationResultPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EyeTracking\eyesDetector.cs" />
+    <Compile Include="EyeTracking\Calibration\CalibrationWinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EyeTracking\Calibration\CalibrationWinForm.Designer.cs">
+      <DependentUpon>CalibrationWinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EyeX\EyeTrackingEngine.cs" />
+    <Compile Include="EyeX\ExeXWinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EyeX\ExeXWinForm.Designer.cs">
+      <DependentUpon>ExeXWinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EyeTracking\TrackStatusControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EyeTracking\TrackStatusControl.designer.cs">
+      <DependentUpon>TrackStatusControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EyeTracking\TrackStatusControlMirada.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EyeTracking\TrackStatusControlMirada.designer.cs">
+      <DependentUpon>TrackStatusControlMirada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FixDetector\FixDetectorData.cs" />
+    <Compile Include="FixDetector\FixDetector.cs" />
+    <Compile Include="FixDetector\TobiiOpenDataClass.cs" />
+    <Compile Include="FormUserID\FormUserID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUserID\FormUserID.Designer.cs">
+      <DependentUpon>FormUserID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUserID\users_class.cs" />
+    <Compile Include="progressbarMiguel\barraHorizontal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="progressbarMiguel\barraHorizontal.Designer.cs">
+      <DependentUpon>barraHorizontal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="progressbarMiguel\barraVertical.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="progressbarMiguel\barraVertical.Designer.cs">
+      <DependentUpon>barraVertical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Resumen\Resumen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resumen\Resumen.Designer.cs">
+      <DependentUpon>Resumen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resumen\TobiiClass.cs" />
+    <Compile Include="Varios\functions.cs" />
+    <Compile Include="Varios\ImageDictionary.cs" />
+    <Compile Include="Varios\Definitions.cs" />
+    <Compile Include="Varios\Dwell.cs" />
+    <Compile Include="EyeTracking\Filters.cs" />
+    <Compile Include="Game1\Game1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game1\Game1.Designer.cs">
+      <DependentUpon>Game1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EyeTracking\LogEyeTracker.cs" />
+    <Compile Include="Varios\LogMouse.cs" />
+    <Compile Include="Varios\LogTest.cs" />
+    <Compile Include="Varios\MouseControl.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Varios\settings.cs" />
+    <Compile Include="Varios\sharedData.cs" />
+    <Compile Include="Varios\TargetPosSize.cs" />
+    <Compile Include="Varios\TestData.cs" />
+    <Compile Include="EyeTracking\eyetrackingFunctions.cs" />
+    <EmbeddedResource Include="EyeTracking\Calibration\CalibrationResultForm.resx">
+      <DependentUpon>CalibrationResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EyeTracking\Calibration\CalibrationResultPanel.resx">
+      <DependentUpon>CalibrationResultPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EyeTracking\Calibration\CalibrationWinForm.resx">
+      <DependentUpon>CalibrationWinForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EyeX\ExeXWinForm.resx">
+      <DependentUpon>ExeXWinForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EyeTracking\TrackStatusControl.resx">
+      <DependentUpon>TrackStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUserID\FormUserID.resx">
+      <DependentUpon>FormUserID.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game1\Game1.resx">
+      <DependentUpon>Game1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="progressbarMiguel\barraHorizontal.resx">
+      <DependentUpon>barraHorizontal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="progressbarMiguel\barraVertical.resx">
+      <DependentUpon>barraVertical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resumen\Resumen.resx">
+      <DependentUpon>Resumen.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\magic.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+    <None Include="Resources\applause-9sec.wav" />
+    <Content Include="Resources\Animales\boxer.gif" />
+    <Content Include="Resources\Animales\cachorritoSubir.gif" />
+    <Content Include="Resources\Animales\catAndFox.gif" />
+    <Content Include="Resources\Animales\cotorritas.gif" />
+    <Content Include="Resources\Animales\perroHamaca.gif" />
+    <Content Include="Resources\Animales\salchicha.gif" />
+    <None Include="Resources\MrPatch.png" />
+    <None Include="Resources\MrPatch.ico" />
+    <Content Include="Resources\Textos\TextoEs1.png" />
+    <Content Include="Resources\click_fail.wav" />
+    <Content Include="Resources\click_ok.wav" />
+    <Content Include="Resources\recuadro.png" />
+    <Content Include="Resources\Textos\TextoIn1.png" />
+    <Content Include="TobiiGazeCore32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="FixDet">
+      <Guid>{A3E0715E-286B-419D-B625-F1C199FDEE8F}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

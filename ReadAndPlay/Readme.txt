@@ -1,0 +1,26 @@
+
+DOING
+
+TODOS
+
+- protocolo inicio
+- problema con la calibracion si se hace mas de una vez
+- log para saber q pasa
+- diferentes config del fix detector
+
+DONE
+- boton resumen pregunta por carpeta de busqueda
+- nombre de la carpeta de destino de los archivos json con fecha + usuario
+- cambiar mensaje antes de comenzar juego al español
+- protocolo de nombre de archivos y carpetas
+- lugar de almacenamiento de datos: desktop, mis documentos
+- aislar ojos: visualización , metricas
+- sw con nuevos textos: dicccionario con imagenes y numero de palabras
+- cambiar imagenes de calibracion
+- almacenar la calibracion
+- disminuir el numero de puntos de calibracion
+- problema con los datos del eyetribe, son muy malos. no se si esta preparado para la lectura. solucion: usar el eyex
+- imagen de parrafo
+- imagen mas grande
+- quitar headtrackig
+- que no aparezca el resumen al final
