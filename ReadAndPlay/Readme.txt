@@ -9,6 +9,9 @@ TODOS
 - diferentes config del fix detector
 
 DONE
+- imagen de calibracion de abajo mas arriba
+- saque lo de cambiar el control con el q o Q
+- saque los dll de Wobbrock y de TETCSharp
 - boton resumen pregunta por carpeta de busqueda
 - nombre de la carpeta de destino de los archivos json con fecha + usuario
 - cambiar mensaje antes de comenzar juego al español

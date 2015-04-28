@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Tobii.Gaze.Core;
-//using WobbrockLib.Devices;
+using WobbrockLib.Devices;
 
 
 namespace LookAndPlayForm
@@ -19,7 +19,7 @@ namespace LookAndPlayForm
         private MouseController CursorControl = new MouseController();
         private Game1 _Game1;
         public sharedData datosCompartidos;
-        //private LowLevelKeyboardHook _llkhk;
+        private LowLevelKeyboardHook _llkhk;
         private Dwell clickDwell;
 
         public EyeXWinForm(EyeTrackingEngine eyeTrackingEngine)
@@ -36,8 +36,8 @@ namespace LookAndPlayForm
             this.datosCompartidos = LookAndPlayForm.Program.datosCompartidos;
             datosCompartidos.LogData = new LogEyeTracker();
 
-            //_llkhk = new LowLevelKeyboardHook("Low-level Keyboard Hook");
-            //_llkhk.OnKeyPress += new EventHandler<KeyPressEventArgs>(OnKeyboardHookPress);
+            _llkhk = new LowLevelKeyboardHook("Low-level Keyboard Hook");
+            _llkhk.OnKeyPress += new EventHandler<KeyPressEventArgs>(OnKeyboardHookPress);
 
             clickDwell = new Dwell(LookAndPlayForm.Program.datosCompartidos);
 
@@ -191,12 +191,12 @@ namespace LookAndPlayForm
 
         private void EyeXWinForm_Load(object sender, EventArgs e)
         {
-            //_llkhk.Install(); // keyboard
+            _llkhk.Install(); // keyboard
         }
 
         private void EyeXWinForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //_llkhk.Uninstall();
+            _llkhk.Uninstall();
         }
 
         private void toogleETcontrolCursor()
@@ -210,17 +210,17 @@ namespace LookAndPlayForm
                 clickDwell.stopDwelling();
         }
 
-        //private void OnKeyboardHookPress(object sender, KeyPressEventArgs e)
-        //{
-        //    switch (e.KeyChar)
-        //    {
-        //        case 'q':
-        //        case 'Q':
-        //            toogleETcontrolCursor();
-        //            break;
+        private void OnKeyboardHookPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case 'q':
+                case 'Q':
+                    toogleETcontrolCursor();
+                    break;
 
-        //    }
-        //}
+            }
+        }
 
         private void OnGetCalibrationCompleted(object sender, CalibrationReadyEventArgs e)
         {

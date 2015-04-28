@@ -36,9 +36,9 @@ namespace LookAndPlayForm
         private const int preShowTime = 1000;
         private const int postShowTime = 2000;
         
-        private int calibrationPointOffset = 100;
+        private int calibrationPointOffset = 200;
         private int numeroPuntosCalibracion;
-        private bool eyeTrackerReady2Calibrate = false;
+        //private bool eyeTrackerReady2Calibrate = false;
         private Size bigImage = new Size(80, 80);
         private Size littleImage = new Size(20, 20);
         private Timer timerPreShow;
@@ -292,7 +292,7 @@ namespace LookAndPlayForm
         //Eventos del EyeX
         private void onStartCalibrationCompleted(object sender, EventArgs e)
         {
-            eyeTrackerReady2Calibrate = true;
+            //eyeTrackerReady2Calibrate = true;
 
             if(this.Visible)
             {

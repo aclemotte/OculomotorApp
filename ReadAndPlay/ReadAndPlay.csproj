@@ -83,6 +83,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\Tobii.Gaze.Core.Net.dll</HintPath>
     </Reference>
+    <Reference Include="WobbrockLib, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\WobbrockLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EyeTracking\Calibration\CalibrationError.cs" />

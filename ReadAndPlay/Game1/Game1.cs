@@ -17,7 +17,7 @@ namespace LookAndPlayForm
         sharedData _datosCompartidos;
         TargetPosSize _TargetPosSize;
         TargetPosSize.Target _TargetPS;
-        Dwell clickDwell;
+        //Dwell clickDwell;
         LogEyeTracker.eyetrackerDataEyeX generalDataEyeX;
         LogTest logTest;
         PolledDevices.PolledMouse _mouse;
