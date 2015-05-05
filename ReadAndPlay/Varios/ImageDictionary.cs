@@ -18,6 +18,8 @@ namespace LookAndPlayForm.Varios
         {
             { "TextoEs1.png",  new imageProperties(LookAndPlayForm.Properties.Resources.TextoEs1, 35)},
             { "TextoIn1.png",  new imageProperties(LookAndPlayForm.Properties.Resources.TextoIn1, 41)},
+            { "TextoIn2.png",  new imageProperties(LookAndPlayForm.Properties.Resources.TextoIn2, 100)},            
+            { "TextoIn3.png",  new imageProperties(LookAndPlayForm.Properties.Resources.TextoIn3, 100)},            
         };
 
         public struct imageProperties

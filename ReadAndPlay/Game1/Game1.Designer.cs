@@ -46,17 +46,6 @@ namespace LookAndPlayForm
             this.buttonSalir.UseVisualStyleBackColor = true;
             this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
-            // pictureBoxFrame
-            // 
-            this.pictureBoxFrame.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBoxFrame.Image = global::LookAndPlayForm.Properties.Resources.recuadro;
-            this.pictureBoxFrame.Location = new System.Drawing.Point(100, 100);
-            this.pictureBoxFrame.Name = "pictureBoxFrame";
-            this.pictureBoxFrame.Size = new System.Drawing.Size(30, 30);
-            this.pictureBoxFrame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxFrame.TabIndex = 2;
-            this.pictureBoxFrame.TabStop = false;
-            // 
             // pictureBoxStimulus
             // 
             this.pictureBoxStimulus.Location = new System.Drawing.Point(169, 171);

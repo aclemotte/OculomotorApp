@@ -118,15 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="applause_9sec" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\applause-9sec.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="magic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\magic.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="recuadro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\recuadro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="boxer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Animales\boxer.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,12 +126,6 @@
   </data>
   <data name="catAndFox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Animales\catAndFox.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="click_fail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\click_fail.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="click_ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\click_ok.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cotorritas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Animales\cotorritas.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -159,5 +144,11 @@
   </data>
   <data name="MrPatch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MrPatch.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextoIn2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\TextoIn2.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextoIn3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\TextoIn3.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

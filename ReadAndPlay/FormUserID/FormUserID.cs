@@ -15,7 +15,6 @@ namespace LookAndPlayForm
 {
     public partial class FormUserID : Form
     {
-
         /*
             busca la carpeta root, retorno en bool, sino existe lo crea
             busca y lee users.cvs, retorno en bool, sino existe lo crea

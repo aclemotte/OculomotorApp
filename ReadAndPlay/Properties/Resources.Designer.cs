@@ -61,15 +61,6 @@ namespace LookAndPlayForm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream applause_9sec {
-            get {
-                return ResourceManager.GetStream("applause_9sec", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap boxer {
@@ -100,39 +91,12 @@ namespace LookAndPlayForm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream click_fail {
-            get {
-                return ResourceManager.GetStream("click_fail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream click_ok {
-            get {
-                return ResourceManager.GetStream("click_ok", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap cotorritas {
             get {
                 object obj = ResourceManager.GetObject("cotorritas", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream magic {
-            get {
-                return ResourceManager.GetStream("magic", resourceCulture);
             }
         }
         
@@ -152,16 +116,6 @@ namespace LookAndPlayForm.Properties {
         internal static System.Drawing.Bitmap perroHamaca {
             get {
                 object obj = ResourceManager.GetObject("perroHamaca", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap recuadro {
-            get {
-                object obj = ResourceManager.GetObject("recuadro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -192,6 +146,26 @@ namespace LookAndPlayForm.Properties {
         internal static System.Drawing.Bitmap TextoIn1 {
             get {
                 object obj = ResourceManager.GetObject("TextoIn1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextoIn2 {
+            get {
+                object obj = ResourceManager.GetObject("TextoIn2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextoIn3 {
+            get {
+                object obj = ResourceManager.GetObject("TextoIn3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

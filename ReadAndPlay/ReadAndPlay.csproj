@@ -51,6 +51,9 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\MrPatch.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsvHelper">
       <HintPath>packages\CsvHelper.2.13.0.0\lib\net40-client\CsvHelper.dll</HintPath>
@@ -228,16 +231,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\magic.wav" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />
-    <None Include="Resources\applause-9sec.wav" />
     <Content Include="Resources\Animales\boxer.gif" />
     <Content Include="Resources\Animales\cachorritoSubir.gif" />
     <Content Include="Resources\Animales\catAndFox.gif" />
@@ -247,10 +249,9 @@
     <None Include="Resources\MrPatch.png" />
     <None Include="Resources\MrPatch.ico" />
     <Content Include="Resources\Textos\TextoEs1.png" />
-    <Content Include="Resources\click_fail.wav" />
-    <Content Include="Resources\click_ok.wav" />
-    <Content Include="Resources\recuadro.png" />
     <Content Include="Resources\Textos\TextoIn1.png" />
+    <Content Include="Resources\Textos\TextoIn2.PNG" />
+    <Content Include="Resources\Textos\TextoIn3.PNG" />
     <Content Include="TobiiGazeCore32.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

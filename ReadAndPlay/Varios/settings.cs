@@ -9,7 +9,7 @@ namespace LookAndPlayForm
     {
         //eyesDetector
         public const int maxNumberOfDataReceived = 15;
-        
+                
         //dwell
         public const int DwellArea = 50;//0pix
         public const int DwellTime = 1000;//mseg
@@ -27,6 +27,6 @@ namespace LookAndPlayForm
         public const bool cursorVisibleGame = false;
 
         //imagen a leer
-        public const string image2read = "TextoIn1.png";
+        public const string image2read = "TextoIn2.png";
     }
 }
