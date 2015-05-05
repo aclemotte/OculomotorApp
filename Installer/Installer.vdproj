@@ -63,6 +63,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_68046B194E52714FB2574C2AD8D99AC9"
+        "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_8074A25100AD44AEBAD01B542D83157B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -99,12 +105,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9293BEEF68A918389F4349ED1BEF2C1A"
-        "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A5D7F1D463841D711DC23FB58F1EE2F7"
         "OwnerKey" = "8:_87FFDE6CFE32828FC3C37BFFC6780C5C"
         "MsmSig" = "8:_UNDEFINED"
@@ -124,7 +124,7 @@
         "Entry"
         {
         "MsmKey" = "8:_E4B432173DE51B929FF98E4E0981075D"
-        "OwnerKey" = "8:_9293BEEF68A918389F4349ED1BEF2C1A"
+        "OwnerKey" = "8:_68046B194E52714FB2574C2AD8D99AC9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -154,7 +154,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9293BEEF68A918389F4349ED1BEF2C1A"
+        "OwnerKey" = "8:_68046B194E52714FB2574C2AD8D99AC9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -473,6 +473,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_68046B194E52714FB2574C2AD8D99AC9"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Interop.FixDet, Version=1.2.0.0, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_68046B194E52714FB2574C2AD8D99AC9"
+                    {
+                    "Name" = "8:Interop.FixDet.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Interop.FixDet.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8074A25100AD44AEBAD01B542D83157B"
             {
             "SourcePath" = "8:..\\ReadAndPlay\\TobiiGazeCore32.dll"
@@ -569,37 +600,6 @@
                     }
                 }
             "SourcePath" = "8:Microsoft.ReportViewer.WinForms.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9293BEEF68A918389F4349ED1BEF2C1A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.FixDet, Version=1.2.0.0, Culture=neutral, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_9293BEEF68A918389F4349ED1BEF2C1A"
-                    {
-                    "Name" = "8:Interop.FixDet.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Interop.FixDet.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
@@ -769,7 +769,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_4615A348986842C7985EE64F0A16297D"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -828,15 +828,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Reading App"
-        "ProductCode" = "8:{ACF55197-8F06-4ED8-AE4C-2F77640B0EF0}"
-        "PackageCode" = "8:{F6513F7A-B9ED-4714-A9C1-8033C344B3AD}"
+        "ProductCode" = "8:{C715FA37-1930-43A1-92E9-DC4427702BAC}"
+        "PackageCode" = "8:{898C2676-AE42-423C-BD3A-E34C0FD54E85}"
         "UpgradeCode" = "8:{D1289E79-E680-4920-B703-0FFD44BDC58E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.0"
+        "ProductVersion" = "8:1.1.1"
         "Manufacturer" = "8:MrPatch"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -850,7 +850,7 @@
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
@@ -1378,7 +1378,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_11B98B364C65483C86565FD7A4F3AA14"
             {
-            "SourcePath" = "8:..\\ReadAndPlay\\obj\\x86\\Debug\\ReadAndPlayForm.exe"
+            "SourcePath" = "8:..\\ReadAndPlay\\obj\\x86\\Release\\ReadAndPlayForm.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4615A348986842C7985EE64F0A16297D"

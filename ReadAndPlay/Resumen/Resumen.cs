@@ -46,7 +46,7 @@ namespace LookAndPlayForm.Resumen
             fixDataFound = loadFixationDataFromJson(fbd.SelectedPath);
             eyetrackerDataFound = loadEyetrackerDataFromJson(fbd.SelectedPath);
             testDataFound = loadTestDataFromJson(fbd.SelectedPath);
-            imageFound = loadImage2Control();
+            imageFound = loadImage2Control(testDataFound);
 
             everythingOk = fixDataFound & eyetrackerDataFound & testDataFound & imageFound;
 
@@ -435,26 +435,36 @@ namespace LookAndPlayForm.Resumen
                 return false;
         }
 
-        private bool loadImage2Control()
+        private bool loadImage2Control(bool testDataFound)
         {
             /*
              * leer testdata.imagen
              * en funcion de lo que se lee se carga en el picture box            
              */
 
-            //if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(settings.image2read))
-            if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(settings.image2read))
-            {
-                pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[settings.image2read].imagen;
-                Console.WriteLine("testData.imagen2read:" + settings.image2read + " encontrada");
-                return true;
+            if(testDataFound)
+            {   
+                
+                //if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(settings.image2read))
+                if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(testData.image2read))
+                {
+                    //pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[settings.image2read].imagen;
+                    //Console.WriteLine("testData.imagen2read:" + settings.image2read + " encontrada");
+                    pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].imagen;
+                    Console.WriteLine("testData.imagen2read:" + testData.image2read + " encontrada");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("testData.imagen2read:" + testData.image2read + " NO encontrada");
+                    return false;
+                }
             }
             else
             {
-                Console.WriteLine("testData.imagen2read:" + settings.image2read + " NO encontrada");
+                Console.WriteLine("testDataFound: false");
                 return false;
             }
-
         }
 
 
