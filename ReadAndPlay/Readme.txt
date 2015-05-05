@@ -7,8 +7,10 @@ TODOS
 - problema con la calibracion si se hace mas de una vez
 - log para saber q pasa
 - diferentes config del fix detector
+- falta poder cambiar dinamicamente a traves de la interfaz de usuario
 
 DONE
+- cargadas mas imagenes para leer. una para ninhos y otra para adultos
 - imagen de calibracion de abajo mas arriba
 - saque lo de cambiar el control con el q o Q
 - saque los dll de Wobbrock y de TETCSharp

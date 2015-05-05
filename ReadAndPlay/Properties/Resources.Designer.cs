@@ -103,9 +103,9 @@ namespace LookAndPlayForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon MrPatch {
+        internal static System.Drawing.Icon MrPatch32 {
             get {
-                object obj = ResourceManager.GetObject("MrPatch", resourceCulture);
+                object obj = ResourceManager.GetObject("MrPatch32", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

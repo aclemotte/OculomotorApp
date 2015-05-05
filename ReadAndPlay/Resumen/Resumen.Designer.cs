@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Resumen));
             this.textBoxNumFix = new System.Windows.Forms.TextBox();
             this.textBoxMeanFix = new System.Windows.Forms.TextBox();
             this.textBoxStdFix = new System.Windows.Forms.TextBox();
@@ -444,6 +445,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Resumen";
             this.Text = "Resume";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).EndInit();

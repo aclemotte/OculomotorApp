@@ -52,7 +52,8 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\MrPatch.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsvHelper">
@@ -247,7 +248,7 @@
     <Content Include="Resources\Animales\perroHamaca.gif" />
     <Content Include="Resources\Animales\salchicha.gif" />
     <None Include="Resources\MrPatch.png" />
-    <None Include="Resources\MrPatch.ico" />
+    <Content Include="Resources\MrPatch32.ico" />
     <Content Include="Resources\Textos\TextoEs1.png" />
     <Content Include="Resources\Textos\TextoIn1.png" />
     <Content Include="Resources\Textos\TextoIn2.PNG" />

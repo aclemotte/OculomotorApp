@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_03F23CD56F3A599F1EF6A184FA19872F"
-        "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -57,13 +51,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5B1F77AF0C6FEF5CF0E8E1F4EA1E0A9B"
+        "MsmKey" = "8:_56AFC32AFC4A7E41C195AD033851CA1F"
         "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_68046B194E52714FB2574C2AD8D99AC9"
+        "MsmKey" = "8:_5B1F77AF0C6FEF5CF0E8E1F4EA1E0A9B"
         "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -105,6 +99,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9293BEEF68A918389F4349ED1BEF2C1A"
+        "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A5D7F1D463841D711DC23FB58F1EE2F7"
         "OwnerKey" = "8:_87FFDE6CFE32828FC3C37BFFC6780C5C"
         "MsmSig" = "8:_UNDEFINED"
@@ -117,14 +117,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BC180E2DA9DD436183F64053658BCE99"
+        "MsmKey" = "8:_B346999669BD4B3CA92C05AF659D64BE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_E4B432173DE51B929FF98E4E0981075D"
-        "OwnerKey" = "8:_68046B194E52714FB2574C2AD8D99AC9"
+        "OwnerKey" = "8:_9293BEEF68A918389F4349ED1BEF2C1A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -154,13 +154,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_68046B194E52714FB2574C2AD8D99AC9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FC3F5B783E29F25CED74A2A5870F7F98"
+        "OwnerKey" = "8:_9293BEEF68A918389F4349ED1BEF2C1A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -196,6 +190,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FC3F5B783E29F25CED74A2A5870F7F98"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_5B1F77AF0C6FEF5CF0E8E1F4EA1E0A9B"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -220,7 +220,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_03F23CD56F3A599F1EF6A184FA19872F"
+        "OwnerKey" = "8:_56AFC32AFC4A7E41C195AD033851CA1F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -318,37 +318,6 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_03F23CD56F3A599F1EF6A184FA19872F"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_03F23CD56F3A599F1EF6A184FA19872F"
-                    {
-                    "Name" = "8:CsvHelper.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:CsvHelper.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_161BA5E4FB49C060FDF9391C8400E924"
             {
             "AssemblyRegister" = "3:1"
@@ -442,20 +411,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5B1F77AF0C6FEF5CF0E8E1F4EA1E0A9B"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_56AFC32AFC4A7E41C195AD033851CA1F"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Tobii.Gaze.Core.Net, Version=2.0.3.182, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_5B1F77AF0C6FEF5CF0E8E1F4EA1E0A9B"
+                    "_56AFC32AFC4A7E41C195AD033851CA1F"
                     {
-                    "Name" = "8:Tobii.Gaze.Core.Net.dll"
+                    "Name" = "8:CsvHelper.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Tobii.Gaze.Core.Net.dll"
+            "SourcePath" = "8:CsvHelper.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
@@ -473,20 +442,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_68046B194E52714FB2574C2AD8D99AC9"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5B1F77AF0C6FEF5CF0E8E1F4EA1E0A9B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.FixDet, Version=1.2.0.0, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:Tobii.Gaze.Core.Net, Version=2.0.3.182, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_68046B194E52714FB2574C2AD8D99AC9"
+                    "_5B1F77AF0C6FEF5CF0E8E1F4EA1E0A9B"
                     {
-                    "Name" = "8:Interop.FixDet.dll"
+                    "Name" = "8:Tobii.Gaze.Core.Net.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Interop.FixDet.dll"
+            "SourcePath" = "8:Tobii.Gaze.Core.Net.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
@@ -617,6 +586,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9293BEEF68A918389F4349ED1BEF2C1A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Interop.FixDet, Version=1.2.0.0, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_9293BEEF68A918389F4349ED1BEF2C1A"
+                    {
+                    "Name" = "8:Interop.FixDet.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Interop.FixDet.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A5D7F1D463841D711DC23FB58F1EE2F7"
             {
             "AssemblyRegister" = "3:1"
@@ -648,10 +648,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC180E2DA9DD436183F64053658BCE99"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B346999669BD4B3CA92C05AF659D64BE"
             {
-            "SourcePath" = "8:..\\ReadAndPlay\\Resources\\MrPatch.ico"
-            "TargetName" = "8:MrPatch.ico"
+            "SourcePath" = "8:..\\ReadAndPlay\\Resources\\MrPatch32.ico"
+            "TargetName" = "8:MrPatch32.ico"
             "Tag" = "8:"
             "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
             "Condition" = "8:"
@@ -829,7 +829,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Reading App"
         "ProductCode" = "8:{ACF55197-8F06-4ED8-AE4C-2F77640B0EF0}"
-        "PackageCode" = "8:{F9049B1A-EE2F-4EAD-942D-59EF5D0FF7EF}"
+        "PackageCode" = "8:{F6513F7A-B9ED-4714-A9C1-8033C344B3AD}"
         "UpgradeCode" = "8:{D1289E79-E680-4920-B703-0FFD44BDC58E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -960,7 +960,7 @@
             "Target" = "8:_11B98B364C65483C86565FD7A4F3AA14"
             "Folder" = "8:_25823CE50D824582991BC5C4A01DF413"
             "WorkingFolder" = "8:_4615A348986842C7985EE64F0A16297D"
-            "Icon" = "8:_BC180E2DA9DD436183F64053658BCE99"
+            "Icon" = "8:_B346999669BD4B3CA92C05AF659D64BE"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F18E9FA6F2D843AB9F4C4BB2BDAB5F52"
@@ -974,7 +974,7 @@
             "Target" = "8:_11B98B364C65483C86565FD7A4F3AA14"
             "Folder" = "8:_062AF14B53914C328C2A4C57CF203747"
             "WorkingFolder" = "8:_4615A348986842C7985EE64F0A16297D"
-            "Icon" = "8:_BC180E2DA9DD436183F64053658BCE99"
+            "Icon" = "8:_B346999669BD4B3CA92C05AF659D64BE"
             "Feature" = "8:"
             }
         }
@@ -1378,7 +1378,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_11B98B364C65483C86565FD7A4F3AA14"
             {
-            "SourcePath" = "8:..\\ReadAndPlay\\obj\\x86\\Release\\ReadAndPlayForm.exe"
+            "SourcePath" = "8:..\\ReadAndPlay\\obj\\x86\\Debug\\ReadAndPlayForm.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
