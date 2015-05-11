@@ -56,14 +56,30 @@ namespace LookAndPlayForm
         private void loadSetImage2PictureBox()
         {
 
-            if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(settings.image2read))
+            //settings.image2read
+
+            //if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(settings.image2read))
+            //{
+            //    pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[settings.image2read].imagen;
+            //    Console.WriteLine("settings.image2read:" + settings.image2read + " encontrada");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("settings.image2read:" + settings.image2read + " NO encontrada");
+            //}
+
+
+
+            //Program.datosCompartidos.image2read
+
+            if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(Program.datosCompartidos.image2read))
             {
-                pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[settings.image2read].imagen;
-                Console.WriteLine("settings.image2read:" + settings.image2read + " encontrada");
+                pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[Program.datosCompartidos.image2read].imagen;
+                Console.WriteLine("Program.datosCompartidos.image2read:" + Program.datosCompartidos.image2read + " encontrada");
             }
             else
             {
-                Console.WriteLine("settings.image2read:" + settings.image2read + " NO encontrada");
+                Console.WriteLine("Program.datosCompartidos.image2read:" + Program.datosCompartidos.image2read + " NO encontrada");
             }
         }
 
@@ -208,28 +224,30 @@ namespace LookAndPlayForm
 
         private void save_protocol()
         {
-                logTest.testData.screen_Height = Screen.PrimaryScreen.Bounds.Height;
-                logTest.testData.screen_Width = Screen.PrimaryScreen.Bounds.Width;
-                logTest.testData.date = String.Format("{0:u}", DateTime.Now);//yyyy'-'MM'-'dd HH':'mm':'ss'Z'
-                logTest.testData.eyetracker = _datosCompartidos.EyeTrackerInfo;
-                logTest.testData.pointer_type = settings.pointercontroltypeSelected.ToString();
-                logTest.testData.blink_time_min = 0;
-                logTest.testData.blink_time_max = 0;
-                logTest.testData.dwell_area = settings.DwellArea;
-                logTest.testData.dwell_time = settings.DwellTime;
-                logTest.testData.dewll_time_latency = settings.DwellLatency;
-                logTest.testData.filter_type = settings.filtertypeSelected.ToString();
-                logTest.testData.calibration_error_left_px = _datosCompartidos.meanCalibrationErrorLeftPx;
-                logTest.testData.calibration_error_right_px = _datosCompartidos.meanCalibrationErrorRightPx;
-                logTest.testData.image2read = settings.image2read;
+            logTest.testData.screen_Height = Screen.PrimaryScreen.Bounds.Height;
+            logTest.testData.screen_Width = Screen.PrimaryScreen.Bounds.Width;
+            logTest.testData.date = String.Format("{0:u}", DateTime.Now);//yyyy'-'MM'-'dd HH':'mm':'ss'Z'
+            logTest.testData.eyetracker = _datosCompartidos.EyeTrackerInfo;
+            logTest.testData.pointer_type = settings.pointercontroltypeSelected.ToString();
+            logTest.testData.blink_time_min = 0;
+            logTest.testData.blink_time_max = 0;
+            logTest.testData.dwell_area = settings.DwellArea;
+            logTest.testData.dwell_time = settings.DwellTime;
+            logTest.testData.dewll_time_latency = settings.DwellLatency;
+            logTest.testData.filter_type = settings.filtertypeSelected.ToString();
+            logTest.testData.calibration_error_left_px = _datosCompartidos.meanCalibrationErrorLeftPx;
+            logTest.testData.calibration_error_right_px = _datosCompartidos.meanCalibrationErrorRightPx;
+            //logTest.testData.image2read = settings.image2read;
+            logTest.testData.image2read = Program.datosCompartidos.image2read;
+            
 
-                _datosCompartidos.LogData.saveData2File(generalDataEyeX);
-                _datosCompartidos.LogData.ClearList();
+            _datosCompartidos.LogData.saveData2File(generalDataEyeX);
+            _datosCompartidos.LogData.ClearList();
 
-                logTest.saveData2File();
+            logTest.saveData2File();
 
-                _datosCompartidos.updateCsv = true;
-                //FixDetector.FixDetector detectorFijaciones = new FixDetector.FixDetector();
+            _datosCompartidos.updateCsv = true;
+            //FixDetector.FixDetector detectorFijaciones = new FixDetector.FixDetector();
         }
 
         private void end_protocol()

@@ -43,5 +43,7 @@ namespace LookAndPlayForm
         public string startTime = Varios.functions.getCurrentTime();
         public string activeUser {get; set;}
         public bool updateCsv = false;
+
+        public string image2read = "TextoIn2.png";
     }
 }
