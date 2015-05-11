@@ -3,7 +3,6 @@ DOING
 
 TODOS
 
-- agregar metrica SOR. The recognition span is the number of words seen PER fixation. number of words divide by the number of fixation. 
 
 
 - protocolo inicio
@@ -13,6 +12,7 @@ TODOS
 - falta poder cambiar dinamicamente a traves de la interfaz de usuario
 
 DONE
+- Agregada metrica SOR: number of words divide by the number of fixation. 
 - Opcion de cambiar texto: child, adult
 - cargadas mas imagenes para leer. una para ninhos y otra para adultos
 - imagen de calibracion de abajo mas arriba

@@ -29,7 +29,13 @@ namespace LookAndPlayForm.Resumen
         int gazeDotRadius = 2;
         int fixDotRadius = 7;
 
+        int numberOfFix;
+        int numberOfFixL;
+        int numberOfFixR;
+
         public bool everythingOk;
+
+
 
         public Resumen()
         {
@@ -129,7 +135,20 @@ namespace LookAndPlayForm.Resumen
             getNumberOfFix();
             getMeanAndStdDurationFix();
             getWordsPerMinute();
+            getSOR();
             getCalibError();
+        }
+
+        private void getSOR()
+        {
+            int numberOfWord = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras;
+            double sor = ((double)numberOfWord / (double)numberOfFix);
+            double sorL = ((double)numberOfWord / (double)numberOfFixL);
+            double sorR = ((double)numberOfWord / (double)numberOfFixR);
+
+            textBoxSOR.Text = sor.ToString("0.00");
+            textBoxSORL.Text = sorL.ToString("0.00");
+            textBoxSORR.Text = sorR.ToString("0.00");
         }
 
         private void getCalibError()
@@ -218,9 +237,18 @@ namespace LookAndPlayForm.Resumen
 
         private void getNumberOfFix()
         {
-            textBoxNumFix.Text = eyeNumberOfFix(fixData.fixationDataPointLandR).ToString();
-            textBoxNumFixL.Text = eyeNumberOfFix(fixData.fixationDataPointLeft).ToString();
-            textBoxNumFixR.Text = eyeNumberOfFix(fixData.fixationDataPointRight).ToString();            
+            //textBoxNumFix.Text = eyeNumberOfFix(fixData.fixationDataPointLandR).ToString();
+            //textBoxNumFixL.Text = eyeNumberOfFix(fixData.fixationDataPointLeft).ToString();
+            //textBoxNumFixR.Text = eyeNumberOfFix(fixData.fixationDataPointRight).ToString();
+
+            numberOfFix = eyeNumberOfFix(fixData.fixationDataPointLandR);
+            numberOfFixL = eyeNumberOfFix(fixData.fixationDataPointLeft);
+            numberOfFixR = eyeNumberOfFix(fixData.fixationDataPointRight);
+
+
+            textBoxNumFix.Text = numberOfFix.ToString();
+            textBoxNumFixL.Text = numberOfFixL.ToString();
+            textBoxNumFixR.Text = numberOfFixR.ToString();
         }
 
         private int eyeNumberOfFix(List<fixationDataPoint> listaFixDataPoints)
