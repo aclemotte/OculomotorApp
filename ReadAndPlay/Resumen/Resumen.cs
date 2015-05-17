@@ -48,6 +48,8 @@ namespace LookAndPlayForm.Resumen
 
             Console.WriteLine("fbd.SelectedPath: " + fbd.SelectedPath);
 
+            toolStripStatusLabelFileName.Text = fbd.SelectedPath;
+ 
             processFixData(fbd.SelectedPath);
             fixDataFound = loadFixationDataFromJson(fbd.SelectedPath);
             eyetrackerDataFound = loadEyetrackerDataFromJson(fbd.SelectedPath);

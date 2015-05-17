@@ -53,6 +53,10 @@
             this.checkBoxL = new System.Windows.Forms.CheckBox();
             this.checkBoxR = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxSORR = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxSORL = new System.Windows.Forms.TextBox();
+            this.textBoxSOR = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBoxFixations = new System.Windows.Forms.CheckBox();
             this.checkBoxGaze = new System.Windows.Forms.CheckBox();
@@ -62,12 +66,12 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBoxSORR = new System.Windows.Forms.TextBox();
-            this.textBoxSORL = new System.Windows.Forms.TextBox();
-            this.textBoxSOR = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelString = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelFileName = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxNumFix
@@ -324,6 +328,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fixation analysis";
             // 
+            // textBoxSORR
+            // 
+            this.textBoxSORR.BackColor = System.Drawing.Color.White;
+            this.textBoxSORR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSORR.Location = new System.Drawing.Point(532, 173);
+            this.textBoxSORR.Name = "textBoxSORR";
+            this.textBoxSORR.ReadOnly = true;
+            this.textBoxSORR.Size = new System.Drawing.Size(70, 29);
+            this.textBoxSORR.TabIndex = 103;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(540, 29);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 24);
+            this.label10.TabIndex = 101;
+            this.label10.Text = "SOR";
+            // 
+            // textBoxSORL
+            // 
+            this.textBoxSORL.BackColor = System.Drawing.Color.White;
+            this.textBoxSORL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSORL.Location = new System.Drawing.Point(532, 119);
+            this.textBoxSORL.Name = "textBoxSORL";
+            this.textBoxSORL.ReadOnly = true;
+            this.textBoxSORL.Size = new System.Drawing.Size(70, 29);
+            this.textBoxSORL.TabIndex = 102;
+            // 
+            // textBoxSOR
+            // 
+            this.textBoxSOR.BackColor = System.Drawing.Color.White;
+            this.textBoxSOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSOR.Location = new System.Drawing.Point(532, 64);
+            this.textBoxSOR.Name = "textBoxSOR";
+            this.textBoxSOR.ReadOnly = true;
+            this.textBoxSOR.Size = new System.Drawing.Size(70, 29);
+            this.textBoxSOR.TabIndex = 101;
+            // 
             // groupBox2
             // 
             this.groupBox2.Location = new System.Drawing.Point(889, 91);
@@ -416,51 +460,36 @@
             this.label9.TabIndex = 31;
             this.label9.Text = "R";
             // 
-            // label10
+            // statusStrip1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(540, 29);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 24);
-            this.label10.TabIndex = 101;
-            this.label10.Text = "SOR";
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelString,
+            this.toolStripStatusLabelFileName});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 633);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1034, 26);
+            this.statusStrip1.TabIndex = 101;
+            this.statusStrip1.Text = "File name";
             // 
-            // textBoxSORR
+            // toolStripStatusLabelString
             // 
-            this.textBoxSORR.BackColor = System.Drawing.Color.White;
-            this.textBoxSORR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSORR.Location = new System.Drawing.Point(532, 173);
-            this.textBoxSORR.Name = "textBoxSORR";
-            this.textBoxSORR.ReadOnly = true;
-            this.textBoxSORR.Size = new System.Drawing.Size(70, 29);
-            this.textBoxSORR.TabIndex = 103;
+            this.toolStripStatusLabelString.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelString.Name = "toolStripStatusLabelString";
+            this.toolStripStatusLabelString.Size = new System.Drawing.Size(83, 21);
+            this.toolStripStatusLabelString.Text = "File Name:";
             // 
-            // textBoxSORL
+            // toolStripStatusLabelFileName
             // 
-            this.textBoxSORL.BackColor = System.Drawing.Color.White;
-            this.textBoxSORL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSORL.Location = new System.Drawing.Point(532, 119);
-            this.textBoxSORL.Name = "textBoxSORL";
-            this.textBoxSORL.ReadOnly = true;
-            this.textBoxSORL.Size = new System.Drawing.Size(70, 29);
-            this.textBoxSORL.TabIndex = 102;
-            // 
-            // textBoxSOR
-            // 
-            this.textBoxSOR.BackColor = System.Drawing.Color.White;
-            this.textBoxSOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSOR.Location = new System.Drawing.Point(532, 64);
-            this.textBoxSOR.Name = "textBoxSOR";
-            this.textBoxSOR.ReadOnly = true;
-            this.textBoxSOR.Size = new System.Drawing.Size(70, 29);
-            this.textBoxSOR.TabIndex = 101;
+            this.toolStripStatusLabelFileName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelFileName.Name = "toolStripStatusLabelFileName";
+            this.toolStripStatusLabelFileName.Size = new System.Drawing.Size(0, 21);            
             // 
             // Resumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 659);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxCalibErrorR);
@@ -500,6 +529,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -544,6 +575,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxSORL;
         private System.Windows.Forms.TextBox textBoxSOR;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelString;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelFileName;
 
 
 

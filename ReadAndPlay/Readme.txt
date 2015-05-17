@@ -3,8 +3,6 @@ DOING
 
 TODOS
 
-
-Cuando se abre la ventana de resumen indicar la carpeta que se abrio
 Poner el texto en el medio
 Abrir la ventana de resumen de forma automatica al final de un test
 
@@ -16,6 +14,7 @@ Abrir la ventana de resumen de forma automatica al final de un test
 - falta poder cambiar dinamicamente a traves de la interfaz de usuario
 
 DONE
+- Cuando se abre la ventana de resumen indicar la carpeta que se abrio
 - Estabilizar la barra verde de la distancia. Agregada una maquina de control de la distancia
 - Problema con la recalibracion. Bloquear el boton de calibrar despues de una calibracion. 
 - Problema con la recalibracion, se pierden datos introducidos. Solucion: actualizar luego de introducir los datos
