@@ -172,15 +172,20 @@ namespace LookAndPlayForm
         {
             if (eyeTrackingEngine.State == EyeTrackingState.Tracking)//if (_TobiiForm.tobii_connected)            
             {
+                Program.datosCompartidos.getNewTime();
+                _Game1 = new Game1(this);
+                _Game1.FormClosed += Game1_Closed;
+                _Game1.Left = 0;//_TobiiForm.monitorBounds.X;
+                _Game1.StartPosition = FormStartPosition.Manual;
+                _Game1.Show();
             }
             else
                 MessageBox.Show("Tobii no conectado");
+        }
 
-
-            _Game1 = new Game1(this);
-            _Game1.Left = 0;//_TobiiForm.monitorBounds.X;
-            _Game1.StartPosition = FormStartPosition.Manual;
-            _Game1.Show();
+        private static void Game1_Closed(object sender, FormClosedEventArgs e)
+        {
+            //Show the resume window
         }
         	
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)

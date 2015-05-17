@@ -127,58 +127,6 @@ namespace LookAndPlayForm
 
 
         // Before starting the game a confirmation is expected
-        private void Game1_Load(object sender, EventArgs e)
-        {
-            //if(headTracker.startCollectingData() == false)
-            //{
-            //    MessageBox.Show("Headtracker not connected");
-            //}
-
-            if (MessageBox.Show("Starting test 1?", "Are you ready?!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                // user clicked yes                
-
-                if (!settings.cursorVisibleGame)
-                    Cursor.Hide();
-
-                
-                if(settings.pointercontroltypeSelected == pointercontroltype.eyetracker)
-                    //switch(settings.eyetrackerSelected)
-                    //{
-                    //    case eyetrackertype.tobii:
-                            _ControlFormEyeX.toogleGameStatus(true);
-                    //        break;
-                    //    case eyetrackertype.eyetribe:
-                    //        _ControlFormEyeTribe.toogleGameStatus(true);
-                    //        break;
-                    //    default:
-                    //        break;
-                    //}
-                else
-                    //switch (settings.eyetrackerSelected)
-                    //{
-                    //    case eyetrackertype.tobii:
-                            _ControlFormEyeX.toogleGameStatus(false);
-                    //        break;
-                    //    case eyetrackertype.eyetribe:
-                    //        _ControlFormEyeTribe.toogleGameStatus(false);
-                    //        break;
-                    //    default:
-                    //        break;
-                    //}                    
-
-                if (settings.pointercontroltypeSelected == pointercontroltype.mouse)
-                {
-                    mouseRecord.startCollectingData();
-                    _mouse.Acquire();
-                }
-
-                //if (settings.clictypeSelected == clictype.dwell)
-                //    clickDwell.startDwelling();
-            }
-            else// user clicked no
-                this.Close();
-        }
 
         private void Game1_FormClosed(object sender, FormClosedEventArgs e)
         {

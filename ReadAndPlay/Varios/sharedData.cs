@@ -12,20 +12,22 @@ namespace LookAndPlayForm
     {
         public int meanCalibrationErrorLeftPx { get; set; }
         public int meanCalibrationErrorRightPx { get; set; }
-        //public double averageErrorDegreeLeft { get; set; }
-        //public double averageErrorDegreeRight { get; set; }
         public string EyeTrackerInfo { get; set; }
         public Tobii.Gaze.Core.Calibration calibrationDataEyeX { get; set; }
-        //public TETCSharpClient.Data.CalibrationResult calibrationDataEyeTribe { get; set; }
         public LogEyeTracker LogData { get; set; }
         public bool eyeNotFound { get; set; }
         public  System.Drawing.Rectangle monitorBounds { get; set; }
-        //public SaveFileDialog pathFile;
+        public string activeUser { get; set; }
+        public bool updateCsv { get; set; }
+        public string image2read { get; set; }
+        public string startTime { get; set; }
 
         public sharedData()
         {
             eyeNotFound = true;
+            updateCsv = false;
             getDisplaySelected();
+            image2read = "TextoIn2.png";
         }
 
         private void getDisplaySelected()
@@ -37,13 +39,14 @@ namespace LookAndPlayForm
             ////si se selecciona el monitor propio
             //if (radioButtonDisplay1.Checked)
                 monitorBounds = Screen.AllScreens[0].Bounds;
-
         }
-
-        public string startTime = Varios.functions.getCurrentTime();
-        public string activeUser {get; set;}
-        public bool updateCsv = false;
-
-        public string image2read = "TextoIn2.png";
+        
+        /// <summary>
+        /// Cada vez que se inicia un nuevo test antes de comenzar el test se llama a este metodo para que genere un nuevo valor para startTime
+        /// </summary>
+        public void getNewTime()
+        {
+            startTime = Varios.functions.getCurrentTime();
+        }
     }
 }

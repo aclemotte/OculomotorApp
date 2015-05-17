@@ -46,6 +46,14 @@ namespace LookAndPlayForm
             this.buttonSalir.UseVisualStyleBackColor = true;
             this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
+            // pictureBoxFrame
+            // 
+            this.pictureBoxFrame.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxFrame.Name = "pictureBoxFrame";
+            this.pictureBoxFrame.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxFrame.TabIndex = 2;
+            this.pictureBoxFrame.TabStop = false;
+            // 
             // pictureBoxStimulus
             // 
             this.pictureBoxStimulus.Location = new System.Drawing.Point(169, 171);
@@ -72,7 +80,6 @@ namespace LookAndPlayForm
             this.Text = "Game1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game1_FormClosed);
-            this.Load += new System.EventHandler(this.Game1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).EndInit();
             this.ResumeLayout(false);
