@@ -37,23 +37,34 @@ namespace LookAndPlayForm.Resumen
 
 
 
-        public Resumen()
+        public Resumen(bool showLastTest)
         {
+            string selectedPath; 
+
             InitializeComponent();
 
+            if (!showLastTest)
+            {
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                fbd.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
+                DialogResult result = fbd.ShowDialog();
+                selectedPath = fbd.SelectedPath;
+            }
+            else
+            {
+                selectedPath =  Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
+                                LookAndPlayForm.Program.datosCompartidos.startTime +
+                                @"-us" + Program.datosCompartidos.activeUser + @"\";
+            }
 
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
-            DialogResult result = fbd.ShowDialog();
+            Console.WriteLine("selectedPath: " + selectedPath);
 
-            Console.WriteLine("fbd.SelectedPath: " + fbd.SelectedPath);
-
-            toolStripStatusLabelFileName.Text = fbd.SelectedPath;
+            toolStripStatusLabelFileName.Text = selectedPath;
  
-            processFixData(fbd.SelectedPath);
-            fixDataFound = loadFixationDataFromJson(fbd.SelectedPath);
-            eyetrackerDataFound = loadEyetrackerDataFromJson(fbd.SelectedPath);
-            testDataFound = loadTestDataFromJson(fbd.SelectedPath);
+            processFixData(selectedPath);
+            fixDataFound = loadFixationDataFromJson(selectedPath);
+            eyetrackerDataFound = loadEyetrackerDataFromJson(selectedPath);
+            testDataFound = loadTestDataFromJson(selectedPath);
             imageFound = loadImage2Control(testDataFound);
 
             everythingOk = fixDataFound & eyetrackerDataFound & testDataFound & imageFound;
@@ -229,6 +240,7 @@ namespace LookAndPlayForm.Resumen
                 }
             }
 
+            //problema si es dividido por cero
             meanFixDuration = (double)sumFixDuration / (double)listaFixDataPoints.Count;
             return meanFixDuration;
 

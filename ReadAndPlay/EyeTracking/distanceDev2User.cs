@@ -38,6 +38,9 @@ namespace LookAndPlayForm.EyeTracking
             //    lastValue = returnValue;
             //}
 
+            if (double.IsNaN(distanceDev2User))
+                return distanceDev2User;
+
             if (distanceDev2User < 0)
                 distanceDev2User = 0;
 

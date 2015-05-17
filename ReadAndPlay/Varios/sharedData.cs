@@ -28,6 +28,7 @@ namespace LookAndPlayForm
             updateCsv = false;
             getDisplaySelected();
             image2read = "TextoIn2.png";
+            startTime = Varios.functions.getCurrentTime();
         }
 
         private void getDisplaySelected()

@@ -80,6 +80,7 @@ namespace LookAndPlayForm
             this.Text = "Game1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game1_FormClosed);
+            this.Load += new System.EventHandler(this.Game1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).EndInit();
             this.ResumeLayout(false);

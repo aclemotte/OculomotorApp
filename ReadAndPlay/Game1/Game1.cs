@@ -206,6 +206,37 @@ namespace LookAndPlayForm
             Close();
         }
 
+        
+       // Before starting the game a confirmation is expected
+        private void Game1_Load(object sender, EventArgs e)
+        {
+            
+            if (MessageBox.Show("Starting test 1?", "Are you ready?!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // user clicked yes                
+
+                //if (!settings.cursorVisibleGame)
+                    Cursor.Hide();
+
+                if (settings.pointercontroltypeSelected == pointercontroltype.eyetracker)                    
+                    _ControlFormEyeX.toogleGameStatus(true);                
+                else                   
+                    _ControlFormEyeX.toogleGameStatus(false);
+                                
+
+                if (settings.pointercontroltypeSelected == pointercontroltype.mouse)
+                {
+                    mouseRecord.startCollectingData();
+                    _mouse.Acquire();
+                }
+
+                //if (settings.clictypeSelected == clictype.dwell)
+                //    clickDwell.startDwelling();
+            }
+            else// user clicked no
+                this.Close();
+        }
+
                
     }
 }

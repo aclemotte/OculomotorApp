@@ -82,7 +82,11 @@ namespace LookAndPlayForm
 
         private void distance2Controls(double distance)
         {
-            if (distance > 10 && distance < 90)
+            if (double.IsNaN(distance))
+            {
+                //contador de nan ++ 
+            }
+            else if (distance > 10 && distance < 90)
             {
                 progressBar4Distance.Value = Convert.ToInt32(distance);
                 labelDistance.Text = "Distance OK";
@@ -183,9 +187,10 @@ namespace LookAndPlayForm
                 MessageBox.Show("Tobii no conectado");
         }
 
-        private static void Game1_Closed(object sender, FormClosedEventArgs e)
+        private void Game1_Closed(object sender, FormClosedEventArgs e)
         {
             //Show the resume window
+            openWindowResumen(true);
         }
         	
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -203,7 +208,12 @@ namespace LookAndPlayForm
 
         private void buttonResumen_Click(object sender, EventArgs e)
         {
-            Resumen.Resumen resumenGame1 = new Resumen.Resumen();
+            openWindowResumen(false);
+        }
+
+        private void openWindowResumen(bool showLastTest)
+        {
+            Resumen.Resumen resumenGame1 = new Resumen.Resumen(showLastTest);
 
             if (resumenGame1.everythingOk)
                 resumenGame1.Show();

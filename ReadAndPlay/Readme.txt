@@ -3,10 +3,8 @@ DOING
 
 TODOS
 
-Poner el texto en el medio
-Abrir la ventana de resumen de forma automatica al final de un test
-
-
+- En Resumen.eyeMeanDurationFix meanFixDuration da overflow si no encuentra ninguna fijacion
+- Poner el texto en el medio
 - protocolo inicio
 - problema con la calibracion si se hace mas de una vez
 - log para saber q pasa
@@ -14,6 +12,8 @@ Abrir la ventana de resumen de forma automatica al final de un test
 - falta poder cambiar dinamicamente a traves de la interfaz de usuario
 
 DONE
+- Abre la ventana de resumen de forma automatica al final de un test
+- Bug: una vez iniciado un usuario, si se hacian multiples test, el nombre de la carpeta era siempre el mismo. Solucion: Justo antes de iniciar un test se genera un nuevo nombre de carpeta con el tiempo
 - Cuando se abre la ventana de resumen indicar la carpeta que se abrio
 - Estabilizar la barra verde de la distancia. Agregada una maquina de control de la distancia
 - Problema con la recalibracion. Bloquear el boton de calibrar despues de una calibracion. 
