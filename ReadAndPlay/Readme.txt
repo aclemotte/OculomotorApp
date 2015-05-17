@@ -16,6 +16,7 @@ Abrir la ventana de resumen de forma automatica al final de un test
 - falta poder cambiar dinamicamente a traves de la interfaz de usuario
 
 DONE
+- Problema con la recalibracion. Bloquear el boton de calibrar despues de una calibracion. 
 - Problema con la recalibracion, se pierden datos introducidos. Solucion: actualizar luego de introducir los datos
 - Agregada metrica SOR: number of words divide by the number of fixation. 
 - Opcion de cambiar texto: child, adult
