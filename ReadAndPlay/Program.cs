@@ -39,6 +39,7 @@ namespace LookAndPlayForm
             
             if (formUserID.ShowDialog() == DialogResult.OK)
             {
+                formUserID.updateCsv();//almacena los datos del usuario al pasar el formulario
                 datosCompartidos.activeUser = formUserID.userDataSelected.user_id;
 
                 try
@@ -50,12 +51,13 @@ namespace LookAndPlayForm
 
                         Application.Run(new EyeXWinForm(_eyeTrackingEngine));
                             
-                        //agregar dato de nuevo usuario
-                        if (datosCompartidos.updateCsv)
-                        {
-                            datosCompartidos.updateCsv = false;
-                            formUserID.updateCsv();
-                        }
+                        ////agregar dato de nuevo usuario al final del juego
+                        //if (datosCompartidos.updateCsv)
+                        //{
+                        //    datosCompartidos.updateCsv = false;
+                        //    formUserID.updateCsv();
+                        //}
+
                         //eyeXWinForm.Dispose();
                     }
                 }

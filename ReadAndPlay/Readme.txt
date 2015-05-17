@@ -3,6 +3,10 @@ DOING
 
 TODOS
 
+Estabilizar la barra verde de la distancia
+Cuando se abre la ventana de resumen indicar la carpeta que se abrio
+Poner el texto en el medio
+Abrir la ventana de resumen de forma automatica al final de un test
 
 
 - protocolo inicio
@@ -12,6 +16,7 @@ TODOS
 - falta poder cambiar dinamicamente a traves de la interfaz de usuario
 
 DONE
+- Problema con la recalibracion, se pierden datos introducidos. Solucion: actualizar luego de introducir los datos
 - Agregada metrica SOR: number of words divide by the number of fixation. 
 - Opcion de cambiar texto: child, adult
 - cargadas mas imagenes para leer. una para ninhos y otra para adultos
