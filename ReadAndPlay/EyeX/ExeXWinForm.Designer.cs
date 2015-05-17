@@ -38,15 +38,15 @@ namespace LookAndPlayForm
             this.buttonViewCalibration = new System.Windows.Forms.Button();
             this.buttonResumen = new System.Windows.Forms.Button();
             this.buttonCalibrate = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelDistance = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this._trackStatusControlMirada = new LookAndPlayForm.TrackStatusControlMirada();
             this._trackStatus = new LookAndPlayForm.TrackStatusControl();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -103,14 +103,15 @@ namespace LookAndPlayForm
             this.buttonCalibrate.UseVisualStyleBackColor = true;
             this.buttonCalibrate.Click += new System.EventHandler(this.buttonCalibrate_Click);
             // 
-            // label2
+            // labelDistance
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 268);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "EyeTracker";
+            this.labelDistance.AutoSize = true;
+            this.labelDistance.ForeColor = System.Drawing.Color.Black;
+            this.labelDistance.Location = new System.Drawing.Point(10, 268);
+            this.labelDistance.Name = "labelDistance";
+            this.labelDistance.Size = new System.Drawing.Size(67, 13);
+            this.labelDistance.TabIndex = 23;
+            this.labelDistance.Text = "Distance OK";
             // 
             // groupBox1
             // 
@@ -155,12 +156,20 @@ namespace LookAndPlayForm
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.progressBar4Distance);
-            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.labelDistance);
             this.groupBox3.Location = new System.Drawing.Point(291, 7);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(273, 291);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(12, 7);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(273, 291);
+            this.groupBox4.TabIndex = 26;
+            this.groupBox4.TabStop = false;
             // 
             // _trackStatusControlMirada
             // 
@@ -177,14 +186,6 @@ namespace LookAndPlayForm
             this._trackStatus.Name = "_trackStatus";
             this._trackStatus.Size = new System.Drawing.Size(256, 226);
             this._trackStatus.TabIndex = 3;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Location = new System.Drawing.Point(12, 7);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(273, 291);
-            this.groupBox4.TabIndex = 26;
-            this.groupBox4.TabStop = false;
             // 
             // EyeXWinForm
             // 
@@ -224,7 +225,7 @@ namespace LookAndPlayForm
         private System.Windows.Forms.Button buttonViewCalibration;
         private System.Windows.Forms.Button buttonResumen;
         private System.Windows.Forms.Button buttonCalibrate;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelDistance;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;

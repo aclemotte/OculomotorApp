@@ -106,6 +106,7 @@
     <Compile Include="EyeTracking\Calibration\CalibrationResultPanel.designer.cs">
       <DependentUpon>CalibrationResultPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="EyeTracking\distanceDev2User.cs" />
     <Compile Include="EyeTracking\eyesDetector.cs" />
     <Compile Include="EyeTracking\Calibration\CalibrationWinForm.cs">
       <SubType>Form</SubType>

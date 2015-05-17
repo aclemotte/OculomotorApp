@@ -21,6 +21,7 @@ namespace LookAndPlayForm
         public sharedData datosCompartidos;
         private LowLevelKeyboardHook _llkhk;
         private Dwell clickDwell;
+        private EyeTracking.distanceDev2User distanciaDev2USer;
 
         public EyeXWinForm(EyeTrackingEngine eyeTrackingEngine)
         {
@@ -41,6 +42,7 @@ namespace LookAndPlayForm
 
             clickDwell = new Dwell(LookAndPlayForm.Program.datosCompartidos);
 
+            distanciaDev2USer = new EyeTracking.distanceDev2User();
         }
 
         private delegate void Action();
@@ -58,7 +60,7 @@ namespace LookAndPlayForm
 
                     _trackStatus.OnGazeData(gazePointEventArgs.GazeDataReceived);
                     _trackStatusControlMirada.OnGazeData(gazePointEventArgs.GazeDataReceived);
-                    progressBar4Distance.Value = eyetrackingFunctions.distanceBetweenDev2User(gazePointEventArgs.GazeDataReceived);
+                    distance2Controls(distanciaDev2USer.distance(gazePointEventArgs.GazeDataReceived));
                     Invalidate();
                 }));
 
@@ -76,6 +78,28 @@ namespace LookAndPlayForm
                 if (GameStarted)
                     this.datosCompartidos.LogData.AddGazeDataItem2List(gazePointEventArgs.GazeDataReceived, gazeWeighted, cursorFiltered);                
             }
+        }
+
+        private void distance2Controls(double distance)
+        {
+            if (distance > 10 && distance < 90)
+            {
+                progressBar4Distance.Value = Convert.ToInt32(distance);
+                labelDistance.Text = "Distance OK";
+                labelDistance.ForeColor = System.Drawing.Color.Black;
+            }
+            else if (distance < 10)
+            {
+                labelDistance.Text = "You're close to eyetracker";
+                labelDistance.ForeColor = System.Drawing.Color.Red;
+            }
+            else if (distance > 90)
+            {
+                labelDistance.Text = "You're far from eye-tracker";
+                labelDistance.ForeColor = System.Drawing.Color.Red;
+            }
+
+
         }
 
         private void StateChanged(object sender, EyeTrackingStateChangedEventArgs eyeTrackingStateChangedEventArgs)
