@@ -39,6 +39,7 @@
             this.radioButtonText1 = new System.Windows.Forms.RadioButton();
             this.radioButtonText2 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,11 +161,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Text sample";
             // 
+            // labelVersion
+            // 
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.labelVersion.Location = new System.Drawing.Point(12, 227);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(42, 13);
+            this.labelVersion.TabIndex = 9;
+            this.labelVersion.Text = "Version";
+            // 
             // FormUserID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 249);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.radioButtonText2);
             this.Controls.Add(this.radioButtonText1);
             this.Controls.Add(this.numericUpDownUserID);
@@ -196,6 +208,7 @@
         private System.Windows.Forms.RadioButton radioButtonText1;
         private System.Windows.Forms.RadioButton radioButtonText2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label labelVersion;
     }
 }
 

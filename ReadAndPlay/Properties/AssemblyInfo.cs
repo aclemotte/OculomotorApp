@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Resources;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ReadAndPlayForm")]
+[assembly: AssemblyTitle("ReadingApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("ReadAndPlayForm")]
+[assembly: AssemblyProduct("ReadingApp")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -22,3 +23,6 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("9984e160-843c-41dd-a824-369991d8926b")]
+[assembly: AssemblyCompanyAttribute("Mr. Patch")]
+[assembly: AssemblyVersionAttribute("1.3.0")]
+[assembly: NeutralResourcesLanguageAttribute("en")]
