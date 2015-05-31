@@ -324,8 +324,6 @@
             // checkBoxGaze
             // 
             this.checkBoxGaze.AutoSize = true;
-            this.checkBoxGaze.Checked = true;
-            this.checkBoxGaze.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxGaze.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxGaze.Location = new System.Drawing.Point(908, 271);
             this.checkBoxGaze.Name = "checkBoxGaze";

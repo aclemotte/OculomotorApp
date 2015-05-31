@@ -318,24 +318,25 @@ namespace LookAndPlayForm.Resumen
 
             if (checkBoxGaze.Checked)
             {
-                if (checkBoxL.Checked && checkBoxR.Checked)
-                {
-                    for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[indiceTrial].gazeFilteredL.Count; indiceSample++)
-                    {
-                        double gazeX = (int)(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].X * (double)testData.screen_Width);
-                        double gazeY = (int)(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].Y * (double)testData.screen_Height);
+                //if (checkBoxL.Checked && checkBoxR.Checked)
+                //{
+                //    for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[indiceTrial].gazeFilteredL.Count; indiceSample++)
+                //    {
+                //        double gazeX = (int)(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].X * (double)testData.screen_Width);
+                //        double gazeY = (int)(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].Y * (double)testData.screen_Height);
 
-                        if (
-                            !double.IsNaN(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].X)
-                            && !double.IsNaN(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].Y)
-                            )
-                        {
-                            plotGaze(gazeX, gazeY, Color.LimeGreen);
-                        }
-                    }
-                }
+                //        if (
+                //            !double.IsNaN(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].X)
+                //            && !double.IsNaN(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].Y)
+                //            )
+                //        {
+                //            plotGaze(gazeX, gazeY, Color.LimeGreen);
+                //        }
+                //    }
+                //}
 
-                if (checkBoxL.Checked && !checkBoxR.Checked)
+                //if (checkBoxL.Checked && !checkBoxR.Checked)
+                if (checkBoxL.Checked)
                 {
                     for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL.Count; indiceSample++)
                     {
@@ -352,7 +353,8 @@ namespace LookAndPlayForm.Resumen
                     }
                 }
 
-                if (!checkBoxL.Checked && checkBoxR.Checked)
+                //if (!checkBoxL.Checked && checkBoxR.Checked)
+                if (checkBoxR.Checked)
                 {
                     for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL.Count; indiceSample++)
                     {
@@ -411,45 +413,122 @@ namespace LookAndPlayForm.Resumen
         {
             if (checkBoxFixations.Checked)
             {
-                if (checkBoxL.Checked && checkBoxR.Checked)
-                {
-                    for (var indiceSample = 0; indiceSample < fixData.fixationDataPointLandR.Count; indiceSample++)
-                    {
-                        if (fixData.fixationDataPointLandR[indiceSample].fixationState == stateFixationData.end)
-                        {
-                            int fixX = fixData.fixationDataPointLandR[indiceSample].fixationData.X;
-                            int fixY = fixData.fixationDataPointLandR[indiceSample].fixationData.Y;
-                            plotFix(fixX, fixY, Color.Green);
-                        }
-                    }
-                }
+                //if (checkBoxL.Checked && checkBoxR.Checked)
+                //{
+                //    for (var indiceSample = 0; indiceSample < fixData.fixationDataPointLandR.Count; indiceSample++)
+                //    {
+                //        if (fixData.fixationDataPointLandR[indiceSample].fixationState == stateFixationData.end)
+                //        {
+                //            int fixX = fixData.fixationDataPointLandR[indiceSample].fixationData.X;
+                //            int fixY = fixData.fixationDataPointLandR[indiceSample].fixationData.Y;
+                //            plotFix(fixX, fixY, Color.Green);
+                //        }
+                //    }
+                //}
 
-                if (checkBoxL.Checked && !checkBoxR.Checked)
+                //if (checkBoxL.Checked && !checkBoxR.Checked)
+                if (checkBoxL.Checked)
                 {
+
+                    bool firstFix = true;
+                    int previousFixX = 0;
+                    int previousFixY = 0;
+
                     for (var indiceSample = 0; indiceSample < fixData.fixationDataPointLeft.Count; indiceSample++)
                     {
                         if (fixData.fixationDataPointLeft[indiceSample].fixationState == stateFixationData.end)
                         {
-                            int fixX = fixData.fixationDataPointLeft[indiceSample].fixationData.X;
-                            int fixY = fixData.fixationDataPointLeft[indiceSample].fixationData.Y;
-                            plotFix(fixX, fixY, Color.Red);
+                            int currentFixX = fixData.fixationDataPointLeft[indiceSample].fixationData.X;
+                            int currentFixY = fixData.fixationDataPointLeft[indiceSample].fixationData.Y;
+                            plotFix(currentFixX, currentFixY, Color.Red);
+                            if (firstFix)
+                            {
+                                previousFixX = currentFixX;
+                                previousFixY = currentFixY;
+                                firstFix = false;
+                            }
+                            else
+                            {
+                                plotLine(currentFixX, currentFixY, previousFixX, previousFixY, Color.Red);
+                                previousFixX = currentFixX;
+                                previousFixY = currentFixY;
+                            }
                         }
                     }
                 }
 
-                if (!checkBoxL.Checked && checkBoxR.Checked)
+                //if (!checkBoxL.Checked && checkBoxR.Checked)
+                if (checkBoxR.Checked)
                 {
+                    
+                    bool firstFix = true;
+                    int previousFixX = 0;
+                    int previousFixY = 0;
+
                     for (var indiceSample = 0; indiceSample < fixData.fixationDataPointRight.Count; indiceSample++)
                     {
                         if (fixData.fixationDataPointRight[indiceSample].fixationState == stateFixationData.end)
                         {
-                            int fixX = fixData.fixationDataPointRight[indiceSample].fixationData.X;
-                            int fixY = fixData.fixationDataPointRight[indiceSample].fixationData.Y;
-                            plotFix(fixX, fixY, Color.Blue);
+                            int currentFixX = fixData.fixationDataPointRight[indiceSample].fixationData.X;
+                            int currentFixY = fixData.fixationDataPointRight[indiceSample].fixationData.Y;
+                            plotFix(currentFixX, currentFixY, Color.Blue);
+                            if(firstFix)
+                            {
+                                previousFixX = currentFixX;
+                                previousFixY = currentFixY;
+                                firstFix = false; 
+                            }
+                            else
+                            {
+                                plotLine(currentFixX, currentFixY, previousFixX, previousFixY, Color.Blue);
+                                previousFixX = currentFixX;
+                                previousFixY = currentFixY;
+                            }
                         }
                     }
+
+                    
                 }
             }
+        }
+
+        private void plotLine(int currentFixX, int currentFixY, int previousFixX, int previousFixY, Color lineColor)
+        {
+
+            int stimulusX = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.X;
+            int stimulusY = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.Y;
+            int stimulusW = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.X;
+            int stimulusH = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.Y;
+
+            //posicion relativa a la esquina superior izquierda del pictureBoxStimulus
+            int currentFixXrelative = (int)((double)(currentFixX - stimulusX) * (double)pictureBoxStimulus.Size.Width / (double)stimulusW);
+            int currentFixYrelative = (int)((double)(currentFixY - stimulusY) * (double)pictureBoxStimulus.Size.Height / (double)stimulusH);
+            int previousFixXrelative = (int)((double)(previousFixX - stimulusX) * (double)pictureBoxStimulus.Size.Width / (double)stimulusW);
+            int previousFixYrelative = (int)((double)(previousFixY - stimulusY) * (double)pictureBoxStimulus.Size.Height / (double)stimulusH);
+
+            bool dotOverPictureBox = isDotOverPictureBox(currentFixX, currentFixY, stimulusX, stimulusY, stimulusW, stimulusH);
+
+            if (dotOverPictureBox)
+            {                
+                Pen myPen = new Pen(lineColor);
+                Graphics g = Graphics.FromHwnd(pictureBoxStimulus.Handle);
+
+                g.DrawLine(myPen, previousFixXrelative, previousFixYrelative, currentFixXrelative, currentFixYrelative);
+
+                myPen.Dispose();
+                g.Dispose();
+                
+            }
+            else
+            {
+                //SolidBrush brush = new SolidBrush(Color.Black);
+                //Graphics g = this.CreateGraphics();
+                //Point dpoint = new Point(dotX + pictureBoxStimulus.Location.X - fixDotRadius, dotY + pictureBoxStimulus.Location.Y - fixDotRadius);
+                //Rectangle rect = new Rectangle(dpoint, new Size(2 * fixDotRadius, 2 * fixDotRadius));
+                //g.FillEllipse(brush, rect);
+                //g.Dispose();
+            }
+
         }
 
         private void plotFix(int fixX, int fixY, Color fixColor)
