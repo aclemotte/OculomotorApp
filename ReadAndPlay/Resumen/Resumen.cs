@@ -149,6 +149,7 @@ namespace LookAndPlayForm.Resumen
             getMeanAndStdDurationFix();
             getWordsPerMinute();
             getSOR();
+            getFix100W();
             getCalibError();
         }
 
@@ -159,10 +160,12 @@ namespace LookAndPlayForm.Resumen
             double sorL = ((double)numberOfWord / (double)numberOfFixL);
             double sorR = ((double)numberOfWord / (double)numberOfFixR);
 
-            textBoxSOR.Text = sor.ToString("0.00");
+            //textBoxSOR.Text = sor.ToString("0.00");
             textBoxSORL.Text = sorL.ToString("0.00");
             textBoxSORR.Text = sorR.ToString("0.00");
         }
+
+
 
         private void getCalibError()
         {
@@ -190,6 +193,17 @@ namespace LookAndPlayForm.Resumen
 
 
 
+        private void getFix100W()
+        {
+            int numberOfWord = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras;
+            double fix100WordsL = ((double)numberOfFixL / (double)numberOfWord * 100 );
+            double fix100WordsR = ((double)numberOfFixR / (double)numberOfWord * 100 );
+
+            textBoxFixs100WL.Text = fix100WordsL.ToString("0.00");
+            textBoxFixs100WR.Text = fix100WordsR.ToString("0.00");
+        }
+
+
 
         private void getMeanAndStdDurationFix()
         {
@@ -198,7 +212,7 @@ namespace LookAndPlayForm.Resumen
             double meanFixDurationL = eyeMeanDurationFix(fixData.fixationDataPointLeft);
             double meanFixDurationR = eyeMeanDurationFix(fixData.fixationDataPointRight);
 
-            textBoxMeanFix.Text = ((int)meanFixDuration).ToString();
+            //textBoxMeanFix.Text = ((int)meanFixDuration).ToString();
             textBoxMeanFixL.Text = ((int)meanFixDurationL).ToString();
             textBoxMeanFixR.Text = ((int)meanFixDurationR).ToString();
 
@@ -208,7 +222,7 @@ namespace LookAndPlayForm.Resumen
             double stdFixDurationR = eyeStdDurationFix(fixData.fixationDataPointRight, meanFixDurationR);
 
             
-            textBoxStdFix.Text = ((int)stdFixDuration).ToString();
+            //textBoxStdFix.Text = ((int)stdFixDuration).ToString();
             textBoxStdFixL.Text = ((int)stdFixDurationL).ToString();
             textBoxStdFixR.Text = ((int)stdFixDurationR).ToString();
         }
@@ -260,7 +274,7 @@ namespace LookAndPlayForm.Resumen
             numberOfFixR = eyeNumberOfFix(fixData.fixationDataPointRight);
 
 
-            textBoxNumFix.Text = numberOfFix.ToString();
+            //textBoxNumFix.Text = numberOfFix.ToString();
             textBoxNumFixL.Text = numberOfFixL.ToString();
             textBoxNumFixR.Text = numberOfFixR.ToString();
         }

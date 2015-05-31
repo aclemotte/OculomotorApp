@@ -4,12 +4,6 @@ DOING
 TODOS
 
 - En Resumen.eyeMeanDurationFix meanFixDuration da overflow si no encuentra ninguna fijacion
-- Poner el texto en el medio
-- protocolo inicio
-- problema con la calibracion si se hace mas de una vez
-- log para saber q pasa
-- diferentes config del fix detector
-- falta poder cambiar dinamicamente a traves de la interfaz de usuario
 
 DONE
 - Abre la ventana de resumen de forma automatica al final de un test
