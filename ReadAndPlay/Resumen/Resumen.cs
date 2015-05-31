@@ -171,6 +171,16 @@ namespace LookAndPlayForm.Resumen
         {
             textBoxCalibErrorL.Text = testData.calibration_error_left_px.ToString();
             textBoxCalibErrorR.Text = testData.calibration_error_right_px.ToString();
+
+            if(testData.calibration_error_left_px > settings.maxCalibracionError)
+            {
+                textBoxCalibErrorL.BackColor = Color.Red;
+            }
+
+            if(testData.calibration_error_right_px > settings.maxCalibracionError)
+            {
+                textBoxCalibErrorR.BackColor = Color.Red;
+            }
         }
 
 
@@ -213,8 +223,8 @@ namespace LookAndPlayForm.Resumen
             double meanFixDurationR = eyeMeanDurationFix(fixData.fixationDataPointRight);
 
             //textBoxMeanFix.Text = ((int)meanFixDuration).ToString();
-            textBoxMeanFixL.Text = ((int)meanFixDurationL).ToString();
-            textBoxMeanFixR.Text = ((int)meanFixDurationR).ToString();
+            textBoxMeanFixL.Text = (meanFixDurationL/1000).ToString("0.00");
+            textBoxMeanFixR.Text = (meanFixDurationR/1000).ToString("0.00");
 
             //std
             double stdFixDuration = eyeStdDurationFix(fixData.fixationDataPointLandR, meanFixDuration);
@@ -223,8 +233,8 @@ namespace LookAndPlayForm.Resumen
 
             
             //textBoxStdFix.Text = ((int)stdFixDuration).ToString();
-            textBoxStdFixL.Text = ((int)stdFixDurationL).ToString();
-            textBoxStdFixR.Text = ((int)stdFixDurationR).ToString();
+            textBoxStdFixL.Text = (stdFixDurationL/1000).ToString("0.00");
+            textBoxStdFixR.Text = (stdFixDurationR/1000).ToString("0.00");
         }
 
         private double eyeStdDurationFix(List<fixationDataPoint> listaFixDataPoints, double mean)

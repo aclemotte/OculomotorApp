@@ -28,5 +28,8 @@ namespace LookAndPlayForm
 
         //imagen a leer
         public const string image2read = "TextoIn2.png";
+
+        //calibration error
+        public const int maxCalibracionError = 50;
     }
 }
