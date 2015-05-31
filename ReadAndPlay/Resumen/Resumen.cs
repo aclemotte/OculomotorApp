@@ -199,8 +199,8 @@ namespace LookAndPlayForm.Resumen
             double fix100WordsL = ((double)numberOfFixL / (double)numberOfWord * 100 );
             double fix100WordsR = ((double)numberOfFixR / (double)numberOfWord * 100 );
 
-            textBoxFixs100WL.Text = fix100WordsL.ToString("0.00");
-            textBoxFixs100WR.Text = fix100WordsR.ToString("0.00");
+            textBoxFixs100WL.Text = fix100WordsL.ToString();
+            textBoxFixs100WR.Text = fix100WordsR.ToString();
         }
 
 
