@@ -440,7 +440,9 @@ namespace LookAndPlayForm.Resumen
                         {
                             int currentFixX = fixData.fixationDataPointLeft[indiceSample].fixationData.X;
                             int currentFixY = fixData.fixationDataPointLeft[indiceSample].fixationData.Y;
+                            
                             plotFix(currentFixX, currentFixY, Color.Red);
+                            
                             if (firstFix)
                             {
                                 previousFixX = currentFixX;
@@ -471,7 +473,9 @@ namespace LookAndPlayForm.Resumen
                         {
                             int currentFixX = fixData.fixationDataPointRight[indiceSample].fixationData.X;
                             int currentFixY = fixData.fixationDataPointRight[indiceSample].fixationData.Y;
+                            
                             plotFix(currentFixX, currentFixY, Color.Blue);
+                            
                             if(firstFix)
                             {
                                 previousFixX = currentFixX;
@@ -506,9 +510,11 @@ namespace LookAndPlayForm.Resumen
             int previousFixXrelative = (int)((double)(previousFixX - stimulusX) * (double)pictureBoxStimulus.Size.Width / (double)stimulusW);
             int previousFixYrelative = (int)((double)(previousFixY - stimulusY) * (double)pictureBoxStimulus.Size.Height / (double)stimulusH);
 
-            bool dotOverPictureBox = isDotOverPictureBox(currentFixX, currentFixY, stimulusX, stimulusY, stimulusW, stimulusH);
-
-            if (dotOverPictureBox)
+            //bool currentDotOverPictureBox = isDotOverPictureBox(currentFixX, currentFixY, stimulusX, stimulusY, stimulusW, stimulusH);
+            //bool previousDotOverPictureBox = isDotOverPictureBox(previousFixX, previousFixY, stimulusX, stimulusY, stimulusW, stimulusH);
+            
+            // se grafican las dos lineas, total al final si no corresponde no se dibuja
+            //if (currentDotOverPictureBox)
             {                
                 Pen myPen = new Pen(lineColor);
                 Graphics g = Graphics.FromHwnd(pictureBoxStimulus.Handle);
@@ -517,16 +523,23 @@ namespace LookAndPlayForm.Resumen
 
                 myPen.Dispose();
                 g.Dispose();
-                
+
             }
-            else
+            //else
             {
-                //SolidBrush brush = new SolidBrush(Color.Black);
-                //Graphics g = this.CreateGraphics();
-                //Point dpoint = new Point(dotX + pictureBoxStimulus.Location.X - fixDotRadius, dotY + pictureBoxStimulus.Location.Y - fixDotRadius);
-                //Rectangle rect = new Rectangle(dpoint, new Size(2 * fixDotRadius, 2 * fixDotRadius));
-                //g.FillEllipse(brush, rect);
-                //g.Dispose();
+                Pen myPen = new Pen(Color.Black);
+                Graphics g = this.CreateGraphics();
+
+                g.DrawLine( myPen, 
+                    previousFixXrelative + pictureBoxStimulus.Location.X, 
+                    previousFixYrelative + pictureBoxStimulus.Location.Y, 
+                    currentFixXrelative + pictureBoxStimulus.Location.X, 
+                    currentFixYrelative + pictureBoxStimulus.Location.Y
+                            );
+
+                myPen.Dispose();
+                g.Dispose();
+
             }
 
         }
