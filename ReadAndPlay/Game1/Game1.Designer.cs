@@ -56,9 +56,9 @@ namespace LookAndPlayForm
             // 
             // pictureBoxStimulus
             // 
-            this.pictureBoxStimulus.Location = new System.Drawing.Point(169, 171);
+            this.pictureBoxStimulus.Location = new System.Drawing.Point(102, 54);
             this.pictureBoxStimulus.Name = "pictureBoxStimulus";
-            this.pictureBoxStimulus.Size = new System.Drawing.Size(700, 350);
+            this.pictureBoxStimulus.Size = new System.Drawing.Size(80, 61);
             this.pictureBoxStimulus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxStimulus.TabIndex = 1;
             this.pictureBoxStimulus.TabStop = false;
@@ -68,7 +68,7 @@ namespace LookAndPlayForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(984, 652);
+            this.ClientSize = new System.Drawing.Size(567, 404);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBoxStimulus);
             this.Controls.Add(this.buttonSalir);

@@ -44,6 +44,7 @@ namespace LookAndPlayForm
 
             distanciaDev2USer = new EyeTracking.distanceDev2User();
         }
+        public bool se_grabaron_datos;
 
         private delegate void Action();
 
@@ -190,7 +191,8 @@ namespace LookAndPlayForm
         private void Game1_Closed(object sender, FormClosedEventArgs e)
         {
             //Show the resume window
-            openWindowResumen(true);
+            if(se_grabaron_datos)
+                openWindowResumen(true);
         }
         	
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)

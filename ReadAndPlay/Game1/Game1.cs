@@ -49,6 +49,9 @@ namespace LookAndPlayForm
             //selectClicType();
             selectPointerControlType();
 
+            //para avisar a _ControlFormEyeX si se cancelo la tarea (cuando se pregunta Are you ready?)
+            _ControlFormEyeX.se_grabaron_datos = false;
+
             generalDataEyeX = new LogEyeTracker.eyetrackerDataEyeX();
             logTest = new LogTest();
         }
@@ -203,26 +206,27 @@ namespace LookAndPlayForm
             stop_protocol();
             //playEndSound();
             save_protocol();
-            Close();
+            _ControlFormEyeX.se_grabaron_datos = true;
+            this.Close();
         }
 
         
        // Before starting the game a confirmation is expected
         private void Game1_Load(object sender, EventArgs e)
         {
-            
-            if (MessageBox.Show("Starting test 1?", "Are you ready?!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+            if (MessageBox.Show("Start test 1?", "Are you ready?!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 // user clicked yes                
 
                 //if (!settings.cursorVisibleGame)
-                    Cursor.Hide();
+                Cursor.Hide();
 
-                if (settings.pointercontroltypeSelected == pointercontroltype.eyetracker)                    
-                    _ControlFormEyeX.toogleGameStatus(true);                
-                else                   
+                if (settings.pointercontroltypeSelected == pointercontroltype.eyetracker)
+                    _ControlFormEyeX.toogleGameStatus(true);
+                else
                     _ControlFormEyeX.toogleGameStatus(false);
-                                
+
 
                 if (settings.pointercontroltypeSelected == pointercontroltype.mouse)
                 {
@@ -234,7 +238,10 @@ namespace LookAndPlayForm
                 //    clickDwell.startDwelling();
             }
             else// user clicked no
+            {
+                _ControlFormEyeX.se_grabaron_datos = false;
                 this.Close();
+            }
         }
 
                
