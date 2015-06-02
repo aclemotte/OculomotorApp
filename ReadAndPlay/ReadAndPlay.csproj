@@ -178,6 +178,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Resumen\class4Graphic.cs" />
     <Compile Include="Resumen\Graph1.cs">
       <SubType>Form</SubType>
     </Compile>

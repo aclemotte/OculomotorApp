@@ -31,5 +31,7 @@ namespace LookAndPlayForm
 
         //calibration error
         public const int maxCalibracionError = 50;
+
+        public const int indiceTrial = 0;
     }
 }

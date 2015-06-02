@@ -25,7 +25,6 @@ namespace LookAndPlayForm.Resumen
         bool eyetrackerDataFound;
         public bool fixDataFound;
         bool imageFound;
-        int indiceTrial = 0;
         
         int gazeDotRadius = 2;
         int fixDotRadius = 7;
@@ -187,11 +186,11 @@ namespace LookAndPlayForm.Resumen
 
         private void getWordsPerMinute()
         {
-            int lastItem = eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL.Count;
+            int lastItem = eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL.Count;
             int wordPerMin = 0;
             double tiempo = (double)(
-                                eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL[lastItem - 1].Timestamp -
-                                eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL[0].Timestamp
+                                eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[lastItem - 1].Timestamp -
+                                eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[0].Timestamp
                                     ) /
                             (double)(1000000 * 60);//microsegundos a minutos
 
@@ -314,61 +313,18 @@ namespace LookAndPlayForm.Resumen
             {               
                 if (checkBoxL.Checked)
                 {
-                    gazeDataDoubleList = getGazeData2List(eyetrackerDataL, eye.left);
+                    gazeDataDoubleList = class4Graphic.getGazeData2List(eyetrackerDataL, testData, eye.left);
                     plotGazeDataList(gazeDataDoubleList, Color.Red);
                 }
 
                 if (checkBoxR.Checked)
                 {
-                    gazeDataDoubleList = getGazeData2List(eyetrackerDataL, eye.right);
+                    gazeDataDoubleList = class4Graphic.getGazeData2List(eyetrackerDataL, testData, eye.right);
                     plotGazeDataList(gazeDataDoubleList, Color.Blue);
                }
             }
         }
-
-        private List<Point> getGazeData2List(eyetrackerDataEyeX eyetrackerDataL, eye fromEye)
-        {
-            List<Point> gazeDataDoubleList = new List<Point>();
-
-            if (fromEye == eye.left)
-            {
-                for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL.Count; indiceSample++)
-                {
-                    int gazeX = (int)(eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.X * (double)testData.screen_Width);
-                    int gazeY = (int)(eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.Y * (double)testData.screen_Height);
-
-                    if (
-                        !double.IsNaN(eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.X)
-                        && !double.IsNaN(eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.Y)
-                        )
-                    {
-                        gazeDataDoubleList.Add(new Point(gazeX, gazeY));
-                    }
-                }
-            }
-
-            if(fromEye == eye.right)
-            {
-                for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL.Count; indiceSample++)
-                {
-                    int gazeX = (int)(eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.X * (double)testData.screen_Width);
-                    int gazeY = (int)(eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.Y * (double)testData.screen_Height);
-
-                    if (
-                        !double.IsNaN(eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.X)
-                        && !double.IsNaN(eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.Y)
-                        )
-                    {
-                        gazeDataDoubleList.Add(new Point(gazeX, gazeY)); //plotGaze(gazeX, gazeY, Color.Blue);
-                    }
-                }
-            }
-            
-
-
-            return gazeDataDoubleList;
-        }
-
+       
         private void plotGazeDataList(List<Point> gazeDataDoubleList, Color gazeColor)
         {
 
@@ -393,107 +349,18 @@ namespace LookAndPlayForm.Resumen
                 if (checkBoxL.Checked)
                 {
 
-                    fixDataList = fixData2List(fixData, eye.left);
+                    fixDataList = class4Graphic.fixData2List(fixData, eye.left);
                     plotFixDataList(fixDataList, Color.Red);
-                    plotLinesBetweenFixs(fixDataList, Color.Red);
-                    //bool firstFix = true;
-                    //int previousFixX = 0;
-                    //int previousFixY = 0;
-
-                    //for (var indiceSample = 0; indiceSample < fixData.fixationDataPointLeft.Count; indiceSample++)
-                    //{
-                    //    if (fixData.fixationDataPointLeft[indiceSample].fixationState == stateFixationData.end)
-                    //    {
-                    //        int currentFixX = fixData.fixationDataPointLeft[indiceSample].fixationData.X;
-                    //        int currentFixY = fixData.fixationDataPointLeft[indiceSample].fixationData.Y;
-                            
-                    //        plotFix(currentFixX, currentFixY, Color.Red);
-                            
-                    //        if (firstFix)
-                    //        {
-                    //            previousFixX = currentFixX;
-                    //            previousFixY = currentFixY;
-                    //            firstFix = false;
-                    //        }
-                    //        else
-                    //        {
-                    //            plotLine(currentFixX, currentFixY, previousFixX, previousFixY, Color.Red);
-                    //            previousFixX = currentFixX;
-                    //            previousFixY = currentFixY;
-                    //        }
-                    //    }
-                    //}
+                    plotLinesBetweenFixs(fixDataList, Color.Red);                    
                 }
 
                 if (checkBoxR.Checked)
                 {
-                    fixDataList = fixData2List(fixData, eye.right);
+                    fixDataList = class4Graphic.fixData2List(fixData, eye.right);
                     plotFixDataList(fixDataList, Color.Blue);
-                    plotLinesBetweenFixs(fixDataList, Color.Blue);
-                    //bool firstFix = true;
-                    //int previousFixX = 0;
-                    //int previousFixY = 0;
-
-                    //for (var indiceSample = 0; indiceSample < fixData.fixationDataPointRight.Count; indiceSample++)
-                    //{
-                    //    if (fixData.fixationDataPointRight[indiceSample].fixationState == stateFixationData.end)
-                    //    {
-                    //        int currentFixX = fixData.fixationDataPointRight[indiceSample].fixationData.X;
-                    //        int currentFixY = fixData.fixationDataPointRight[indiceSample].fixationData.Y;
-                            
-                    //        plotFix(currentFixX, currentFixY, Color.Blue);
-                            
-                    //        if(firstFix)
-                    //        {
-                    //            previousFixX = currentFixX;
-                    //            previousFixY = currentFixY;
-                    //            firstFix = false; 
-                    //        }
-                    //        else
-                    //        {
-                    //            plotLine(currentFixX, currentFixY, previousFixX, previousFixY, Color.Blue);
-                    //            previousFixX = currentFixX;
-                    //            previousFixY = currentFixY;
-                    //        }
-                    //    }
-                    //}                    
+                    plotLinesBetweenFixs(fixDataList, Color.Blue);                                       
                 }
             }
-        }
-
-        private List<Point> fixData2List(fixationData fixData, eye fromEye)
-        {
-            List<Point> fixDataList = new List<Point>();
-
-            if (fromEye == eye.left)
-            {
-                for (var indiceSample = 0; indiceSample < fixData.fixationDataPointLeft.Count; indiceSample++)
-                {
-                    if (fixData.fixationDataPointLeft[indiceSample].fixationState == stateFixationData.end)
-                    {
-                        int currentFixX = fixData.fixationDataPointLeft[indiceSample].fixationData.X;
-                        int currentFixY = fixData.fixationDataPointLeft[indiceSample].fixationData.Y;
-
-                        fixDataList.Add(new Point(currentFixX, currentFixY));
-                    }
-                }
-            }
-
-            if (fromEye == eye.right)
-            {
-                for (var indiceSample = 0; indiceSample < fixData.fixationDataPointRight.Count; indiceSample++)
-                {
-                    if (fixData.fixationDataPointRight[indiceSample].fixationState == stateFixationData.end)
-                    {
-                        int currentFixX = fixData.fixationDataPointRight[indiceSample].fixationData.X;
-                        int currentFixY = fixData.fixationDataPointRight[indiceSample].fixationData.Y;
-
-                        fixDataList.Add(new Point(currentFixX, currentFixY));
-                    }
-                }
-            }
-
-            return fixDataList;
         }
 
         private void plotFixDataList(List<Point> fixDataList, Color fixColor)
@@ -533,17 +400,6 @@ namespace LookAndPlayForm.Resumen
 
         private void plotLine(int currentFixX, int currentFixY, int previousFixX, int previousFixY, Color lineColor)
         {
-
-            //stimulusSize.Height  stimulusH
-            //stimulusSize.Width  stimulusW
-            //stimulusLocation.X  stimulusX
-            //stimulusLocation.Y  stimulusY
-
-            //int stimulusX = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.X;
-            //int stimulusY = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.Y;
-            //int stimulusW = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.X;
-            //int stimulusH = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.Y;
-
             //posicion relativa a la esquina superior izquierda del pictureBoxStimulus
             int currentFixXrelative = (int)((double)(currentFixX - stimulusLocation.X) * (double)pictureBoxStimulus.Size.Width / (double)stimulusSize.Width);
             int currentFixYrelative = (int)((double)(currentFixY - stimulusLocation.Y) * (double)pictureBoxStimulus.Size.Height / (double)stimulusSize.Height);
@@ -620,10 +476,10 @@ namespace LookAndPlayForm.Resumen
 
         private void getStimulusFeactures()
         {            
-            int stimulusX = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.X;
-            int stimulusY = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.Y;
-            int stimulusW = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.X;
-            int stimulusH = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.Y;
+            int stimulusX = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.position.X;
+            int stimulusY = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.position.Y;
+            int stimulusW = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.size.X;
+            int stimulusH = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.size.Y;
 
             stimulusSize = new Size(stimulusW, stimulusH);
             stimulusLocation = new Point(stimulusX, stimulusY);
