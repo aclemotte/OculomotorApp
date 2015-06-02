@@ -69,7 +69,7 @@ namespace LookAndPlayForm.Resumen
             eyetrackerDataFound = loadEyetrackerDataFromJson(selectedPath);
             testDataFound = loadTestDataFromJson(selectedPath);
             getStimulusFeactures();
-            imageFound = loadImage2Control(testDataFound);
+            imageFound = class4Graphic.loadImage2Control(testDataFound, testData, pictureBoxStimulus);
 
             everythingOk = fixDataFound & eyetrackerDataFound & testDataFound & imageFound;
 
@@ -314,31 +314,18 @@ namespace LookAndPlayForm.Resumen
                 if (checkBoxL.Checked)
                 {
                     gazeDataDoubleList = class4Graphic.getGazeData2List(eyetrackerDataL, testData, eye.left);
-                    plotGazeDataList(gazeDataDoubleList, Color.Red);
+                    class4Graphic.plotGazeDataList(gazeDataDoubleList, Color.Red, gazeDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                 }
 
                 if (checkBoxR.Checked)
                 {
                     gazeDataDoubleList = class4Graphic.getGazeData2List(eyetrackerDataL, testData, eye.right);
-                    plotGazeDataList(gazeDataDoubleList, Color.Blue);
+                    class4Graphic.plotGazeDataList(gazeDataDoubleList, Color.Blue, gazeDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                }
             }
         }
        
-        private void plotGazeDataList(List<Point> gazeDataDoubleList, Color gazeColor)
-        {
-
-            for (var indiceSample = 0; indiceSample < gazeDataDoubleList.Count; indiceSample++)
-            {
-                plotDot(gazeDataDoubleList[indiceSample].X, gazeDataDoubleList[indiceSample].Y, gazeColor, gazeDotRadius);
-            }
-        }
-
-
-
-
-
-
+ 
         private void plotFixData2Control()
         {
 
@@ -350,129 +337,22 @@ namespace LookAndPlayForm.Resumen
                 {
 
                     fixDataList = class4Graphic.fixData2List(fixData, eye.left);
-                    plotFixDataList(fixDataList, Color.Red);
-                    plotLinesBetweenFixs(fixDataList, Color.Red);                    
+                    class4Graphic.plotFixDataList(fixDataList, Color.Red, fixDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
+                    class4Graphic.plotLinesBetweenFixs(fixDataList, Color.Red, this, pictureBoxStimulus, stimulusSize, stimulusLocation);                    
                 }
 
                 if (checkBoxR.Checked)
                 {
                     fixDataList = class4Graphic.fixData2List(fixData, eye.right);
-                    plotFixDataList(fixDataList, Color.Blue);
-                    plotLinesBetweenFixs(fixDataList, Color.Blue);                                       
+                    class4Graphic.plotFixDataList(fixDataList, Color.Blue,fixDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
+                    class4Graphic.plotLinesBetweenFixs(fixDataList, Color.Blue, this, pictureBoxStimulus, stimulusSize, stimulusLocation);                                       
                 }
             }
         }
-
-        private void plotFixDataList(List<Point> fixDataList, Color fixColor)
-        {
-            for (var indiceSample = 0; indiceSample < fixDataList.Count; indiceSample++)
-            {
-                plotDot(fixDataList[indiceSample].X, fixDataList[indiceSample].Y, fixColor, fixDotRadius);
-            }
-        }
-
-
-
-
-
-        private void plotLinesBetweenFixs(List<Point> fixDataList, Color fixColor)
-        {
-            bool firstFix = true;
-            int previousFixX = 0;
-            int previousFixY = 0;
-
-            for (var indiceSample = 0; indiceSample < fixDataList.Count; indiceSample++)
-            {
-                if (firstFix)
-                {
-                    previousFixX = fixDataList[indiceSample].X;
-                    previousFixY = fixDataList[indiceSample].Y;
-                    firstFix = false;
-                }
-                else
-                {
-                    plotLine(fixDataList[indiceSample].X, fixDataList[indiceSample].Y, previousFixX, previousFixY, fixColor);
-                    previousFixX = fixDataList[indiceSample].X;
-                    previousFixY = fixDataList[indiceSample].Y;
-                }
-            }
-        }
-
-        private void plotLine(int currentFixX, int currentFixY, int previousFixX, int previousFixY, Color lineColor)
-        {
-            //posicion relativa a la esquina superior izquierda del pictureBoxStimulus
-            int currentFixXrelative = (int)((double)(currentFixX - stimulusLocation.X) * (double)pictureBoxStimulus.Size.Width / (double)stimulusSize.Width);
-            int currentFixYrelative = (int)((double)(currentFixY - stimulusLocation.Y) * (double)pictureBoxStimulus.Size.Height / (double)stimulusSize.Height);
-            int previousFixXrelative = (int)((double)(previousFixX - stimulusLocation.X) * (double)pictureBoxStimulus.Size.Width / (double)stimulusSize.Width);
-            int previousFixYrelative = (int)((double)(previousFixY - stimulusLocation.Y) * (double)pictureBoxStimulus.Size.Height / (double)stimulusSize.Height);
-
-            //bool currentDotOverPictureBox = isDotOverPictureBox(currentFixX, currentFixY, stimulusLocation.X, stimulusLocation.Y, stimulusSize.Width, stimulusSize.Height);
-            //bool previousDotOverPictureBox = isDotOverPictureBox(previousFixX, previousFixY, stimulusLocation.X, stimulusLocation.Y, stimulusSize.Width, stimulusSize.Height);
-
-            // se grafican las dos lineas, total al final si no corresponde no se dibuja
-            //if (currentDotOverPictureBox)
-            {
-                Pen myPen = new Pen(lineColor);
-                Graphics g = Graphics.FromHwnd(pictureBoxStimulus.Handle);
-
-                g.DrawLine(myPen, previousFixXrelative, previousFixYrelative, currentFixXrelative, currentFixYrelative);
-
-                myPen.Dispose();
-                g.Dispose();
-
-            }
-            //else
-            {
-                Pen myPen = new Pen(Color.Black);
-                Graphics g = this.CreateGraphics();
-
-                g.DrawLine(myPen,
-                    previousFixXrelative + pictureBoxStimulus.Location.X,
-                    previousFixYrelative + pictureBoxStimulus.Location.Y,
-                    currentFixXrelative + pictureBoxStimulus.Location.X,
-                    currentFixYrelative + pictureBoxStimulus.Location.Y
-                            );
-
-                myPen.Dispose();
-                g.Dispose();
-
-            }
-
-        }
-
+        
 
         //Varios
-        private bool loadImage2Control(bool testDataFound)
-        {
-            /*
-             * leer testdata.imagen
-             * en funcion de lo que se lee se carga en el picture box            
-             */
-
-            if(testDataFound)
-            {   
-                
-                //if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(settings.image2read))
-                if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(testData.image2read))
-                {
-                    //pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[settings.image2read].imagen;
-                    //Console.WriteLine("testData.imagen2read:" + settings.image2read + " encontrada");
-                    pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].imagen;
-                    Console.WriteLine("testData.imagen2read:" + testData.image2read + " encontrada");
-                    return true;
-                }
-                else
-                {
-                    Console.WriteLine("testData.imagen2read:" + testData.image2read + " NO encontrada");
-                    return false;
-                }
-            }
-            else
-            {
-                Console.WriteLine("testDataFound: false");
-                return false;
-            }
-        }
+        
 
         private void getStimulusFeactures()
         {            
@@ -485,57 +365,6 @@ namespace LookAndPlayForm.Resumen
             stimulusLocation = new Point(stimulusX, stimulusY);
         }
 
-        private void plotDot(int dotX, int dotY, Color dotColor, int dotRadius)
-        {
-            //posicion relativa a la esquina superior izquierda del pictureBoxStimulus
-            int dotXrelative = (int)((double)(dotX - stimulusLocation.X) * (double)pictureBoxStimulus.Size.Width / (double)stimulusSize.Width);
-            int dotYrelative = (int)((double)(dotY - stimulusLocation.Y) * (double)pictureBoxStimulus.Size.Height / (double)stimulusSize.Height);
-
-            bool dotOverPictureBox = isDotOverPictureBox(dotX, dotY, stimulusLocation.X, stimulusLocation.Y, stimulusSize.Width, stimulusSize.Height);
-
-            SolidBrush brush;
-            Graphics newGraphics;
-            Rectangle rect;
-            Point dPoint;
-
-            if (dotOverPictureBox)
-            {
-                brush = new SolidBrush(dotColor);
-                newGraphics = Graphics.FromHwnd(pictureBoxStimulus.Handle);
-                dPoint = new Point(dotXrelative - dotRadius, dotYrelative - dotRadius);
-                rect = new Rectangle(dPoint, new Size(2 * dotRadius, 2 * dotRadius));
-                //g.FillEllipse(brush, rect);
-                //g.Dispose();
-            }
-            else
-            {
-                brush = new SolidBrush(Color.Black);
-                newGraphics = this.CreateGraphics();
-                dPoint = new Point(dotXrelative + pictureBoxStimulus.Location.X - dotRadius, dotYrelative + pictureBoxStimulus.Location.Y - dotRadius);
-                rect = new Rectangle(dPoint, new Size(2 * dotRadius, 2 * dotRadius));
-                //g.FillEllipse(brush, rect);
-                //g.Dispose();
-            }
-
-            newGraphics.FillEllipse(brush, rect);
-            newGraphics.Dispose();
-        }
-
-        private bool isDotOverPictureBox(int dotX, int dotY, int stimulusX, int stimulusY, int stimulusW, int stimulusH)
-        {
-            if (
-                dotX > stimulusX &&
-                dotX < (stimulusX + stimulusW) &&
-                dotY > stimulusY &&
-                dotY < (stimulusY + stimulusH)
-              )
-                return true;
-            else
-                return false;
-        }
-
-
-        //Botones
         private void buttonPlot_Click(object sender, EventArgs e)
         {
             if (everythingOk)            
@@ -552,7 +381,7 @@ namespace LookAndPlayForm.Resumen
 
         private void buttonPlotExtern_Click(object sender, EventArgs e)
         {
-            Graph1 newGraph1 = new Graph1(testData, stimulusSize, stimulusLocation, fixData);
+            Graph1 newGraph1 = new Graph1(testData, stimulusSize, stimulusLocation, fixData, eyetrackerDataL, checkBoxGaze, checkBoxFixations, checkBoxL, checkBoxR);
             newGraph1.Show();
         }
     }

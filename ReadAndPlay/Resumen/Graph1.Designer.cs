@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBoxStimulus = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.buttonPlot = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.SuspendLayout();
@@ -43,15 +43,15 @@
             this.pictureBoxStimulus.TabIndex = 0;
             this.pictureBoxStimulus.TabStop = false;
             // 
-            // button1
+            // buttonExit
             // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonExit.Location = new System.Drawing.Point(13, 13);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(75, 23);
+            this.buttonExit.TabIndex = 1;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonPlot
             // 
@@ -69,7 +69,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.buttonPlot);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.pictureBoxStimulus);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Graph1";
@@ -83,7 +83,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxStimulus;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonPlot;
     }
 }
