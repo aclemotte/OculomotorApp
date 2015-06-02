@@ -73,4 +73,9 @@ namespace LookAndPlayForm
     {
         mouse, eyetracker
     }
+
+    public enum eye
+    {
+        left, right
+    }
 }
