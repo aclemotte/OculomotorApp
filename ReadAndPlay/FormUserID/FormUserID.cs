@@ -211,5 +211,15 @@ namespace LookAndPlayForm
         {
         }
 
+        private void buttonResume_Click(object sender, EventArgs e)
+        {
+            Resumen.Resumen resumenGame1 = new Resumen.Resumen(false);
+
+            if (resumenGame1.everythingOk)
+                resumenGame1.Show();
+            else
+                resumenGame1.Dispose();
+        }
+
     }
 }

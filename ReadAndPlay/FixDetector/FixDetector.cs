@@ -19,8 +19,6 @@ namespace LookAndPlayForm.FixDetector
         eyetrackerDataEyeX eyetrackerDatajson;
         TestData testDatajson;
 
-        //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\"  + Varios.functions.getCurrentTime() + @"\";
         string path;
         string eyetrackerData = string.Empty;
         string testData = string.Empty; 
@@ -45,15 +43,21 @@ namespace LookAndPlayForm.FixDetector
             //fixationDetector.FixationUpdate += fixationDetector_FixationUpdate;
 
 
-            fixationDetector.Analyzer = EFDAnalyzer.fdaFixationSize;
-            fixationDetector.FixationRadius = 60;
-            fixationDetector.NoiseFilter = 1;
-            fixationDetector.Filter = EFDFilter.fdfAveraging;
-            fixationDetector.MinFixDuration = 100;
-            fixationDetector.FilterBufferSize = 20;
-            fixationDetector.UpdateInterval = 100;
+            //fixationDetector.Analyzer = EFDAnalyzer.fdaFixationSize;
+            //fixationDetector.FixationRadius = 60;
+            //fixationDetector.NoiseFilter = 1;
+            //fixationDetector.Filter = EFDFilter.fdfAveraging;
+            //fixationDetector.MinFixDuration = 100;
+            //fixationDetector.FilterBufferSize = 20;
+            //fixationDetector.UpdateInterval = 100;
 
-            //fixationDetector.init();
+            fixationDetector.Analyzer = EFDAnalyzer.fdaFixationSize;
+            fixationDetector.FixationRadius = 40;
+            fixationDetector.NoiseFilter = 0;
+            fixationDetector.Filter = EFDFilter.fdfAveraging;
+            fixationDetector.MinFixDuration = 30;
+            fixationDetector.FilterBufferSize = 10;
+            fixationDetector.UpdateInterval = 100;
 
             if (file2String())
             {
@@ -61,7 +65,6 @@ namespace LookAndPlayForm.FixDetector
                 processData();
                 saveData2File();
 
-                //fixationDetector.finalize();
                 fixData.clearAllList();
             }
         }

@@ -40,6 +40,7 @@
             this.radioButtonText2 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelVersion = new System.Windows.Forms.Label();
+            this.buttonResume = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,11 +172,23 @@
             this.labelVersion.TabIndex = 9;
             this.labelVersion.Text = "Version";
             // 
+            // buttonResume
+            // 
+            this.buttonResume.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonResume.Location = new System.Drawing.Point(264, 188);
+            this.buttonResume.Name = "buttonResume";
+            this.buttonResume.Size = new System.Drawing.Size(102, 35);
+            this.buttonResume.TabIndex = 10;
+            this.buttonResume.Text = "Resume";
+            this.buttonResume.UseVisualStyleBackColor = true;
+            this.buttonResume.Click += new System.EventHandler(this.buttonResume_Click);
+            // 
             // FormUserID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 249);
+            this.Controls.Add(this.buttonResume);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.radioButtonText2);
             this.Controls.Add(this.radioButtonText1);
@@ -209,6 +222,7 @@
         private System.Windows.Forms.RadioButton radioButtonText2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Button buttonResume;
     }
 }
 
