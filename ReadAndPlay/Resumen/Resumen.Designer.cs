@@ -45,6 +45,8 @@
             this.checkBoxL = new System.Windows.Forms.CheckBox();
             this.checkBoxR = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxFixs100WR = new System.Windows.Forms.TextBox();
+            this.textBoxFixs100WL = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxSORR = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -62,8 +64,7 @@
             this.statusStripResumen = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelString = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelFileName = new System.Windows.Forms.ToolStripStatusLabel();
-            this.textBoxFixs100WR = new System.Windows.Forms.TextBox();
-            this.textBoxFixs100WL = new System.Windows.Forms.TextBox();
+            this.buttonPlotExtern = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.statusStripResumen.SuspendLayout();
@@ -248,6 +249,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fixation analysis";
             // 
+            // textBoxFixs100WR
+            // 
+            this.textBoxFixs100WR.BackColor = System.Drawing.Color.White;
+            this.textBoxFixs100WR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFixs100WR.Location = new System.Drawing.Point(676, 148);
+            this.textBoxFixs100WR.Name = "textBoxFixs100WR";
+            this.textBoxFixs100WR.ReadOnly = true;
+            this.textBoxFixs100WR.Size = new System.Drawing.Size(70, 29);
+            this.textBoxFixs100WR.TabIndex = 106;
+            // 
+            // textBoxFixs100WL
+            // 
+            this.textBoxFixs100WL.BackColor = System.Drawing.Color.White;
+            this.textBoxFixs100WL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFixs100WL.Location = new System.Drawing.Point(676, 94);
+            this.textBoxFixs100WL.Name = "textBoxFixs100WL";
+            this.textBoxFixs100WL.ReadOnly = true;
+            this.textBoxFixs100WL.Size = new System.Drawing.Size(70, 29);
+            this.textBoxFixs100WL.TabIndex = 105;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -414,31 +435,23 @@
             this.toolStripStatusLabelFileName.Name = "toolStripStatusLabelFileName";
             this.toolStripStatusLabelFileName.Size = new System.Drawing.Size(0, 21);
             // 
-            // textBoxFixs100WR
+            // buttonPlotExtern
             // 
-            this.textBoxFixs100WR.BackColor = System.Drawing.Color.White;
-            this.textBoxFixs100WR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFixs100WR.Location = new System.Drawing.Point(676, 148);
-            this.textBoxFixs100WR.Name = "textBoxFixs100WR";
-            this.textBoxFixs100WR.ReadOnly = true;
-            this.textBoxFixs100WR.Size = new System.Drawing.Size(70, 29);
-            this.textBoxFixs100WR.TabIndex = 106;
-            // 
-            // textBoxFixs100WL
-            // 
-            this.textBoxFixs100WL.BackColor = System.Drawing.Color.White;
-            this.textBoxFixs100WL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFixs100WL.Location = new System.Drawing.Point(676, 94);
-            this.textBoxFixs100WL.Name = "textBoxFixs100WL";
-            this.textBoxFixs100WL.ReadOnly = true;
-            this.textBoxFixs100WL.Size = new System.Drawing.Size(70, 29);
-            this.textBoxFixs100WL.TabIndex = 105;
+            this.buttonPlotExtern.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlotExtern.Location = new System.Drawing.Point(890, 334);
+            this.buttonPlotExtern.Name = "buttonPlotExtern";
+            this.buttonPlotExtern.Size = new System.Drawing.Size(132, 50);
+            this.buttonPlotExtern.TabIndex = 102;
+            this.buttonPlotExtern.Text = "Plot (new window)";
+            this.buttonPlotExtern.UseVisualStyleBackColor = true;
+            this.buttonPlotExtern.Click += new System.EventHandler(this.buttonPlotExtern_Click);
             // 
             // Resumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 659);
+            this.Controls.Add(this.buttonPlotExtern);
             this.Controls.Add(this.statusStripResumen);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
@@ -514,6 +527,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxFixs100WR;
         private System.Windows.Forms.TextBox textBoxFixs100WL;
+        private System.Windows.Forms.Button buttonPlotExtern;
 
 
 

@@ -19,7 +19,7 @@ namespace LookAndPlayForm
         Point _screensize;
         Random rnd = new Random();            
         
-        public Point initTargetSize = new Point(700, 350);       
+        public Point initTargetSize = new Point(1000, 600);       
         public bool finished;
         public int numberOfTargets;
 

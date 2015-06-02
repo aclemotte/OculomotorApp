@@ -33,6 +33,9 @@ namespace LookAndPlayForm.Resumen
         int numberOfFixL;
         int numberOfFixR;
 
+        Size stimulusSize;
+        Point stimulusLocation;
+
         public bool everythingOk;
 
 
@@ -64,6 +67,7 @@ namespace LookAndPlayForm.Resumen
             processFixData(selectedPath);
             fixDataFound = loadFixationDataFromJson(selectedPath);
             eyetrackerDataFound = loadEyetrackerDataFromJson(selectedPath);
+            getStimulusFeactures();
             testDataFound = loadTestDataFromJson(selectedPath);
             imageFound = loadImage2Control(testDataFound);
 
@@ -153,6 +157,7 @@ namespace LookAndPlayForm.Resumen
             getCalibError();
         }
 
+             
         private void getSOR()
         {
             int numberOfWord = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras;
@@ -164,26 +169,21 @@ namespace LookAndPlayForm.Resumen
             textBoxSORL.Text = sorL.ToString("0.00");
             textBoxSORR.Text = sorR.ToString("0.00");
         }
-
-
-
         private void getCalibError()
         {
             textBoxCalibErrorL.Text = testData.calibration_error_left_px.ToString();
             textBoxCalibErrorR.Text = testData.calibration_error_right_px.ToString();
 
-            if(testData.calibration_error_left_px > settings.maxCalibracionError)
+            if (testData.calibration_error_left_px > settings.maxCalibracionError)
             {
                 textBoxCalibErrorL.BackColor = Color.Red;
             }
 
-            if(testData.calibration_error_right_px > settings.maxCalibracionError)
+            if (testData.calibration_error_right_px > settings.maxCalibracionError)
             {
                 textBoxCalibErrorR.BackColor = Color.Red;
             }
         }
-
-
 
         private void getWordsPerMinute()
         {
@@ -200,9 +200,7 @@ namespace LookAndPlayForm.Resumen
             textBoxWordsMin.Text = wordPerMin.ToString();
 
         }
-
-
-
+        
         private void getFix100W()
         {
             int numberOfWord = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras;
@@ -212,7 +210,6 @@ namespace LookAndPlayForm.Resumen
             textBoxFixs100WL.Text = fix100WordsL.ToString();
             textBoxFixs100WR.Text = fix100WordsR.ToString();
         }
-
 
 
         private void getMeanAndStdDurationFix()
@@ -236,7 +233,6 @@ namespace LookAndPlayForm.Resumen
             textBoxStdFixL.Text = (stdFixDurationL/1000).ToString("0.00");
             textBoxStdFixR.Text = (stdFixDurationR/1000).ToString("0.00");
         }
-
         private double eyeStdDurationFix(List<fixationDataPoint> listaFixDataPoints, double mean)
         {
             double stdFixDuration = 0;
@@ -250,7 +246,6 @@ namespace LookAndPlayForm.Resumen
             
             return stdFixDuration;
         }
-
         private double eyeMeanDurationFix(List<fixationDataPoint> listaFixDataPoints)
         {
             int sumFixDuration = 0;
@@ -271,8 +266,6 @@ namespace LookAndPlayForm.Resumen
         }
         
 
-
-
         private void getNumberOfFix()
         {
             //textBoxNumFix.Text = eyeNumberOfFix(fixData.fixationDataPointLandR).ToString();
@@ -288,7 +281,6 @@ namespace LookAndPlayForm.Resumen
             textBoxNumFixL.Text = numberOfFixL.ToString();
             textBoxNumFixR.Text = numberOfFixR.ToString();
         }
-
         private int eyeNumberOfFix(List<fixationDataPoint> listaFixDataPoints)
         {
             int numberOfFix = 0;
@@ -317,25 +309,7 @@ namespace LookAndPlayForm.Resumen
             List<PointD> gaze2Plot = new List<PointD>();
 
             if (checkBoxGaze.Checked)
-            {
-                //if (checkBoxL.Checked && checkBoxR.Checked)
-                //{
-                //    for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[indiceTrial].gazeFilteredL.Count; indiceSample++)
-                //    {
-                //        double gazeX = (int)(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].X * (double)testData.screen_Width);
-                //        double gazeY = (int)(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].Y * (double)testData.screen_Height);
-
-                //        if (
-                //            !double.IsNaN(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].X)
-                //            && !double.IsNaN(eyetrackerDataL.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].Y)
-                //            )
-                //        {
-                //            plotGaze(gazeX, gazeY, Color.LimeGreen);
-                //        }
-                //    }
-                //}
-
-                //if (checkBoxL.Checked && !checkBoxR.Checked)
+            {               
                 if (checkBoxL.Checked)
                 {
                     for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL.Count; indiceSample++)
@@ -353,7 +327,6 @@ namespace LookAndPlayForm.Resumen
                     }
                 }
 
-                //if (!checkBoxL.Checked && checkBoxR.Checked)
                 if (checkBoxR.Checked)
                 {
                     for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[indiceTrial].gazeDataItemL.Count; indiceSample++)
@@ -376,16 +349,21 @@ namespace LookAndPlayForm.Resumen
         private void plotGaze(double gazeX, double gazeY, Color gazeColor)
         {
 
-            int stimulusX = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.X;
-            int stimulusY = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.Y;
-            int stimulusW = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.X;
-            int stimulusH = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.Y;
+            //stimulusSize.Height  stimulusH
+            //stimulusSize.Width  stimulusW
+            //stimulusLocation.X  stimulusX
+            //stimulusLocation.Y  stimulusY
+
+            //int stimulusX = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.X;
+            //int stimulusY = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.Y;
+            //int stimulusW = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.X;
+            //int stimulusH = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.Y;
 
             //posicion relativa a la esquina superior izquierda del pictureBoxStimulus
-            int dotX = (int)((gazeX - (double)stimulusX) * (double)pictureBoxStimulus.Size.Width / (double)stimulusW);
-            int dotY = (int)((gazeY - (double)stimulusY) * (double)pictureBoxStimulus.Size.Height / (double)stimulusH);
+            int dotX = (int)((gazeX - (double)stimulusLocation.X) * (double)pictureBoxStimulus.Size.Width / (double)stimulusSize.Width);
+            int dotY = (int)((gazeY - (double)stimulusLocation.Y) * (double)pictureBoxStimulus.Size.Height / (double)stimulusSize.Height);
 
-            bool dotOverPictureBox = isDotOverPictureBox((int)gazeX, (int)gazeY, stimulusX, stimulusY, stimulusW, stimulusH);
+            bool dotOverPictureBox = isDotOverPictureBox((int)gazeX, (int)gazeY, stimulusLocation.X, stimulusLocation.Y, stimulusSize.Width, stimulusSize.Height);
 
             if (dotOverPictureBox)
             {
@@ -413,20 +391,6 @@ namespace LookAndPlayForm.Resumen
         {
             if (checkBoxFixations.Checked)
             {
-                //if (checkBoxL.Checked && checkBoxR.Checked)
-                //{
-                //    for (var indiceSample = 0; indiceSample < fixData.fixationDataPointLandR.Count; indiceSample++)
-                //    {
-                //        if (fixData.fixationDataPointLandR[indiceSample].fixationState == stateFixationData.end)
-                //        {
-                //            int fixX = fixData.fixationDataPointLandR[indiceSample].fixationData.X;
-                //            int fixY = fixData.fixationDataPointLandR[indiceSample].fixationData.Y;
-                //            plotFix(fixX, fixY, Color.Green);
-                //        }
-                //    }
-                //}
-
-                //if (checkBoxL.Checked && !checkBoxR.Checked)
                 if (checkBoxL.Checked)
                 {
 
@@ -459,7 +423,6 @@ namespace LookAndPlayForm.Resumen
                     }
                 }
 
-                //if (!checkBoxL.Checked && checkBoxR.Checked)
                 if (checkBoxR.Checked)
                 {
                     
@@ -494,28 +457,33 @@ namespace LookAndPlayForm.Resumen
                     
                 }
             }
-        }
-
+        }        
+        
         private void plotLine(int currentFixX, int currentFixY, int previousFixX, int previousFixY, Color lineColor)
         {
 
-            int stimulusX = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.X;
-            int stimulusY = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.Y;
-            int stimulusW = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.X;
-            int stimulusH = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.Y;
+            //stimulusSize.Height  stimulusH
+            //stimulusSize.Width  stimulusW
+            //stimulusLocation.X  stimulusX
+            //stimulusLocation.Y  stimulusY
+
+            //int stimulusX = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.X;
+            //int stimulusY = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.Y;
+            //int stimulusW = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.X;
+            //int stimulusH = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.Y;
 
             //posicion relativa a la esquina superior izquierda del pictureBoxStimulus
-            int currentFixXrelative = (int)((double)(currentFixX - stimulusX) * (double)pictureBoxStimulus.Size.Width / (double)stimulusW);
-            int currentFixYrelative = (int)((double)(currentFixY - stimulusY) * (double)pictureBoxStimulus.Size.Height / (double)stimulusH);
-            int previousFixXrelative = (int)((double)(previousFixX - stimulusX) * (double)pictureBoxStimulus.Size.Width / (double)stimulusW);
-            int previousFixYrelative = (int)((double)(previousFixY - stimulusY) * (double)pictureBoxStimulus.Size.Height / (double)stimulusH);
+            int currentFixXrelative = (int)((double)(currentFixX - stimulusLocation.X) * (double)pictureBoxStimulus.Size.Width / (double)stimulusSize.Width);
+            int currentFixYrelative = (int)((double)(currentFixY - stimulusLocation.Y) * (double)pictureBoxStimulus.Size.Height / (double)stimulusSize.Height);
+            int previousFixXrelative = (int)((double)(previousFixX - stimulusLocation.X) * (double)pictureBoxStimulus.Size.Width / (double)stimulusSize.Width);
+            int previousFixYrelative = (int)((double)(previousFixY - stimulusLocation.Y) * (double)pictureBoxStimulus.Size.Height / (double)stimulusSize.Height);
 
-            //bool currentDotOverPictureBox = isDotOverPictureBox(currentFixX, currentFixY, stimulusX, stimulusY, stimulusW, stimulusH);
-            //bool previousDotOverPictureBox = isDotOverPictureBox(previousFixX, previousFixY, stimulusX, stimulusY, stimulusW, stimulusH);
-            
+            //bool currentDotOverPictureBox = isDotOverPictureBox(currentFixX, currentFixY, stimulusLocation.X, stimulusLocation.Y, stimulusSize.Width, stimulusSize.Height);
+            //bool previousDotOverPictureBox = isDotOverPictureBox(previousFixX, previousFixY, stimulusLocation.X, stimulusLocation.Y, stimulusSize.Width, stimulusSize.Height);
+
             // se grafican las dos lineas, total al final si no corresponde no se dibuja
             //if (currentDotOverPictureBox)
-            {                
+            {
                 Pen myPen = new Pen(lineColor);
                 Graphics g = Graphics.FromHwnd(pictureBoxStimulus.Handle);
 
@@ -530,10 +498,10 @@ namespace LookAndPlayForm.Resumen
                 Pen myPen = new Pen(Color.Black);
                 Graphics g = this.CreateGraphics();
 
-                g.DrawLine( myPen, 
-                    previousFixXrelative + pictureBoxStimulus.Location.X, 
-                    previousFixYrelative + pictureBoxStimulus.Location.Y, 
-                    currentFixXrelative + pictureBoxStimulus.Location.X, 
+                g.DrawLine(myPen,
+                    previousFixXrelative + pictureBoxStimulus.Location.X,
+                    previousFixYrelative + pictureBoxStimulus.Location.Y,
+                    currentFixXrelative + pictureBoxStimulus.Location.X,
                     currentFixYrelative + pictureBoxStimulus.Location.Y
                             );
 
@@ -547,37 +515,49 @@ namespace LookAndPlayForm.Resumen
         private void plotFix(int fixX, int fixY, Color fixColor)
         {
 
-            int stimulusX = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.X;
-            int stimulusY = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.Y;
-            int stimulusW = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.X;
-            int stimulusH = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.Y;
+            //stimulusSize.Height  stimulusH
+            //stimulusSize.Width  stimulusW
+            //stimulusLocation.X  stimulusX
+            //stimulusLocation.Y  stimulusY
+
+            //int stimulusX = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.X;
+            //int stimulusY = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.Y;
+            //int stimulusW = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.X;
+            //int stimulusH = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.Y;
 
             //posicion relativa a la esquina superior izquierda del pictureBoxStimulus
-            int dotX = (int)((double)(fixX - stimulusX) * (double)pictureBoxStimulus.Size.Width / (double)stimulusW);
-            int dotY = (int)((double)(fixY - stimulusY) * (double)pictureBoxStimulus.Size.Height / (double)stimulusH);
+            int dotX = (int)((double)(fixX - stimulusLocation.X) * (double)pictureBoxStimulus.Size.Width / (double)stimulusSize.Width);
+            int dotY = (int)((double)(fixY - stimulusLocation.Y) * (double)pictureBoxStimulus.Size.Height / (double)stimulusSize.Height);
 
-            bool dotOverPictureBox = isDotOverPictureBox(fixX, fixY, stimulusX, stimulusY, stimulusW, stimulusH);
+            bool dotOverPictureBox = isDotOverPictureBox(fixX, fixY, stimulusLocation.X, stimulusLocation.Y, stimulusSize.Width, stimulusSize.Height);
+
+            SolidBrush brush;
+            Graphics newGraphics;
+            Rectangle rect;
+            Point dPoint;
 
             if (dotOverPictureBox)
             {
-                SolidBrush brush = new SolidBrush(fixColor);
-                Graphics g = Graphics.FromHwnd(pictureBoxStimulus.Handle);
-                Point dPoint = new Point(dotX - fixDotRadius, dotY - fixDotRadius);
-                Rectangle rect = new Rectangle(dPoint, new Size(2*fixDotRadius, 2*fixDotRadius));
-                g.FillEllipse(brush, rect);
-                g.Dispose();
+                brush = new SolidBrush(fixColor);
+                newGraphics = Graphics.FromHwnd(pictureBoxStimulus.Handle);
+                dPoint = new Point(dotX - fixDotRadius, dotY - fixDotRadius);
+                rect = new Rectangle(dPoint, new Size(2 * fixDotRadius, 2 * fixDotRadius));
+                //g.FillEllipse(brush, rect);
+                //g.Dispose();
             }
             else
             {
-                SolidBrush brush = new SolidBrush(Color.Black);
-                Graphics g = this.CreateGraphics();
-                Point dpoint = new Point(dotX + pictureBoxStimulus.Location.X - fixDotRadius, dotY + pictureBoxStimulus.Location.Y - fixDotRadius);
-                Rectangle rect = new Rectangle(dpoint, new Size(2*fixDotRadius, 2*fixDotRadius));
-                g.FillEllipse(brush, rect);
-                g.Dispose();
+                brush = new SolidBrush(Color.Black);
+                newGraphics = this.CreateGraphics();
+                dPoint = new Point(dotX + pictureBoxStimulus.Location.X - fixDotRadius, dotY + pictureBoxStimulus.Location.Y - fixDotRadius);
+                rect = new Rectangle(dPoint, new Size(2 * fixDotRadius, 2 * fixDotRadius));
+                //g.FillEllipse(brush, rect);
+                //g.Dispose();
             }
-        }
 
+            newGraphics.FillEllipse(brush, rect);
+            newGraphics.Dispose();
+        }
 
 
         private bool isDotOverPictureBox(int gazeX, int gazeY, int stimulusX, int stimulusY, int stimulusW, int stimulusH)
@@ -593,6 +573,9 @@ namespace LookAndPlayForm.Resumen
                 return false;
         }
 
+
+
+        //Varios
         private bool loadImage2Control(bool testDataFound)
         {
             /*
@@ -625,12 +608,20 @@ namespace LookAndPlayForm.Resumen
             }
         }
 
+        private void getStimulusFeactures()
+        {            
+            int stimulusX = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.X;
+            int stimulusY = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.position.Y;
+            int stimulusW = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.X;
+            int stimulusH = eyetrackerDataL.targetTraceL[indiceTrial].targetPositionSize.size.Y;
+
+            stimulusSize = new Size(stimulusW, stimulusH);
+            stimulusLocation = new Point(stimulusX, stimulusY);
+        }
 
 
 
-
-
-
+        //Botones
         private void buttonPlot_Click(object sender, EventArgs e)
         {
             if (everythingOk)            
@@ -643,6 +634,12 @@ namespace LookAndPlayForm.Resumen
                 plotGazeData();
                 plotFixData2Control();
             }
+        }
+
+        private void buttonPlotExtern_Click(object sender, EventArgs e)
+        {
+            Graph1 newGraph1 = new Graph1(testData, stimulusSize, stimulusLocation, fixData);
+            newGraph1.Show();
         }
     }
 }

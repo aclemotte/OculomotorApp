@@ -178,6 +178,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Resumen\Graph1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resumen\Graph1.Designer.cs">
+      <DependentUpon>Graph1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Resumen\Resumen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resumen\Graph1.resx">
+      <DependentUpon>Graph1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resumen\Resumen.resx">
       <DependentUpon>Resumen.cs</DependentUpon>

@@ -52,9 +52,6 @@ namespace LookAndPlayForm
 
         public FormUserID()
         {
-
-            
-
             InitializeComponent();
 
             labelVersion.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -212,8 +209,6 @@ namespace LookAndPlayForm
 
         private void radioButtonText2_CheckedChanged(object sender, EventArgs e)
         {
-            //if (radioButtonText2.Checked)
-            //    Program.datosCompartidos.image2read = "TextoIn3.png";
         }
 
     }
