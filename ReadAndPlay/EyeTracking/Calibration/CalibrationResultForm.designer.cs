@@ -30,6 +30,7 @@ namespace LookAndPlayForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalibrationResultForm));
             this._okButton = new System.Windows.Forms.Button();
             this.textBoxCalibrationErrorLeft = new System.Windows.Forms.TextBox();
             this.textBoxCalibrationErrorRight = new System.Windows.Forms.TextBox();
@@ -125,6 +126,7 @@ namespace LookAndPlayForm
             this.Controls.Add(this._rightPlot);
             this.Controls.Add(this._leftPlot);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CalibrationResultForm";
