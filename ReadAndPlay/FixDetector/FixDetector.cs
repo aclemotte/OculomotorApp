@@ -149,8 +149,10 @@ namespace LookAndPlayForm.FixDetector
             for (var indiceSample = 0; indiceSample < eyetrackerDatajson.targetTraceL[indiceTrial].gazeWeigthedL.Count; indiceSample++)
             {
                 if (
-                    !double.IsNaN(eyetrackerDatajson.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].X) &&
-                    !double.IsNaN(eyetrackerDatajson.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].Y)
+                    validGazeData(
+                        eyetrackerDatajson.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].X,
+                        eyetrackerDatajson.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].Y
+                                 )
                     )
                 {
                     fixationDetector.addPoint(
@@ -173,8 +175,10 @@ namespace LookAndPlayForm.FixDetector
             for (var indiceSample = 0; indiceSample < eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL.Count; indiceSample++)
             {
                 if (
-                    !double.IsNaN(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.X) &&
-                    !double.IsNaN(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.Y)
+                    validGazeData(
+                        eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.X,
+                        eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.Y
+                                 )
                     )
                 {
                     fixationDetector.addPoint(
@@ -197,8 +201,10 @@ namespace LookAndPlayForm.FixDetector
             for (var indiceSample = 0; indiceSample < eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL.Count; indiceSample++)
             {
                 if (
-                    !double.IsNaN(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.X) &&
-                    !double.IsNaN(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.Y)
+                    validGazeData(
+                        eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.X,
+                        eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.Y
+                                 )
                     )
                 {
                     fixationDetector.addPoint(
@@ -219,6 +225,13 @@ namespace LookAndPlayForm.FixDetector
             return timeStampMili;
         }
 
+        bool validGazeData(double gazeX, double gazeY)
+        {
+            if (!double.IsNaN(gazeX) && !double.IsNaN(gazeY) && Math.Abs(gazeX) > 0.001 && Math.Abs(gazeY) > 0.001)
+                return true;
+            else
+                return false;
+        }
         
         
         

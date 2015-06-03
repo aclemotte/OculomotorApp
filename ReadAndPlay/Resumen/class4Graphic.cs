@@ -241,11 +241,8 @@ namespace LookAndPlayForm.Resumen
             if (testDataFound)
             {
 
-                //if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(settings.image2read))
                 if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(testData.image2read))
                 {
-                    //pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[settings.image2read].imagen;
-                    //Console.WriteLine("testData.imagen2read:" + settings.image2read + " encontrada");
                     pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].imagen;
                     Console.WriteLine("testData.imagen2read:" + testData.image2read + " encontrada");
                     return true;

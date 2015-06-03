@@ -58,23 +58,6 @@ namespace LookAndPlayForm
 
         private void loadSetImage2PictureBox()
         {
-
-            //settings.image2read
-
-            //if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(settings.image2read))
-            //{
-            //    pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[settings.image2read].imagen;
-            //    Console.WriteLine("settings.image2read:" + settings.image2read + " encontrada");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("settings.image2read:" + settings.image2read + " NO encontrada");
-            //}
-
-
-
-            //Program.datosCompartidos.image2read
-
             if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(Program.datosCompartidos.image2read))
             {
                 pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[Program.datosCompartidos.image2read].imagen;
@@ -188,7 +171,6 @@ namespace LookAndPlayForm
             logTest.testData.filter_type = settings.filtertypeSelected.ToString();
             logTest.testData.calibration_error_left_px = _datosCompartidos.meanCalibrationErrorLeftPx;
             logTest.testData.calibration_error_right_px = _datosCompartidos.meanCalibrationErrorRightPx;
-            //logTest.testData.image2read = settings.image2read;
             logTest.testData.image2read = Program.datosCompartidos.image2read;
             
 

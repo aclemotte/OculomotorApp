@@ -319,7 +319,6 @@
             this.textBoxWordsMin.ReadOnly = true;
             this.textBoxWordsMin.Size = new System.Drawing.Size(70, 29);
             this.textBoxWordsMin.TabIndex = 4;
-            this.textBoxWordsMin.Visible = false;
             // 
             // groupBox2
             // 
