@@ -23,7 +23,7 @@ namespace LookAndPlayForm.Resumen
         
         bool testDataFound;
         bool eyetrackerDataFound;
-        public bool fixDataFound;
+        bool fixDataFound;
         bool imageFound;
         
         int gazeDotRadius = 2;
@@ -36,7 +36,7 @@ namespace LookAndPlayForm.Resumen
         Size stimulusSize;
         Point stimulusLocation;
 
-        public bool everythingOk;
+        public bool everythingOk { get; set; }
 
 
 
@@ -68,7 +68,7 @@ namespace LookAndPlayForm.Resumen
             fixDataFound = loadFixationDataFromJson(selectedPath);//carga el archivo fixData.json
             eyetrackerDataFound = loadEyetrackerDataFromJson(selectedPath);
             testDataFound = loadTestDataFromJson(selectedPath);
-            getStimulusFeactures();
+            getStimulusFeactures(eyetrackerDataFound);
             imageFound = class4Graphic.loadImage2Control(testDataFound, testData, pictureBoxStimulus);
 
             everythingOk = fixDataFound & eyetrackerDataFound & testDataFound & imageFound;
@@ -352,17 +352,20 @@ namespace LookAndPlayForm.Resumen
         
 
         //Varios
-        
 
-        private void getStimulusFeactures()
-        {            
-            int stimulusX = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.position.X;
-            int stimulusY = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.position.Y;
-            int stimulusW = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.size.X;
-            int stimulusH = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.size.Y;
 
-            stimulusSize = new Size(stimulusW, stimulusH);
-            stimulusLocation = new Point(stimulusX, stimulusY);
+        private void getStimulusFeactures(bool eyetrackerDataFound)
+        {
+            if (eyetrackerDataFound)
+            {
+                int stimulusX = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.position.X;
+                int stimulusY = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.position.Y;
+                int stimulusW = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.size.X;
+                int stimulusH = eyetrackerDataL.targetTraceL[settings.indiceTrial].targetPositionSize.size.Y;
+
+                stimulusSize = new Size(stimulusW, stimulusH);
+                stimulusLocation = new Point(stimulusX, stimulusY);
+            }
         }
 
         private void buttonPlot_Click(object sender, EventArgs e)

@@ -51,13 +51,34 @@ namespace LookAndPlayForm.FixDetector
             //fixationDetector.FilterBufferSize = 20;
             //fixationDetector.UpdateInterval = 100;
 
+
+            //Analyzer
             fixationDetector.Analyzer = EFDAnalyzer.fdaFixationSize;
+            //fixationDetector.Analyzer = EFDAnalyzer.fdaDispersion;
+            //fixationDetector.Analyzer = EFDAnalyzer.fdaSpeed;
+
+            //Filter 
+            fixationDetector.Filter = EFDFilter.fdfNone;
+            //fixationDetector.Filter = EFDFilter.fdfAveraging;
+            //fixationDetector.Filter = EFDFilter.fdfWeightedAvg;
+
+            fixationDetector.MinFixDuration = 30;//0-300
+            //fixationDetector.FilterBufferSize = 10;//2-1000
+            //fixationDetector.FilterWeight = 0.5f; //se usa con el filtro EFDFilter.fdfWeightedAvg
+            fixationDetector.UpdateInterval = 1000;//100-1000
+
+            //EFDAnalyzer.fdaFixationSize
             fixationDetector.FixationRadius = 40;
             fixationDetector.NoiseFilter = 0;
-            fixationDetector.Filter = EFDFilter.fdfAveraging;
-            fixationDetector.MinFixDuration = 30;
-            fixationDetector.FilterBufferSize = 10;
-            fixationDetector.UpdateInterval = 100;
+
+            //EFDAnalyzer.fdaSpeed
+            fixationDetector.SpeedThreshold = 100;//100-1000
+            fixationDetector.AccelerationThreshold = 2000;//1000-10000
+            fixationDetector.SpeedBufferSize = 10;//3-10
+            
+            //EFDAnalyzer.fdaDispersion
+            fixationDetector.MaxDispersion = 20;//15-100
+            fixationDetector.WindowSize = 5;//2-50
 
             if (file2String())
             {
