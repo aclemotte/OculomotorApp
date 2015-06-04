@@ -62,7 +62,7 @@ namespace LookAndPlayForm.FixDetector
             fixationDetector.Filter = EFDFilter.fdfAveraging;
             //fixationDetector.Filter = EFDFilter.fdfWeightedAvg;
 
-            fixationDetector.MinFixDuration = 8;//0-300
+            fixationDetector.MinFixDuration = 30;//0-300
             fixationDetector.FilterBufferSize = 5;//2-1000
             fixationDetector.FilterWeight = 0.5f; //se usa con el filtro EFDFilter.fdfWeightedAvg
             fixationDetector.UpdateInterval = 1000;//100-1000
