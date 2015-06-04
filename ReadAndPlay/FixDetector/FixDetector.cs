@@ -58,18 +58,18 @@ namespace LookAndPlayForm.FixDetector
             //fixationDetector.Analyzer = EFDAnalyzer.fdaSpeed;
 
             //Filter 
-            fixationDetector.Filter = EFDFilter.fdfNone;
-            //fixationDetector.Filter = EFDFilter.fdfAveraging;
+            //fixationDetector.Filter = EFDFilter.fdfNone;//confirmado no
+            fixationDetector.Filter = EFDFilter.fdfAveraging;
             //fixationDetector.Filter = EFDFilter.fdfWeightedAvg;
 
-            fixationDetector.MinFixDuration = 30;//0-300
-            //fixationDetector.FilterBufferSize = 10;//2-1000
-            //fixationDetector.FilterWeight = 0.5f; //se usa con el filtro EFDFilter.fdfWeightedAvg
+            fixationDetector.MinFixDuration = 8;//0-300
+            fixationDetector.FilterBufferSize = 5;//2-1000
+            fixationDetector.FilterWeight = 0.5f; //se usa con el filtro EFDFilter.fdfWeightedAvg
             fixationDetector.UpdateInterval = 1000;//100-1000
 
             //EFDAnalyzer.fdaFixationSize
             fixationDetector.FixationRadius = 40;
-            fixationDetector.NoiseFilter = 0;
+            fixationDetector.NoiseFilter = 1;//confirmado si
 
             //EFDAnalyzer.fdaSpeed
             fixationDetector.SpeedThreshold = 100;//100-1000
@@ -221,7 +221,16 @@ namespace LookAndPlayForm.FixDetector
         
         int convertirTimeStampMicro2Milli(long timeStampMicro)
         {
-            int timeStampMili = (int)(timeStampMicro / (long)1000);
+            int timeStampMili = Convert.ToInt32(timeStampMicro / (long)1000);
+            
+            //try
+            //{
+            //    timeStampMiliInt = Convert.ToInt32(timeStampMiliLong);
+            //}
+            //catch (OverflowException) {
+            //    Console.WriteLine("timeStampMiliLong is outside the range of the Int32 type.", timeStampMiliLong);
+            //}
+
             return timeStampMili;
         }
 

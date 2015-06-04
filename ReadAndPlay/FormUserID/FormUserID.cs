@@ -202,9 +202,9 @@ namespace LookAndPlayForm
         private void radioButtonText1_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonText1.Checked)
-                Program.datosCompartidos.image2read = "TextoIn2.png";
+                Program.datosCompartidos.image2read = "TextoIn4.png";
             else
-                Program.datosCompartidos.image2read = "TextoIn3.png";
+                Program.datosCompartidos.image2read = "TextoIn5.png";
         }
 
         private void radioButtonText2_CheckedChanged(object sender, EventArgs e)

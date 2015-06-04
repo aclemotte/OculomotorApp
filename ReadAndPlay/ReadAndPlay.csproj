@@ -278,6 +278,8 @@
     <Content Include="Resources\Textos\TextoIn1.png" />
     <Content Include="Resources\Textos\TextoIn2.PNG" />
     <Content Include="Resources\Textos\TextoIn3.PNG" />
+    <Content Include="Resources\Textos\TextoIn4.PNG" />
+    <Content Include="Resources\Textos\TextoIn5.PNG" />
     <Content Include="TobiiGazeCore32.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
