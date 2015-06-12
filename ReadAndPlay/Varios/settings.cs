@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -30,5 +31,8 @@ namespace LookAndPlayForm
         public const int maxCalibracionError = 50;
 
         public const int indiceTrial = 0;
+
+        public static Color leftEyeColor = Color.Green;
+        public static Color rightEyeColor = Color.Blue; 
     }
 }

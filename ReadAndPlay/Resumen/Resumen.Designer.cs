@@ -209,7 +209,7 @@
             this.checkBoxL.Checked = true;
             this.checkBoxL.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxL.ForeColor = System.Drawing.Color.Red;
+            this.checkBoxL.ForeColor = System.Drawing.Color.Green;
             this.checkBoxL.Location = new System.Drawing.Point(911, 109);
             this.checkBoxL.Name = "checkBoxL";
             this.checkBoxL.Size = new System.Drawing.Size(39, 28);
