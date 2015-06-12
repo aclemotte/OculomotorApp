@@ -68,7 +68,7 @@ namespace LookAndPlayForm.FixDetector
             fixationDetector.UpdateInterval = 1000;//100-1000
 
             //EFDAnalyzer.fdaFixationSize
-            fixationDetector.FixationRadius = 40;
+            fixationDetector.FixationRadius = 40;//15-70
             fixationDetector.NoiseFilter = 1;//confirmado si
 
             //EFDAnalyzer.fdaSpeed

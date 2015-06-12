@@ -118,34 +118,46 @@ namespace LookAndPlayForm.Resumen
             int dotXrelative = (int)((double)(dotX - stimulusLocation.X) * (double)pictureBoxStimulus.Size.Width / (double)stimulusSize.Width);
             int dotYrelative = (int)((double)(dotY - stimulusLocation.Y) * (double)pictureBoxStimulus.Size.Height / (double)stimulusSize.Height);
 
-            bool dotOverPictureBox = isDotOverPictureBox(new Point(dotX, dotY), stimulusSize, stimulusLocation);
+            //bool dotOverPictureBox = isDotOverPictureBox(new Point(dotX, dotY), stimulusSize, stimulusLocation);
 
-            SolidBrush brush;
-            Graphics newGraphics;
-            Rectangle rect;
-            Point dPoint;
+            //SolidBrush brush;
+            //Graphics newGraphics;
+            //Rectangle rect;
+            //Point dPoint;
 
-            if (dotOverPictureBox)
+            //se grafican tanto sobre el picturebox como sobre el form que total si no se puede no grafica
+            //if (dotOverPictureBox)
             {
+                SolidBrush brush;
+                Graphics newGraphics;
+                Rectangle rect;
+                Point dPoint;
+
                 brush = new SolidBrush(dotColor);
                 newGraphics = Graphics.FromHwnd(pictureBoxStimulus.Handle);
                 dPoint = new Point(dotXrelative - dotRadius, dotYrelative - dotRadius);
                 rect = new Rectangle(dPoint, new Size(2 * dotRadius, 2 * dotRadius));
-                //g.FillEllipse(brush, rect);
-                //g.Dispose();
+                newGraphics.FillEllipse(brush, rect);
+                newGraphics.Dispose();
             }
-            else
+            //else
             {
-                brush = new SolidBrush(Color.Black);
+                SolidBrush brush;
+                Graphics newGraphics;
+                Rectangle rect;
+                Point dPoint;
+
+                //brush = new SolidBrush(Color.Black);
+                brush = new SolidBrush(dotColor);
                 newGraphics = formulario.CreateGraphics();
                 dPoint = new Point(dotXrelative + pictureBoxStimulus.Location.X - dotRadius, dotYrelative + pictureBoxStimulus.Location.Y - dotRadius);
                 rect = new Rectangle(dPoint, new Size(2 * dotRadius, 2 * dotRadius));
-                //g.FillEllipse(brush, rect);
-                //g.Dispose();
+                newGraphics.FillEllipse(brush, rect);
+                newGraphics.Dispose();
             }
 
-            newGraphics.FillEllipse(brush, rect);
-            newGraphics.Dispose();
+            //newGraphics.FillEllipse(brush, rect);
+            //newGraphics.Dispose();
         }
 
         private static bool isDotOverPictureBox(Point dot, Size stimulusSize, Point stimulusLocation)
@@ -178,6 +190,12 @@ namespace LookAndPlayForm.Resumen
                 }
                 else
                 {
+                    //Color lineColor;
+                    //if (fixDataList[indiceSample].X < previousFixX)
+                    //    lineColor = Color.Red;
+                    //else
+                    //    lineColor = fixColor;
+
                     plotLine(fixDataList[indiceSample].X, fixDataList[indiceSample].Y, previousFixX, previousFixY, fixColor, formulario, pictureBoxStimulus, stimulusSize, stimulusLocation);
                     previousFixX = fixDataList[indiceSample].X;
                     previousFixY = fixDataList[indiceSample].Y;
@@ -196,7 +214,7 @@ namespace LookAndPlayForm.Resumen
             //bool currentDotOverPictureBox = isDotOverPictureBox(currentFixX, currentFixY, stimulusLocation.X, stimulusLocation.Y, stimulusSize.Width, stimulusSize.Height);
             //bool previousDotOverPictureBox = isDotOverPictureBox(previousFixX, previousFixY, stimulusLocation.X, stimulusLocation.Y, stimulusSize.Width, stimulusSize.Height);
 
-            // se grafican las dos lineas, total al final si no corresponde no se dibuja
+            //se grafican tanto sobre el picturebox como sobre el form que total si no se puede no grafica
             //if (currentDotOverPictureBox)
             {
                 Pen myPen = new Pen(lineColor);
@@ -206,11 +224,11 @@ namespace LookAndPlayForm.Resumen
 
                 myPen.Dispose();
                 g.Dispose();
-
             }
             //else
             {
-                Pen myPen = new Pen(Color.Black);
+                //Pen myPen = new Pen(Color.Black);
+                Pen myPen = new Pen(lineColor);
                 Graphics g = formulario.CreateGraphics();
 
                 g.DrawLine(myPen,
@@ -222,7 +240,6 @@ namespace LookAndPlayForm.Resumen
 
                 myPen.Dispose();
                 g.Dispose();
-
             }
 
         }
