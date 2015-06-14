@@ -158,13 +158,50 @@ namespace LookAndPlayForm.Resumen
 
         private void getRegression()
         {
-            int regressionL = 0;
-            int regressionR = 0;
 
-            textBoxRegressionL.Text = regressionL.ToString();
-            textBoxRegressionR.Text = regressionR.ToString();
+            if (numberOfFixL != 0)
+            {
+                //mean
+                int regressionL = eyeRegression(fixData.fixationDataPointLeft);
+                textBoxRegressionL.Text = regressionL.ToString();
+            }
+
+            if (numberOfFixR != 0)
+            {
+                //mean
+                int regressionR = eyeRegression(fixData.fixationDataPointRight);
+                textBoxRegressionR.Text = regressionR.ToString();
+            }
         }
+        private int eyeRegression(List<fixationDataPoint> listaFixDataPoints)
+        {
+            int numberOfRegression  = 0;
+            bool firstFix = true;
+            Point previousFix = new Point();
 
+            for(int indexFix = 0; indexFix<listaFixDataPoints.Count;indexFix++)
+            {
+                if (listaFixDataPoints[indexFix].fixationState == stateFixationData.end)
+                {
+                    if (firstFix)
+                    {
+                        firstFix = false;
+                        previousFix = new Point(listaFixDataPoints[indexFix].fixationData.X, listaFixDataPoints[indexFix].fixationData.Y);
+                    }
+                    else
+                    {
+                        Point currentFix = new Point(listaFixDataPoints[indexFix].fixationData.X, listaFixDataPoints[indexFix].fixationData.Y);
+                        
+                        if (RegressionDetector.RegressionDetector.esUnaRegresion(currentFix, previousFix))
+                            numberOfRegression++;
+
+                        previousFix = currentFix;
+                    }
+                }
+            }
+
+            return numberOfRegression;
+        }
              
         private void getSOR()
         {

@@ -180,7 +180,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="RegressionDetector\RegressionDetector.cs" />
-    <Compile Include="RegressionDetector\RegressionDetectorData.cs" />
     <Compile Include="Resumen\class4Graphic.cs" />
     <Compile Include="Resumen\Graph1.cs">
       <SubType>Form</SubType>
