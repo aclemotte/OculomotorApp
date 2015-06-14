@@ -152,7 +152,17 @@ namespace LookAndPlayForm.Resumen
             getWordsPerMinute();
             getSOR();
             getFix100W();
+            getRegression();
             getCalibError();
+        }
+
+        private void getRegression()
+        {
+            int regressionL = 0;
+            int regressionR = 0;
+
+            textBoxRegressionL.Text = regressionL.ToString();
+            textBoxRegressionR.Text = regressionR.ToString();
         }
 
              

@@ -40,8 +40,8 @@
             this.textBoxStdFixR = new System.Windows.Forms.TextBox();
             this.textBoxMeanFixR = new System.Windows.Forms.TextBox();
             this.textBoxNumFixR = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelRight = new System.Windows.Forms.Label();
+            this.labelLeft = new System.Windows.Forms.Label();
             this.checkBoxL = new System.Windows.Forms.CheckBox();
             this.checkBoxR = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -65,6 +65,9 @@
             this.toolStripStatusLabelString = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelFileName = new System.Windows.Forms.ToolStripStatusLabel();
             this.buttonPlotExtern = new System.Windows.Forms.Button();
+            this.textBoxRegressionR = new System.Windows.Forms.TextBox();
+            this.textBoxRegressionL = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.statusStripResumen.SuspendLayout();
@@ -84,7 +87,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(116, 431);
+            this.label1.Location = new System.Drawing.Point(71, 431);
             this.label1.MaximumSize = new System.Drawing.Size(140, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 48);
@@ -95,7 +98,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(255, 445);
+            this.label2.Location = new System.Drawing.Point(210, 445);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(249, 24);
             this.label2.TabIndex = 7;
@@ -105,7 +108,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(48, 198);
+            this.label4.Location = new System.Drawing.Point(15, 198);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(160, 24);
             this.label4.TabIndex = 9;
@@ -127,7 +130,7 @@
             // 
             this.textBoxStdFixL.BackColor = System.Drawing.Color.White;
             this.textBoxStdFixL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxStdFixL.Location = new System.Drawing.Point(412, 482);
+            this.textBoxStdFixL.Location = new System.Drawing.Point(367, 482);
             this.textBoxStdFixL.Name = "textBoxStdFixL";
             this.textBoxStdFixL.ReadOnly = true;
             this.textBoxStdFixL.Size = new System.Drawing.Size(70, 29);
@@ -137,7 +140,7 @@
             // 
             this.textBoxMeanFixL.BackColor = System.Drawing.Color.White;
             this.textBoxMeanFixL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMeanFixL.Location = new System.Drawing.Point(272, 482);
+            this.textBoxMeanFixL.Location = new System.Drawing.Point(227, 482);
             this.textBoxMeanFixL.Name = "textBoxMeanFixL";
             this.textBoxMeanFixL.ReadOnly = true;
             this.textBoxMeanFixL.Size = new System.Drawing.Size(70, 29);
@@ -147,7 +150,7 @@
             // 
             this.textBoxNumFixL.BackColor = System.Drawing.Color.White;
             this.textBoxNumFixL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumFixL.Location = new System.Drawing.Point(135, 482);
+            this.textBoxNumFixL.Location = new System.Drawing.Point(90, 482);
             this.textBoxNumFixL.Name = "textBoxNumFixL";
             this.textBoxNumFixL.ReadOnly = true;
             this.textBoxNumFixL.Size = new System.Drawing.Size(70, 29);
@@ -157,7 +160,7 @@
             // 
             this.textBoxStdFixR.BackColor = System.Drawing.Color.White;
             this.textBoxStdFixR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxStdFixR.Location = new System.Drawing.Point(412, 536);
+            this.textBoxStdFixR.Location = new System.Drawing.Point(367, 536);
             this.textBoxStdFixR.Name = "textBoxStdFixR";
             this.textBoxStdFixR.ReadOnly = true;
             this.textBoxStdFixR.Size = new System.Drawing.Size(70, 29);
@@ -167,7 +170,7 @@
             // 
             this.textBoxMeanFixR.BackColor = System.Drawing.Color.White;
             this.textBoxMeanFixR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMeanFixR.Location = new System.Drawing.Point(272, 536);
+            this.textBoxMeanFixR.Location = new System.Drawing.Point(227, 536);
             this.textBoxMeanFixR.Name = "textBoxMeanFixR";
             this.textBoxMeanFixR.ReadOnly = true;
             this.textBoxMeanFixR.Size = new System.Drawing.Size(70, 29);
@@ -177,31 +180,33 @@
             // 
             this.textBoxNumFixR.BackColor = System.Drawing.Color.White;
             this.textBoxNumFixR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumFixR.Location = new System.Drawing.Point(135, 536);
+            this.textBoxNumFixR.Location = new System.Drawing.Point(90, 536);
             this.textBoxNumFixR.Name = "textBoxNumFixR";
             this.textBoxNumFixR.ReadOnly = true;
             this.textBoxNumFixR.Size = new System.Drawing.Size(70, 29);
             this.textBoxNumFixR.TabIndex = 15;
             // 
-            // label6
+            // labelRight
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(60, 536);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 24);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "R";
+            this.labelRight.AutoSize = true;
+            this.labelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRight.ForeColor = System.Drawing.Color.Blue;
+            this.labelRight.Location = new System.Drawing.Point(24, 536);
+            this.labelRight.Name = "labelRight";
+            this.labelRight.Size = new System.Drawing.Size(23, 24);
+            this.labelRight.TabIndex = 20;
+            this.labelRight.Text = "R";
             // 
-            // label7
+            // labelLeft
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(60, 482);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(20, 24);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "L";
+            this.labelLeft.AutoSize = true;
+            this.labelLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLeft.ForeColor = System.Drawing.Color.Green;
+            this.labelLeft.Location = new System.Drawing.Point(24, 482);
+            this.labelLeft.Name = "labelLeft";
+            this.labelLeft.Size = new System.Drawing.Size(20, 24);
+            this.labelLeft.TabIndex = 21;
+            this.labelLeft.Text = "L";
             // 
             // checkBoxL
             // 
@@ -233,7 +238,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBoxRegressionR);
             this.groupBox1.Controls.Add(this.textBoxFixs100WR);
+            this.groupBox1.Controls.Add(this.textBoxRegressionL);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBoxFixs100WL);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBoxSORR);
@@ -253,7 +261,7 @@
             // 
             this.textBoxFixs100WR.BackColor = System.Drawing.Color.White;
             this.textBoxFixs100WR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFixs100WR.Location = new System.Drawing.Point(676, 148);
+            this.textBoxFixs100WR.Location = new System.Drawing.Point(624, 148);
             this.textBoxFixs100WR.Name = "textBoxFixs100WR";
             this.textBoxFixs100WR.ReadOnly = true;
             this.textBoxFixs100WR.Size = new System.Drawing.Size(70, 29);
@@ -263,7 +271,7 @@
             // 
             this.textBoxFixs100WL.BackColor = System.Drawing.Color.White;
             this.textBoxFixs100WL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFixs100WL.Location = new System.Drawing.Point(676, 94);
+            this.textBoxFixs100WL.Location = new System.Drawing.Point(624, 94);
             this.textBoxFixs100WL.Name = "textBoxFixs100WL";
             this.textBoxFixs100WL.ReadOnly = true;
             this.textBoxFixs100WL.Size = new System.Drawing.Size(70, 29);
@@ -273,7 +281,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(643, 57);
+            this.label5.Location = new System.Drawing.Point(591, 57);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(135, 24);
             this.label5.TabIndex = 104;
@@ -283,7 +291,7 @@
             // 
             this.textBoxSORR.BackColor = System.Drawing.Color.White;
             this.textBoxSORR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSORR.Location = new System.Drawing.Point(532, 148);
+            this.textBoxSORR.Location = new System.Drawing.Point(487, 148);
             this.textBoxSORR.Name = "textBoxSORR";
             this.textBoxSORR.ReadOnly = true;
             this.textBoxSORR.Size = new System.Drawing.Size(70, 29);
@@ -293,7 +301,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(519, 44);
+            this.label10.Location = new System.Drawing.Point(474, 44);
             this.label10.MaximumSize = new System.Drawing.Size(120, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(111, 48);
@@ -304,7 +312,7 @@
             // 
             this.textBoxSORL.BackColor = System.Drawing.Color.White;
             this.textBoxSORL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSORL.Location = new System.Drawing.Point(532, 94);
+            this.textBoxSORL.Location = new System.Drawing.Point(487, 94);
             this.textBoxSORL.Name = "textBoxSORL";
             this.textBoxSORL.ReadOnly = true;
             this.textBoxSORL.Size = new System.Drawing.Size(70, 29);
@@ -314,7 +322,7 @@
             // 
             this.textBoxWordsMin.BackColor = System.Drawing.Color.White;
             this.textBoxWordsMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxWordsMin.Location = new System.Drawing.Point(260, 196);
+            this.textBoxWordsMin.Location = new System.Drawing.Point(215, 196);
             this.textBoxWordsMin.Name = "textBoxWordsMin";
             this.textBoxWordsMin.ReadOnly = true;
             this.textBoxWordsMin.Size = new System.Drawing.Size(70, 29);
@@ -445,6 +453,36 @@
             this.buttonPlotExtern.UseVisualStyleBackColor = true;
             this.buttonPlotExtern.Click += new System.EventHandler(this.buttonPlotExtern_Click);
             // 
+            // textBoxRegressionR
+            // 
+            this.textBoxRegressionR.BackColor = System.Drawing.Color.White;
+            this.textBoxRegressionR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegressionR.Location = new System.Drawing.Point(761, 148);
+            this.textBoxRegressionR.Name = "textBoxRegressionR";
+            this.textBoxRegressionR.ReadOnly = true;
+            this.textBoxRegressionR.Size = new System.Drawing.Size(70, 29);
+            this.textBoxRegressionR.TabIndex = 109;
+            // 
+            // textBoxRegressionL
+            // 
+            this.textBoxRegressionL.BackColor = System.Drawing.Color.White;
+            this.textBoxRegressionL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegressionL.Location = new System.Drawing.Point(761, 94);
+            this.textBoxRegressionL.Name = "textBoxRegressionL";
+            this.textBoxRegressionL.ReadOnly = true;
+            this.textBoxRegressionL.Size = new System.Drawing.Size(70, 29);
+            this.textBoxRegressionL.TabIndex = 108;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(733, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 24);
+            this.label3.TabIndex = 107;
+            this.label3.Text = "Regressions";
+            // 
             // Resumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,8 +498,8 @@
             this.Controls.Add(this.checkBoxFixations);
             this.Controls.Add(this.checkBoxR);
             this.Controls.Add(this.checkBoxL);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labelLeft);
+            this.Controls.Add(this.labelRight);
             this.Controls.Add(this.textBoxStdFixR);
             this.Controls.Add(this.textBoxMeanFixR);
             this.Controls.Add(this.textBoxNumFixR);
@@ -502,8 +540,8 @@
         private System.Windows.Forms.TextBox textBoxStdFixR;
         private System.Windows.Forms.TextBox textBoxMeanFixR;
         private System.Windows.Forms.TextBox textBoxNumFixR;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelRight;
+        private System.Windows.Forms.Label labelLeft;
         private System.Windows.Forms.CheckBox checkBoxL;
         private System.Windows.Forms.CheckBox checkBoxR;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -527,6 +565,9 @@
         private System.Windows.Forms.TextBox textBoxFixs100WR;
         private System.Windows.Forms.TextBox textBoxFixs100WL;
         private System.Windows.Forms.Button buttonPlotExtern;
+        private System.Windows.Forms.TextBox textBoxRegressionR;
+        private System.Windows.Forms.TextBox textBoxRegressionL;
+        private System.Windows.Forms.Label label3;
 
 
 
