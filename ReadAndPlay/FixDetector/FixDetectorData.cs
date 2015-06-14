@@ -9,7 +9,7 @@ namespace LookAndPlayForm.FixDetector
     public class fixationDataPoint
     {
         public SFDFixation fixationData;
-        public stateFixationData fixationState;
+        public stateFixationData fixationState;//fixation start or end
     }
 
     public class fixationData
@@ -35,7 +35,7 @@ namespace LookAndPlayForm.FixDetector
 
     public enum stateFixationData
     {
-        start = 0,
-        end = 1
+        start = 0,  //fixation start
+        end = 1     //fixation end
     }
 }

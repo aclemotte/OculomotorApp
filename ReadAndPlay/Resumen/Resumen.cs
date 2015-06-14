@@ -159,13 +159,17 @@ namespace LookAndPlayForm.Resumen
         private void getSOR()
         {
             int numberOfWord = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras;
-            double sor = ((double)numberOfWord / (double)numberOfFix);
-            double sorL = ((double)numberOfWord / (double)numberOfFixL);
-            double sorR = ((double)numberOfWord / (double)numberOfFixR);
 
-            //textBoxSOR.Text = sor.ToString("0.00");
-            textBoxSORL.Text = sorL.ToString("0.00");
-            textBoxSORR.Text = sorR.ToString("0.00");
+            if (numberOfFixL != 0)
+            {
+                double sorL = ((double)numberOfWord / (double)numberOfFixL);
+                textBoxSORL.Text = sorL.ToString("0.00");
+            }
+            if(numberOfFixR !=0)
+            {
+                double sorR = ((double)numberOfWord / (double)numberOfFixR);
+                textBoxSORR.Text = sorR.ToString("0.00");
+            }            
         }
 
         private void getCalibError()
@@ -188,50 +192,63 @@ namespace LookAndPlayForm.Resumen
         {
             int lastItem = eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL.Count;
             int wordPerMin = 0;
-            double tiempo = (double)(
-                                eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[lastItem - 1].Timestamp -
-                                eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[0].Timestamp
-                                    ) /
-                            (double)(1000000 * 60);//microsegundos a minutos
 
-            //aca puede que se pueda calcular hasta la ultima fijacion en vez de la ultima mirada
-            wordPerMin = (int)((double)Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras / tiempo);
-            textBoxWordsMin.Text = wordPerMin.ToString();
+            if(lastItem > 0)
+            {
+                double tiempo = (double)(
+                                    eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[lastItem - 1].Timestamp -
+                                    eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[0].Timestamp
+                                        ) /
+                                (double)(1000000 * 60);//microsegundos a minutos
 
+                //aca puede que se pueda calcular hasta la ultima fijacion en vez de la ultima mirada
+                wordPerMin = (int)((double)Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras / tiempo);
+                textBoxWordsMin.Text = wordPerMin.ToString();
+            }
         }
         
         private void getFix100W()
         {
             int numberOfWord = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras;
-            double fix100WordsL = ((double)numberOfFixL / (double)numberOfWord * 100 );
-            double fix100WordsR = ((double)numberOfFixR / (double)numberOfWord * 100 );
+            
+            if(numberOfFixL != 0)
+            {
+                double fix100WordsL = ((double)numberOfFixL / (double)numberOfWord * 100 );
+                textBoxFixs100WL.Text = fix100WordsL.ToString("0");
+            }
 
-            textBoxFixs100WL.Text = fix100WordsL.ToString("0");
-            textBoxFixs100WR.Text = fix100WordsR.ToString("0");
+            if (numberOfFixR != 0)
+            {
+                double fix100WordsR = ((double)numberOfFixR / (double)numberOfWord * 100);
+                textBoxFixs100WR.Text = fix100WordsR.ToString("0");
+            }
         }
 
 
 
         private void getMeanAndStdDurationFix()
         {
-            //mean
-            double meanFixDuration = eyeMeanDurationFix(fixData.fixationDataPointLandR);
-            double meanFixDurationL = eyeMeanDurationFix(fixData.fixationDataPointLeft);
-            double meanFixDurationR = eyeMeanDurationFix(fixData.fixationDataPointRight);
-
-            //textBoxMeanFix.Text = ((int)meanFixDuration).ToString();
-            textBoxMeanFixL.Text = (meanFixDurationL/1000).ToString("0.00");
-            textBoxMeanFixR.Text = (meanFixDurationR/1000).ToString("0.00");
-
-            //std
-            double stdFixDuration = eyeStdDurationFix(fixData.fixationDataPointLandR, meanFixDuration);
-            double stdFixDurationL = eyeStdDurationFix(fixData.fixationDataPointLeft, meanFixDurationL);
-            double stdFixDurationR = eyeStdDurationFix(fixData.fixationDataPointRight, meanFixDurationR);
-
             
-            //textBoxStdFix.Text = ((int)stdFixDuration).ToString();
-            textBoxStdFixL.Text = (stdFixDurationL/1000).ToString("0.00");
-            textBoxStdFixR.Text = (stdFixDurationR/1000).ToString("0.00");
+            if(numberOfFixL!=0)
+            {
+                //mean
+                double meanFixDurationL = eyeMeanDurationFix(fixData.fixationDataPointLeft);
+                textBoxMeanFixL.Text = (meanFixDurationL/1000).ToString("0.00");
+                //std
+                double stdFixDurationL = eyeStdDurationFix(fixData.fixationDataPointLeft, meanFixDurationL);
+                textBoxStdFixL.Text = (stdFixDurationL / 1000).ToString("0.00");
+            }
+
+            if (numberOfFixR != 0)
+            {
+                //mean
+                double meanFixDurationR = eyeMeanDurationFix(fixData.fixationDataPointRight);
+                textBoxMeanFixR.Text = (meanFixDurationR / 1000).ToString("0.00");
+                //std
+                double stdFixDurationR = eyeStdDurationFix(fixData.fixationDataPointRight, meanFixDurationR);
+                textBoxStdFixR.Text = (stdFixDurationR / 1000).ToString("0.00");
+            }
+
         }
         private double eyeStdDurationFix(List<fixationDataPoint> listaFixDataPoints, double mean)
         {
@@ -242,7 +259,10 @@ namespace LookAndPlayForm.Resumen
                 stdFixDuration += (fixPoint.fixationData.Duration - mean) * (fixPoint.fixationData.Duration - mean);
             }
 
-            stdFixDuration = Math.Sqrt(Convert.ToDouble(stdFixDuration / listaFixDataPoints.Count));
+            if (listaFixDataPoints.Count == 0)
+                stdFixDuration = double.NaN;
+            else
+                stdFixDuration = Math.Sqrt(Convert.ToDouble(stdFixDuration / listaFixDataPoints.Count));
             
             return stdFixDuration;
         }
@@ -260,7 +280,12 @@ namespace LookAndPlayForm.Resumen
             }
 
             //problema si es dividido por cero
-            meanFixDuration = (double)sumFixDuration / (double)listaFixDataPoints.Count;
+            if (listaFixDataPoints.Count == 0)
+                meanFixDuration = double.NaN;
+            else
+                meanFixDuration = (double)sumFixDuration / (double)listaFixDataPoints.Count;
+
+
             return meanFixDuration;
 
         }
@@ -273,7 +298,7 @@ namespace LookAndPlayForm.Resumen
             //textBoxNumFixL.Text = eyeNumberOfFix(fixData.fixationDataPointLeft).ToString();
             //textBoxNumFixR.Text = eyeNumberOfFix(fixData.fixationDataPointRight).ToString();
 
-            numberOfFix = eyeNumberOfFix(fixData.fixationDataPointLandR);
+            //numberOfFix = eyeNumberOfFix(fixData.fixationDataPointLandR);
             numberOfFixL = eyeNumberOfFix(fixData.fixationDataPointLeft);
             numberOfFixR = eyeNumberOfFix(fixData.fixationDataPointRight);
 

@@ -174,11 +174,12 @@ namespace LookAndPlayForm.Resumen
         }
 
 
-        public static void plotLinesBetweenFixs(List<Point> fixDataList, Color fixColor, Form formulario, PictureBox pictureBoxStimulus, Size stimulusSize, Point stimulusLocation)
+        public static void plotLinesBetweenFixs(List<Point> fixDataList, Color lineColor, Form formulario, PictureBox pictureBoxStimulus, Size stimulusSize, Point stimulusLocation)
         {
             bool firstFix = true;
             int previousFixX = 0;
             int previousFixY = 0;
+            Color tempLineColor;
 
             for (var indiceSample = 0; indiceSample < fixDataList.Count; indiceSample++)
             {
@@ -190,13 +191,12 @@ namespace LookAndPlayForm.Resumen
                 }
                 else
                 {
-                    //Color lineColor;
-                    //if (fixDataList[indiceSample].X < previousFixX)
-                    //    lineColor = Color.Red;
-                    //else
-                    //    lineColor = fixColor;
+                    if (fixDataList[indiceSample].X < previousFixX)
+                        tempLineColor = Color.Red;
+                    else
+                        tempLineColor = lineColor;
 
-                    plotLine(fixDataList[indiceSample].X, fixDataList[indiceSample].Y, previousFixX, previousFixY, fixColor, formulario, pictureBoxStimulus, stimulusSize, stimulusLocation);
+                    plotLine(fixDataList[indiceSample].X, fixDataList[indiceSample].Y, previousFixX, previousFixY, tempLineColor, formulario, pictureBoxStimulus, stimulusSize, stimulusLocation);
                     previousFixX = fixDataList[indiceSample].X;
                     previousFixY = fixDataList[indiceSample].Y;
                 }
