@@ -32,10 +32,14 @@ namespace LookAndPlayForm.RegressionDetector
                 fijacionSaltoPoco = false;
 
             //si fijacion salto fuera del rango entre [150 y 210] grados (para atras)
-            double anguloSalto = Math.Atan(Math.Abs(deltaY) / Math.Abs(deltaX)) * 180 / Math.PI;
-            if (anguloSalto > umbralAnguloRegression)
+            if (Math.Abs(deltaX) < 0.001)
                 fijacionAnguloOk = false;
-
+            else
+            {
+                double anguloSalto = Math.Atan(Math.Abs(deltaY) / Math.Abs(deltaX)) * 180 / Math.PI;
+                if (anguloSalto > umbralAnguloRegression)
+                    fijacionAnguloOk = false;
+            }
 
             //si se cumplen todas las condiciones se retorna true
             if (fijacionRetrocedio && fijacionSaltoPoco && fijacionAnguloOk)
