@@ -193,10 +193,18 @@ namespace LookAndPlayForm
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            userDataSelected = new users_class();
-            userDataSelected.user_id = numericUpDownUserID.Value.ToString();
-            userDataSelected.user_name = textBoxUserName.Text;
-            userDataSelected.user_institution = textBoxUserInstitution.Text;
+            if (comboBoxSampleText.SelectedItem != null)
+            {
+                userDataSelected = new users_class();
+                userDataSelected.user_id = numericUpDownUserID.Value.ToString();
+                userDataSelected.user_name = textBoxUserName.Text;
+                userDataSelected.user_institution = textBoxUserInstitution.Text;
+            }
+            else
+            {
+                this.DialogResult = DialogResult.None;
+                MessageBox.Show("Please select a sample text");
+            }
         }
 
         //private void radioButtonText1_CheckedChanged(object sender, EventArgs e)
@@ -219,6 +227,14 @@ namespace LookAndPlayForm
                 resumenGame1.Show();
             else
                 resumenGame1.Dispose();
+        }
+
+        private void comboBoxSampleText_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(comboBoxSampleText.SelectedIndex != -1)
+            {
+                Program.datosCompartidos.image2read = comboBoxSampleText.SelectedItem.ToString();
+            }
         }
 
     }

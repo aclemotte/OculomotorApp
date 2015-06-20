@@ -37,7 +37,7 @@
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.numericUpDownUserID = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSampleText = new System.Windows.Forms.ComboBox();
             this.labelVersion = new System.Windows.Forms.Label();
             this.buttonResume = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).BeginInit();
@@ -88,7 +88,7 @@
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOk.Location = new System.Drawing.Point(419, 188);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(161, 35);
+            this.buttonOk.Size = new System.Drawing.Size(192, 35);
             this.buttonOk.TabIndex = 4;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -128,40 +128,38 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboBoxSampleText);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(419, 42);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(192, 115);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Text sample";
+            this.groupBox1.Text = "Sample text";
             // 
-            // comboBox1
+            // comboBoxSampleText
             // 
-            this.comboBox1.DisplayMember = "asdfa";
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "text 1",
-            "text 15",
-            "text 16",
-            "text 17",
-            "text 2",
-            "text 29",
-            "text 3",
-            "text 30",
-            "text 31",
-            "text 87",
-            "text 88",
-            "text 89"});
-            this.comboBox1.Location = new System.Drawing.Point(13, 47);
-            this.comboBox1.MaxDropDownItems = 12;
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(162, 32);
-            this.comboBox1.Sorted = true;
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.Text = "Select a text";
+            this.comboBoxSampleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSampleText.FormattingEnabled = true;
+            this.comboBoxSampleText.Items.AddRange(new object[] {
+            "Level 1. Text 1",
+            "Level 1. Text 2",
+            "Level 1. Text 3",
+            "Level 2. Text 15",
+            "Level 2. Text 16",
+            "Level 2. Text 17",
+            "Level 3. Text 29",
+            "Level 3. Text 30",
+            "Level 3. Text 31",
+            "Level 7. Text 87",
+            "Level 7. Text 88",
+            "Level 7. Text 89"});
+            this.comboBoxSampleText.Location = new System.Drawing.Point(13, 47);
+            this.comboBoxSampleText.MaxDropDownItems = 12;
+            this.comboBoxSampleText.Name = "comboBoxSampleText";
+            this.comboBoxSampleText.Size = new System.Drawing.Size(162, 32);
+            this.comboBoxSampleText.TabIndex = 11;
+            this.comboBoxSampleText.SelectedValueChanged += new System.EventHandler(this.comboBoxSampleText_SelectedValueChanged);
             // 
             // labelVersion
             // 
@@ -188,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 249);
+            this.ClientSize = new System.Drawing.Size(671, 249);
             this.Controls.Add(this.buttonResume);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.numericUpDownUserID);
@@ -222,7 +220,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Button buttonResume;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxSampleText;
     }
 }
 
