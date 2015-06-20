@@ -27,7 +27,7 @@ namespace LookAndPlayForm
             eyeNotFound = true;
             updateCsv = false;
             getDisplaySelected();
-            image2read = "TextoIn4.png"; //"TextoEs1.png"; //
+            image2read = "visagraphText1.png";// "TextoIn4.png"; //"TextoEs1.png"; //
             startTime = Varios.functions.getCurrentTime();
         }
 

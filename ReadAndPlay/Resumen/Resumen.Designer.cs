@@ -45,7 +45,10 @@
             this.checkBoxL = new System.Windows.Forms.CheckBox();
             this.checkBoxR = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxRegressionR = new System.Windows.Forms.TextBox();
             this.textBoxFixs100WR = new System.Windows.Forms.TextBox();
+            this.textBoxRegressionL = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.textBoxFixs100WL = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxSORR = new System.Windows.Forms.TextBox();
@@ -65,9 +68,6 @@
             this.toolStripStatusLabelString = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelFileName = new System.Windows.Forms.ToolStripStatusLabel();
             this.buttonPlotExtern = new System.Windows.Forms.Button();
-            this.textBoxRegressionR = new System.Windows.Forms.TextBox();
-            this.textBoxRegressionL = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.statusStripResumen.SuspendLayout();
@@ -257,6 +257,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fixation analysis";
             // 
+            // textBoxRegressionR
+            // 
+            this.textBoxRegressionR.BackColor = System.Drawing.Color.White;
+            this.textBoxRegressionR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegressionR.Location = new System.Drawing.Point(761, 148);
+            this.textBoxRegressionR.Name = "textBoxRegressionR";
+            this.textBoxRegressionR.ReadOnly = true;
+            this.textBoxRegressionR.Size = new System.Drawing.Size(70, 29);
+            this.textBoxRegressionR.TabIndex = 109;
+            // 
             // textBoxFixs100WR
             // 
             this.textBoxFixs100WR.BackColor = System.Drawing.Color.White;
@@ -266,6 +276,26 @@
             this.textBoxFixs100WR.ReadOnly = true;
             this.textBoxFixs100WR.Size = new System.Drawing.Size(70, 29);
             this.textBoxFixs100WR.TabIndex = 106;
+            // 
+            // textBoxRegressionL
+            // 
+            this.textBoxRegressionL.BackColor = System.Drawing.Color.White;
+            this.textBoxRegressionL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegressionL.Location = new System.Drawing.Point(761, 94);
+            this.textBoxRegressionL.Name = "textBoxRegressionL";
+            this.textBoxRegressionL.ReadOnly = true;
+            this.textBoxRegressionL.Size = new System.Drawing.Size(70, 29);
+            this.textBoxRegressionL.TabIndex = 108;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(733, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 24);
+            this.label3.TabIndex = 107;
+            this.label3.Text = "Regressions";
             // 
             // textBoxFixs100WL
             // 
@@ -453,36 +483,6 @@
             this.buttonPlotExtern.UseVisualStyleBackColor = true;
             this.buttonPlotExtern.Click += new System.EventHandler(this.buttonPlotExtern_Click);
             // 
-            // textBoxRegressionR
-            // 
-            this.textBoxRegressionR.BackColor = System.Drawing.Color.White;
-            this.textBoxRegressionR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRegressionR.Location = new System.Drawing.Point(761, 148);
-            this.textBoxRegressionR.Name = "textBoxRegressionR";
-            this.textBoxRegressionR.ReadOnly = true;
-            this.textBoxRegressionR.Size = new System.Drawing.Size(70, 29);
-            this.textBoxRegressionR.TabIndex = 109;
-            // 
-            // textBoxRegressionL
-            // 
-            this.textBoxRegressionL.BackColor = System.Drawing.Color.White;
-            this.textBoxRegressionL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRegressionL.Location = new System.Drawing.Point(761, 94);
-            this.textBoxRegressionL.Name = "textBoxRegressionL";
-            this.textBoxRegressionL.ReadOnly = true;
-            this.textBoxRegressionL.Size = new System.Drawing.Size(70, 29);
-            this.textBoxRegressionL.TabIndex = 108;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(733, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 24);
-            this.label3.TabIndex = 107;
-            this.label3.Text = "Regressions";
-            // 
             // Resumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,6 +515,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Resumen";
             this.Text = "Resume";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).EndInit();

@@ -199,17 +199,17 @@ namespace LookAndPlayForm
             userDataSelected.user_institution = textBoxUserInstitution.Text;
         }
 
-        private void radioButtonText1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButtonText1.Checked)
-                Program.datosCompartidos.image2read = "TextoIn4.png";
-            else
-                Program.datosCompartidos.image2read = "TextoIn5.png";
-        }
+        //private void radioButtonText1_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (radioButtonText1.Checked)
+        //        Program.datosCompartidos.image2read = "TextoIn4.png";
+        //    else
+        //        Program.datosCompartidos.image2read = "TextoIn5.png";
+        //}
 
-        private void radioButtonText2_CheckedChanged(object sender, EventArgs e)
-        {
-        }
+        //private void radioButtonText2_CheckedChanged(object sender, EventArgs e)
+        //{
+        //}
 
         private void buttonResume_Click(object sender, EventArgs e)
         {

@@ -282,6 +282,18 @@
     <Content Include="Resources\Textos\TextoIn3.PNG" />
     <Content Include="Resources\Textos\TextoIn4.PNG" />
     <Content Include="Resources\Textos\TextoIn5.PNG" />
+    <Content Include="Resources\Textos\visagraphText1.png" />
+    <Content Include="Resources\Textos\visagraphText15.png" />
+    <Content Include="Resources\Textos\visagraphText16.png" />
+    <Content Include="Resources\Textos\visagraphText17.png" />
+    <Content Include="Resources\Textos\visagraphText2.png" />
+    <Content Include="Resources\Textos\visagraphText29.png" />
+    <Content Include="Resources\Textos\visagraphText3.png" />
+    <Content Include="Resources\Textos\visagraphText30.png" />
+    <Content Include="Resources\Textos\visagraphText31.png" />
+    <Content Include="Resources\Textos\visagraphText87.png" />
+    <Content Include="Resources\Textos\visagraphText88.png" />
+    <Content Include="Resources\Textos\visagraphText89.png" />
     <Content Include="TobiiGazeCore32.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

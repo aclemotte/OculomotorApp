@@ -157,4 +157,40 @@
   <data name="TextoIn5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Textos\TextoIn5.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="visagraphText1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visagraphText15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visagraphText16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visagraphText17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visagraphText2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visagraphText29" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText29.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visagraphText3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visagraphText30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visagraphText31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visagraphText87" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText87.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visagraphText88" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText88.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visagraphText89" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textos\visagraphText89.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
