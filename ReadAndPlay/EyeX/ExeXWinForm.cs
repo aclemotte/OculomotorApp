@@ -266,16 +266,11 @@ namespace LookAndPlayForm
 
         private void OnGetCalibrationCompleted(object sender, CalibrationReadyEventArgs e)
         {
-            //textBoxCalibrationErrorLeft.BeginInvoke((Action)(() =>
-            //{
-            //    textBoxCalibrationErrorLeft.Text = LookAndPlayForm.Program.datosCompartidos.meanCalibrationErrorLeftPx.ToString();
-            //}));
-
-            //textBoxCalibrationErrorRight.BeginInvoke((Action)(() =>
-            //{
-            //    textBoxCalibrationErrorRight.Text = LookAndPlayForm.Program.datosCompartidos.meanCalibrationErrorRightPx.ToString();
-            //}));
-
+            toolStripStatusLabelCalibration.Text = 
+                "Calibration value. Left: " + 
+                Program.datosCompartidos.meanCalibrationErrorLeftPx.ToString() +
+                ". Rith: " +
+                Program.datosCompartidos.meanCalibrationErrorRightPx.ToString();
         }
     }
 }
