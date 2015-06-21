@@ -150,6 +150,8 @@ namespace LookAndPlayForm.Resumen
             getNumberOfFix();
             getMeanAndStdDurationFix();
             getWordsPerMinute();
+            getNumberOfWords();
+            getReadingTime();
             getSOR();
             getFix100W();
             getRegression();
@@ -252,6 +254,29 @@ namespace LookAndPlayForm.Resumen
                 wordPerMin = (int)((double)Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras / tiempo);
                 textBoxWordsMin.Text = wordPerMin.ToString();
             }
+        }
+
+        private void getReadingTime()
+        {
+            int lastItem = eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL.Count;
+            
+            if (lastItem > 0)
+            {
+                int tiempo = (int)((double)(
+                                        eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[lastItem - 1].Timestamp -
+                                        eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[0].Timestamp
+                                            ) /
+                                    (double)(1000000));//microsegundos a segundos
+
+                textBoxReadingTime.Text = tiempo.ToString("0");
+            }
+        }
+
+        private void getNumberOfWords()
+        {
+            int numberOfWords = 0;
+            numberOfWords = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras;
+            textBoxNumberOfWords.Text = numberOfWords.ToString();
         }
         
         private void getFix100W()
