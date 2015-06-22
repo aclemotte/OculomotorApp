@@ -63,8 +63,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_542046CD5F238403988B42BFB05F916A"
-        "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
+        "MsmKey" = "8:_66DBD1D9FF4E40818E59064A68088502"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -123,6 +123,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C79EF126A4AF2AEDF75EBB300E309AF1"
+        "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C7DB87984C10A64F763DBAC890D979CA"
         "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
         "MsmSig" = "8:_UNDEFINED"
@@ -149,12 +155,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_81ED2F7F91DCDEBB15862FFC4C0CCC30"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_858FD924C12071D2892BF5390AFA8111"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -190,6 +190,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_858FD924C12071D2892BF5390AFA8111"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2B73E0E918AA5DDCA52938956C8A63F8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -220,7 +226,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_542046CD5F238403988B42BFB05F916A"
+        "OwnerKey" = "8:_C79EF126A4AF2AEDF75EBB300E309AF1"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -442,21 +448,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_542046CD5F238403988B42BFB05F916A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_66DBD1D9FF4E40818E59064A68088502"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_542046CD5F238403988B42BFB05F916A"
-                    {
-                    "Name" = "8:CsvHelper.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:CsvHelper.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\Desktop\\MrPatchOculomotorAssessmentKitAgreement.rtf"
+            "TargetName" = "8:MrPatchOculomotorAssessmentKitAgreement.rtf"
             "Tag" = "8:"
             "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
             "Condition" = "8:"
@@ -470,7 +465,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8074A25100AD44AEBAD01B542D83157B"
@@ -668,6 +663,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C79EF126A4AF2AEDF75EBB300E309AF1"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_C79EF126A4AF2AEDF75EBB300E309AF1"
+                    {
+                    "Name" = "8:CsvHelper.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CsvHelper.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C7DB87984C10A64F763DBAC890D979CA"
             {
             "AssemblyRegister" = "3:1"
@@ -828,15 +854,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Reading App"
-        "ProductCode" = "8:{B7304723-E051-434F-8737-63A98A6CC834}"
-        "PackageCode" = "8:{0D239F99-A2D9-402B-B714-7CF278846B4E}"
+        "ProductCode" = "8:{AE9A1455-E6E2-49C5-BBF4-60B1713FD310}"
+        "PackageCode" = "8:{33F753CD-5DB6-4A93-90C8-C2E6F5D3C58F}"
         "UpgradeCode" = "8:{D1289E79-E680-4920-B703-0FFD44BDC58E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.5.0"
+        "ProductVersion" = "8:1.6.0"
         "Manufacturer" = "8:MrPatch"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -1263,6 +1289,53 @@
             "Attributes" = "3:1"
                 "Dialogs"
                 {
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_3C53F7978C9F460880CA1943C1F9CFF3"
+                    {
+                    "Sequence" = "3:110"
+                    "DisplayName" = "8:License Agreement"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdLicenseDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "EulaText"
+                            {
+                            "Name" = "8:EulaText"
+                            "DisplayName" = "8:#1008"
+                            "Description" = "8:#1108"
+                            "Type" = "3:6"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:_66DBD1D9FF4E40818E59064A68088502"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Sunken"
+                            {
+                            "Name" = "8:Sunken"
+                            "DisplayName" = "8:#1007"
+                            "Description" = "8:#1107"
+                            "Type" = "3:5"
+                            "ContextData" = "8:4;True=4;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:4"
+                            "DefaultValue" = "3:4"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_79C1CCED29934FA5BBC8290D69952686"
                     {
                     "Sequence" = "3:300"

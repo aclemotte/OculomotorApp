@@ -264,6 +264,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\MrPatchOculomotorAssessmentKitAgreement.rtf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />
