@@ -14,12 +14,12 @@ namespace LookAndPlayForm
         public string user_age { get; set; }
         public string user_country { get; set; }
         public string user_email { get; set; }
-        public genderClass user_gender { get; set; }
+        public userGender user_gender { get; set; }
         public diagnosedConditionsClass user_diagnosedConditions { get; set; }
 
     }
 
-    public enum genderClass
+    public enum userGender
     {
         male = 1, female = 2
     }

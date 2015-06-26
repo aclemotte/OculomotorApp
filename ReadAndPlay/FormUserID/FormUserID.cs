@@ -184,11 +184,73 @@ namespace LookAndPlayForm
             else
             {
                 int userIndex = Convert.ToInt32(numericUpDownUserID.Value) - 1;
+
                 textBoxUserName.Text = usersList[userIndex].user_name;
                 textBoxUserInstitution.Text = usersList[userIndex].user_institution;
+                textBoxAge.Text = usersList[userIndex].user_age;
+                comboBoxCountry.Text = usersList[userIndex].user_country;
+                textBoxEmail.Text = usersList[userIndex].user_email;
+                setGenderControl(usersList[userIndex].user_gender);
+                setDiagnosedConditionsControl(usersList[userIndex].user_diagnosedConditions);
+
                 textBoxUserName.ReadOnly = true;
                 textBoxUserInstitution.ReadOnly = true;
+                textBoxAge.ReadOnly = true;
+                textBoxEmail.ReadOnly = true;
             }
+        }
+
+        private void setGenderControl(userGender user_gender)
+        {
+            if (user_gender == userGender.female)
+                radioButtonFemale.Checked = true;
+            else
+                radioButtonMale.Checked = true;
+        }
+
+
+        
+        private userGender getGenderFromControl()
+        {
+            if (radioButtonFemale.Checked)
+                return userGender.female;
+            else
+                return userGender.male;
+        }
+
+
+        private void setDiagnosedConditionsControl(diagnosedConditionsClass dCondition)
+        {
+            checkBoxStrabismusExotropia.Checked = dCondition.strabismusExotropia;
+            checkBoxStrabismusEsotropia.Checked = dCondition.strabismusEsotropia;
+            checkBoxAstigmatism.Checked = dCondition.astigmatism;
+            checkBoxNystagmus.Checked = dCondition.nystagmus;
+            checkBoxAmblyopia.Checked = dCondition.amblyopia;
+            checkBoxHypermetropia.Checked = dCondition.hypermetropia;
+            checkBoxMyopia.Checked = dCondition.myopia;
+            checkBoxCranialNervePalsy.Checked = dCondition.cranialNervePalsy;
+            checkBoxADHD.Checked = dCondition.ADHD;
+            checkBoxDislexia.Checked = dCondition.dislexia;
+            checkBoxOther.Checked = dCondition.other;
+        }
+
+        private diagnosedConditionsClass getDiagnosedConditionFromControl()
+        {
+            diagnosedConditionsClass dCondition = new diagnosedConditionsClass();
+
+            dCondition.strabismusExotropia = checkBoxStrabismusExotropia.Checked;
+            dCondition.strabismusEsotropia = checkBoxStrabismusEsotropia.Checked;
+            dCondition.astigmatism = checkBoxAstigmatism.Checked;
+            dCondition.nystagmus = checkBoxNystagmus.Checked;
+            dCondition.amblyopia = checkBoxAmblyopia.Checked;
+            dCondition.hypermetropia = checkBoxHypermetropia.Checked;
+            dCondition.myopia = checkBoxMyopia.Checked;
+            dCondition.cranialNervePalsy = checkBoxCranialNervePalsy.Checked;
+            dCondition.ADHD = checkBoxADHD.Checked;
+            dCondition.dislexia = checkBoxDislexia.Checked;
+            dCondition.other = checkBoxOther.Checked;
+
+            return dCondition;
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
@@ -212,32 +274,6 @@ namespace LookAndPlayForm
             }
         }
 
-        private genderClass getGenderFromControl()
-        {
-            if (radioButtonFemale.Checked)
-                return genderClass.female;
-            else
-                return genderClass.male;
-        }
-
-        private diagnosedConditionsClass getDiagnosedConditionFromControl()
-        {
-            diagnosedConditionsClass dCondition = new diagnosedConditionsClass();
-
-            dCondition.strabismusExotropia = checkBoxStrabismusExotropia.Checked;
-            dCondition.strabismusEsotropia = checkBoxStrabismusEsotropia.Checked;
-            dCondition.astigmatism = checkBoxAstigmatism.Checked;
-            dCondition.nystagmus = checkBoxNystagmus.Checked;
-            dCondition.amblyopia = checkBoxAmblyopia.Checked;
-            dCondition.hypermetropia = checkBoxHypermetropia.Checked;
-            dCondition.myopia = checkBoxMyopia.Checked;
-            dCondition.cranialNervePalsy = checkBoxCranialNervePalsy.Checked;
-            dCondition.ADHD = checkBoxADHD.Checked;
-            dCondition.dislexia = checkBoxDislexia.Checked;
-            dCondition.other = checkBoxOther.Checked;
-
-            return dCondition;
-        }
 
         //private void radioButtonText1_CheckedChanged(object sender, EventArgs e)
         //{
