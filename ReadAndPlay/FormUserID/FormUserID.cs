@@ -199,6 +199,11 @@ namespace LookAndPlayForm
                 userDataSelected.user_id = numericUpDownUserID.Value.ToString();
                 userDataSelected.user_name = textBoxUserName.Text;
                 userDataSelected.user_institution = textBoxUserInstitution.Text;
+                userDataSelected.user_age = textBoxAge.Text;
+                userDataSelected.user_country = textBoxCountry.Text;
+                userDataSelected.user_email = textBoxEmail.Text;
+                //userDataSelected.user_gender = 
+                //userDataSelected.user_diagnosedConditions = 
             }
             else
             {
