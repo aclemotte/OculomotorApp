@@ -202,14 +202,41 @@ namespace LookAndPlayForm
                 userDataSelected.user_age = textBoxAge.Text;
                 userDataSelected.user_country = textBoxCountry.Text;
                 userDataSelected.user_email = textBoxEmail.Text;
-                //userDataSelected.user_gender = 
-                //userDataSelected.user_diagnosedConditions = 
+                userDataSelected.user_gender = getGenderFromControl();
+                userDataSelected.user_diagnosedConditions = getDiagnosedConditionFromControl();
             }
             else
             {
                 this.DialogResult = DialogResult.None;
                 MessageBox.Show("Please select a sample text");
             }
+        }
+
+        private genderClass getGenderFromControl()
+        {
+            if (radioButtonFemale.Checked)
+                return genderClass.female;
+            else
+                return genderClass.male;
+        }
+
+        private diagnosedConditionsClass getDiagnosedConditionFromControl()
+        {
+            diagnosedConditionsClass dCondition = new diagnosedConditionsClass();
+
+            dCondition.strabismusExotropia = checkBoxStrabismusExotropia.Checked;
+            dCondition.strabismusEsotropia = checkBoxStrabismusEsotropia.Checked;
+            dCondition.astigmatism = checkBoxAstigmatism.Checked;
+            dCondition.nystagmus = checkBoxNystagmus.Checked;
+            dCondition.amblyopia = checkBoxAmblyopia.Checked;
+            dCondition.hypermetropia = checkBoxHypermetropia.Checked;
+            dCondition.myopia = checkBoxMyopia.Checked;
+            dCondition.cranialNervePalsy = checkBoxCranialNervePalsy.Checked;
+            dCondition.ADHD = checkBoxADHD.Checked;
+            dCondition.dislexia = checkBoxDislexia.Checked;
+            dCondition.other = checkBoxOther.Checked;
+
+            return dCondition;
         }
 
         //private void radioButtonText1_CheckedChanged(object sender, EventArgs e)

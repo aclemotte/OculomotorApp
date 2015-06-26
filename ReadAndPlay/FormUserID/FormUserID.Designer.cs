@@ -61,6 +61,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBoxSampleText = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -239,7 +240,7 @@
             // 
             this.radioButtonMale.AutoSize = true;
             this.radioButtonMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonMale.Location = new System.Drawing.Point(159, 309);
+            this.radioButtonMale.Location = new System.Drawing.Point(165, 311);
             this.radioButtonMale.Name = "radioButtonMale";
             this.radioButtonMale.Size = new System.Drawing.Size(69, 28);
             this.radioButtonMale.TabIndex = 19;
@@ -251,7 +252,7 @@
             // 
             this.radioButtonFemale.AutoSize = true;
             this.radioButtonFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonFemale.Location = new System.Drawing.Point(274, 309);
+            this.radioButtonFemale.Location = new System.Drawing.Point(269, 311);
             this.radioButtonFemale.Name = "radioButtonFemale";
             this.radioButtonFemale.Size = new System.Drawing.Size(92, 28);
             this.radioButtonFemale.TabIndex = 20;
@@ -432,6 +433,14 @@
             this.label6.TabIndex = 33;
             this.label6.Text = "Text";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(159, 303);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(207, 41);
+            this.groupBox1.TabIndex = 34;
+            this.groupBox1.TabStop = false;
+            // 
             // FormUserID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,6 +470,7 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.labelUser);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -508,6 +518,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox comboBoxSampleText;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
