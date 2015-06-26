@@ -39,7 +39,6 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.buttonResume = new System.Windows.Forms.Button();
             this.textBoxAge = new System.Windows.Forms.TextBox();
-            this.textBoxCountry = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@
             this.comboBoxSampleText = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxCountry = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -179,14 +179,6 @@
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(207, 29);
             this.textBoxAge.TabIndex = 11;
-            // 
-            // textBoxCountry
-            // 
-            this.textBoxCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCountry.Location = new System.Drawing.Point(159, 210);
-            this.textBoxCountry.Name = "textBoxCountry";
-            this.textBoxCountry.Size = new System.Drawing.Size(207, 29);
-            this.textBoxCountry.TabIndex = 13;
             // 
             // textBoxEmail
             // 
@@ -441,11 +433,261 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             // 
+            // comboBoxCountry
+            // 
+            this.comboBoxCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCountry.FormattingEnabled = true;
+            this.comboBoxCountry.Items.AddRange(new object[] {
+            "Afghanistan",
+            "Albania",
+            "Algeria",
+            "American Samoa",
+            "Andorra",
+            "Angola",
+            "Anguilla",
+            "Antarctica",
+            "Antigua and Barbuda",
+            "Argentina",
+            "Armenia",
+            "Aruba",
+            "Australia",
+            "Austria",
+            "Azerbaijan",
+            "Bahamas",
+            "Bahrain",
+            "Bangladesh",
+            "Barbados",
+            "Belarus",
+            "Belgium",
+            "Belize",
+            "Benin",
+            "Bermuda",
+            "Bhutan",
+            "Bolivia",
+            "Bosnia and Herzegovina",
+            "Botswana",
+            "Bouvet Island",
+            "Brazil",
+            "British Indian Ocean Territory",
+            "Brunei Darussalam",
+            "Bulgaria",
+            "Burkina Faso",
+            "Burundi",
+            "Cambodia",
+            "Cameroon",
+            "Canada",
+            "Cape Verde",
+            "Cayman Islands",
+            "Central African Republic",
+            "Chad",
+            "Chile",
+            "China",
+            "Christmas Island",
+            "Cocos (Keeling) Islands",
+            "Colombia",
+            "Comoros",
+            "Congo",
+            "Congo, the Democratic Republic of the",
+            "Cook Islands",
+            "Costa Rica",
+            "Cote D\'Ivoire",
+            "Croatia",
+            "Cuba",
+            "Cyprus",
+            "Czech Republic",
+            "Denmark",
+            "Djibouti",
+            "Dominica",
+            "Dominican Republic",
+            "Ecuador",
+            "Egypt",
+            "El Salvador",
+            "Equatorial Guinea",
+            "Eritrea",
+            "Estonia",
+            "Ethiopia",
+            "Falkland Islands (Malvinas)",
+            "Faroe Islands",
+            "Fiji",
+            "Finland",
+            "France",
+            "French Guiana",
+            "French Polynesia",
+            "French Southern Territories",
+            "Gabon",
+            "Gambia",
+            "Georgia",
+            "Germany",
+            "Ghana",
+            "Gibraltar",
+            "Greece",
+            "Greenland",
+            "Grenada",
+            "Guadeloupe",
+            "Guam",
+            "Guatemala",
+            "Guinea",
+            "Guinea-Bissau",
+            "Guyana",
+            "Haiti",
+            "Heard Island and Mcdonald Islands",
+            "Holy See (Vatican City State)",
+            "Honduras",
+            "Hong Kong",
+            "Hungary",
+            "Iceland",
+            "India",
+            "Indonesia",
+            "Iran, Islamic Republic of",
+            "Iraq",
+            "Ireland",
+            "Israel",
+            "Italy",
+            "Jamaica",
+            "Japan",
+            "Jordan",
+            "Kazakhstan",
+            "Kenya",
+            "Kiribati",
+            "Korea, Democratic People\'s Republic of",
+            "Korea, Republic of",
+            "Kuwait",
+            "Kyrgyzstan",
+            "Lao People\'s Democratic Republic",
+            "Latvia",
+            "Lebanon",
+            "Lesotho",
+            "Liberia",
+            "Libyan Arab Jamahiriya",
+            "Liechtenstein",
+            "Lithuania",
+            "Luxembourg",
+            "Macao",
+            "Macedonia, the Former Yugoslav Republic of",
+            "Madagascar",
+            "Malawi",
+            "Malaysia",
+            "Maldives",
+            "Mali",
+            "Malta",
+            "Marshall Islands",
+            "Martinique",
+            "Mauritania",
+            "Mauritius",
+            "Mayotte",
+            "Mexico",
+            "Micronesia, Federated States of",
+            "Moldova, Republic of",
+            "Monaco",
+            "Mongolia",
+            "Montserrat",
+            "Morocco",
+            "Mozambique",
+            "Myanmar",
+            "Namibia",
+            "Nauru",
+            "Nepal",
+            "Netherlands",
+            "Netherlands Antilles",
+            "New Caledonia",
+            "New Zealand",
+            "Nicaragua",
+            "Niger",
+            "Nigeria",
+            "Niue",
+            "Norfolk Island",
+            "Northern Mariana Islands",
+            "Norway",
+            "Oman",
+            "Pakistan",
+            "Palau",
+            "Palestinian Territory, Occupied",
+            "Panama",
+            "Papua New Guinea",
+            "Paraguay",
+            "Peru",
+            "Philippines",
+            "Pitcairn",
+            "Poland",
+            "Portugal",
+            "Puerto Rico",
+            "Qatar",
+            "Reunion",
+            "Romania",
+            "Russian Federation",
+            "Rwanda",
+            "Saint Helena",
+            "Saint Kitts and Nevis",
+            "Saint Lucia",
+            "Saint Pierre and Miquelon",
+            "Saint Vincent and the Grenadines",
+            "Samoa",
+            "San Marino",
+            "Sao Tome and Principe",
+            "Saudi Arabia",
+            "Senegal",
+            "Serbia and Montenegro",
+            "Seychelles",
+            "Sierra Leone",
+            "Singapore",
+            "Slovakia",
+            "Slovenia",
+            "Solomon Islands",
+            "Somalia",
+            "South Africa",
+            "South Georgia and the South Sandwich Islands",
+            "Spain",
+            "Sri Lanka",
+            "Sudan",
+            "Suriname",
+            "Svalbard and Jan Mayen",
+            "Swaziland",
+            "Sweden",
+            "Switzerland",
+            "Syrian Arab Republic",
+            "Taiwan, Province of China",
+            "Tajikistan",
+            "Tanzania, United Republic of",
+            "Thailand",
+            "Timor-Leste",
+            "Togo",
+            "Tokelau",
+            "Tonga",
+            "Trinidad and Tobago",
+            "Tunisia",
+            "Turkey",
+            "Turkmenistan",
+            "Turks and Caicos Islands",
+            "Tuvalu",
+            "Uganda",
+            "Ukraine",
+            "United Arab Emirates",
+            "United Kingdom",
+            "United States",
+            "United States Minor Outlying Islands",
+            "Uruguay",
+            "Uzbekistan",
+            "Vanuatu",
+            "Venezuela",
+            "Viet Nam",
+            "Virgin Islands, British",
+            "Virgin Islands, US",
+            "Wallis and Futuna",
+            "Western Sahara",
+            "Yemen",
+            "Zambia",
+            "Zimbabwe"});
+            this.comboBoxCountry.Location = new System.Drawing.Point(159, 215);
+            this.comboBoxCountry.Name = "comboBoxCountry";
+            this.comboBoxCountry.Size = new System.Drawing.Size(207, 32);
+            this.comboBoxCountry.TabIndex = 36;
+            // 
             // FormUserID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 426);
+            this.Controls.Add(this.comboBoxCountry);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBoxSampleText);
             this.Controls.Add(this.checkBoxOther);
@@ -458,7 +700,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.textBoxCountry);
             this.Controls.Add(this.textBoxAge);
             this.Controls.Add(this.buttonResume);
             this.Controls.Add(this.labelVersion);
@@ -496,7 +737,6 @@
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Button buttonResume;
         private System.Windows.Forms.TextBox textBoxAge;
-        private System.Windows.Forms.TextBox textBoxCountry;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
@@ -519,6 +759,7 @@
         private System.Windows.Forms.ComboBox comboBoxSampleText;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBoxCountry;
     }
 }
 
