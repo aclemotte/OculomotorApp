@@ -91,7 +91,7 @@ namespace LookAndPlayForm
             this.buttonResumen.Name = "buttonResumen";
             this.buttonResumen.Size = new System.Drawing.Size(100, 30);
             this.buttonResumen.TabIndex = 7;
-            this.buttonResumen.Text = "Resume";
+            this.buttonResumen.Text = "Review";
             this.buttonResumen.UseVisualStyleBackColor = true;
             this.buttonResumen.Click += new System.EventHandler(this.buttonResumen_Click);
             // 

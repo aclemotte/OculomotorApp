@@ -101,6 +101,16 @@ namespace LookAndPlayForm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MrPatch {
+            get {
+                object obj = ResourceManager.GetObject("MrPatch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon MrPatch32 {
@@ -111,12 +121,8 @@ namespace LookAndPlayForm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fswiss\fprq2\fcharset0 Arial;}}
-        ///{\colortbl ;\red0\green0\blue0;}
-        ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sl240\slmult1\qc\lang10\f0\fs22{\pict\wmetafile8\picw16193\pich13891\picwgoal1755\pichgoal1455 
-        ///010009000003e85a07000000bf5a070000000400000003010800050000000b0200000000050000
-        ///000c020d026402030000001e0004000000070104000400000007010400bf5a0700410b2000cc00
-        ///0d026402000000000d026402000000002 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to {\rtf1\adeflang1025\ansi\ansicpg1252\uc1\adeff0\deff0\stshfdbch31505\stshfloch31506\stshfhich31506\stshfbi0\deflang1033\deflangfe1033\themelang1033\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fbidi \fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+        ///{\f34\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria Math;}{\flomajor\f31500\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Ro [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string MrPatchOculomotorAssessmentKitAgreement {
             get {

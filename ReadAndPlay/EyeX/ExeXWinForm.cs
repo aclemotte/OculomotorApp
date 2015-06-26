@@ -269,7 +269,7 @@ namespace LookAndPlayForm
             toolStripStatusLabelCalibration.Text = 
                 "Calibration value. Left: " + 
                 Program.datosCompartidos.meanCalibrationErrorLeftPx.ToString() +
-                ". Rith: " +
+                ". Right: " +
                 Program.datosCompartidos.meanCalibrationErrorRightPx.ToString();
         }
     }

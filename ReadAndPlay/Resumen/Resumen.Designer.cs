@@ -44,8 +44,11 @@
             this.checkBoxL = new System.Windows.Forms.CheckBox();
             this.checkBoxR = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelStdDevDuration = new System.Windows.Forms.Label();
             this.textBoxRegressionR = new System.Windows.Forms.TextBox();
+            this.labelMeanDuration = new System.Windows.Forms.Label();
             this.textBoxFixs100WR = new System.Windows.Forms.TextBox();
+            this.labelDuration = new System.Windows.Forms.Label();
             this.textBoxRegressionL = new System.Windows.Forms.TextBox();
             this.labelRegressions = new System.Windows.Forms.Label();
             this.textBoxFixs100WL = new System.Windows.Forms.TextBox();
@@ -61,6 +64,7 @@
             this.textBoxCalibErrorR = new System.Windows.Forms.TextBox();
             this.textBoxCalibErrorL = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.labelCalibration = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.statusStripResumen = new System.Windows.Forms.StatusStrip();
@@ -71,11 +75,7 @@
             this.labelNumberOfWords = new System.Windows.Forms.Label();
             this.labelReadingTime = new System.Windows.Forms.Label();
             this.textBoxReadingTime = new System.Windows.Forms.TextBox();
-            this.labelDuration = new System.Windows.Forms.Label();
-            this.labelMeanDuration = new System.Windows.Forms.Label();
-            this.labelStdDevDuration = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.labelCalibration = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -100,7 +100,7 @@
             this.labelTotalNumberOfFixation.Location = new System.Drawing.Point(71, 392);
             this.labelTotalNumberOfFixation.MaximumSize = new System.Drawing.Size(140, 0);
             this.labelTotalNumberOfFixation.Name = "labelTotalNumberOfFixation";
-            this.labelTotalNumberOfFixation.Size = new System.Drawing.Size(127, 48);
+            this.labelTotalNumberOfFixation.Size = new System.Drawing.Size(122, 48);
             this.labelTotalNumberOfFixation.TabIndex = 6;
             this.labelTotalNumberOfFixation.Text = "Total number of fixation";
             this.labelTotalNumberOfFixation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -264,6 +264,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fixation analysis";
             // 
+            // labelStdDevDuration
+            // 
+            this.labelStdDevDuration.AutoSize = true;
+            this.labelStdDevDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStdDevDuration.Location = new System.Drawing.Point(347, 54);
+            this.labelStdDevDuration.Name = "labelStdDevDuration";
+            this.labelStdDevDuration.Size = new System.Drawing.Size(85, 24);
+            this.labelStdDevDuration.TabIndex = 116;
+            this.labelStdDevDuration.Text = "Std. Dev.";
+            // 
             // textBoxRegressionR
             // 
             this.textBoxRegressionR.BackColor = System.Drawing.Color.White;
@@ -274,6 +284,16 @@
             this.textBoxRegressionR.Size = new System.Drawing.Size(70, 29);
             this.textBoxRegressionR.TabIndex = 109;
             // 
+            // labelMeanDuration
+            // 
+            this.labelMeanDuration.AutoSize = true;
+            this.labelMeanDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMeanDuration.Location = new System.Drawing.Point(221, 54);
+            this.labelMeanDuration.Name = "labelMeanDuration";
+            this.labelMeanDuration.Size = new System.Drawing.Size(58, 24);
+            this.labelMeanDuration.TabIndex = 115;
+            this.labelMeanDuration.Text = "Mean";
+            // 
             // textBoxFixs100WR
             // 
             this.textBoxFixs100WR.BackColor = System.Drawing.Color.White;
@@ -283,6 +303,16 @@
             this.textBoxFixs100WR.ReadOnly = true;
             this.textBoxFixs100WR.Size = new System.Drawing.Size(70, 29);
             this.textBoxFixs100WR.TabIndex = 106;
+            // 
+            // labelDuration
+            // 
+            this.labelDuration.AutoSize = true;
+            this.labelDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDuration.Location = new System.Drawing.Point(250, 29);
+            this.labelDuration.Name = "labelDuration";
+            this.labelDuration.Size = new System.Drawing.Size(127, 24);
+            this.labelDuration.TabIndex = 114;
+            this.labelDuration.Text = "Duration (sec)";
             // 
             // textBoxRegressionL
             // 
@@ -436,6 +466,16 @@
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             // 
+            // labelCalibration
+            // 
+            this.labelCalibration.AutoSize = true;
+            this.labelCalibration.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCalibration.Location = new System.Drawing.Point(21, 34);
+            this.labelCalibration.Name = "labelCalibration";
+            this.labelCalibration.Size = new System.Drawing.Size(98, 24);
+            this.labelCalibration.TabIndex = 117;
+            this.labelCalibration.Text = "Calibration";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -532,36 +572,6 @@
             this.textBoxReadingTime.Size = new System.Drawing.Size(70, 29);
             this.textBoxReadingTime.TabIndex = 112;
             // 
-            // labelDuration
-            // 
-            this.labelDuration.AutoSize = true;
-            this.labelDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDuration.Location = new System.Drawing.Point(250, 29);
-            this.labelDuration.Name = "labelDuration";
-            this.labelDuration.Size = new System.Drawing.Size(127, 24);
-            this.labelDuration.TabIndex = 114;
-            this.labelDuration.Text = "Duration (sec)";
-            // 
-            // labelMeanDuration
-            // 
-            this.labelMeanDuration.AutoSize = true;
-            this.labelMeanDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMeanDuration.Location = new System.Drawing.Point(221, 54);
-            this.labelMeanDuration.Name = "labelMeanDuration";
-            this.labelMeanDuration.Size = new System.Drawing.Size(58, 24);
-            this.labelMeanDuration.TabIndex = 115;
-            this.labelMeanDuration.Text = "Mean";
-            // 
-            // labelStdDevDuration
-            // 
-            this.labelStdDevDuration.AutoSize = true;
-            this.labelStdDevDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStdDevDuration.Location = new System.Drawing.Point(347, 54);
-            this.labelStdDevDuration.Name = "labelStdDevDuration";
-            this.labelStdDevDuration.Size = new System.Drawing.Size(85, 24);
-            this.labelStdDevDuration.TabIndex = 116;
-            this.labelStdDevDuration.Text = "Std. Dev.";
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.labelReadingTime);
@@ -577,16 +587,6 @@
             this.groupBox5.TabIndex = 114;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Sample text analysis";
-            // 
-            // labelCalibration
-            // 
-            this.labelCalibration.AutoSize = true;
-            this.labelCalibration.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCalibration.Location = new System.Drawing.Point(21, 34);
-            this.labelCalibration.Name = "labelCalibration";
-            this.labelCalibration.Size = new System.Drawing.Size(98, 24);
-            this.labelCalibration.TabIndex = 117;
-            this.labelCalibration.Text = "Calibration";
             // 
             // Resumen
             // 
@@ -618,7 +618,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Resumen";
-            this.Text = "Resume";
+            this.Text = "Review";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
