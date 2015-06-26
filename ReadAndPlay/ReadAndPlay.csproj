@@ -107,6 +107,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsentForm\consentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsentForm\consentForm.Designer.cs">
+      <DependentUpon>consentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EyeTracking\Calibration\CalibrationError.cs" />
     <Compile Include="EyeTracking\Calibration\CalibrationResultForm.cs">
       <SubType>Form</SubType>
@@ -216,6 +222,9 @@
     <Compile Include="Varios\TargetPosSize.cs" />
     <Compile Include="Varios\TestData.cs" />
     <Compile Include="EyeTracking\eyetrackingFunctions.cs" />
+    <EmbeddedResource Include="ConsentForm\consentForm.resx">
+      <DependentUpon>consentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EyeTracking\Calibration\CalibrationResultForm.resx">
       <DependentUpon>CalibrationResultForm.cs</DependentUpon>
     </EmbeddedResource>

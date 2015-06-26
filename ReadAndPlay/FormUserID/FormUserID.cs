@@ -217,8 +217,7 @@ namespace LookAndPlayForm
             else
                 return userGender.male;
         }
-
-
+        
         private void setDiagnosedConditionsControl(diagnosedConditionsClass dCondition)
         {
             checkBoxStrabismusExotropia.Checked = dCondition.strabismusExotropia;
@@ -253,6 +252,10 @@ namespace LookAndPlayForm
             return dCondition;
         }
 
+        
+        
+        
+        
         private void buttonOk_Click(object sender, EventArgs e)
         {
             if (comboBoxSampleText.SelectedItem != null)

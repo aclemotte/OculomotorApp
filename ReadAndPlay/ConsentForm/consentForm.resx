@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>OCULOMOTOR ASSESSMENT IN READING
+
+INTRODUCTION
+The way we move our eyes can influence reading fluency, efficiency and visual processing because precise tracking (moving the eyes from one word to the next along the text) and alignment of both eyes together (convergence) is necessary to obtain accurate visual information to be processed by the brain. We are developing a new technology that is capable of analysing real-time eye movement information while a person is reading a text in order to give Behavioural Optometrists quantifiable data for more accurate diagnosis of possible visual problems. We invite you to participate in this project by being one of the first to test this technology. By helping us investigate, compare and evaluate how eye movements affect reading and cognition you will be contributing to in creating a new and significantly more accessible way to screen and treat these barriers to literacy and education.
+
+WHAT IS INVOLVED IN THE PROJECT?
+If you decide to participate you will be asked to read a text aloud first, and then to yourself, while an eye tracker will be recording your eye movements.We won't have access to the video of your eyes (your face will not be seen or recorded), but just to a data stream of the position of each eye (left and right). We think this will take you 5 minutes. After the test is completed, we will show you a plot with the results of the test in which you will be able to see the trace of your eye movements while reading the text provided and some metrics like number of fixations, regressions, total time of reading and fixation duration. The optometrist delivering the text will explain to you what the results mean in terms of reading efficiency and may suggest training activities to improve it.
+
+WHAT IS EYE TRACKING?
+Eye tracking is the process of measuring either the point of gaze (where one is looking) or the motion of an eye relative to the head. An eye tracker is a device for measuring eye positions and eye movement. Eye trackers are used in research on the visual system, in psychology, cognitive linguistics, and other neuro science fields. There are a number of methods for measuring eye movement. The most popular variant uses video images to extract the eye position.
+
+RISKS
+This study involves no risks to your health and eyes. Eye Trackers are non intrusive equipment with no side effects.  All of the eye trackers used during these study have CE Marking and have been approved for home and in office use and cleared as no harm devices.
+
+BENEFITS TO TAKING PART IN THE PROJECT?
+By participating in this project you will benefit from a test that will give you accurate information about the motor function of your eyes. Since eyes are a window to the brain, learning how they are performing may also give you some indication of brain/visual activity. All of this will be explained to you by the expert delivering the test and we will provide you with extra information about it. You will be also given suggestions on how to improve reading efficiency, fluency and speed as well as attention.
+Others may also benefit from the data that you will be providing through this project because an understanding of how and to what extent eye movements influence reading and cognition contributes to creating better assessment methods and therapy for children and people who may have reading, learning and visual deficiencies.
+
+CONFIDENTIALITY
+We will take the following steps to keep information about you confidential, and to protect it from unauthorized disclosure, tampering, or damage: 
+We will run the test and, at your request, send you the results for your own records
+We will immediately erase your name and e-mail address from the biometric data resulting from your tests and store it anonymously in our database (HIPPA compliant), so you won't be identified.
+We will build machine learning algorithms that will use the database of everyone participating in the project in order to understand the correlations between eye movements that are not within the normal ranges and poor reading performance. However, as we explained before, this data will be anonymous because your name and contact information will be removed.
+Other Research Institutions like Aston University School of Vision Sciences, the Applied Vision Research Group of the Complutense University of Madrid and a board of Behavioural Optometrists, Ophthalmologists, Educators and Neurologists will form a Revision Group to analyse datasets, algorithm and study findings and write scientific papers about it.
+Your name will never appear in any of the papers as it will be immediately erased from the datasets that enter the algorithms to be analysed. However, at your request, we will send you all the information and results of the study.
+
+INCENTIVES
+By participating you will receive: a report with the results of the test performed including the data and metrics of your eye movements while reading and suggestions of therapy or training sessions when applicable, a free guidance session with a Behavioural Optometrist to explain the results and, if necessary, the options for training/ therapy to improve eye movements. 
+
+
+
+YOUR RIGHTS AS A PROJECT PARTICIPANT
+Participation in this project is voluntary. You have the right not to participate at all or to leave the study at any time. Deciding not to participate or choosing to leave the study will not result in any penalty or loss of benefits to which you are entitled, and it will not harm your relationship with this project or the Behavioural Optometrist performing the test.
+
+CONTACTS FOR QUESTIONS OR PROBLEMS
+Call  Bhavin Shah at Central Vision Opticians , UK Manager on 020 8343 1122  or email Gabriela Galilea  at gabriela@mrpatch.co, Team Leader of Mr Patch Reading Assessment Project  if you have questions about the study, any problems, unexpected physical or psychological discomforts, any injuries, or think that something unusual or unexpected is happening.
+
+Consent of Subject (or Legally Authorized Representative)
+I have read the description of the project carefully, made all of the questions considered relevant and were satisfactorily answered. Therefore I fully agree with being screening with this technology and contributing to the project in the terms described above.</value>
+  </data>
+</root>

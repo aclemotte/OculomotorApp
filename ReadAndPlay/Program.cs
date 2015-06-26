@@ -42,33 +42,38 @@ namespace LookAndPlayForm
                 formUserID.updateCsv();//almacena los datos del usuario al pasar el formulario
                 datosCompartidos.activeUser = formUserID.userDataSelected.user_id;
 
-                try
+                ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
+
+                if (formularioConsentimiento.ShowDialog() == DialogResult.OK)
                 {
-                    using (_eyeTrackingEngine = new EyeTrackingEngine())
+                    try
                     {
-                        //EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine);
-                        //Application.Run(eyeXWinForm);
+                        using (_eyeTrackingEngine = new EyeTrackingEngine())
+                        {
+                            //EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine);
+                            //Application.Run(eyeXWinForm);
 
-                        Application.Run(new EyeXWinForm(_eyeTrackingEngine));
-                            
-                        ////agregar dato de nuevo usuario al final del juego
-                        //if (datosCompartidos.updateCsv)
-                        //{
-                        //    datosCompartidos.updateCsv = false;
-                        //    formUserID.updateCsv();
-                        //}
+                            Application.Run(new EyeXWinForm(_eyeTrackingEngine));
 
-                        //eyeXWinForm.Dispose();
+                            ////agregar dato de nuevo usuario al final del juego
+                            //if (datosCompartidos.updateCsv)
+                            //{
+                            //    datosCompartidos.updateCsv = false;
+                            //    formUserID.updateCsv();
+                            //}
+
+                            //eyeXWinForm.Dispose();
+                        }
                     }
-                }
 
-                catch (EyeTrackerException e)
-                {
-                    MessageBox.Show(e.Message, "Failed loading application!");
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.ToString(), "Error!");
+                    catch (EyeTrackerException e)
+                    {
+                        MessageBox.Show(e.Message, "Failed loading application!");
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.ToString(), "Error!");
+                    }
                 }
             }
 
