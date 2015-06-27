@@ -39,14 +39,15 @@ namespace LookAndPlayForm
 
         string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
 
+        bool datosMigrados2NewClass = false;
         
         
         
         
         
-        public users_class userDataSelected { get; set; }
+        public users_classv2 userDataSelected { get; set; }
 
-        public List<users_class> usersList { get; set; }
+        public List<users_classv2> usersList { get; set; }
         
 
 
@@ -65,6 +66,8 @@ namespace LookAndPlayForm
         {
             if (usersList != null)
             {
+
+                //caso que se haya introducido un nuevo usuario, se almacena en la lista y luego se guarda la lista
                 if (numericUpDownUserID.Value > Convert.ToDecimal(usersList.Last().user_id))
                 {
                     usersList.Add(userDataSelected);
@@ -76,10 +79,23 @@ namespace LookAndPlayForm
                         writer.WriteRecords(usersList);
                     }
                 }
+                
+                //caso que no se haya introducido un nuevo usuario, se almacena la lista xq se ha migrado
+                if (datosMigrados2NewClass)
+                {
+                    //usersList.Add(userDataSelected);
+
+                    using (var sw = new StreamWriter(rootPath + @"users.csv"))
+                    {
+                        var writer = new CsvWriter(sw);
+                        //Write the entire contents of the CSV file into another
+                        writer.WriteRecords(usersList);
+                    }
+                }
             }
             else
             {
-                usersList = new List<users_class>();
+                usersList = new List<users_classv2>();
                 usersList.Add(userDataSelected);
 
                 using (var sw = new StreamWriter(rootPath + @"users.csv"))
@@ -118,18 +134,53 @@ namespace LookAndPlayForm
         {
             if (File.Exists(rootPath + @"users.csv"))
             {
-                using (var sr = new StreamReader(rootPath + @"users.csv"))
+                using (var sr1 = new StreamReader(rootPath + @"users.csv"))
                 {
-                    var reader = new CsvReader(sr);
+                    var reader1 = new CsvReader(sr1);
                     try
                     {
-                        usersList = reader.GetRecords<users_class>().ToList();
+                        datosMigrados2NewClass = false;
+                        usersList = reader1.GetRecords<users_classv2>().ToList();
                         return true;
                     }
-                    catch (Exception e)
+                    catch (Exception e1)
                     {
-                        MessageBox.Show(e.Message);
-                        return false;
+                        datosMigrados2NewClass = true;
+                        MessageBox.Show(e1.Message);                        
+                        try
+                        {
+                            //migracion de datos a clase nueva
+                            using (var sr2 = new StreamReader(rootPath + @"users.csv"))
+                            {
+                                var reader2 = new CsvReader(sr2);
+                                try
+                                {
+                                    usersList = new List<users_classv2>();//lista vacia
+                                    List<users_classv1> usersListOldClass = reader2.GetRecords<users_classv1>().ToList();//lista de la clase vieja
+                                    //Convertidor de Lista de clase nueva
+                                    for (int indiceLista = 0; indiceLista < usersListOldClass.Count; indiceLista++)
+                                    {
+                                        users_classv2 one_users_classv2 = new users_classv2();
+                                        one_users_classv2.user_id = usersListOldClass[indiceLista].user_id;
+                                        one_users_classv2.user_name = usersListOldClass[indiceLista].user_name;
+                                        one_users_classv2.user_institution = usersListOldClass[indiceLista].user_institution;
+                                        usersList.Add(one_users_classv2);
+                                    }
+
+                                    return true;
+                                }
+                                catch (Exception e3)
+                                {
+                                    MessageBox.Show(e3.Message);
+                                    return false;
+                                }
+                            }
+                        }
+                        catch(Exception e2)
+                        {
+                            MessageBox.Show(e2.Message);
+                            return false;
+                        }
                     }
                 }
                 
@@ -175,10 +226,19 @@ namespace LookAndPlayForm
             //1.
             if (numericUpDownUserID.Value > Convert.ToDecimal(usersList.Last().user_id))
             {
-                textBoxUserName.Text = "Name";// String.Empty;
-                textBoxUserInstitution.Text = "Institution";// String.Empty;
+                textBoxUserName.Text = "";// String.Empty;
+                textBoxUserInstitution.Text = "";// String.Empty;
+                textBoxAge.Text = "";
+                comboBoxCountry.Text = "";
+                textBoxEmail.Text = "";
+
                 textBoxUserName.ReadOnly = false;
                 textBoxUserInstitution.ReadOnly = false;
+                textBoxAge.ReadOnly = false;                
+                textBoxEmail.ReadOnly = false;
+
+                //uncheck all checkboxes
+                setDiagnosedConditionsControl(null);
             }
             //2.
             else
@@ -220,17 +280,34 @@ namespace LookAndPlayForm
         
         private void setDiagnosedConditionsControl(diagnosedConditionsClass dCondition)
         {
-            checkBoxStrabismusExotropia.Checked = dCondition.strabismusExotropia;
-            checkBoxStrabismusEsotropia.Checked = dCondition.strabismusEsotropia;
-            checkBoxAstigmatism.Checked = dCondition.astigmatism;
-            checkBoxNystagmus.Checked = dCondition.nystagmus;
-            checkBoxAmblyopia.Checked = dCondition.amblyopia;
-            checkBoxHypermetropia.Checked = dCondition.hypermetropia;
-            checkBoxMyopia.Checked = dCondition.myopia;
-            checkBoxCranialNervePalsy.Checked = dCondition.cranialNervePalsy;
-            checkBoxADHD.Checked = dCondition.ADHD;
-            checkBoxDislexia.Checked = dCondition.dislexia;
-            checkBoxOther.Checked = dCondition.other;
+            if (dCondition == null)
+            {
+                checkBoxStrabismusExotropia.Checked = false;
+                checkBoxStrabismusEsotropia.Checked = false;
+                checkBoxAstigmatism.Checked = false;
+                checkBoxNystagmus.Checked = false;
+                checkBoxAmblyopia.Checked = false;
+                checkBoxHypermetropia.Checked = false;
+                checkBoxMyopia.Checked = false;
+                checkBoxCranialNervePalsy.Checked = false;
+                checkBoxADHD.Checked = false;
+                checkBoxDislexia.Checked = false;
+                checkBoxOther.Checked = false;
+            }
+            else
+            {
+                checkBoxStrabismusExotropia.Checked = dCondition.strabismusExotropia;
+                checkBoxStrabismusEsotropia.Checked = dCondition.strabismusEsotropia;
+                checkBoxAstigmatism.Checked = dCondition.astigmatism;
+                checkBoxNystagmus.Checked = dCondition.nystagmus;
+                checkBoxAmblyopia.Checked = dCondition.amblyopia;
+                checkBoxHypermetropia.Checked = dCondition.hypermetropia;
+                checkBoxMyopia.Checked = dCondition.myopia;
+                checkBoxCranialNervePalsy.Checked = dCondition.cranialNervePalsy;
+                checkBoxADHD.Checked = dCondition.ADHD;
+                checkBoxDislexia.Checked = dCondition.dislexia;
+                checkBoxOther.Checked = dCondition.other;
+            }           
         }
 
         private diagnosedConditionsClass getDiagnosedConditionFromControl()
@@ -260,7 +337,7 @@ namespace LookAndPlayForm
         {
             if (comboBoxSampleText.SelectedItem != null)
             {
-                userDataSelected = new users_class();
+                userDataSelected = new users_classv2();
                 userDataSelected.user_id = numericUpDownUserID.Value.ToString();
                 userDataSelected.user_name = textBoxUserName.Text;
                 userDataSelected.user_institution = textBoxUserInstitution.Text;

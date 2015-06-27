@@ -63,12 +63,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_66DBD1D9FF4E40818E59064A68088502"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_8074A25100AD44AEBAD01B542D83157B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -107,6 +101,12 @@
         {
         "MsmKey" = "8:_8BE6710ACD4C19EB89E162D29B9E917F"
         "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9EF218C365F04174813BAB7CAD922928"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -448,26 +448,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_66DBD1D9FF4E40818E59064A68088502"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\Desktop\\MrPatchOculomotorAssessmentKitAgreement.rtf"
-            "TargetName" = "8:MrPatchOculomotorAssessmentKitAgreement.rtf"
-            "Tag" = "8:"
-            "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8074A25100AD44AEBAD01B542D83157B"
             {
             "SourcePath" = "8:..\\ReadAndPlay\\TobiiGazeCore32.dll"
@@ -610,6 +590,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9EF218C365F04174813BAB7CAD922928"
+            {
+            "SourcePath" = "8:..\\ReadAndPlay\\Resources\\MrPatchOculomotorAssessmentKitAgreement.rtf"
+            "TargetName" = "8:MrPatchOculomotorAssessmentKitAgreement.rtf"
+            "Tag" = "8:"
+            "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B346999669BD4B3CA92C05AF659D64BE"
@@ -855,7 +855,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Reading App"
         "ProductCode" = "8:{AE9A1455-E6E2-49C5-BBF4-60B1713FD310}"
-        "PackageCode" = "8:{33F753CD-5DB6-4A93-90C8-C2E6F5D3C58F}"
+        "PackageCode" = "8:{DE83A89D-9561-4D9D-8F19-C2FC276E7586}"
         "UpgradeCode" = "8:{D1289E79-E680-4920-B703-0FFD44BDC58E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1318,7 +1318,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:_66DBD1D9FF4E40818E59064A68088502"
+                            "Value" = "8:_9EF218C365F04174813BAB7CAD922928"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "Sunken"

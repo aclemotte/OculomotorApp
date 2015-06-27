@@ -62,6 +62,7 @@
             this.ClientSize = new System.Drawing.Size(729, 575);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonAgree);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "consentForm";
             this.Text = "INFORMED CONSENT";
