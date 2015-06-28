@@ -56,13 +56,13 @@
             this.checkBoxOther = new System.Windows.Forms.CheckBox();
             this.checkBoxAmblyopia = new System.Windows.Forms.CheckBox();
             this.groupBoxDiagnosedConditions = new System.Windows.Forms.GroupBox();
+            this.checkBoxStrabismusEsotropia = new System.Windows.Forms.CheckBox();
+            this.checkBoxStrabismusExotropia = new System.Windows.Forms.CheckBox();
             this.comboBoxSampleText = new System.Windows.Forms.ComboBox();
             this.labelSampleText = new System.Windows.Forms.Label();
             this.groupBoxGender = new System.Windows.Forms.GroupBox();
             this.comboBoxCountry = new System.Windows.Forms.ComboBox();
             this.labelRequiredFields = new System.Windows.Forms.Label();
-            this.checkBoxStrabismusExotropia = new System.Windows.Forms.CheckBox();
-            this.checkBoxStrabismusEsotropia = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).BeginInit();
             this.groupBoxDiagnosedConditions.SuspendLayout();
             this.SuspendLayout();
@@ -373,6 +373,28 @@
             this.groupBoxDiagnosedConditions.TabStop = false;
             this.groupBoxDiagnosedConditions.Text = "Diagnosed conditions";
             // 
+            // checkBoxStrabismusEsotropia
+            // 
+            this.checkBoxStrabismusEsotropia.AutoSize = true;
+            this.checkBoxStrabismusEsotropia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxStrabismusEsotropia.Location = new System.Drawing.Point(25, 73);
+            this.checkBoxStrabismusEsotropia.Name = "checkBoxStrabismusEsotropia";
+            this.checkBoxStrabismusEsotropia.Size = new System.Drawing.Size(205, 28);
+            this.checkBoxStrabismusEsotropia.TabIndex = 33;
+            this.checkBoxStrabismusEsotropia.Text = "Strabismus Esotropia";
+            this.checkBoxStrabismusEsotropia.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxStrabismusExotropia
+            // 
+            this.checkBoxStrabismusExotropia.AutoSize = true;
+            this.checkBoxStrabismusExotropia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxStrabismusExotropia.Location = new System.Drawing.Point(25, 36);
+            this.checkBoxStrabismusExotropia.Name = "checkBoxStrabismusExotropia";
+            this.checkBoxStrabismusExotropia.Size = new System.Drawing.Size(206, 28);
+            this.checkBoxStrabismusExotropia.TabIndex = 32;
+            this.checkBoxStrabismusExotropia.Text = "Strabismus Exotropia";
+            this.checkBoxStrabismusExotropia.UseVisualStyleBackColor = true;
+            // 
             // comboBoxSampleText
             // 
             this.comboBoxSampleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -401,11 +423,11 @@
             // 
             this.labelSampleText.AutoSize = true;
             this.labelSampleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSampleText.Location = new System.Drawing.Point(105, 371);
+            this.labelSampleText.Location = new System.Drawing.Point(44, 371);
             this.labelSampleText.Name = "labelSampleText";
-            this.labelSampleText.Size = new System.Drawing.Size(47, 24);
+            this.labelSampleText.Size = new System.Drawing.Size(108, 24);
             this.labelSampleText.TabIndex = 33;
-            this.labelSampleText.Text = "Text";
+            this.labelSampleText.Text = "Sample text";
             // 
             // groupBoxGender
             // 
@@ -673,28 +695,6 @@
             this.labelRequiredFields.Size = new System.Drawing.Size(211, 24);
             this.labelRequiredFields.TabIndex = 37;
             this.labelRequiredFields.Text = "* Indicate required fields";
-            // 
-            // checkBoxStrabismusExotropia
-            // 
-            this.checkBoxStrabismusExotropia.AutoSize = true;
-            this.checkBoxStrabismusExotropia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxStrabismusExotropia.Location = new System.Drawing.Point(25, 36);
-            this.checkBoxStrabismusExotropia.Name = "checkBoxStrabismusExotropia";
-            this.checkBoxStrabismusExotropia.Size = new System.Drawing.Size(206, 28);
-            this.checkBoxStrabismusExotropia.TabIndex = 32;
-            this.checkBoxStrabismusExotropia.Text = "Strabismus Exotropia";
-            this.checkBoxStrabismusExotropia.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxStrabismusEsotropia
-            // 
-            this.checkBoxStrabismusEsotropia.AutoSize = true;
-            this.checkBoxStrabismusEsotropia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxStrabismusEsotropia.Location = new System.Drawing.Point(25, 73);
-            this.checkBoxStrabismusEsotropia.Name = "checkBoxStrabismusEsotropia";
-            this.checkBoxStrabismusEsotropia.Size = new System.Drawing.Size(205, 28);
-            this.checkBoxStrabismusEsotropia.TabIndex = 33;
-            this.checkBoxStrabismusEsotropia.Text = "Strabismus Esotropia";
-            this.checkBoxStrabismusEsotropia.UseVisualStyleBackColor = true;
             // 
             // FormUserID
             // 

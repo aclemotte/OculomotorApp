@@ -38,10 +38,9 @@ namespace LookAndPlayForm
         */
 
         string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
-
         bool datosMigrados2NewClass = false;
-        
-        
+
+        public bool newUser { get; set; }
         
         
         
@@ -218,6 +217,8 @@ namespace LookAndPlayForm
             return true;
         }
 
+
+
         private void numericUpDownUserID_ValueChanged(object sender, EventArgs e)
         {
             //1. para cuando se llega al numero de un nuevo usuario se rellena con texto generico
@@ -239,6 +240,8 @@ namespace LookAndPlayForm
 
                 //uncheck all checkboxes
                 setDiagnosedConditionsControl(null);
+
+                newUser = true;
             }
             //2.
             else
@@ -257,9 +260,15 @@ namespace LookAndPlayForm
                 textBoxUserInstitution.ReadOnly = true;
                 textBoxAge.ReadOnly = true;
                 textBoxEmail.ReadOnly = true;
+
+                newUser = false;
             }
         }
 
+        /// <summary>
+        /// enum userGender -> radiobutton male y female
+        /// </summary>
+        /// <param name="user_gender"></param>
         private void setGenderControl(userGender user_gender)
         {
             if (user_gender == userGender.female)
@@ -267,9 +276,11 @@ namespace LookAndPlayForm
             else
                 radioButtonMale.Checked = true;
         }
-
-
         
+        /// <summary>
+        /// radiobutton male y female -> enum userGender 
+        /// </summary>
+        /// <returns></returns>
         private userGender getGenderFromControl()
         {
             if (radioButtonFemale.Checked)
@@ -278,6 +289,10 @@ namespace LookAndPlayForm
                 return userGender.male;
         }
         
+        /// <summary>
+        /// class diagnosedConditionsClass -> checkboxes
+        /// </summary>
+        /// <param name="dCondition"></param>
         private void setDiagnosedConditionsControl(diagnosedConditionsClass dCondition)
         {
             if (dCondition == null)
@@ -310,6 +325,10 @@ namespace LookAndPlayForm
             }           
         }
 
+        /// <summary>
+        /// checkboxes -> class diagnosedConditionsClass
+        /// </summary>
+        /// <returns></returns>
         private diagnosedConditionsClass getDiagnosedConditionFromControl()
         {
             diagnosedConditionsClass dCondition = new diagnosedConditionsClass();
@@ -335,7 +354,7 @@ namespace LookAndPlayForm
         
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if (comboBoxSampleText.SelectedItem != null)
+            if (camposCorrectamenteCompletados())
             {
                 userDataSelected = new users_classv2();
                 userDataSelected.user_id = numericUpDownUserID.Value.ToString();
@@ -350,8 +369,28 @@ namespace LookAndPlayForm
             else
             {
                 this.DialogResult = DialogResult.None;
-                MessageBox.Show("Please select a sample text");
             }
+        }
+
+        private bool camposCorrectamenteCompletados()
+        {
+            if (comboBoxSampleText.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a sample text", "Empty field");
+                return false;
+            }
+            else if (newUser && textBoxUserName.Text == "")
+            {
+                MessageBox.Show("Name field is required", "Empty field");
+                return false;
+            }
+            else if (newUser && textBoxEmail.Text == "")
+            {
+                MessageBox.Show("Email field is required", "Empty field");
+                return false;
+            }
+            else
+                return true;
         }
 
 

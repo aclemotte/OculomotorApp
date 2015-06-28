@@ -44,8 +44,15 @@ namespace LookAndPlayForm
 
                 ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
 
-                if (formularioConsentimiento.ShowDialog() == DialogResult.OK)
-                {
+                //if (formularioConsentimiento.ShowDialog() == DialogResult.OK)
+                //{
+
+                //si es no es un usuario nuevo o 
+                //(si es un usuario nuevo y acepta las clausulas)
+                if (    !formUserID.newUser ||
+                        (formUserID.newUser && formularioConsentimiento.ShowDialog() == DialogResult.OK))
+                { 
+                
                     try
                     {
                         using (_eyeTrackingEngine = new EyeTrackingEngine())
