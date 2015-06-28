@@ -145,10 +145,12 @@ namespace LookAndPlayForm
                     catch (Exception e1)
                     {
                         datosMigrados2NewClass = true;
-                        MessageBox.Show(e1.Message);                        
+                        //MessageBox.Show(e1.Message);                        
                         try
                         {
                             //migracion de datos a clase nueva
+                            File.Copy(rootPath + @"users.csv", rootPath + @"users_classv1.csv");
+
                             using (var sr2 = new StreamReader(rootPath + @"users.csv"))
                             {
                                 var reader2 = new CsvReader(sr2);
