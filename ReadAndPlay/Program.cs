@@ -70,6 +70,9 @@ namespace LookAndPlayForm
                             //}
 
                             //eyeXWinForm.Dispose();
+
+                            //subir los datos a la nube
+
                         }
                     }
 
