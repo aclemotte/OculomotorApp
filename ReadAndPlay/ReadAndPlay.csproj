@@ -164,6 +164,12 @@
     <Compile Include="FixDetector\FixDetectorData.cs" />
     <Compile Include="FixDetector\FixDetector.cs" />
     <Compile Include="FixDetector\TobiiOpenDataClass.cs" />
+    <Compile Include="FormMedicalID\medicalID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMedicalID\medicalID.Designer.cs">
+      <DependentUpon>medicalID.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUserID\FormUserID.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,7 @@
       <DependentUpon>Resumen.cs</DependentUpon>
     </Compile>
     <Compile Include="Resumen\TobiiClass.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="Varios\AwsCredentials.cs" />
     <Compile Include="Varios\functions.cs" />
     <Compile Include="Varios\ImageDictionary.cs" />
@@ -249,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EyeTracking\TrackStatusControl.resx">
       <DependentUpon>TrackStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedicalID\medicalID.resx">
+      <DependentUpon>medicalID.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserID\FormUserID.resx">
       <DependentUpon>FormUserID.cs</DependentUpon>
@@ -292,7 +302,6 @@
     <Content Include="Resources\Animales\cotorritas.gif" />
     <Content Include="Resources\Animales\perroHamaca.gif" />
     <Content Include="Resources\Animales\salchicha.gif" />
-    <None Include="ReadAndPlay_TemporaryKey.pfx" />
     <None Include="Resources\MrPatch.png" />
     <Content Include="Resources\MrPatch32.ico" />
     <Content Include="Resources\Textos\TextoEs1.png" />

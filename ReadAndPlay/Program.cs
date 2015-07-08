@@ -37,6 +37,14 @@ namespace LookAndPlayForm
                 //case eyetrackertype.tobii:
                     //TOBII
 
+            if (String.IsNullOrEmpty(Properties.Settings.Default.userName))
+            {
+                FormMedicalID.medicalID medical_id = new FormMedicalID.medicalID();
+                medical_id.ShowDialog();
+                Properties.Settings.Default.userName = medical_id.userName;
+                Properties.Settings.Default.Save();
+            }
+
             FormUserID formUserID = new FormUserID();
             
             if (formUserID.ShowDialog() == DialogResult.OK)
