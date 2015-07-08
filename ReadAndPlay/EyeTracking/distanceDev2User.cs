@@ -7,7 +7,7 @@ namespace LookAndPlayForm.EyeTracking
 {
     class distanceDev2User
     {
-        int lastValue = 0; //valor antes de ser cero
+        //int lastValue = 0; //valor antes de ser cero
         public double distance(Tobii.Gaze.Core.GazeData SoruceGazeData)
         {
             /* casos:

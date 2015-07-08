@@ -51,7 +51,8 @@ namespace LookAndPlayForm.BackupClass
 
         private static void Upload(string filename, string accessKey, string secretKey, string bucketName)
         {
-            using (var client = Amazon.AWSClientFactory.CreateAmazonS3Client(accessKey, secretKey, Amazon.RegionEndpoint.EUCentral1))
+            //using (var client = Amazon.AWSClientFactory.CreateAmazonS3Client(accessKey, secretKey, Amazon.RegionEndpoint.EUCentral1))
+            using (var client = new Amazon.S3.AmazonS3Client(accessKey, secretKey, Amazon.RegionEndpoint.EUCentral1))
             {
                 var fs = new FileStream(filename, FileMode.Open);
 

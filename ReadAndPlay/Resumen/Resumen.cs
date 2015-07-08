@@ -29,7 +29,7 @@ namespace LookAndPlayForm.Resumen
         int gazeDotRadius = 2;
         int fixDotRadius = 7;
 
-        int numberOfFix;
+        //int numberOfFix;
         int numberOfFixL;
         int numberOfFixR;
 
