@@ -4,6 +4,7 @@
 
 using System;
 using System.Windows.Forms;
+using LookAndPlayForm.BackupClass;
 using Tobii.Gaze.Core;
 
 namespace LookAndPlayForm
@@ -72,7 +73,13 @@ namespace LookAndPlayForm
                             //eyeXWinForm.Dispose();
 
                             //subir los datos a la nube
-
+                            AWSClass.Backup(new Config(
+                                                Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
+                                                LookAndPlayForm.Program.datosCompartidos.startTime + 
+                                                @"-us" + Program.datosCompartidos.activeUser,
+                                                claveAcceso,
+                                                claveSecreta,
+                                                "mrpatchawsbucket1"));
                         }
                     }
 
