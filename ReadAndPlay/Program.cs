@@ -5,6 +5,7 @@
 using System;
 using System.Windows.Forms;
 using LookAndPlayForm.BackupClass;
+using LookAndPlayForm.Varios;
 using Tobii.Gaze.Core;
 
 namespace LookAndPlayForm
@@ -77,9 +78,9 @@ namespace LookAndPlayForm
                                                 Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
                                                 LookAndPlayForm.Program.datosCompartidos.startTime + 
                                                 @"-us" + Program.datosCompartidos.activeUser,
-                                                claveAcceso,
-                                                claveSecreta,
-                                                "mrpatchawsbucket1"));
+                                                AwsCredentials.AwsAccessKey,
+                                                AwsCredentials.AwsSecretKey,
+                                                AwsCredentials.AwsS3BucketName));
                         }
                     }
 

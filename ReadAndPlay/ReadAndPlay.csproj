@@ -208,6 +208,7 @@
       <DependentUpon>Resumen.cs</DependentUpon>
     </Compile>
     <Compile Include="Resumen\TobiiClass.cs" />
+    <Compile Include="Varios\AwsCredentials.cs" />
     <Compile Include="Varios\functions.cs" />
     <Compile Include="Varios\ImageDictionary.cs" />
     <Compile Include="Varios\Definitions.cs" />
