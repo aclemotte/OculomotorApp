@@ -5,6 +5,8 @@
 using System;
 using System.Windows.Forms;
 using LookAndPlayForm.BackupClass;
+using LookAndPlayForm.InstitutionID;
+using LookAndPlayForm.TesterID;
 using LookAndPlayForm.Varios;
 using Tobii.Gaze.Core;
 
@@ -27,84 +29,75 @@ namespace LookAndPlayForm
             Application.SetCompatibleTextRenderingDefault(false);
 
             datosCompartidos = new sharedData();
-            
-            //switch(settings.eyetrackerSelected)
-            //{
-            //    case eyetrackertype.eyetribe:
-            //        // EYETRIBE
-            //        Application.Run(new EyeTribeWinForm());
-            //        break;
-                //case eyetrackertype.tobii:
-                    //TOBII
 
-            if (String.IsNullOrEmpty(Properties.Settings.Default.userName))
+            if (ClassInstitution.InstitutionNotSet())
             {
-                FormMedicalID.medicalID medical_id = new FormMedicalID.medicalID();
-                medical_id.ShowDialog();
-                Properties.Settings.Default.userName = medical_id.userName;
-                Properties.Settings.Default.Save();
+                FormInstitutionID fInstitution = new FormInstitutionID();
+                fInstitution.ShowDialog();
+                ClassInstitution.setInstitutionName(fInstitution.institutionName);
             }
 
-            FormUserID formUserID = new FormUserID();
-            
-            if (formUserID.ShowDialog() == DialogResult.OK)
+            FormTesterID fTester = new FormTesterID();
+
+            if (fTester.ShowDialog() == DialogResult.OK)
             {
-                formUserID.updateCsv();//almacena los datos del usuario al pasar el formulario
-                datosCompartidos.activeUser = formUserID.userDataSelected.user_id;
 
-                ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
+                FormPatientID formPatientID = new FormPatientID();
 
-                //if (formularioConsentimiento.ShowDialog() == DialogResult.OK)
-                //{
+                if (formPatientID.ShowDialog() == DialogResult.OK)
+                {
+                    formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
+                    datosCompartidos.activeUser = formPatientID.userDataSelected.user_id;
 
-                //si es no es un usuario nuevo o 
-                //(si es un usuario nuevo y acepta las clausulas)
-                if (    !formUserID.newUser ||
-                        (formUserID.newUser && formularioConsentimiento.ShowDialog() == DialogResult.OK))
-                { 
-                
-                    try
+                    ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
+                    
+                    //si es no es un usuario nuevo o 
+                    //(si es un usuario nuevo y acepta las clausulas)
+                    if (!formPatientID.newUser ||
+                            (formPatientID.newUser && formularioConsentimiento.ShowDialog() == DialogResult.OK))
                     {
-                        using (_eyeTrackingEngine = new EyeTrackingEngine())
+
+                        try
                         {
-                            //EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine);
-                            //Application.Run(eyeXWinForm);
+                            using (_eyeTrackingEngine = new EyeTrackingEngine())
+                            {
+                                //EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine);
+                                //Application.Run(eyeXWinForm);
 
-                            Application.Run(new EyeXWinForm(_eyeTrackingEngine));
+                                Application.Run(new EyeXWinForm(_eyeTrackingEngine));
 
-                            ////agregar dato de nuevo usuario al final del juego
-                            //if (datosCompartidos.updateCsv)
-                            //{
-                            //    datosCompartidos.updateCsv = false;
-                            //    formUserID.updateCsv();
-                            //}
+                                ////agregar dato de nuevo usuario al final del juego
+                                //if (datosCompartidos.updateCsv)
+                                //{
+                                //    datosCompartidos.updateCsv = false;
+                                //    formUserID.updateCsv();
+                                //}
 
-                            //eyeXWinForm.Dispose();
+                                //eyeXWinForm.Dispose();
 
-                            //subir los datos a la nube
-                            AWSClass.Backup(new Config(
-                                                Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                                                LookAndPlayForm.Program.datosCompartidos.startTime + 
-                                                @"-us" + Program.datosCompartidos.activeUser,
-                                                AwsCredentials.AwsAccessKey,
-                                                AwsCredentials.AwsSecretKey,
-                                                AwsCredentials.AwsS3BucketName));
+                                //subir los datos a la nube
+                                AWSClass.Backup(new Config(
+                                                    Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
+                                                    LookAndPlayForm.Program.datosCompartidos.startTime +
+                                                    @"-us" + Program.datosCompartidos.activeUser,
+                                                    AwsCredentials.AwsAccessKey,
+                                                    AwsCredentials.AwsSecretKey,
+                                                    AwsCredentials.AwsS3BucketName));
+                            }
+                        }
+
+                        catch (EyeTrackerException e)
+                        {
+                            MessageBox.Show(e.Message, "Failed loading application!");
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show(e.ToString(), "Error!");
                         }
                     }
-
-                    catch (EyeTrackerException e)
-                    {
-                        MessageBox.Show(e.Message, "Failed loading application!");
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.ToString(), "Error!");
-                    }
                 }
+                formPatientID.Dispose();
             }
-
-            formUserID.Dispose();
-            
         }
     }
 }

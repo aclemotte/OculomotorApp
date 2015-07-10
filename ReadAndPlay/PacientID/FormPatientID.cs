@@ -13,7 +13,7 @@ using CsvHelper;
 
 namespace LookAndPlayForm
 {
-    public partial class FormUserID : Form
+    public partial class FormPatientID : Form
     {
         /*
             busca la carpeta root, retorno en bool, sino existe lo crea
@@ -50,7 +50,7 @@ namespace LookAndPlayForm
         
 
 
-        public FormUserID()
+        public FormPatientID()
         {
             InitializeComponent();
 

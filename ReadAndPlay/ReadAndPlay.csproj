@@ -164,30 +164,25 @@
     <Compile Include="FixDetector\FixDetectorData.cs" />
     <Compile Include="FixDetector\FixDetector.cs" />
     <Compile Include="FixDetector\TobiiOpenDataClass.cs" />
-    <Compile Include="FormMedicalID\medicalID.cs">
+    <Compile Include="InstitutionID\ClassInstitution.cs" />
+    <Compile Include="InstitutionID\FormInstitutionID.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMedicalID\medicalID.Designer.cs">
-      <DependentUpon>medicalID.cs</DependentUpon>
+    <Compile Include="InstitutionID\FormInstitutionID.Designer.cs">
+      <DependentUpon>FormInstitutionID.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUserID\FormUserID.cs">
+    <Compile Include="PacientID\FormPatientID.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUserID\FormUserID.Designer.cs">
-      <DependentUpon>FormUserID.cs</DependentUpon>
+    <Compile Include="PacientID\FormPatientID.Designer.cs">
+      <DependentUpon>FormPatientID.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUserID\users_class.cs" />
-    <Compile Include="progressbarMiguel\barraHorizontal.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="PacientID\users_class.cs" />
+    <Compile Include="TesterID\FormTesterID.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="progressbarMiguel\barraHorizontal.Designer.cs">
-      <DependentUpon>barraHorizontal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="progressbarMiguel\barraVertical.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="progressbarMiguel\barraVertical.Designer.cs">
-      <DependentUpon>barraVertical.cs</DependentUpon>
+    <Compile Include="TesterID\FormTesterID.Designer.cs">
+      <DependentUpon>FormTesterID.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -257,21 +252,15 @@
     <EmbeddedResource Include="EyeTracking\TrackStatusControl.resx">
       <DependentUpon>TrackStatusControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMedicalID\medicalID.resx">
-      <DependentUpon>medicalID.cs</DependentUpon>
+    <EmbeddedResource Include="InstitutionID\FormInstitutionID.resx">
+      <DependentUpon>FormInstitutionID.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUserID\FormUserID.resx">
-      <DependentUpon>FormUserID.cs</DependentUpon>
+    <EmbeddedResource Include="PacientID\FormPatientID.resx">
+      <DependentUpon>FormPatientID.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Game1\Game1.resx">
       <DependentUpon>Game1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="progressbarMiguel\barraHorizontal.resx">
-      <DependentUpon>barraHorizontal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="progressbarMiguel\barraVertical.resx">
-      <DependentUpon>barraVertical.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -283,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resumen\Resumen.resx">
       <DependentUpon>Resumen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesterID\FormTesterID.resx">
+      <DependentUpon>FormTesterID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
