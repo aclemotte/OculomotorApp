@@ -42,7 +42,7 @@ namespace LookAndPlayForm.BackupClass
         /// <summary>
         /// Filename of the configuration file.
         /// </summary>
-        public static readonly string FILENAME = "config.json";
+        //public static readonly string FILENAME = "config.json";
 
         public string FileToBackup { get; set; }
         //public string NamingConvention { get; set; }

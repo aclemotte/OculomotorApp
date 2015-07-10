@@ -56,13 +56,22 @@ namespace LookAndPlayForm.BackupClass
             {
                 var fs = new FileStream(filename, FileMode.Open);
 
-                var request = new PutObjectRequest();
-                request.BucketName = bucketName;
-                request.CannedACL = S3CannedACL.Private;
-                request.Key = Path.GetFileName(filename);
-                request.InputStream = fs;
-                client.PutObject(request);
+                try
+                {
+
+                    var request = new PutObjectRequest();
+                    request.BucketName = bucketName;
+                    request.CannedACL = S3CannedACL.Private;
+                    request.Key = Path.GetFileName(filename);
+                    request.InputStream = fs;
+                    client.PutObject(request);
+                }
+                catch(AmazonS3Exception ex)
+                {
+                    File.WriteAllText("lastError.txt", string.Format("Last Error @{0}: {1}", DateTime.Now, ex.GetBaseException()));
+                }
             }
         }
+
     }
 }
