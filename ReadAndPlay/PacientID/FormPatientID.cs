@@ -39,24 +39,25 @@ namespace LookAndPlayForm
 
         string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
         bool datosMigrados2NewClass = false;
+        string institution_name;
 
-        public bool newUser { get; set; }
-        
-        
+
+        public bool newUser { get; set; }                
         
         public patient_class_datav2 patientDataSelected { get; set; }
 
         public List<patient_class_datav2> patientsList { get; set; }
-        
 
 
-        public FormPatientID()
+
+        public FormPatientID(string institution_name)
         {
             InitializeComponent();
 
             labelVersion.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             bool rootFolder = rootFolderExist();
             bool userFile = usersFileExist(rootFolder);
+            this.institution_name = institution_name;
 
             patients2Form();                 
         }
@@ -223,9 +224,9 @@ namespace LookAndPlayForm
                 if(numericUpDownUserID.Value == 1)
                 {
                     textBoxUserName.Text = patientsList[0].user_name;
-                    textBoxUserInstitution.Text = patientsList[0].user_institution;
+                    //textBoxUserInstitution.Text = patientsList[0].user_institution;
                     textBoxUserName.ReadOnly = true;
-                    textBoxUserInstitution.ReadOnly = true;
+                    //textBoxUserInstitution.ReadOnly = true;
                 }
             }
             else
@@ -250,13 +251,13 @@ namespace LookAndPlayForm
             if (numericUpDownUserID.Value > Convert.ToDecimal(patientsList.Last().user_id))
             {
                 textBoxUserName.Text = "";// String.Empty;
-                textBoxUserInstitution.Text = "";// String.Empty;
+                //textBoxUserInstitution.Text = "";// String.Empty;
                 textBoxAge.Text = "";
                 comboBoxCountry.Text = "";
                 textBoxEmail.Text = "";
 
                 textBoxUserName.ReadOnly = false;
-                textBoxUserInstitution.ReadOnly = false;
+                //textBoxUserInstitution.ReadOnly = false;
                 textBoxAge.ReadOnly = false;                
                 textBoxEmail.ReadOnly = false;
 
@@ -271,7 +272,7 @@ namespace LookAndPlayForm
                 int userIndex = Convert.ToInt32(numericUpDownUserID.Value) - 1;
 
                 textBoxUserName.Text = patientsList[userIndex].user_name;
-                textBoxUserInstitution.Text = patientsList[userIndex].user_institution;
+                //textBoxUserInstitution.Text = patientsList[userIndex].user_institution;
                 textBoxAge.Text = patientsList[userIndex].user_age;
                 comboBoxCountry.Text = patientsList[userIndex].user_country;
                 textBoxEmail.Text = patientsList[userIndex].user_email;
@@ -279,7 +280,7 @@ namespace LookAndPlayForm
                 setDiagnosedConditionsControl(patientsList[userIndex].user_diagnosedConditions);
 
                 textBoxUserName.ReadOnly = true;
-                textBoxUserInstitution.ReadOnly = true;
+                //textBoxUserInstitution.ReadOnly = true;
                 textBoxAge.ReadOnly = true;
                 textBoxEmail.ReadOnly = true;
 
@@ -381,7 +382,7 @@ namespace LookAndPlayForm
                 patientDataSelected = new patient_class_datav2();
                 patientDataSelected.user_id = numericUpDownUserID.Value.ToString();
                 patientDataSelected.user_name = textBoxUserName.Text;
-                patientDataSelected.user_institution = textBoxUserInstitution.Text;
+                patientDataSelected.user_institution = institution_name;// textBoxUserInstitution.Text;
                 patientDataSelected.user_age = textBoxAge.Text;
                 patientDataSelected.user_country = comboBoxCountry.Text;
                 patientDataSelected.user_email = textBoxEmail.Text;

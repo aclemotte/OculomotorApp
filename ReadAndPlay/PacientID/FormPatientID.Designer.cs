@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPatientID));
             this.labelUser = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
-            this.labelInstitution = new System.Windows.Forms.Label();
-            this.textBoxUserInstitution = new System.Windows.Forms.TextBox();
             this.buttonOk = new System.Windows.Forms.Button();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.numericUpDownUserID = new System.Windows.Forms.NumericUpDown();
@@ -71,11 +69,11 @@
             // 
             this.labelUser.AutoSize = true;
             this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUser.Location = new System.Drawing.Point(81, 47);
+            this.labelUser.Location = new System.Drawing.Point(58, 47);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(71, 24);
+            this.labelUser.Size = new System.Drawing.Size(94, 24);
             this.labelUser.TabIndex = 1;
-            this.labelUser.Text = "User ID";
+            this.labelUser.Text = "Pacient ID";
             // 
             // labelName
             // 
@@ -86,24 +84,6 @@
             this.labelName.Size = new System.Drawing.Size(73, 24);
             this.labelName.TabIndex = 3;
             this.labelName.Text = "Name *";
-            // 
-            // labelInstitution
-            // 
-            this.labelInstitution.AutoSize = true;
-            this.labelInstitution.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInstitution.Location = new System.Drawing.Point(65, 133);
-            this.labelInstitution.Name = "labelInstitution";
-            this.labelInstitution.Size = new System.Drawing.Size(87, 24);
-            this.labelInstitution.TabIndex = 5;
-            this.labelInstitution.Text = "Institution";
-            // 
-            // textBoxUserInstitution
-            // 
-            this.textBoxUserInstitution.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserInstitution.Location = new System.Drawing.Point(159, 131);
-            this.textBoxUserInstitution.Name = "textBoxUserInstitution";
-            this.textBoxUserInstitution.Size = new System.Drawing.Size(207, 29);
-            this.textBoxUserInstitution.TabIndex = 3;
             // 
             // buttonOk
             // 
@@ -176,7 +156,7 @@
             // textBoxAge
             // 
             this.textBoxAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAge.Location = new System.Drawing.Point(159, 178);
+            this.textBoxAge.Location = new System.Drawing.Point(159, 223);
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(207, 29);
             this.textBoxAge.TabIndex = 11;
@@ -184,7 +164,7 @@
             // textBoxEmail
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(159, 276);
+            this.textBoxEmail.Location = new System.Drawing.Point(159, 132);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(207, 29);
             this.textBoxEmail.TabIndex = 14;
@@ -193,7 +173,7 @@
             // 
             this.labelAge.AutoSize = true;
             this.labelAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAge.Location = new System.Drawing.Point(107, 180);
+            this.labelAge.Location = new System.Drawing.Point(107, 225);
             this.labelAge.Name = "labelAge";
             this.labelAge.Size = new System.Drawing.Size(45, 24);
             this.labelAge.TabIndex = 15;
@@ -213,7 +193,7 @@
             // 
             this.labelCountry.AutoSize = true;
             this.labelCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCountry.Location = new System.Drawing.Point(77, 225);
+            this.labelCountry.Location = new System.Drawing.Point(77, 276);
             this.labelCountry.Name = "labelCountry";
             this.labelCountry.Size = new System.Drawing.Size(75, 24);
             this.labelCountry.TabIndex = 17;
@@ -223,7 +203,7 @@
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.Location = new System.Drawing.Point(79, 278);
+            this.labelEmail.Location = new System.Drawing.Point(79, 134);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(73, 24);
             this.labelEmail.TabIndex = 18;
@@ -681,7 +661,7 @@
             "Yemen",
             "Zambia",
             "Zimbabwe"});
-            this.comboBoxCountry.Location = new System.Drawing.Point(159, 228);
+            this.comboBoxCountry.Location = new System.Drawing.Point(159, 273);
             this.comboBoxCountry.Name = "comboBoxCountry";
             this.comboBoxCountry.Size = new System.Drawing.Size(207, 32);
             this.comboBoxCountry.TabIndex = 36;
@@ -696,7 +676,7 @@
             this.labelRequiredFields.TabIndex = 37;
             this.labelRequiredFields.Text = "* Indicate required fields";
             // 
-            // FormUserID
+            // FormPatientID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -718,8 +698,6 @@
             this.Controls.Add(this.numericUpDownUserID);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.buttonOk);
-            this.Controls.Add(this.textBoxUserInstitution);
-            this.Controls.Add(this.labelInstitution);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.labelUser);
             this.Controls.Add(this.groupBoxDiagnosedConditions);
@@ -727,8 +705,8 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "FormUserID";
-            this.Text = "User ID";
+            this.Name = "FormPatientID";
+            this.Text = "Pacient ID";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).EndInit();
             this.groupBoxDiagnosedConditions.ResumeLayout(false);
             this.groupBoxDiagnosedConditions.PerformLayout();
@@ -741,8 +719,6 @@
 
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.Label labelInstitution;
-        private System.Windows.Forms.TextBox textBoxUserInstitution;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.NumericUpDown numericUpDownUserID;

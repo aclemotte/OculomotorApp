@@ -48,10 +48,10 @@ namespace LookAndPlayForm
                 {
                     fTester.updateCsv();
 
-                    
-                    
-                    
-                    FormPatientID formPatientID = new FormPatientID();
+
+
+
+                    FormPatientID formPatientID = new FormPatientID(institution_engine.institutionsList[0].institution_name);
 
                     if (formPatientID.ShowDialog() == DialogResult.OK)
                     {
