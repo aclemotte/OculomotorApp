@@ -7,6 +7,7 @@ namespace LookAndPlayForm.InstitutionID
 {
     public class intitution_class_data
     {
-        public string name { get; set; }
+        public string institution_id { get; set; }
+        public string institution_name { get; set; }
     }
 }

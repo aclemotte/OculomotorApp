@@ -12,26 +12,86 @@ namespace LookAndPlayForm.InstitutionID
     public partial class FormInstitutionID : Form
     {
 
-        public intitution_class_data institutionData;
+        public intitution_class_data institutionDataSelected { get; set; }
 
-        public FormInstitutionID(intitution_class_data institutionData)
+        private institution_class_engine institution_engine;
+
+
+
+
+
+
+        public FormInstitutionID(institution_class_engine institution_engine)
         {
             InitializeComponent();
 
-            this.institutionData = institutionData;
+            this.institution_engine = institution_engine;
+
+            institutions2Form();
+        }
+
+        public void updateCsv()
+        {
+            institution_engine.updateCsv(numericUpDownInstitutionID, institutionDataSelected);
+        }
+
+        
+
+
+        private bool institutions2Form()
+        {
+            if (institution_engine.institutionsList != null)
+            {
+                numericUpDownInstitutionID.Maximum = Convert.ToDecimal(institution_engine.institutionsList.Last().institution_id) + 1;//cambiar
+                numericUpDownInstitutionID.Value = Convert.ToDecimal(institution_engine.institutionsList.Last().institution_id);
+
+                if (numericUpDownInstitutionID.Value == 1)
+                {
+                    textBoxInstitutionName.Text = institution_engine.institutionsList[0].institution_name;
+                    textBoxInstitutionName.ReadOnly = true;
+                }
+            }
+            else
+            {
+                numericUpDownInstitutionID.Maximum = 1;
+                numericUpDownInstitutionID.Value = 1;
+                //textBoxInstitutionName.Text = "Name";
+            }
+
+            return true;
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxInstitutionName.Text))
+            if (camposCorrectamenteCompletados())
             {
-                MessageBox.Show("Please complete all the fields");
+                institutionDataSelected = new intitution_class_data();
+                institutionDataSelected.institution_id = numericUpDownInstitutionID.Value.ToString();
+                institutionDataSelected.institution_name = textBoxInstitutionName.Text;
             }
             else
             {
-                this.institutionData.name = textBoxInstitutionName.Text;
-                this.Close();
+                this.DialogResult = DialogResult.None;
             }
         }
+
+        private bool camposCorrectamenteCompletados()
+        {
+            if (string.IsNullOrEmpty(textBoxInstitutionName.Text))
+            {
+                MessageBox.Show("Please complete all the fields");
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private void numericUpDownInstitutionID_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        
     }
 }

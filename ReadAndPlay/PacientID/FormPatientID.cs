@@ -44,9 +44,9 @@ namespace LookAndPlayForm
         
         
         
-        public patient_class_datav2 userDataSelected { get; set; }
+        public patient_class_datav2 patientDataSelected { get; set; }
 
-        public List<patient_class_datav2> usersList { get; set; }
+        public List<patient_class_datav2> patientsList { get; set; }
         
 
 
@@ -58,24 +58,24 @@ namespace LookAndPlayForm
             bool rootFolder = rootFolderExist();
             bool userFile = usersFileExist(rootFolder);
 
-            lastSession2Form();                 
+            patients2Form();                 
         }
 
         public void updateCsv()
         {
-            if (usersList != null)
+            if (patientsList != null)
             {
 
                 //caso que se haya introducido un nuevo usuario, se almacena en la lista y luego se guarda la lista
-                if (numericUpDownUserID.Value > Convert.ToDecimal(usersList.Last().user_id))
+                if (numericUpDownUserID.Value > Convert.ToDecimal(patientsList.Last().user_id))
                 {
-                    usersList.Add(userDataSelected);
+                    patientsList.Add(patientDataSelected);
 
                     using (var sw = new StreamWriter(rootPath + @"users.csv"))
                     {
                         var writer = new CsvWriter(sw);
                         //Write the entire contents of the CSV file into another
-                        writer.WriteRecords(usersList);
+                        writer.WriteRecords(patientsList);
                     }
                 }
                 
@@ -88,20 +88,20 @@ namespace LookAndPlayForm
                     {
                         var writer = new CsvWriter(sw);
                         //Write the entire contents of the CSV file into another
-                        writer.WriteRecords(usersList);
+                        writer.WriteRecords(patientsList);
                     }
                 }
             }
             else
             {
-                usersList = new List<patient_class_datav2>();
-                usersList.Add(userDataSelected);
+                patientsList = new List<patient_class_datav2>();
+                patientsList.Add(patientDataSelected);
 
                 using (var sw = new StreamWriter(rootPath + @"users.csv"))
                 {
                     var writer = new CsvWriter(sw);
                     //Write the entire contents of the CSV file into another
-                    writer.WriteRecords(usersList);
+                    writer.WriteRecords(patientsList);
                 }
             }
 
@@ -139,7 +139,7 @@ namespace LookAndPlayForm
                     try
                     {
                         datosMigrados2NewClass = false;
-                        usersList = reader1.GetRecords<patient_class_datav2>().ToList();
+                        patientsList = reader1.GetRecords<patient_class_datav2>().ToList();
                         return true;
                     }
                     catch (Exception e1)
@@ -156,7 +156,7 @@ namespace LookAndPlayForm
                                 var reader2 = new CsvReader(sr2);
                                 try
                                 {
-                                    usersList = new List<patient_class_datav2>();//lista vacia
+                                    patientsList = new List<patient_class_datav2>();//lista vacia
                                     List<patient_class_datav1> usersListOldClass = reader2.GetRecords<patient_class_datav1>().ToList();//lista de la clase vieja
                                     //Convertidor de Lista de clase nueva
                                     for (int indiceLista = 0; indiceLista < usersListOldClass.Count; indiceLista++)
@@ -165,7 +165,7 @@ namespace LookAndPlayForm
                                         one_users_classv2.user_id = usersListOldClass[indiceLista].user_id;
                                         one_users_classv2.user_name = usersListOldClass[indiceLista].user_name;
                                         one_users_classv2.user_institution = usersListOldClass[indiceLista].user_institution;
-                                        usersList.Add(one_users_classv2);
+                                        patientsList.Add(one_users_classv2);
                                     }
 
                                     return true;
@@ -193,17 +193,17 @@ namespace LookAndPlayForm
             }
         }
 
-        private bool lastSession2Form()
+        private bool patients2Form()
         {
-            if (usersList != null)
+            if (patientsList != null)
             {
-                numericUpDownUserID.Maximum = Convert.ToDecimal(usersList.Last().user_id) + 1;
-                numericUpDownUserID.Value = Convert.ToDecimal(usersList.Last().user_id);
+                numericUpDownUserID.Maximum = Convert.ToDecimal(patientsList.Last().user_id) + 1;
+                numericUpDownUserID.Value = Convert.ToDecimal(patientsList.Last().user_id);
 
                 if(numericUpDownUserID.Value == 1)
                 {
-                    textBoxUserName.Text = usersList[0].user_name;
-                    textBoxUserInstitution.Text = usersList[0].user_institution;
+                    textBoxUserName.Text = patientsList[0].user_name;
+                    textBoxUserInstitution.Text = patientsList[0].user_institution;
                     textBoxUserName.ReadOnly = true;
                     textBoxUserInstitution.ReadOnly = true;
                 }
@@ -212,8 +212,8 @@ namespace LookAndPlayForm
             {
                 numericUpDownUserID.Maximum = 1;
                 numericUpDownUserID.Value = 1;
-                textBoxUserName.Text = "Name";
-                textBoxUserInstitution.Text = "Institution";
+                //textBoxUserName.Text = "Name";
+                //textBoxUserInstitution.Text = "Institution";
             }
 
             return true;
@@ -227,7 +227,7 @@ namespace LookAndPlayForm
             //2. para cuando se llega al numero de un usuario conocido se rellena con texto del usuario
 
             //1.
-            if (numericUpDownUserID.Value > Convert.ToDecimal(usersList.Last().user_id))
+            if (numericUpDownUserID.Value > Convert.ToDecimal(patientsList.Last().user_id))
             {
                 textBoxUserName.Text = "";// String.Empty;
                 textBoxUserInstitution.Text = "";// String.Empty;
@@ -250,13 +250,13 @@ namespace LookAndPlayForm
             {
                 int userIndex = Convert.ToInt32(numericUpDownUserID.Value) - 1;
 
-                textBoxUserName.Text = usersList[userIndex].user_name;
-                textBoxUserInstitution.Text = usersList[userIndex].user_institution;
-                textBoxAge.Text = usersList[userIndex].user_age;
-                comboBoxCountry.Text = usersList[userIndex].user_country;
-                textBoxEmail.Text = usersList[userIndex].user_email;
-                setGenderControl(usersList[userIndex].user_gender);
-                setDiagnosedConditionsControl(usersList[userIndex].user_diagnosedConditions);
+                textBoxUserName.Text = patientsList[userIndex].user_name;
+                textBoxUserInstitution.Text = patientsList[userIndex].user_institution;
+                textBoxAge.Text = patientsList[userIndex].user_age;
+                comboBoxCountry.Text = patientsList[userIndex].user_country;
+                textBoxEmail.Text = patientsList[userIndex].user_email;
+                setGenderControl(patientsList[userIndex].user_gender);
+                setDiagnosedConditionsControl(patientsList[userIndex].user_diagnosedConditions);
 
                 textBoxUserName.ReadOnly = true;
                 textBoxUserInstitution.ReadOnly = true;
@@ -358,15 +358,15 @@ namespace LookAndPlayForm
         {
             if (camposCorrectamenteCompletados())
             {
-                userDataSelected = new patient_class_datav2();
-                userDataSelected.user_id = numericUpDownUserID.Value.ToString();
-                userDataSelected.user_name = textBoxUserName.Text;
-                userDataSelected.user_institution = textBoxUserInstitution.Text;
-                userDataSelected.user_age = textBoxAge.Text;
-                userDataSelected.user_country = comboBoxCountry.Text;
-                userDataSelected.user_email = textBoxEmail.Text;
-                userDataSelected.user_gender = getGenderFromControl();
-                userDataSelected.user_diagnosedConditions = getDiagnosedConditionFromControl();
+                patientDataSelected = new patient_class_datav2();
+                patientDataSelected.user_id = numericUpDownUserID.Value.ToString();
+                patientDataSelected.user_name = textBoxUserName.Text;
+                patientDataSelected.user_institution = textBoxUserInstitution.Text;
+                patientDataSelected.user_age = textBoxAge.Text;
+                patientDataSelected.user_country = comboBoxCountry.Text;
+                patientDataSelected.user_email = textBoxEmail.Text;
+                patientDataSelected.user_gender = getGenderFromControl();
+                patientDataSelected.user_diagnosedConditions = getDiagnosedConditionFromControl();
             }
             else
             {

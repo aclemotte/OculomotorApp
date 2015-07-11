@@ -7,6 +7,7 @@ namespace LookAndPlayForm.TesterID
 {
     public class tester_class_data
     {
-        public string name { get; set; }
+        public string tester_id { get; set; }
+        public string tester_name { get; set; }
     }
 }
