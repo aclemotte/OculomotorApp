@@ -30,11 +30,12 @@ namespace LookAndPlayForm
 
             datosCompartidos = new sharedData();
 
-            if (ClassInstitution.InstitutionNotSet())
+            if (!institution_class_engine.InstitutionSet())
             {
-                FormInstitutionID fInstitution = new FormInstitutionID();
-                fInstitution.ShowDialog();
-                ClassInstitution.setInstitutionName(fInstitution.institutionName);
+                intitution_class_data institutionData = new intitution_class_data();
+                FormInstitutionID fInstitution = new FormInstitutionID(institutionData);
+                fInstitution.ShowDialog();//Problema si se cierra la ventana
+                institution_class_engine.setInstitutionName(fInstitution.institutionData);
             }
 
             FormTesterID fTester = new FormTesterID();

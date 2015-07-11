@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace LookAndPlayForm
 {
-    public class users_classv1
+    public class patient_class_datav1
     {
         public string user_id { get; set; }
         public string user_name { get; set; }
         public string user_institution { get; set; }
     }
 
-    public class users_classv2
+    public class patient_class_datav2
     {
         public string user_id { get; set; }
         public string user_name { get; set; }

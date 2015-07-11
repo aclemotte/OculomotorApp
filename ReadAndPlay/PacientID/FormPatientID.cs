@@ -44,9 +44,9 @@ namespace LookAndPlayForm
         
         
         
-        public users_classv2 userDataSelected { get; set; }
+        public patient_class_datav2 userDataSelected { get; set; }
 
-        public List<users_classv2> usersList { get; set; }
+        public List<patient_class_datav2> usersList { get; set; }
         
 
 
@@ -94,7 +94,7 @@ namespace LookAndPlayForm
             }
             else
             {
-                usersList = new List<users_classv2>();
+                usersList = new List<patient_class_datav2>();
                 usersList.Add(userDataSelected);
 
                 using (var sw = new StreamWriter(rootPath + @"users.csv"))
@@ -139,7 +139,7 @@ namespace LookAndPlayForm
                     try
                     {
                         datosMigrados2NewClass = false;
-                        usersList = reader1.GetRecords<users_classv2>().ToList();
+                        usersList = reader1.GetRecords<patient_class_datav2>().ToList();
                         return true;
                     }
                     catch (Exception e1)
@@ -156,12 +156,12 @@ namespace LookAndPlayForm
                                 var reader2 = new CsvReader(sr2);
                                 try
                                 {
-                                    usersList = new List<users_classv2>();//lista vacia
-                                    List<users_classv1> usersListOldClass = reader2.GetRecords<users_classv1>().ToList();//lista de la clase vieja
+                                    usersList = new List<patient_class_datav2>();//lista vacia
+                                    List<patient_class_datav1> usersListOldClass = reader2.GetRecords<patient_class_datav1>().ToList();//lista de la clase vieja
                                     //Convertidor de Lista de clase nueva
                                     for (int indiceLista = 0; indiceLista < usersListOldClass.Count; indiceLista++)
                                     {
-                                        users_classv2 one_users_classv2 = new users_classv2();
+                                        patient_class_datav2 one_users_classv2 = new patient_class_datav2();
                                         one_users_classv2.user_id = usersListOldClass[indiceLista].user_id;
                                         one_users_classv2.user_name = usersListOldClass[indiceLista].user_name;
                                         one_users_classv2.user_institution = usersListOldClass[indiceLista].user_institution;
@@ -358,7 +358,7 @@ namespace LookAndPlayForm
         {
             if (camposCorrectamenteCompletados())
             {
-                userDataSelected = new users_classv2();
+                userDataSelected = new patient_class_datav2();
                 userDataSelected.user_id = numericUpDownUserID.Value.ToString();
                 userDataSelected.user_name = textBoxUserName.Text;
                 userDataSelected.user_institution = textBoxUserInstitution.Text;

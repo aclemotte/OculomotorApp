@@ -21,15 +21,27 @@ namespace LookAndPlayForm.TesterID
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxTesterName.Text))
+            if (camposCorrectamenteCompletados())
             {
-                MessageBox.Show("Please complete the data");
-                //this.DialogResult = DialogResult.None;
+                this.testerName = textBoxTesterName.Text;                
             }
             else
             {
-                this.testerName = textBoxTesterName.Text;
+                this.DialogResult = DialogResult.None;
             }
         }
+
+        private bool camposCorrectamenteCompletados()
+        {
+            if (string.IsNullOrEmpty(textBoxTesterName.Text))
+            {
+                MessageBox.Show("Name field is required", "Empty field");
+                return false;
+            }
+            else
+                return true;
+        }
+
+        //string.IsNullOrEmpty(textBoxTesterName.Text)
     }
 }

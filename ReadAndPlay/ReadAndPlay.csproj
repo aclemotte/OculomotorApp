@@ -164,7 +164,8 @@
     <Compile Include="FixDetector\FixDetectorData.cs" />
     <Compile Include="FixDetector\FixDetector.cs" />
     <Compile Include="FixDetector\TobiiOpenDataClass.cs" />
-    <Compile Include="InstitutionID\ClassInstitution.cs" />
+    <Compile Include="InstitutionID\institution_class_engine.cs" />
+    <Compile Include="InstitutionID\intitution_class_data.cs" />
     <Compile Include="InstitutionID\FormInstitutionID.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,7 +178,8 @@
     <Compile Include="PacientID\FormPatientID.Designer.cs">
       <DependentUpon>FormPatientID.cs</DependentUpon>
     </Compile>
-    <Compile Include="PacientID\users_class.cs" />
+    <Compile Include="PacientID\patient_class_data.cs" />
+    <Compile Include="PacientID\patient_class_engine.cs" />
     <Compile Include="TesterID\FormTesterID.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +212,8 @@
     </Compile>
     <Compile Include="Resumen\TobiiClass.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="TesterID\tester_class_data.cs" />
+    <Compile Include="TesterID\tester_class_engine.cs" />
     <Compile Include="Varios\AwsCredentials.cs" />
     <Compile Include="Varios\functions.cs" />
     <Compile Include="Varios\ImageDictionary.cs" />

@@ -12,11 +12,13 @@ namespace LookAndPlayForm.InstitutionID
     public partial class FormInstitutionID : Form
     {
 
-        public string institutionName { get; set; }
+        public intitution_class_data institutionData;
 
-        public FormInstitutionID()
+        public FormInstitutionID(intitution_class_data institutionData)
         {
             InitializeComponent();
+
+            this.institutionData = institutionData;
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
@@ -27,7 +29,7 @@ namespace LookAndPlayForm.InstitutionID
             }
             else
             {
-                this.institutionName = textBoxInstitutionName.Text;
+                this.institutionData.name = textBoxInstitutionName.Text;
                 this.Close();
             }
         }
