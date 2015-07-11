@@ -13,32 +13,25 @@ namespace LookAndPlayForm.BackupClass
 {
     static class aws_class_engine
     {
-        public static void Backup(aws_class_data config)
+        public static void Backup(aws_class_data aws_data)
         {
             try
-            {                
+            {
                 //zip file name
                 var zipfilePath = string.Empty;
-                zipfilePath = string.Format("{0}.zip", Path.GetFileName(config.FileToBackup));
+                zipfilePath = string.Format("{0}.zip", Path.GetFileName(aws_data.FolderToUpload));
 
 
                 //create zip file                                          
                 using (var zip = new ZipFile())
                 {
-                    foreach (var path in config.Paths)
-                    {
-                        if (config.IsDir(path))
-                            zip.AddDirectory(path);
-                        else
-                            zip.AddFile(path);
-                    }
-
+                    zip.AddDirectory(aws_data.FolderToUpload);
                     zip.Save(zipfilePath);
                 }
 
+                aws_data.FolderToUpload = zipfilePath;
                 //upload to aws
-                //var aws = new AwsWrapper();
-                Upload(zipfilePath, config.AwsAccessKey, config.AwsSecretKey, config.AwsS3BucketName);
+                UploadFolder(aws_data);
 
                 //delete local zip file
                 File.Delete(zipfilePath);
@@ -49,26 +42,27 @@ namespace LookAndPlayForm.BackupClass
             }
         }
 
-        private static void Upload(string filename, string accessKey, string secretKey, string bucketName)
+        private static void UploadFolder(aws_class_data aws_data)
         {
-            //using (var client = Amazon.AWSClientFactory.CreateAmazonS3Client(accessKey, secretKey, Amazon.RegionEndpoint.EUCentral1))
-            using (var client = new Amazon.S3.AmazonS3Client(accessKey, secretKey, Amazon.RegionEndpoint.EUCentral1))
+            using (var client = new Amazon.S3.AmazonS3Client(aws_data.AwsAccessKey, aws_data.AwsSecretKey, Amazon.RegionEndpoint.EUCentral1))
             {
-                var fs = new FileStream(filename, FileMode.Open);
+                var fs = new FileStream(aws_data.FolderToUpload, FileMode.Open);
 
                 try
                 {
 
                     var request = new PutObjectRequest();
-                    request.BucketName = bucketName;
+                    request.BucketName = aws_data.AwsS3BucketName + "/" + aws_data.AwsS3FolderName;
                     request.CannedACL = S3CannedACL.Private;
-                    request.Key = Path.GetFileName(filename);
+                    request.Key = Path.GetFileName(aws_data.FolderToUpload);
                     request.InputStream = fs;
                     client.PutObject(request);
                 }
-                catch(AmazonS3Exception ex)
+                catch (AmazonS3Exception ex)
                 {
                     File.WriteAllText("lastError.txt", string.Format("Last Error @{0}: {1}", DateTime.Now, ex.GetBaseException()));
+                    Console.WriteLine("Amazon error code: {0}", string.IsNullOrEmpty(ex.ErrorCode) ? "None" : ex.ErrorCode);
+                    Console.WriteLine("Exception message: {0}", ex.Message);
                 }
             }
         }
