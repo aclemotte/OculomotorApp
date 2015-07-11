@@ -113,8 +113,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackupAWS\AWSClass.cs" />
-    <Compile Include="BackupAWS\Config.cs" />
+    <Compile Include="AWS\aws_class_engine.cs" />
+    <Compile Include="AWS\aws_class_data.cs" />
     <Compile Include="ConsentForm\consentForm.cs">
       <SubType>Form</SubType>
     </Compile>

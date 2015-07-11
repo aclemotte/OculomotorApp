@@ -85,7 +85,7 @@ namespace LookAndPlayForm
                                     //eyeXWinForm.Dispose();
 
                                     //subir los datos a la nube
-                                    AWSClass.Backup(new Config(
+                                    aws_class_engine.Backup(new aws_class_data(
                                                         Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
                                                         LookAndPlayForm.Program.datosCompartidos.startTime +
                                                         @"-us" + Program.datosCompartidos.activeUser,

@@ -10,12 +10,12 @@ namespace LookAndPlayForm.BackupClass
     /// <summary>
     /// Mapps to the config.json file.
     /// </summary>
-    public class Config
+    public class aws_class_data
     {
         /// <summary>
         /// The default parameterless constructor.
         /// </summary>
-        public Config()
+        public aws_class_data()
         {
          
         }
@@ -30,7 +30,7 @@ namespace LookAndPlayForm.BackupClass
         /// <param name="AwsSecretKey"></param>
         /// <param name="AwsS3BucketName"></param>
 
-        public Config(string FileToBackup, string AwsAccessKey, string AwsSecretKey, string AwsS3BucketName)
+        public aws_class_data(string FileToBackup, string AwsAccessKey, string AwsSecretKey, string AwsS3BucketName)
         {
             this.FileToBackup = FileToBackup;
             //this.NamingConvention = NamingConvention;

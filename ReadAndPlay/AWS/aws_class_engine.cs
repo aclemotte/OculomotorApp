@@ -11,9 +11,9 @@ using Ionic.Zip;
 
 namespace LookAndPlayForm.BackupClass
 {
-    static class AWSClass
+    static class aws_class_engine
     {
-        public static void Backup(Config config)
+        public static void Backup(aws_class_data config)
         {
             try
             {                
