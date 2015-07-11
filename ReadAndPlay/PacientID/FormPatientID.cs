@@ -66,31 +66,30 @@ namespace LookAndPlayForm
             if (patientsList != null)
             {
 
-                //caso que se haya introducido un nuevo usuario, se almacena en la lista y luego se guarda la lista
+                //caso que se haya introducido un nuevo usuario, 
+                //se almacena en la lista el nuevo usuario y 
+                //se guarda la lista en un archivo csv
                 if (numericUpDownUserID.Value > Convert.ToDecimal(patientsList.Last().user_id))
                 {
                     patientsList.Add(patientDataSelected);
 
-                    using (var sw = new StreamWriter(rootPath + @"users.csv"))
+                    if (datosMigrados2NewClass)
+                        BackUpOldUserFile();
+
+                    reWriteCsv();
+                }
+                else 
+                {                
+                    //caso que no se haya introducido un nuevo usuario, se almacena la lista xq se ha migrado
+                    if (datosMigrados2NewClass)
                     {
-                        var writer = new CsvWriter(sw);
-                        //Write the entire contents of the CSV file into another
-                        writer.WriteRecords(patientsList);
+                        //usersList.Add(userDataSelected);
+                        BackUpOldUserFile();
+
+                        reWriteCsv();
                     }
                 }
                 
-                //caso que no se haya introducido un nuevo usuario, se almacena la lista xq se ha migrado
-                if (datosMigrados2NewClass)
-                {
-                    //usersList.Add(userDataSelected);
-
-                    using (var sw = new StreamWriter(rootPath + @"users.csv"))
-                    {
-                        var writer = new CsvWriter(sw);
-                        //Write the entire contents of the CSV file into another
-                        writer.WriteRecords(patientsList);
-                    }
-                }
             }
             else
             {
@@ -105,6 +104,28 @@ namespace LookAndPlayForm
                 }
             }
 
+        }
+
+        private void reWriteCsv()
+        {
+            using (var sw = new StreamWriter(rootPath + @"users.csv"))
+            {
+                var writer = new CsvWriter(sw);
+                //Write the entire contents of the CSV file into another
+                writer.WriteRecords(patientsList);
+            }
+        }
+
+        private void BackUpOldUserFile()
+        {
+            try
+            {
+                File.Copy(rootPath + @"users.csv", rootPath + @"users_classv1.csv");
+            }
+            catch (Exception ex)
+            {
+                File.WriteAllText("lastError.txt", string.Format("Last Error @{0}: {1}", DateTime.Now, ex.GetBaseException()));
+            }
         }
         
 
@@ -148,9 +169,8 @@ namespace LookAndPlayForm
                         //MessageBox.Show(e1.Message);                        
                         try
                         {
-                            //migracion de datos a clase nueva
-                            File.Copy(rootPath + @"users.csv", rootPath + @"users_classv1.csv");
-
+                            //migracion local de datos a clase nueva
+                            
                             using (var sr2 = new StreamReader(rootPath + @"users.csv"))
                             {
                                 var reader2 = new CsvReader(sr2);
