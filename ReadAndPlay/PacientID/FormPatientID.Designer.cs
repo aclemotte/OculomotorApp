@@ -69,7 +69,7 @@
             // 
             this.labelUser.AutoSize = true;
             this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUser.Location = new System.Drawing.Point(58, 47);
+            this.labelUser.Location = new System.Drawing.Point(58, 45);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(94, 24);
             this.labelUser.TabIndex = 1;
@@ -79,7 +79,7 @@
             // 
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(79, 91);
+            this.labelName.Location = new System.Drawing.Point(79, 99);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(73, 24);
             this.labelName.TabIndex = 3;
@@ -101,7 +101,7 @@
             // textBoxUserName
             // 
             this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserName.Location = new System.Drawing.Point(159, 89);
+            this.textBoxUserName.Location = new System.Drawing.Point(159, 99);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(207, 29);
             this.textBoxUserName.TabIndex = 2;
@@ -156,7 +156,7 @@
             // textBoxAge
             // 
             this.textBoxAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAge.Location = new System.Drawing.Point(159, 223);
+            this.textBoxAge.Location = new System.Drawing.Point(159, 207);
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(207, 29);
             this.textBoxAge.TabIndex = 11;
@@ -164,7 +164,7 @@
             // textBoxEmail
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(159, 132);
+            this.textBoxEmail.Location = new System.Drawing.Point(159, 153);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(207, 29);
             this.textBoxEmail.TabIndex = 14;
@@ -173,17 +173,17 @@
             // 
             this.labelAge.AutoSize = true;
             this.labelAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAge.Location = new System.Drawing.Point(107, 225);
+            this.labelAge.Location = new System.Drawing.Point(94, 207);
             this.labelAge.Name = "labelAge";
-            this.labelAge.Size = new System.Drawing.Size(45, 24);
+            this.labelAge.Size = new System.Drawing.Size(57, 24);
             this.labelAge.TabIndex = 15;
-            this.labelAge.Text = "Age";
+            this.labelAge.Text = "Age *";
             // 
             // labelGender
             // 
             this.labelGender.AutoSize = true;
             this.labelGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGender.Location = new System.Drawing.Point(78, 323);
+            this.labelGender.Location = new System.Drawing.Point(78, 315);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(74, 24);
             this.labelGender.TabIndex = 16;
@@ -193,7 +193,7 @@
             // 
             this.labelCountry.AutoSize = true;
             this.labelCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCountry.Location = new System.Drawing.Point(77, 276);
+            this.labelCountry.Location = new System.Drawing.Point(77, 261);
             this.labelCountry.Name = "labelCountry";
             this.labelCountry.Size = new System.Drawing.Size(75, 24);
             this.labelCountry.TabIndex = 17;
@@ -203,7 +203,7 @@
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.Location = new System.Drawing.Point(79, 134);
+            this.labelEmail.Location = new System.Drawing.Point(79, 153);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(73, 24);
             this.labelEmail.TabIndex = 18;
@@ -214,7 +214,7 @@
             this.radioButtonMale.AutoSize = true;
             this.radioButtonMale.Checked = true;
             this.radioButtonMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonMale.Location = new System.Drawing.Point(165, 324);
+            this.radioButtonMale.Location = new System.Drawing.Point(165, 315);
             this.radioButtonMale.Name = "radioButtonMale";
             this.radioButtonMale.Size = new System.Drawing.Size(69, 28);
             this.radioButtonMale.TabIndex = 19;
@@ -226,7 +226,7 @@
             // 
             this.radioButtonFemale.AutoSize = true;
             this.radioButtonFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonFemale.Location = new System.Drawing.Point(269, 324);
+            this.radioButtonFemale.Location = new System.Drawing.Point(269, 315);
             this.radioButtonFemale.Name = "radioButtonFemale";
             this.radioButtonFemale.Size = new System.Drawing.Size(92, 28);
             this.radioButtonFemale.TabIndex = 20;
@@ -392,7 +392,7 @@
             "Level 7. Text 87",
             "Level 7. Text 88",
             "Level 7. Text 89"});
-            this.comboBoxSampleText.Location = new System.Drawing.Point(159, 366);
+            this.comboBoxSampleText.Location = new System.Drawing.Point(159, 369);
             this.comboBoxSampleText.MaxDropDownItems = 12;
             this.comboBoxSampleText.Name = "comboBoxSampleText";
             this.comboBoxSampleText.Size = new System.Drawing.Size(207, 32);
@@ -403,7 +403,7 @@
             // 
             this.labelSampleText.AutoSize = true;
             this.labelSampleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSampleText.Location = new System.Drawing.Point(44, 371);
+            this.labelSampleText.Location = new System.Drawing.Point(44, 369);
             this.labelSampleText.Name = "labelSampleText";
             this.labelSampleText.Size = new System.Drawing.Size(108, 24);
             this.labelSampleText.TabIndex = 33;
@@ -411,7 +411,7 @@
             // 
             // groupBoxGender
             // 
-            this.groupBoxGender.Location = new System.Drawing.Point(159, 316);
+            this.groupBoxGender.Location = new System.Drawing.Point(159, 307);
             this.groupBoxGender.Name = "groupBoxGender";
             this.groupBoxGender.Size = new System.Drawing.Size(207, 41);
             this.groupBoxGender.TabIndex = 34;
@@ -661,7 +661,7 @@
             "Yemen",
             "Zambia",
             "Zimbabwe"});
-            this.comboBoxCountry.Location = new System.Drawing.Point(159, 273);
+            this.comboBoxCountry.Location = new System.Drawing.Point(159, 261);
             this.comboBoxCountry.Name = "comboBoxCountry";
             this.comboBoxCountry.Size = new System.Drawing.Size(207, 32);
             this.comboBoxCountry.TabIndex = 36;

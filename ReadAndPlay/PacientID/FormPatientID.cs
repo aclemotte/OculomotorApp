@@ -412,6 +412,11 @@ namespace LookAndPlayForm
                 MessageBox.Show("Email field is required", "Empty field");
                 return false;
             }
+            else if(newUser && textBoxAge.Text == "")
+            {
+                MessageBox.Show("Age field is required, Empty field");
+                return false;
+            }
             else
                 return true;
         }
