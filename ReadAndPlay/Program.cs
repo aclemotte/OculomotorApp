@@ -73,29 +73,9 @@ namespace LookAndPlayForm
                                     //EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine);
                                     //Application.Run(eyeXWinForm);
 
-                                    Application.Run(new EyeXWinForm(_eyeTrackingEngine));
-
-                                    ////agregar dato de nuevo usuario al final del juego
-                                    //if (datosCompartidos.updateCsv)
-                                    //{
-                                    //    datosCompartidos.updateCsv = false;
-                                    //    formUserID.updateCsv();
-                                    //}
+                                    Application.Run(new EyeXWinForm(_eyeTrackingEngine, institution_engine));
 
                                     //eyeXWinForm.Dispose();
-
-                                    //subir los datos a la nube
-
-                                    aws_class_data aws_data = new aws_class_data();
-                                    aws_data.AwsAccessKey = AwsCredentials.AwsAccessKey;
-                                    aws_data.AwsS3BucketName = AwsCredentials.AwsS3BucketName;
-                                    aws_data.AwsS3FolderName = institution_engine.institutionsList[0].institution_name;
-                                    aws_data.AwsSecretKey = AwsCredentials.AwsSecretKey;
-                                    aws_data.FolderToUpload =   Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                                                                LookAndPlayForm.Program.datosCompartidos.startTime +
-                                                                @"-us" + Program.datosCompartidos.activeUser;
-
-                                    aws_class_engine.Backup(aws_data); 
                                 }
                             }
 

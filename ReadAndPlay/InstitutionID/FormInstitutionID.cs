@@ -65,9 +65,22 @@ namespace LookAndPlayForm.InstitutionID
         {
             if (camposCorrectamenteCompletados())
             {
-                institutionDataSelected = new intitution_class_data();
-                institutionDataSelected.institution_id = numericUpDownInstitutionID.Value.ToString();
-                institutionDataSelected.institution_name = textBoxInstitutionName.Text;
+                DialogResult dialogResult = MessageBox.Show("This information cannot be changed later. Please confirm the data", "", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    institutionDataSelected = new intitution_class_data();
+                    institutionDataSelected.institution_id = numericUpDownInstitutionID.Value.ToString();
+                    institutionDataSelected.institution_name = textBoxInstitutionName.Text;
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    this.DialogResult = DialogResult.None;
+                }
+
+                //institutionDataSelected = new intitution_class_data();
+                //institutionDataSelected.institution_id = numericUpDownInstitutionID.Value.ToString();
+                //institutionDataSelected.institution_name = textBoxInstitutionName.Text;
             }
             else
             {

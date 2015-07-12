@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using LookAndPlayForm.BackupClass;
+using LookAndPlayForm.InstitutionID;
+using LookAndPlayForm.Varios;
 using Tobii.Gaze.Core;
 using WobbrockLib.Devices;
 
@@ -22,10 +25,13 @@ namespace LookAndPlayForm
         private LowLevelKeyboardHook _llkhk;
         private Dwell clickDwell;
         private EyeTracking.distanceDev2User distanciaDev2USer;
+        private institution_class_engine institution_engine;
 
-        public EyeXWinForm(EyeTrackingEngine eyeTrackingEngine)
+        public EyeXWinForm(EyeTrackingEngine eyeTrackingEngine, institution_class_engine institution_engine)
         {
             InitializeComponent();
+
+            this.institution_engine = institution_engine;
 
             this.eyeTrackingEngine = eyeTrackingEngine;
             eyeTrackingEngine.StateChanged += this.StateChanged;
@@ -191,8 +197,22 @@ namespace LookAndPlayForm
         private void Game1_Closed(object sender, FormClosedEventArgs e)
         {
             //Show the resume window
-            if(se_grabaron_datos)
+            if (se_grabaron_datos)
+            {
                 openWindowResumen(true);
+
+                //subir los datos a la nube
+                aws_class_data aws_data = new aws_class_data();
+                aws_data.AwsAccessKey = AwsCredentials.AwsAccessKey;
+                aws_data.AwsS3BucketName = AwsCredentials.AwsS3BucketName;
+                aws_data.AwsS3FolderName = institution_engine.institutionsList[0].institution_name;
+                aws_data.AwsSecretKey = AwsCredentials.AwsSecretKey;
+                aws_data.FolderToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
+                                            LookAndPlayForm.Program.datosCompartidos.startTime +
+                                            @"-us" + Program.datosCompartidos.activeUser;
+
+                aws_class_engine.Backup(aws_data); 
+            }
         }
         	
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)

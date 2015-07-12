@@ -41,7 +41,7 @@
             // 
             this.labelInstitutionName.AutoSize = true;
             this.labelInstitutionName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInstitutionName.Location = new System.Drawing.Point(24, 87);
+            this.labelInstitutionName.Location = new System.Drawing.Point(72, 87);
             this.labelInstitutionName.Name = "labelInstitutionName";
             this.labelInstitutionName.Size = new System.Drawing.Size(61, 24);
             this.labelInstitutionName.TabIndex = 0;
