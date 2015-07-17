@@ -38,19 +38,19 @@
             // 
             this.labelInstitutionName.AutoSize = true;
             this.labelInstitutionName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInstitutionName.Location = new System.Drawing.Point(72, 87);
+            this.labelInstitutionName.Location = new System.Drawing.Point(12, 24);
             this.labelInstitutionName.Name = "labelInstitutionName";
-            this.labelInstitutionName.Size = new System.Drawing.Size(61, 24);
+            this.labelInstitutionName.Size = new System.Drawing.Size(339, 24);
             this.labelInstitutionName.TabIndex = 0;
-            this.labelInstitutionName.Text = "Name";
+            this.labelInstitutionName.Text = "Please write the name of your institution";
             // 
             // buttonOk
             // 
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOk.Location = new System.Drawing.Point(152, 137);
+            this.buttonOk.Location = new System.Drawing.Point(269, 123);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(207, 29);
+            this.buttonOk.Size = new System.Drawing.Size(90, 29);
             this.buttonOk.TabIndex = 2;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -59,16 +59,16 @@
             // textBoxInstitutionName
             // 
             this.textBoxInstitutionName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInstitutionName.Location = new System.Drawing.Point(152, 84);
+            this.textBoxInstitutionName.Location = new System.Drawing.Point(16, 74);
             this.textBoxInstitutionName.Name = "textBoxInstitutionName";
-            this.textBoxInstitutionName.Size = new System.Drawing.Size(207, 29);
+            this.textBoxInstitutionName.Size = new System.Drawing.Size(343, 29);
             this.textBoxInstitutionName.TabIndex = 5;
             // 
             // FormInstitutionID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 196);
+            this.ClientSize = new System.Drawing.Size(379, 177);
             this.Controls.Add(this.textBoxInstitutionName);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.labelInstitutionName);
