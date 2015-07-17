@@ -27,34 +27,35 @@ namespace LookAndPlayForm.InstitutionID
 
             this.institution_engine = institution_engine;
 
-            institutions2Form();
+            //institutions2Form();
         }
 
         public void updateCsv()
         {
-            institution_engine.updateCsv(numericUpDownInstitutionID, institutionDataSelected);
+            //institution_engine.updateCsv(numericUpDownInstitutionID, institutionDataSelected);
+            institution_engine.updateCsv(new NumericUpDown(), institutionDataSelected);
         }
 
         
 
-
+        //caso de que existan ya instituciones almacenadas. Se cargan los datos almacenados en sesiones previas
         private bool institutions2Form()
         {
             if (institution_engine.institutionsList != null)
             {
-                numericUpDownInstitutionID.Maximum = Convert.ToDecimal(institution_engine.institutionsList.Last().institution_id) + 1;//cambiar
-                numericUpDownInstitutionID.Value = Convert.ToDecimal(institution_engine.institutionsList.Last().institution_id);
+                //numericUpDownInstitutionID.Maximum = Convert.ToDecimal(institution_engine.institutionsList.Last().institution_id) + 1;//cambiar
+                //numericUpDownInstitutionID.Value = Convert.ToDecimal(institution_engine.institutionsList.Last().institution_id);
 
-                if (numericUpDownInstitutionID.Value == 1)
-                {
-                    textBoxInstitutionName.Text = institution_engine.institutionsList[0].institution_name;
-                    textBoxInstitutionName.ReadOnly = true;
-                }
+                //if (numericUpDownInstitutionID.Value == 1)
+                //{
+                //    textBoxInstitutionName.Text = institution_engine.institutionsList[0].institution_name;
+                //    textBoxInstitutionName.ReadOnly = true;
+                //}
             }
             else
             {
-                numericUpDownInstitutionID.Maximum = 1;
-                numericUpDownInstitutionID.Value = 1;
+                //numericUpDownInstitutionID.Maximum = 1;
+                //numericUpDownInstitutionID.Value = 1;
                 //textBoxInstitutionName.Text = "Name";
             }
 
@@ -70,7 +71,7 @@ namespace LookAndPlayForm.InstitutionID
                 if (dialogResult == DialogResult.Yes)
                 {
                     institutionDataSelected = new intitution_class_data();
-                    institutionDataSelected.institution_id = numericUpDownInstitutionID.Value.ToString();
+                    institutionDataSelected.institution_id = "1"; //numericUpDownInstitutionID.Value.ToString();
                     institutionDataSelected.institution_name = textBoxInstitutionName.Text;
                 }
                 else if (dialogResult == DialogResult.No)

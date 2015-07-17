@@ -41,7 +41,7 @@ namespace LookAndPlayForm.InstitutionID
                     }
                 }
             }
-            else
+            else//caso de que no haya ninguna institucion aun
             {
                 institutionsList = new List<intitution_class_data>();
                 institutionsList.Add(institutionDataSelected);
