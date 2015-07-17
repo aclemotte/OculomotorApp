@@ -148,7 +148,7 @@
             this.buttonResume.Name = "buttonResume";
             this.buttonResume.Size = new System.Drawing.Size(167, 35);
             this.buttonResume.TabIndex = 10;
-            this.buttonResume.Text = "Review";
+            this.buttonResume.Text = "Review a test";
             this.buttonResume.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonResume.UseVisualStyleBackColor = true;
             this.buttonResume.Click += new System.EventHandler(this.buttonResume_Click);

@@ -40,7 +40,7 @@ namespace LookAndPlayForm.Resumen
 
 
 
-        public Resumen(bool showLastTest)
+        public Resumen(bool showLastTest, bool newTestAvailable)
         {
             string selectedPath; 
 
@@ -60,6 +60,8 @@ namespace LookAndPlayForm.Resumen
                                 @"-us" + Program.datosCompartidos.activeUser + @"\";
             }
 
+            buttonNewTest.Enabled = newTestAvailable;
+            
             Console.WriteLine("selectedPath: " + selectedPath);
 
             toolStripStatusLabelFileName.Text = selectedPath;
@@ -483,6 +485,11 @@ namespace LookAndPlayForm.Resumen
         {
             Graph1 newGraph1 = new Graph1(testData, stimulusSize, stimulusLocation, fixData, eyetrackerDataL, checkBoxGaze, checkBoxFixations, checkBoxL, checkBoxR);
             newGraph1.Show();
+        }
+
+        private void buttonNewTest_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

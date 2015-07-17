@@ -76,6 +76,7 @@
             this.labelReadingTime = new System.Windows.Forms.Label();
             this.textBoxReadingTime = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.buttonNewTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -122,7 +123,7 @@
             this.buttonPlot.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.buttonPlot.Location = new System.Drawing.Point(889, 16);
             this.buttonPlot.Name = "buttonPlot";
-            this.buttonPlot.Size = new System.Drawing.Size(112, 38);
+            this.buttonPlot.Size = new System.Drawing.Size(133, 38);
             this.buttonPlot.TabIndex = 1;
             this.buttonPlot.Text = "Plot";
             this.buttonPlot.UseVisualStyleBackColor = true;
@@ -217,7 +218,7 @@
             this.checkBoxL.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxL.ForeColor = System.Drawing.Color.Green;
-            this.checkBoxL.Location = new System.Drawing.Point(911, 84);
+            this.checkBoxL.Location = new System.Drawing.Point(911, 155);
             this.checkBoxL.Name = "checkBoxL";
             this.checkBoxL.Size = new System.Drawing.Size(39, 28);
             this.checkBoxL.TabIndex = 22;
@@ -231,7 +232,7 @@
             this.checkBoxR.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxR.ForeColor = System.Drawing.Color.Blue;
-            this.checkBoxR.Location = new System.Drawing.Point(911, 137);
+            this.checkBoxR.Location = new System.Drawing.Point(911, 208);
             this.checkBoxR.Name = "checkBoxR";
             this.checkBoxR.Size = new System.Drawing.Size(42, 28);
             this.checkBoxR.TabIndex = 23;
@@ -398,7 +399,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(889, 66);
+            this.groupBox2.Location = new System.Drawing.Point(889, 137);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(133, 109);
             this.groupBox2.TabIndex = 26;
@@ -410,7 +411,7 @@
             this.checkBoxFixations.Checked = true;
             this.checkBoxFixations.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxFixations.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxFixations.Location = new System.Drawing.Point(908, 202);
+            this.checkBoxFixations.Location = new System.Drawing.Point(908, 273);
             this.checkBoxFixations.Name = "checkBoxFixations";
             this.checkBoxFixations.Size = new System.Drawing.Size(104, 28);
             this.checkBoxFixations.TabIndex = 27;
@@ -421,7 +422,7 @@
             // 
             this.checkBoxGaze.AutoSize = true;
             this.checkBoxGaze.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxGaze.Location = new System.Drawing.Point(908, 246);
+            this.checkBoxGaze.Location = new System.Drawing.Point(908, 317);
             this.checkBoxGaze.Name = "checkBoxGaze";
             this.checkBoxGaze.Size = new System.Drawing.Size(73, 28);
             this.checkBoxGaze.TabIndex = 28;
@@ -430,7 +431,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Location = new System.Drawing.Point(889, 181);
+            this.groupBox3.Location = new System.Drawing.Point(889, 252);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(133, 109);
             this.groupBox3.TabIndex = 27;
@@ -522,12 +523,12 @@
             // 
             // buttonPlotExtern
             // 
-            this.buttonPlotExtern.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPlotExtern.Location = new System.Drawing.Point(890, 309);
+            this.buttonPlotExtern.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlotExtern.Location = new System.Drawing.Point(889, 70);
             this.buttonPlotExtern.Name = "buttonPlotExtern";
-            this.buttonPlotExtern.Size = new System.Drawing.Size(132, 50);
+            this.buttonPlotExtern.Size = new System.Drawing.Size(132, 61);
             this.buttonPlotExtern.TabIndex = 102;
-            this.buttonPlotExtern.Text = "Plot (new window)";
+            this.buttonPlotExtern.Text = "Plot full screen";
             this.buttonPlotExtern.UseVisualStyleBackColor = true;
             this.buttonPlotExtern.Click += new System.EventHandler(this.buttonPlotExtern_Click);
             // 
@@ -588,11 +589,23 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Sample text analysis";
             // 
+            // buttonNewTest
+            // 
+            this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNewTest.Location = new System.Drawing.Point(890, 549);
+            this.buttonNewTest.Name = "buttonNewTest";
+            this.buttonNewTest.Size = new System.Drawing.Size(133, 55);
+            this.buttonNewTest.TabIndex = 115;
+            this.buttonNewTest.Text = "New test";
+            this.buttonNewTest.UseVisualStyleBackColor = true;
+            this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
+            // 
             // Resumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 640);
+            this.Controls.Add(this.buttonNewTest);
             this.Controls.Add(this.buttonPlotExtern);
             this.Controls.Add(this.statusStripResumen);
             this.Controls.Add(this.label8);
@@ -682,6 +695,7 @@
         private System.Windows.Forms.Label labelDuration;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label labelCalibration;
+        private System.Windows.Forms.Button buttonNewTest;
 
 
 

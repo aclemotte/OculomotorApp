@@ -436,7 +436,7 @@ namespace LookAndPlayForm
 
         private void buttonResume_Click(object sender, EventArgs e)
         {
-            Resumen.Resumen resumenGame1 = new Resumen.Resumen(false);
+            Resumen.Resumen resumenGame1 = new Resumen.Resumen(false, false);
 
             if (resumenGame1.everythingOk)
                 resumenGame1.Show();

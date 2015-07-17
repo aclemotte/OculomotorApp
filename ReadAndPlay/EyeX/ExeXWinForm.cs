@@ -199,7 +199,7 @@ namespace LookAndPlayForm
             //Show the resume window
             if (se_grabaron_datos)
             {
-                openWindowResumen(true);
+                openWindowResumen(true, true);
 
                 //subir los datos a la nube
                 aws_class_data aws_data = new aws_class_data();
@@ -230,12 +230,12 @@ namespace LookAndPlayForm
 
         private void buttonResumen_Click(object sender, EventArgs e)
         {
-            openWindowResumen(false);
+            openWindowResumen(false, true);
         }
 
-        private void openWindowResumen(bool showLastTest)
+        private void openWindowResumen(bool showLastTest, bool newTestAvailable)
         {
-            Resumen.Resumen resumenGame1 = new Resumen.Resumen(showLastTest);
+            Resumen.Resumen resumenGame1 = new Resumen.Resumen(showLastTest, newTestAvailable);
 
             if (resumenGame1.everythingOk)
                 resumenGame1.Show();
