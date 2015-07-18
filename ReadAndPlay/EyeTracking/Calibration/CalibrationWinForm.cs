@@ -34,7 +34,7 @@ namespace LookAndPlayForm
 
 
         private const int preShowTime = 1000;
-        private const int postShowTime = 2000;
+        private const int postShowTime = 500;
         
         private int calibrationPointOffset = 200;
         private int numeroPuntosCalibracion;
