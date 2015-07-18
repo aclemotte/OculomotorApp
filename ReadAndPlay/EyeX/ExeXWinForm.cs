@@ -236,11 +236,16 @@ namespace LookAndPlayForm
         private void openWindowResumen(bool showLastTest, bool newTestAvailable)
         {
             Resumen.Resumen resumenGame1 = new Resumen.Resumen(showLastTest, newTestAvailable);
-
+            resumenGame1.OnResumen_FormClosed += new EventHandler(Resumen_FormClosed);
             if (resumenGame1.everythingOk)
                 resumenGame1.Show();
             else
                 resumenGame1.Dispose();
+        }
+
+        private void Resumen_FormClosed(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void buttonCalibrate_Click(object sender, EventArgs e)

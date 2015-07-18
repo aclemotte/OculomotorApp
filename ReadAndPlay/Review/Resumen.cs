@@ -491,5 +491,13 @@ namespace LookAndPlayForm.Resumen
         {
             this.Close();
         }
+
+        public event EventHandler OnResumen_FormClosed;
+        private void Resumen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //avisar a la app que le llamo que se cerro la app
+            if (OnResumen_FormClosed != null)
+                OnResumen_FormClosed(this, null);
+        }
     }
 }

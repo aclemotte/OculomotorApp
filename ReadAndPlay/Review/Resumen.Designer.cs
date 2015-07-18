@@ -632,6 +632,7 @@
             this.MaximizeBox = false;
             this.Name = "Resumen";
             this.Text = "Review";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Resumen_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
