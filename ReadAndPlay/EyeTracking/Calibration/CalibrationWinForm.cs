@@ -19,7 +19,6 @@ namespace LookAndPlayForm
         struct calibrationPoint
         {
             public Tobii.Gaze.Core.Point2D positionEyeX;
-            //public TETCSharpClient.Data.Point2D positionEyeTribe;
             public Tobii.Gaze.Core.Point2D positionEyeTribe;
             public Bitmap imagen;
         };
@@ -38,24 +37,22 @@ namespace LookAndPlayForm
         
         private int calibrationPointOffset = 200;
         private int numeroPuntosCalibracion;
-        //private bool eyeTrackerReady2Calibrate = false;
         private Size bigImage = new Size(80, 80);
         private Size littleImage = new Size(20, 20);
         private Timer timerPreShow;
         private Timer timerPostShow;
         private calibrationPoint currentCalibrationPoint;
-        private EyeXWinForm eyeXWinForm;
         private static readonly Random Random = new Random();
         private EyeTrackingEngine eyeTrackingEngine;
 
 
-        public CalibrationWinForm(EyeXWinForm eyeXWinForm, EyeTrackingEngine eyeTrackingEngine)
+        public CalibrationWinForm(EyeTrackingEngine eyeTrackingEngine)
         {
             InitializeComponent();
 
             Cursor.Hide();
 
-            this.eyeXWinForm = eyeXWinForm;
+            //this.eyeXWinForm = eyeXWinForm;
             this.eyeTrackingEngine = eyeTrackingEngine;
 
             eyeTrackingEngine.onStartCalibrationCompletedEvent += this.onStartCalibrationCompleted;
@@ -212,6 +209,9 @@ namespace LookAndPlayForm
             }
             else
             {
+                timerPreShow.Tick -= new EventHandler(timerPreShow_Tick_EyeX);
+                timerPostShow.Tick -= new EventHandler(timerPostShow_Tick_EyeX);
+
                 Console.WriteLine("CalibrationWinForm.timerLatency_Tick_EyeX: final");                
                 eyeTrackingEngine.ComputeAndSetCalibration();
             }            
@@ -343,6 +343,11 @@ namespace LookAndPlayForm
         
         private void CalibrationWinForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            eyeTrackingEngine.onStartCalibrationCompletedEvent -= this.onStartCalibrationCompleted;
+            eyeTrackingEngine.onAddCalibrationPointCompletedEvent -= this.onAddCalibrationPointCompleted;
+            eyeTrackingEngine.onComputeandSetCalibrationCompletedEvent -= this.onComputeandSetCalibrationCompleted;
+            eyeTrackingEngine.OnGetCalibrationCompletedEvent -= this.OnGetCalibrationCompleted;
+
             Cursor.Show();
         }
         

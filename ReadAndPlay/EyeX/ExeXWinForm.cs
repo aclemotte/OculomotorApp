@@ -251,9 +251,8 @@ namespace LookAndPlayForm
         private void buttonCalibrate_Click(object sender, EventArgs e)
         {
             //buttonCalibrate.Enabled = false;
-            CalibrationWinForm calibrationForm = new CalibrationWinForm(this, eyeTrackingEngine);
-            this.AddOwnedForm(calibrationForm);
-            calibrationForm.Show();
+            CalibrationWinForm calibrationForm = new CalibrationWinForm(eyeTrackingEngine);
+            calibrationForm.ShowDialog();
         }
 
         private void EyeXWinForm_Load(object sender, EventArgs e)
