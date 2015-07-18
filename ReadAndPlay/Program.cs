@@ -5,6 +5,7 @@
 using System;
 using System.Windows.Forms;
 using LookAndPlayForm.BackupClass;
+using LookAndPlayForm.InitialForm;
 using LookAndPlayForm.InstitutionID;
 using LookAndPlayForm.TesterID;
 using LookAndPlayForm.Varios;
@@ -31,10 +32,13 @@ namespace LookAndPlayForm
             datosCompartidos = new sharedData();
 
 
+            //initial_class_engine initial_engine = new initial_class_engine();
+            //initialForm finitial = new initialForm(initial_engine);
 
             institution_class_engine institution_engine = new institution_class_engine();
             FormInstitutionID fInstitution = new FormInstitutionID(institution_engine);
 
+            
             if (institution_engine.institutionsList != null || fInstitution.ShowDialog() == DialogResult.OK)
             {
                 fInstitution.updateCsv();

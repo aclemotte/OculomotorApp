@@ -164,6 +164,13 @@
     <Compile Include="FixDetector\FixDetectorData.cs" />
     <Compile Include="FixDetector\FixDetector.cs" />
     <Compile Include="FixDetector\TobiiOpenDataClass.cs" />
+    <Compile Include="InitialForm\initialForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InitialForm\initialForm.Designer.cs">
+      <DependentUpon>initialForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InitialForm\initial_class_engine.cs" />
     <Compile Include="InstitutionID\institution_class_engine.cs" />
     <Compile Include="InstitutionID\intitution_class_data.cs" />
     <Compile Include="InstitutionID\FormInstitutionID.cs">
@@ -255,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EyeTracking\TrackStatusControl.resx">
       <DependentUpon>TrackStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InitialForm\initialForm.resx">
+      <DependentUpon>initialForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InstitutionID\FormInstitutionID.resx">
       <DependentUpon>FormInstitutionID.cs</DependentUpon>
