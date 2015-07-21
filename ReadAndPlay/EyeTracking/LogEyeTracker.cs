@@ -150,7 +150,7 @@ namespace LookAndPlayForm
         {
             generalData2Save.targetTraceL = TargetTraceEyeXL;
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                            LookAndPlayForm.Program.datosCompartidos.startTime + 
+                            LookAndPlayForm.Program.datosCompartidos.startTimeTest + 
                             @"-us" + Program.datosCompartidos.activeUser + @"\";
 
             bool exists = System.IO.Directory.Exists(path);

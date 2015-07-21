@@ -59,7 +59,7 @@ namespace LookAndPlayForm.Resumen
             else
             {
                 selectedPath =  Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                                LookAndPlayForm.Program.datosCompartidos.startTime +
+                                LookAndPlayForm.Program.datosCompartidos.startTimeTest +
                                 @"-us" + Program.datosCompartidos.activeUser + @"\";
             }
 

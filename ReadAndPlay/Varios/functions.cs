@@ -9,8 +9,8 @@ namespace LookAndPlayForm.Varios
     {
         public static string getCurrentTime()
         {
-            //return DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
-            return DateTime.Now.ToString("yyyy-MM-dd-HH-mm");
+            return DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
+            //return DateTime.Now.ToString("yyyy-MM-dd-HH-mm");//se comento xq puede hacerse una tarea en menos de un minuto
         }
     }
 }

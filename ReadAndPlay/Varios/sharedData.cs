@@ -20,7 +20,7 @@ namespace LookAndPlayForm
         public string activeUser { get; set; }
         public bool updateCsv { get; set; }
         public string image2read { get; set; }
-        public string startTime { get; set; }
+        public string startTimeTest { get; set; }//ojo que se pueden correr varios test sin cerrar la app
         public int number_of_screening_done { get; set; }
 
         public sharedData()
@@ -29,7 +29,7 @@ namespace LookAndPlayForm
             updateCsv = false;
             getDisplaySelected();
             image2read = "";
-            startTime = Varios.functions.getCurrentTime();
+            startTimeTest = Varios.functions.getCurrentTime();
             number_of_screening_done = 0;
         }
 
@@ -49,7 +49,7 @@ namespace LookAndPlayForm
         /// </summary>
         public void getNewTime()
         {
-            startTime = Varios.functions.getCurrentTime();
+            startTimeTest = Varios.functions.getCurrentTime();
         }
     }
 }
