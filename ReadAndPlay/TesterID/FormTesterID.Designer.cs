@@ -112,6 +112,7 @@
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.labelTesterName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormTesterID";
             this.Text = "Tester ID";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTesterID)).EndInit();

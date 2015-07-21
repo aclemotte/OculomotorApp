@@ -256,7 +256,11 @@ namespace LookAndPlayForm.Resumen
                                 (double)(1000000 * 60);//microsegundos a minutos
 
                 //aca puede que se pueda calcular hasta la ultima fijacion en vez de la ultima mirada
-                wordPerMin = (int)((double)Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras / tiempo);
+                if (tiempo != 0)
+                    wordPerMin = (int)((double)Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras / tiempo);
+                else
+                    wordPerMin = double.NaN;
+
                 textBoxWordsMin.Text = wordPerMin.ToString();
             }
         }
