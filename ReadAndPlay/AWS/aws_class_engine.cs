@@ -19,17 +19,17 @@ namespace LookAndPlayForm.BackupClass
             {
                 //zip file name
                 var zipfilePath = string.Empty;
-                zipfilePath = string.Format("{0}.zip", Path.GetFileName(aws_data.FolderToUpload));
+                zipfilePath = string.Format("{0}.zip", Path.GetFileName(aws_data.FileToUpload));
 
 
                 //create zip file                                          
                 using (var zip = new ZipFile())
                 {
-                    zip.AddDirectory(aws_data.FolderToUpload);
+                    zip.AddDirectory(aws_data.FileToUpload);
                     zip.Save(zipfilePath);
                 }
 
-                aws_data.FolderToUpload = zipfilePath;
+                aws_data.FileToUpload = zipfilePath;
                 //upload to aws
                 UploadFile(aws_data);
 
@@ -46,14 +46,14 @@ namespace LookAndPlayForm.BackupClass
         {
             using (var client = new Amazon.S3.AmazonS3Client(aws_data.AwsAccessKey, aws_data.AwsSecretKey, Amazon.RegionEndpoint.EUCentral1))
             {
-                var fs = new FileStream(aws_data.FolderToUpload, FileMode.Open);
+                var fs = new FileStream(aws_data.FileToUpload, FileMode.Open);
 
                 try
                 {
                     var request = new PutObjectRequest();
                     request.BucketName = aws_data.AwsS3BucketName + "/" + aws_data.AwsS3FolderName;
                     request.CannedACL = S3CannedACL.Private;
-                    request.Key = Path.GetFileName(aws_data.FolderToUpload);
+                    request.Key = Path.GetFileName(aws_data.FileToUpload);
                     request.InputStream = fs;
                     client.PutObject(request);
                 }
@@ -67,24 +67,41 @@ namespace LookAndPlayForm.BackupClass
         }
 
 
-        internal static void UpdateLogFile()
+        public static void UpdateLogFile(string AwsS3FolderName)
         {
-            
+            string fileName = @"log.txt";
+            UpdateMetaData(fileName, AwsS3FolderName);
         }
 
-        internal static void UpdateErrorFile()
+        public static void UpdateErrorFile(string AwsS3FolderName)
         {
-            throw new NotImplementedException();
+            string fileName = @"error.txt";
+            UpdateMetaData(fileName, AwsS3FolderName);            
         }
 
-        internal static void UpdateTestersFile()
+        public static void UpdateTestersFile(string AwsS3FolderName)
         {
-            throw new NotImplementedException();
+            string fileName = @"testers.csv";
+            UpdateMetaData(fileName, AwsS3FolderName);
         }
 
-        internal static void UpdateUsersFile()
+        public static void UpdateUsersFile(string AwsS3FolderName)
         {
-            throw new NotImplementedException();
+            string fileName = @"users.csv";
+            UpdateMetaData(fileName, AwsS3FolderName);
+        }
+
+        private static void UpdateMetaData(string fileName, string AwsS3FolderName)
+        {
+            string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
+            string fullFileName = rootPath + fileName;
+            if (File.Exists(fullFileName))
+            {
+                aws_class_data aws_data = new aws_class_data();
+                aws_data.FileToUpload = fullFileName;
+                aws_data.AwsS3FolderName = AwsS3FolderName;
+                UploadFile(aws_data);
+            }
         }
     }
 }

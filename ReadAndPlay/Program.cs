@@ -94,10 +94,10 @@ namespace LookAndPlayForm
 
                                     ClassLogEngine.Log(data2Log);
 
-                                    aws_class_engine.UpdateLogFile();
-                                    aws_class_engine.UpdateErrorFile();
-                                    aws_class_engine.UpdateTestersFile();
-                                    aws_class_engine.UpdateUsersFile();
+                                    aws_class_engine.UpdateLogFile(institution_engine.institutionsList[0].institution_name);
+                                    aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
+                                    aws_class_engine.UpdateTestersFile(institution_engine.institutionsList[0].institution_name);
+                                    aws_class_engine.UpdateUsersFile(institution_engine.institutionsList[0].institution_name);
 
                                 }
                             }

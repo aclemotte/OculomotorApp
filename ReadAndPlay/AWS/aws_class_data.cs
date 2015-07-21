@@ -15,7 +15,7 @@ namespace LookAndPlayForm.BackupClass
     {
         public string AwsS3BucketName { get; set; }
         public string AwsS3FolderName { get; set; }
-        public string FolderToUpload { get; set; }
+        public string FileToUpload { get; set; }
         public string AwsAccessKey { get; set; }
         public string AwsSecretKey { get; set; }
 

@@ -207,7 +207,7 @@ namespace LookAndPlayForm
                 //aws_data.AwsS3BucketName = AwsCredentials.AwsS3BucketName;
                 //aws_data.AwsSecretKey = AwsCredentials.AwsSecretKey;
                 aws_data.AwsS3FolderName = institution_engine.institutionsList[0].institution_name;
-                aws_data.FolderToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
+                aws_data.FileToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
                                             LookAndPlayForm.Program.datosCompartidos.startTimeTest +
                                             @"-us" + Program.datosCompartidos.activeUser;
 
