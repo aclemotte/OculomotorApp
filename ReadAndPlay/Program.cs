@@ -1,8 +1,4 @@
-﻿//-----------------------------------------------------------------------
-// Copyright 2014 Tobii Technology AB. All rights reserved.
-//-----------------------------------------------------------------------
-
-using System;
+﻿using System;
 using System.Windows.Forms;
 using LookAndPlayForm.BackupClass;
 using LookAndPlayForm.InitialForm;
@@ -29,7 +25,7 @@ namespace LookAndPlayForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            
             datosCompartidos = new sharedData();
 
 
@@ -43,6 +39,17 @@ namespace LookAndPlayForm
 
             institution_class_engine institution_engine = new institution_class_engine();
             FormInstitutionID fInstitution = new FormInstitutionID(institution_engine);
+
+            //try
+            //{
+            //    probarLogError();
+            //}
+            //catch (Exception ex)
+            //{
+            //    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+            //}
+
+            //aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
 
             
             if (institution_engine.institutionsList != null || fInstitution.ShowDialog() == DialogResult.OK)
@@ -95,7 +102,6 @@ namespace LookAndPlayForm
                                     ClassLogEngine.Log(data2Log);
 
                                     aws_class_engine.UpdateLogFile(institution_engine.institutionsList[0].institution_name);
-                                    aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
                                     aws_class_engine.UpdateTestersFile(institution_engine.institutionsList[0].institution_name);
                                     aws_class_engine.UpdateUsersFile(institution_engine.institutionsList[0].institution_name);
 
@@ -112,11 +118,18 @@ namespace LookAndPlayForm
                                 MessageBox.Show(ex.ToString(), "Error!");
                                 ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                             }
+
+                            aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
                         }
                     }
                     formPatientID.Dispose();
                 }
             }
         }
+
+        //private static void probarLogError()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
