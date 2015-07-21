@@ -13,7 +13,7 @@ namespace LookAndPlayForm.BackupClass
 {
     static class aws_class_engine
     {
-        public static void Backup(aws_class_data aws_data)
+        public static void BackupTest(aws_class_data aws_data)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace LookAndPlayForm.BackupClass
 
                 aws_data.FolderToUpload = zipfilePath;
                 //upload to aws
-                UploadFolder(aws_data);
+                UploadFile(aws_data);
 
                 //delete local zip file
                 File.Delete(zipfilePath);
@@ -42,7 +42,7 @@ namespace LookAndPlayForm.BackupClass
             }
         }
 
-        private static void UploadFolder(aws_class_data aws_data)
+        private static void UploadFile(aws_class_data aws_data)
         {
             using (var client = new Amazon.S3.AmazonS3Client(aws_data.AwsAccessKey, aws_data.AwsSecretKey, Amazon.RegionEndpoint.EUCentral1))
             {
@@ -50,7 +50,6 @@ namespace LookAndPlayForm.BackupClass
 
                 try
                 {
-
                     var request = new PutObjectRequest();
                     request.BucketName = aws_data.AwsS3BucketName + "/" + aws_data.AwsS3FolderName;
                     request.CannedACL = S3CannedACL.Private;
@@ -67,5 +66,25 @@ namespace LookAndPlayForm.BackupClass
             }
         }
 
+
+        internal static void UpdateLogFile()
+        {
+            
+        }
+
+        internal static void UpdateErrorFile()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void UpdateTestersFile()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void UpdateUsersFile()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

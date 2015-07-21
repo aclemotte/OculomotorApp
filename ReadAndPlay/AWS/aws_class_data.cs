@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LookAndPlayForm.Varios;
 
 namespace LookAndPlayForm.BackupClass
 {
@@ -20,16 +21,18 @@ namespace LookAndPlayForm.BackupClass
 
         public aws_class_data()
         {
-
+            this.AwsAccessKey = AwsCredentials.AwsAccessKey;
+            this.AwsSecretKey = AwsCredentials.AwsSecretKey;
+            this.AwsS3BucketName = AwsCredentials.AwsS3BucketName;
         }
 
-        public aws_class_data(string AwsS3BucketName, string AwsS3FolderName, string FolderToUpload, string AwsAccessKey, string AwsSecretKey)
-        {
-            this.AwsS3BucketName = AwsS3BucketName;
-            this.AwsS3FolderName = AwsS3FolderName;
-            this.FolderToUpload = FolderToUpload;
-            this.AwsAccessKey = AwsAccessKey;
-            this.AwsSecretKey = AwsSecretKey;
-        }
+        //public aws_class_data(string AwsS3BucketName, string AwsS3FolderName, string FolderToUpload, string AwsAccessKey, string AwsSecretKey)
+        //{
+        //    this.AwsS3BucketName = AwsS3BucketName;
+        //    this.AwsS3FolderName = AwsS3FolderName;
+        //    this.FolderToUpload = FolderToUpload;
+        //    this.AwsAccessKey = AwsAccessKey;
+        //    this.AwsSecretKey = AwsSecretKey;
+        //}
     }
 }

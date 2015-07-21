@@ -203,15 +203,15 @@ namespace LookAndPlayForm
 
                 //subir los datos a la nube
                 aws_class_data aws_data = new aws_class_data();
-                aws_data.AwsAccessKey = AwsCredentials.AwsAccessKey;
-                aws_data.AwsS3BucketName = AwsCredentials.AwsS3BucketName;
+                //aws_data.AwsAccessKey = AwsCredentials.AwsAccessKey;
+                //aws_data.AwsS3BucketName = AwsCredentials.AwsS3BucketName;
+                //aws_data.AwsSecretKey = AwsCredentials.AwsSecretKey;
                 aws_data.AwsS3FolderName = institution_engine.institutionsList[0].institution_name;
-                aws_data.AwsSecretKey = AwsCredentials.AwsSecretKey;
                 aws_data.FolderToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
                                             LookAndPlayForm.Program.datosCompartidos.startTime +
                                             @"-us" + Program.datosCompartidos.activeUser;
 
-                aws_class_engine.Backup(aws_data);
+                aws_class_engine.BackupTest(aws_data);
 
                 datosCompartidos.number_of_screening_done++;
             }
