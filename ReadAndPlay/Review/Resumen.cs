@@ -36,13 +36,16 @@ namespace LookAndPlayForm.Resumen
         Size stimulusSize;
         Point stimulusLocation;
 
+        bool newTest;
         public bool everythingOk { get; set; }
 
 
 
         public Resumen(bool showLastTest, bool newTestAvailable)
         {
-            string selectedPath; 
+            string selectedPath;
+
+            newTest = false;
 
             InitializeComponent();
 
@@ -489,15 +492,19 @@ namespace LookAndPlayForm.Resumen
 
         private void buttonNewTest_Click(object sender, EventArgs e)
         {
+            newTest = true;
             this.Close();
         }
-
-        public event EventHandler OnResumen_FormClosed;
+       
+        public delegate void ReviewClosedDelegate(bool newTest);
+        public event ReviewClosedDelegate ReviewClosed;
         private void Resumen_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //avisar a la app que le llamo que se cerro la app
-            if (OnResumen_FormClosed != null)
-                OnResumen_FormClosed(this, null);
+            //avisar a la app que le llamo que se cerro la app, avisando tb si 
+            // se cerro la ventana para hacer un nuevo test
+            // se cerro para cerrar toda la app
+            if (ReviewClosed != null)
+                ReviewClosed(newTest);
         }
     }
 }
