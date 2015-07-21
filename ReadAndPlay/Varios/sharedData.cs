@@ -21,6 +21,7 @@ namespace LookAndPlayForm
         public bool updateCsv { get; set; }
         public string image2read { get; set; }
         public string startTime { get; set; }
+        public int number_of_screening_done { get; set; }
 
         public sharedData()
         {
@@ -29,6 +30,7 @@ namespace LookAndPlayForm
             getDisplaySelected();
             image2read = "";
             startTime = Varios.functions.getCurrentTime();
+            number_of_screening_done = 0;
         }
 
         private void getDisplaySelected()

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using LookAndPlayForm.BackupClass;
 using LookAndPlayForm.InitialForm;
 using LookAndPlayForm.InstitutionID;
+using LookAndPlayForm.LogData;
 using LookAndPlayForm.TesterID;
 using LookAndPlayForm.Varios;
 using Tobii.Gaze.Core;
@@ -31,6 +32,11 @@ namespace LookAndPlayForm
 
             datosCompartidos = new sharedData();
 
+
+            ClassLogData data2Log = new ClassLogData();
+
+            data2Log.Date = DateTime.Now.ToString("dd/MM/yyyy");
+            data2Log.Time_start = DateTime.Now.ToString("HH:mm:ss");
 
             //initial_class_engine initial_engine = new initial_class_engine();
             //initialForm finitial = new initialForm(initial_engine);
@@ -80,6 +86,14 @@ namespace LookAndPlayForm
                                     Application.Run(new EyeXWinForm(_eyeTrackingEngine, institution_engine));
 
                                     //eyeXWinForm.Dispose();
+
+                                    data2Log.Time_end = DateTime.Now.ToString("HH:mm:ss");
+                                    data2Log.Tester = fTester.testerDataSelected.tester_name;
+                                    data2Log.Patient = formPatientID.patientDataSelected.user_name;
+                                    data2Log.number_of_screening_done = datosCompartidos.number_of_screening_done;
+
+                                    ClassLogEngine.Log(data2Log);
+
                                 }
                             }
 

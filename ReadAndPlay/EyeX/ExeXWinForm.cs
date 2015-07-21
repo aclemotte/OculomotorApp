@@ -211,7 +211,9 @@ namespace LookAndPlayForm
                                             LookAndPlayForm.Program.datosCompartidos.startTime +
                                             @"-us" + Program.datosCompartidos.activeUser;
 
-                aws_class_engine.Backup(aws_data); 
+                aws_class_engine.Backup(aws_data);
+
+                datosCompartidos.number_of_screening_done++;
             }
         }
         	
