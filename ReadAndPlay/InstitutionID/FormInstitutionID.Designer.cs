@@ -75,7 +75,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormInstitutionID";
-            this.Text = "Institution ID";
+            this.Text = "Institution Window";
             this.ResumeLayout(false);
             this.PerformLayout();
 

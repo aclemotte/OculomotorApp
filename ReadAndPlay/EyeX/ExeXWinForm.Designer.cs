@@ -291,7 +291,7 @@ namespace LookAndPlayForm
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "EyeXWinForm";
-            this.Text = "Read analysis";
+            this.Text = "Calibration and positioning window";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EyeXWinForm_FormClosed);
             this.Load += new System.EventHandler(this.EyeXWinForm_Load);
             this.groupBox1.ResumeLayout(false);

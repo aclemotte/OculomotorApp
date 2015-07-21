@@ -114,7 +114,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormTesterID";
-            this.Text = "Tester ID";
+            this.Text = "Tester Window";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTesterID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
