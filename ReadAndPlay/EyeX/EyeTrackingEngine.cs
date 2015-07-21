@@ -165,8 +165,9 @@ namespace LookAndPlayForm
                     return;
                 }
             }
-            catch (EyeTrackerException)
+            catch (EyeTrackerException ex)
             {
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                 State = EyeTrackingState.Error;
                 return;
             }
@@ -183,9 +184,10 @@ namespace LookAndPlayForm
 
                 State = EyeTrackingState.Connecting;
             }
-            catch (EyeTrackerException)
+            catch (EyeTrackerException ex)
             {
                 State = EyeTrackingState.ConnectionFailed;
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             }
         }
 
@@ -202,9 +204,10 @@ namespace LookAndPlayForm
                 {
                     _eyeTracker.RunEventLoop();
                 }
-                catch (EyeTrackerException)
+                catch (EyeTrackerException ex)
                 {
                     State = EyeTrackingState.Error;
+                    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                 }
             });
 

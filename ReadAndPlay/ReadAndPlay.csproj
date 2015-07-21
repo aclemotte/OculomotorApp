@@ -121,6 +121,7 @@
     <Compile Include="ConsentForm\consentForm.Designer.cs">
       <DependentUpon>consentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ErrorLog\ClassErrorLog.cs" />
     <Compile Include="EyeTracking\Calibration\CalibrationError.cs" />
     <Compile Include="EyeTracking\Calibration\CalibrationResultForm.cs">
       <SubType>Form</SubType>

@@ -116,6 +116,7 @@ namespace LookAndPlayForm.FixDetector
                     Console.WriteLine("FixDetector. No se encontro el archivo eyetrackerData.json o testData.json");
                     return false;
                 }
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             }
 
             Console.WriteLine("FixDetector. Files 2 string: done");
@@ -132,6 +133,7 @@ namespace LookAndPlayForm.FixDetector
             catch (Exception ex)
             {
                 Console.WriteLine("FixDetector. Problemas con JsonDeserialize: " + ex.ToString());
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                 return;
             }
 

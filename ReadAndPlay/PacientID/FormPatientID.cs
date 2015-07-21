@@ -125,7 +125,8 @@ namespace LookAndPlayForm
             }
             catch (Exception ex)
             {
-                File.WriteAllText("lastError.txt", string.Format("Last Error @{0}: {1}", DateTime.Now, ex.GetBaseException()));
+                //File.WriteAllText("lastError.txt", string.Format("Last Error @{0}: {1}", DateTime.Now, ex.GetBaseException()));
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             }
         }
         
@@ -166,6 +167,8 @@ namespace LookAndPlayForm
                     }
                     catch (Exception e1)
                     {
+                        ErrorLog.ErrorLog.toErrorFile(e1.GetBaseException().ToString());
+
                         datosMigrados2NewClass = true;
                         //MessageBox.Show(e1.Message);                        
                         try
@@ -193,14 +196,16 @@ namespace LookAndPlayForm
                                 }
                                 catch (Exception e3)
                                 {
-                                    MessageBox.Show(e3.Message);
+                                    //MessageBox.Show(e3.Message);
+                                    ErrorLog.ErrorLog.toErrorFile(e3.GetBaseException().ToString());
                                     return false;
                                 }
                             }
                         }
                         catch(Exception e2)
                         {
-                            MessageBox.Show(e2.Message);
+                            //MessageBox.Show(e2.Message);
+                            ErrorLog.ErrorLog.toErrorFile(e2.GetBaseException().ToString());
                             return false;
                         }
                     }

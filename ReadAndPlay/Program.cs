@@ -102,13 +102,15 @@ namespace LookAndPlayForm
                                 }
                             }
 
-                            catch (EyeTrackerException e)
+                            catch (EyeTrackerException ex)
                             {
-                                MessageBox.Show(e.Message, "Failed loading application!");
+                                MessageBox.Show(ex.Message, "Failed loading application!");
+                                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                             }
-                            catch (Exception e)
+                            catch (Exception ex)
                             {
-                                MessageBox.Show(e.ToString(), "Error!");
+                                MessageBox.Show(ex.ToString(), "Error!");
+                                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                             }
                         }
                     }

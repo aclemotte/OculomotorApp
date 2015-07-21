@@ -74,7 +74,8 @@ namespace LookAndPlayForm.TesterID
                     }
                     catch (Exception ex)
                     {
-                        File.WriteAllText("lastError.txt", string.Format("Last Error @{0}: {1}", DateTime.Now, ex.GetBaseException()));
+                        //File.WriteAllText("lastError.txt", string.Format("Last Error @{0}: {1}", DateTime.Now, ex.GetBaseException()));
+                        ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                         return false;
                     }
                 }

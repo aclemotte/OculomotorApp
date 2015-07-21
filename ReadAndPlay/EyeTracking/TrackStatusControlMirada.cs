@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Tobii.Gaze.Core;
@@ -83,8 +84,9 @@ namespace LookAndPlayForm
                 {
                     e.Graphics.FillEllipse(_eyeBrushL, r);
                 }
-                catch
+                catch(Exception ex)
                 {
+                    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                 }
             }
 
@@ -95,8 +97,9 @@ namespace LookAndPlayForm
                 {
                     e.Graphics.FillEllipse(_eyeBrushR, r);
                 }
-                catch
+                catch (Exception ex)
                 {
+                    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                 }
             }
         }        
