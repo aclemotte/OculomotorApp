@@ -17,7 +17,7 @@ namespace LookAndPlayForm
         public const int DwellLatency = 1000;
 
         //control puntero
-        public const pointercontroltype pointercontroltypeSelected = pointercontroltype.eyetracker;
+        //public const pointercontroltype pointercontroltypeSelected = pointercontroltype.eyetracker; //podria comentarse
 
         //filtro
         public const filtertype filtertypeSelected = filtertype.median;
@@ -25,7 +25,7 @@ namespace LookAndPlayForm
         public const double thresholdFilterNormalized = 2000;//numero de pixeles
        
         //puntero
-        public const bool cursorVisibleGame = false;
+        //public const bool cursorVisibleGame = false;
 
         //calibration error
         public const int maxCalibracionError = 50;

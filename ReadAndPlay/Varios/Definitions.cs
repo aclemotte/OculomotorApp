@@ -69,10 +69,10 @@ namespace LookAndPlayForm
         median, movingaverage
     };
 
-    public enum pointercontroltype
-    {
-        mouse, eyetracker
-    }
+    //public enum pointercontroltype
+    //{
+    //    mouse, eyetracker
+    //}
 
     public enum eye
     {

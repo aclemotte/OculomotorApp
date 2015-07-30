@@ -16,31 +16,26 @@ namespace LookAndPlayForm
         }
 
 
-        Point _screensize;
-        Random rnd = new Random();            
+        //Point _screensize;        
+        //public Point initTargetSize = new Point(1000, 600);
         
-        public Point initTargetSize = new Point(1000, 600);       
-        public bool finished;
-        public int numberOfTargets;
+        //public TargetPosSize()
+        //{
+        //    //_screensize = new Point(LookAndPlayForm.Program.datosCompartidos.monitorBounds.Width, LookAndPlayForm.Program.datosCompartidos.monitorBounds.Height);
+        //    //numberOfTargets = 1;
+        //    //finished = false;
 
+        //    //Console.WriteLine("Screen size X:" + _screensize.X.ToString() + " Y: " + _screensize.Y.ToString());
+        //    //Console.WriteLine("Init target size X: " + initTargetSize.X.ToString() + " Y: " + initTargetSize.Y.ToString());
 
-        public TargetPosSize()
-        {
-            _screensize = new Point(LookAndPlayForm.Program.datosCompartidos.monitorBounds.Width, LookAndPlayForm.Program.datosCompartidos.monitorBounds.Height);
-            numberOfTargets = 1;
-            finished = false;
-
-            Console.WriteLine("Screen size X:" + _screensize.X.ToString() + " Y: " + _screensize.Y.ToString());
-            Console.WriteLine("Init target size X: " + initTargetSize.X.ToString() + " Y: " + initTargetSize.Y.ToString());
-
-        }
+        //}
                 
-        public Point generateInitTargetPosition()
-        {
-            Point InitTargetPosition = new Point(100, 100);
-            Console.WriteLine("Init target pos X: " + InitTargetPosition.X.ToString() + " Y: " + InitTargetPosition.Y.ToString());
-            return InitTargetPosition;
-        }
+        //public Point generateInitTargetPosition()
+        //{
+        //    Point InitTargetPosition = new Point(100, 100);
+        //    Console.WriteLine("Init target pos X: " + InitTargetPosition.X.ToString() + " Y: " + InitTargetPosition.Y.ToString());
+        //    return InitTargetPosition;
+        //}
 
     }
 }

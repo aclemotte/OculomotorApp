@@ -15,13 +15,9 @@ namespace LookAndPlayForm
     {
         EyeXWinForm _ControlFormEyeX;
         sharedData _datosCompartidos;
-        TargetPosSize _TargetPosSize;
         TargetPosSize.Target _TargetPS;
-        //Dwell clickDwell;
         LogEyeTracker.eyetrackerDataEyeX generalDataEyeX;
         LogTest logTest;
-        PolledDevices.PolledMouse _mouse;
-        LogMouse mouseRecord;
 
 
 
@@ -34,20 +30,8 @@ namespace LookAndPlayForm
 
             _ControlFormEyeX = ControlForm;
             _datosCompartidos = LookAndPlayForm.Program.datosCompartidos;
-            _TargetPosSize = new TargetPosSize();
-            
-            Point initStimulusPosition = _TargetPosSize.generateInitTargetPosition();
-            
-            pictureBoxStimulus.Location = initStimulusPosition;
-            pictureBoxStimulus.Size = new Size(_TargetPosSize.initTargetSize);
-            loadSetImage2PictureBox();
 
-            //save init target position and size            
-            _TargetPS.position = pictureBoxStimulus.Location;
-            _TargetPS.size = _TargetPosSize.initTargetSize;
-
-            //selectClicType();
-            selectPointerControlType();
+            setPictureBoxStimulus();           
 
             //para avisar a _ControlFormEyeX si se cancelo la tarea (cuando se pregunta Are you ready?)
             _ControlFormEyeX.se_grabaron_datos = false;
@@ -56,69 +40,43 @@ namespace LookAndPlayForm
             logTest = new LogTest();
         }
 
-        private void loadSetImage2PictureBox()
+        private void setPictureBoxStimulus()
+        {
+            pictureBoxStimulus.Size = new Size(1000, 600);
+            pictureBoxStimulus.Location = initPictureBoxLocation();
+            pictureBoxStimulus.Image = getPictureBoxImage();
+
+            //save init target position and size            
+            _TargetPS.position = pictureBoxStimulus.Location;
+            _TargetPS.size = new Point(pictureBoxStimulus.Size.Width, pictureBoxStimulus.Size.Height);
+        }
+
+        private Point initPictureBoxLocation()
+        {
+            Point location = new Point();
+            location.X = (int)((double)(Program.datosCompartidos.monitorBounds.Width - pictureBoxStimulus.Size.Width) * (double)0.5);
+            location.Y = (int)((double)(Program.datosCompartidos.monitorBounds.Height - pictureBoxStimulus.Size.Height) * (double)0.5);
+            return location;
+        }
+
+        private Image getPictureBoxImage()
         {
             if (Varios.ImageDictionary.Image2ReadDictionary.ContainsKey(Program.datosCompartidos.image2read))
             {
-                pictureBoxStimulus.Image = Varios.ImageDictionary.Image2ReadDictionary[Program.datosCompartidos.image2read].imagen;
                 Console.WriteLine("Program.datosCompartidos.image2read:" + Program.datosCompartidos.image2read + " encontrada");
+                return Varios.ImageDictionary.Image2ReadDictionary[Program.datosCompartidos.image2read].imagen;
             }
             else
             {
                 Console.WriteLine("Program.datosCompartidos.image2read:" + Program.datosCompartidos.image2read + " NO encontrada");
-            }
-        }
-
-        private void selectPointerControlType()
-        {
-            switch (settings.pointercontroltypeSelected)
-            {
-                case pointercontroltype.eyetracker:
-                    break;
-                case pointercontroltype.mouse:
-                    _mouse = new PolledMouse(this);
-                    _mouse.MouseMoveEvent += new PolledMouseEventHandler(OnMouseMove);
-                    mouseRecord = new LogMouse();
-                    break;
-                default:
-                    break;
+                return null;
             }
         }
         
-        //private void selectClicType()
-        //{
-        //    switch (settings.clictypeSelected)
-        //    {
-        //        case clictype.dwell:
-        //            clickDwell = new Dwell(LookAndPlayForm.Program.datosCompartidos);
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //}
-
-        private void OnMouseMove(object sender, PolledMouseEventArgs e)
-        {
-            //almacenar movimiento del mouse e.ScreenPos.X, e.ScreenPos.Y
-            mouseRecord.addMouseData2List(new PointI(e.ScreenPos.X, e.ScreenPos.Y));
-        }
 
 
 
-
-
-
-
-
-
-
-        // Before starting the game a confirmation is expected
-
-        private void Game1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (!settings.cursorVisibleGame)
-                Cursor.Show();
-        }
+       
 
 
 
@@ -138,22 +96,12 @@ namespace LookAndPlayForm
             end_protocol();
         }
 
-        /// <summary>
-        /// Para el Eyetracker y Pregunta si quiere almacenar los datos
-        /// </summary>
-        private void stop_protocol()
+        private void end_protocol()
         {
-            if (settings.pointercontroltypeSelected == pointercontroltype.eyetracker)
-            {
-                _ControlFormEyeX.toogleGameStatus();
-            }
-
-            if (settings.pointercontroltypeSelected == pointercontroltype.mouse)
-            {
-                _mouse.Release();
-                mouseRecord.stopCollectingData();
-            }
-            
+            _ControlFormEyeX.toogleGameStatus();
+            save_protocol();
+            _ControlFormEyeX.se_grabaron_datos = true;
+            this.Close();
         }
 
         private void save_protocol()
@@ -162,7 +110,7 @@ namespace LookAndPlayForm
             logTest.testData.screen_Width = Screen.PrimaryScreen.Bounds.Width;
             logTest.testData.date = String.Format("{0:u}", DateTime.Now);//yyyy'-'MM'-'dd HH':'mm':'ss'Z'
             logTest.testData.eyetracker = _datosCompartidos.EyeTrackerInfo;
-            logTest.testData.pointer_type = settings.pointercontroltypeSelected.ToString();
+            logTest.testData.pointer_type = "eyetracker"; // settings.pointercontroltypeSelected.ToString();
             logTest.testData.blink_time_min = 0;
             logTest.testData.blink_time_max = 0;
             logTest.testData.dwell_area = settings.DwellArea;
@@ -180,19 +128,16 @@ namespace LookAndPlayForm
             logTest.saveData2File();
 
             _datosCompartidos.updateCsv = true;
-            //FixDetector.FixDetector detectorFijaciones = new FixDetector.FixDetector();
-        }
-
-        private void end_protocol()
-        {
-            stop_protocol();
-            //playEndSound();
-            save_protocol();
-            _ControlFormEyeX.se_grabaron_datos = true;
-            this.Close();
         }
 
         
+
+        //vuelve a mostrar el cursor
+        private void Game1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Cursor.Show();
+        }
+
        // Before starting the game a confirmation is expected
         private void Game1_Load(object sender, EventArgs e)
         {
@@ -200,24 +145,8 @@ namespace LookAndPlayForm
             if (MessageBox.Show("Start test 1?", "Are you ready?!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 // user clicked yes                
-
-                //if (!settings.cursorVisibleGame)
                 Cursor.Hide();
-
-                if (settings.pointercontroltypeSelected == pointercontroltype.eyetracker)
-                    _ControlFormEyeX.toogleGameStatus(true);
-                else
-                    _ControlFormEyeX.toogleGameStatus(false);
-
-
-                if (settings.pointercontroltypeSelected == pointercontroltype.mouse)
-                {
-                    mouseRecord.startCollectingData();
-                    _mouse.Acquire();
-                }
-
-                //if (settings.clictypeSelected == clictype.dwell)
-                //    clickDwell.startDwelling();
+                _ControlFormEyeX.toogleGameStatus(true);
             }
             else// user clicked no
             {
