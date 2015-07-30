@@ -706,6 +706,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormPatientID";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pacient Window";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).EndInit();
             this.groupBoxDiagnosedConditions.ResumeLayout(false);
