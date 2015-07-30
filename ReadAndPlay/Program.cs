@@ -4,6 +4,7 @@ using LookAndPlayForm.BackupClass;
 using LookAndPlayForm.InitialForm;
 using LookAndPlayForm.InstitutionID;
 using LookAndPlayForm.LogData;
+using LookAndPlayForm.SelectTest;
 using LookAndPlayForm.TesterID;
 using LookAndPlayForm.Varios;
 using Tobii.Gaze.Core;
@@ -87,44 +88,49 @@ namespace LookAndPlayForm
                                 (formPatientID.newUser && formularioConsentimiento.ShowDialog() == DialogResult.OK))
                         {
 
-                            try
+                            FormSelectionTest selectionTestForm = new FormSelectionTest();
+
+                            if (selectionTestForm.ShowDialog() == DialogResult.OK)
                             {
-                                using (_eyeTrackingEngine = new EyeTrackingEngine())
+                                try
                                 {
-                                    //EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine);
-                                    //Application.Run(eyeXWinForm);
+                                    using (_eyeTrackingEngine = new EyeTrackingEngine())
+                                    {
+                                        //EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine);
+                                        //Application.Run(eyeXWinForm);
 
-                                    Application.Run(new EyeXWinForm(_eyeTrackingEngine, institution_engine));
+                                        Application.Run(new EyeXWinForm(_eyeTrackingEngine, institution_engine));
 
-                                    //eyeXWinForm.Dispose();
+                                        //eyeXWinForm.Dispose();
 
-                                    data2Log.Time_end = DateTime.Now.ToString("HH:mm:ss");
-                                    data2Log.Tester = fTester.testerDataSelected.tester_name;
-                                    data2Log.Patient = formPatientID.patientDataSelected.user_name;
-                                    data2Log.number_of_screening_done = datosCompartidos.number_of_screening_done;
-                                    data2Log.AssemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                                        data2Log.Time_end = DateTime.Now.ToString("HH:mm:ss");
+                                        data2Log.Tester = fTester.testerDataSelected.tester_name;
+                                        data2Log.Patient = formPatientID.patientDataSelected.user_name;
+                                        data2Log.number_of_screening_done = datosCompartidos.number_of_screening_done;
+                                        data2Log.AssemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-                                    ClassLogEngine.Log(data2Log);
+                                        ClassLogEngine.Log(data2Log);
 
-                                    aws_class_engine.UpdateLogFile(institution_engine.institutionsList[0].institution_name);
-                                    aws_class_engine.UpdateTestersFile(institution_engine.institutionsList[0].institution_name);
-                                    aws_class_engine.UpdateUsersFile(institution_engine.institutionsList[0].institution_name);
+                                        aws_class_engine.UpdateLogFile(institution_engine.institutionsList[0].institution_name);
+                                        aws_class_engine.UpdateTestersFile(institution_engine.institutionsList[0].institution_name);
+                                        aws_class_engine.UpdateUsersFile(institution_engine.institutionsList[0].institution_name);
 
+                                    }
                                 }
-                            }
 
-                            catch (EyeTrackerException ex)
-                            {
-                                MessageBox.Show(ex.Message, "Failed loading application!");
-                                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.ToString(), "Error!");
-                                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                            }
+                                catch (EyeTrackerException ex)
+                                {
+                                    MessageBox.Show(ex.Message, "Failed loading application!");
+                                    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.ToString(), "Error!");
+                                    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                                }
 
-                            aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
+                                aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
+                            }
                         }
                     }
                     formPatientID.Dispose();
