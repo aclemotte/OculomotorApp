@@ -24,7 +24,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -190,6 +191,12 @@
     </Compile>
     <Compile Include="PacientID\patient_class_data.cs" />
     <Compile Include="PacientID\patient_class_engine.cs" />
+    <Compile Include="SelectTest\FormSelectionTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectTest\FormSelectionTest.Designer.cs">
+      <DependentUpon>FormSelectionTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Review\Resumen.resx">
       <DependentUpon>Resumen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectTest\FormSelectionTest.resx">
+      <DependentUpon>FormSelectionTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
