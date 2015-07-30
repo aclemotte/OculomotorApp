@@ -65,7 +65,7 @@
             this.MinimizeBox = false;
             this.Name = "SplashScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SplashScreen";
+            this.Text = "Welcome!";
             this.Shown += new System.EventHandler(this.SplashScreen_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
