@@ -133,7 +133,7 @@
             // labelVersion
             // 
             this.labelVersion.AutoSize = true;
-            this.labelVersion.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelVersion.Location = new System.Drawing.Point(12, 406);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(42, 13);

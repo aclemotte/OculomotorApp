@@ -34,6 +34,7 @@
             this.textBoxTesterName = new System.Windows.Forms.TextBox();
             this.labelTesterID = new System.Windows.Forms.Label();
             this.numericUpDownTesterID = new System.Windows.Forms.NumericUpDown();
+            this.labelVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTesterID)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,11 +102,22 @@
             0});
             this.numericUpDownTesterID.ValueChanged += new System.EventHandler(this.numericUpDownTesterID_ValueChanged);
             // 
+            // labelVersion
+            // 
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelVersion.Location = new System.Drawing.Point(12, 201);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(48, 13);
+            this.labelVersion.TabIndex = 6;
+            this.labelVersion.Text = "Version: ";
+            // 
             // FormTesterID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 223);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.numericUpDownTesterID);
             this.Controls.Add(this.labelTesterID);
             this.Controls.Add(this.textBoxTesterName);
@@ -129,5 +141,6 @@
         private System.Windows.Forms.TextBox textBoxTesterName;
         private System.Windows.Forms.Label labelTesterID;
         private System.Windows.Forms.NumericUpDown numericUpDownTesterID;
+        private System.Windows.Forms.Label labelVersion;
     }
 }

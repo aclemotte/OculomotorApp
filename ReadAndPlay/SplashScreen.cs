@@ -13,7 +13,9 @@ namespace LookAndPlayForm
     {
         public SplashScreen()
         {
-            InitializeComponent();            
+            InitializeComponent();
+
+            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         private void timerSplash_Tick(object sender, EventArgs e)

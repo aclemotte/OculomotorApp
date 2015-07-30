@@ -32,6 +32,7 @@
             this.labelInstitutionName = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
             this.textBoxInstitutionName = new System.Windows.Forms.TextBox();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelInstitutionName
@@ -64,11 +65,21 @@
             this.textBoxInstitutionName.Size = new System.Drawing.Size(343, 29);
             this.textBoxInstitutionName.TabIndex = 5;
             // 
+            // labelVersion
+            // 
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Location = new System.Drawing.Point(13, 155);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(48, 13);
+            this.labelVersion.TabIndex = 6;
+            this.labelVersion.Text = "Version: ";
+            // 
             // FormInstitutionID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 177);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.textBoxInstitutionName);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.labelInstitutionName);
@@ -87,5 +98,6 @@
         private System.Windows.Forms.Label labelInstitutionName;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.TextBox textBoxInstitutionName;
+        private System.Windows.Forms.Label labelVersion;
     }
 }

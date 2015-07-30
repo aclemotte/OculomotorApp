@@ -25,6 +25,9 @@ namespace LookAndPlayForm.TesterID
         public FormTesterID(tester_class_engine tester_engine)
         {
             InitializeComponent();
+
+            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
             this.tester_engine = tester_engine;
 
             testers2Form();

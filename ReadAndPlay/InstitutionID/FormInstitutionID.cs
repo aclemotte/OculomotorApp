@@ -25,6 +25,8 @@ namespace LookAndPlayForm.InstitutionID
         {
             InitializeComponent();
 
+            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
             this.institution_engine = institution_engine;
 
             //institutions2Form();
