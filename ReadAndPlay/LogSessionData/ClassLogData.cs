@@ -15,6 +15,7 @@ namespace LookAndPlayForm.LogData
         public string Tester;
         public string Patient;
         public int number_of_screening_done;
+        public string AssemblyVersion;
 
         public ClassLogData()
         {

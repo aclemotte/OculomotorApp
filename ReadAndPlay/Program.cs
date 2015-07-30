@@ -102,6 +102,7 @@ namespace LookAndPlayForm
                                     data2Log.Tester = fTester.testerDataSelected.tester_name;
                                     data2Log.Patient = formPatientID.patientDataSelected.user_name;
                                     data2Log.number_of_screening_done = datosCompartidos.number_of_screening_done;
+                                    data2Log.AssemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
                                     ClassLogEngine.Log(data2Log);
 
