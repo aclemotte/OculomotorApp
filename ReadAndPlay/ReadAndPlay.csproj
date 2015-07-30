@@ -190,6 +190,12 @@
     </Compile>
     <Compile Include="PacientID\patient_class_data.cs" />
     <Compile Include="PacientID\patient_class_engine.cs" />
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="TesterID\FormTesterID.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +298,9 @@
     <EmbeddedResource Include="Review\Resumen.resx">
       <DependentUpon>Resumen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TesterID\FormTesterID.resx">
       <DependentUpon>FormTesterID.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +323,7 @@
     <Content Include="Resources\Animales\perroHamaca.gif" />
     <Content Include="Resources\Animales\salchicha.gif" />
     <None Include="Resources\MrPatch.png" />
+    <None Include="Resources\MrPatch-logo-horizontal.png" />
     <Content Include="Resources\MrPatch32.ico" />
     <Content Include="Resources\Textos\TextoEs1.png" />
     <Content Include="Resources\Textos\TextoIn1.png" />

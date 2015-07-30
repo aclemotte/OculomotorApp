@@ -34,6 +34,10 @@ namespace LookAndPlayForm
             data2Log.Date = DateTime.Now.ToString("dd/MM/yyyy");
             data2Log.Time_start = DateTime.Now.ToString("HH:mm:ss");
 
+            SplashScreen sscreen = new SplashScreen();
+            sscreen.ShowDialog();
+
+
             //initial_class_engine initial_engine = new initial_class_engine();
             //initialForm finitial = new initialForm(initial_engine);
 
