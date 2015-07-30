@@ -32,8 +32,8 @@
             this.radioButtonRead = new System.Windows.Forms.RadioButton();
             this.radioButtonPersuit = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelSampleText = new System.Windows.Forms.Label();
             this.comboBoxSampleText = new System.Windows.Forms.ComboBox();
+            this.labelSampleText = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -75,16 +75,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
-            // labelSampleText
-            // 
-            this.labelSampleText.AutoSize = true;
-            this.labelSampleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSampleText.Location = new System.Drawing.Point(36, 107);
-            this.labelSampleText.Name = "labelSampleText";
-            this.labelSampleText.Size = new System.Drawing.Size(108, 24);
-            this.labelSampleText.TabIndex = 34;
-            this.labelSampleText.Text = "Sample text";
-            // 
             // comboBoxSampleText
             // 
             this.comboBoxSampleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,6 +97,16 @@
             this.comboBoxSampleText.Name = "comboBoxSampleText";
             this.comboBoxSampleText.Size = new System.Drawing.Size(207, 32);
             this.comboBoxSampleText.TabIndex = 35;
+            // 
+            // labelSampleText
+            // 
+            this.labelSampleText.AutoSize = true;
+            this.labelSampleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSampleText.Location = new System.Drawing.Point(36, 107);
+            this.labelSampleText.Name = "labelSampleText";
+            this.labelSampleText.Size = new System.Drawing.Size(108, 24);
+            this.labelSampleText.TabIndex = 34;
+            this.labelSampleText.Text = "Sample text";
             // 
             // labelVersion
             // 
@@ -141,6 +141,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormSelectionTest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Test selection";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
