@@ -69,7 +69,7 @@ namespace LookAndPlayForm
             this.buttonGame1.TabIndex = 2;
             this.buttonGame1.Text = "New test";
             this.buttonGame1.UseVisualStyleBackColor = true;
-            this.buttonGame1.Click += new System.EventHandler(this.buttonGame1_Click);
+            this.buttonGame1.Click += new System.EventHandler(this.buttonNewTest_Click);
             // 
             // progressBar4Distance
             // 
@@ -293,8 +293,6 @@ namespace LookAndPlayForm
             this.Name = "EyeXWinForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calibration and positioning window";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EyeXWinForm_FormClosed);
-            this.Load += new System.EventHandler(this.EyeXWinForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

@@ -15,17 +15,13 @@ namespace LookAndPlayForm
     public partial class EyeXWinForm : Form
     {
         public readonly EyeTrackingEngine eyeTrackingEngine;
+        
         private delegate void UpdateStateDelegate(EyeTrackingStateChangedEventArgs eyeTrackingStateChangedEventArgs);
-        private bool ETcontrolCursor = false;
-        private bool ETcontrolCursorInGame = false;        
         private bool GameStarted = false;
         private MouseController CursorControl = new MouseController();
-        //private Game1 _Game1;
-        public sharedData datosCompartidos;
-        private LowLevelKeyboardHook _llkhk;
-        private Dwell clickDwell;
         private EyeTracking.distanceDev2User distanciaDev2USer;
         private institution_class_engine institution_engine;
+
 
         public EyeXWinForm(EyeTrackingEngine eyeTrackingEngine, institution_class_engine institution_engine)
         {
@@ -40,13 +36,8 @@ namespace LookAndPlayForm
 
             eyeTrackingEngine.Initialize();
 
-            this.datosCompartidos = LookAndPlayForm.Program.datosCompartidos;
-            datosCompartidos.LogData = new LogEyeTracker();
-
-            _llkhk = new LowLevelKeyboardHook("Low-level Keyboard Hook");
-            _llkhk.OnKeyPress += new EventHandler<KeyPressEventArgs>(OnKeyboardHookPress);
-
-            clickDwell = new Dwell(LookAndPlayForm.Program.datosCompartidos);
+            //this.datosCompartidos = LookAndPlayForm.Program.datosCompartidos;
+            Program.datosCompartidos.LogData = new LogEyeTracker();
 
             distanciaDev2USer = new EyeTracking.distanceDev2User();
         }
@@ -71,19 +62,13 @@ namespace LookAndPlayForm
                     Invalidate();
                 }));
 
-            if (GameStarted || ETcontrolCursor)
+            if (GameStarted)
             {
-                PointD cursorFiltered = new PointD();
-                PointD gazeWeighted;
-                gazeWeighted = eyetrackingFunctions.WeighGaze(gazePointEventArgs.GazeDataReceived);
-
-                if (ETcontrolCursorInGame || ETcontrolCursor)
-                    cursorFiltered = CursorControl.filterData(gazeWeighted, true);
-                else
-                    cursorFiltered = CursorControl.filterData(gazeWeighted, false);
-
-                if (GameStarted)
-                    this.datosCompartidos.LogData.AddGazeDataItem2List(gazePointEventArgs.GazeDataReceived, gazeWeighted, cursorFiltered);                
+                //Creo que ni gazeWeighted ni cursorFiltered se usan
+                PointD gazeWeighted = eyetrackingFunctions.WeighGaze(gazePointEventArgs.GazeDataReceived);// creo que no se usa
+                PointD cursorFiltered = CursorControl.filterData(gazeWeighted, false);// creo que no se usa
+                
+                Program.datosCompartidos.LogData.AddGazeDataItem2List(gazePointEventArgs.GazeDataReceived, gazeWeighted, cursorFiltered);                
             }
         }
 
@@ -140,33 +125,11 @@ namespace LookAndPlayForm
             //ErrorMessagePanel.Visible = false;
 
         }
-
-        private void RetryClick(object sender, EventArgs e)
-        {
-            eyeTrackingEngine.Retry();
-        }
-
-        private void SuppressErrorMessageClick(object sender, EventArgs e)
-        {
-            //ErrorMessagePanel.Visible = false;
-        }
-
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.F1)
-            {
-                toogleGameStatus(true);                
-                return true;    // indicate that you handled this keystroke
-            }
-
-            // Call the base class
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
+        
 
         public void toogleGameStatus(bool ETcontrolCursor)
         {
             GameStarted = !GameStarted;
-            this.ETcontrolCursorInGame = ETcontrolCursor;
         }
 
         public void toogleGameStatus()
@@ -174,18 +137,13 @@ namespace LookAndPlayForm
             GameStarted = !GameStarted;            
         }
 
-        //public void toogleControlCursor()
-        //{
-        //    ETcontrolCursor = !ETcontrolCursor;
-        //}
-
-        private void buttonGame1_Click(object sender, EventArgs e)
+        private void buttonNewTest_Click(object sender, EventArgs e)
         {
             if (eyeTrackingEngine.State == EyeTrackingState.Tracking)//if (_TobiiForm.tobii_connected)            
             {
                 Program.datosCompartidos.getNewTime();
 
-                if (datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.reading)
+                if (Program.datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.reading)
                 {
                     Game1 _Game1 = new Game1(this);
                     _Game1.FormClosed += Game1_Closed;
@@ -193,7 +151,7 @@ namespace LookAndPlayForm
                     _Game1.StartPosition = FormStartPosition.Manual;
                     _Game1.Show();
                 }
-                else if(datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.persuit)
+                else if (Program.datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.persuit)
                 {
                     StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
                     persuit.Show();
@@ -213,17 +171,14 @@ namespace LookAndPlayForm
 
                 //subir los datos a la nube
                 aws_class_data aws_data = new aws_class_data();
-                //aws_data.AwsAccessKey = AwsCredentials.AwsAccessKey;
-                //aws_data.AwsS3BucketName = AwsCredentials.AwsS3BucketName;
-                //aws_data.AwsSecretKey = AwsCredentials.AwsSecretKey;
                 aws_data.AwsS3FolderName = institution_engine.institutionsList[0].institution_name;
                 aws_data.FileToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                                            LookAndPlayForm.Program.datosCompartidos.startTimeTest +
+                                            Program.datosCompartidos.startTimeTest +
                                             @"-us" + Program.datosCompartidos.activeUser;
 
                 aws_class_engine.BackupTest(aws_data);
 
-                datosCompartidos.number_of_screening_done++;
+                Program.datosCompartidos.number_of_screening_done++;
             }
         }
         	
@@ -236,7 +191,7 @@ namespace LookAndPlayForm
         private void buttonViewCalibration_Click(object sender, EventArgs e)
         {
             var resultForm = new CalibrationResultForm();
-            resultForm.SetPlotData(datosCompartidos.calibrationDataEyeX);
+            resultForm.SetPlotData(Program.datosCompartidos.calibrationDataEyeX);
             resultForm.ShowDialog();
         }
 
@@ -271,39 +226,6 @@ namespace LookAndPlayForm
             //buttonCalibrate.Enabled = false;
             CalibrationWinForm calibrationForm = new CalibrationWinForm(eyeTrackingEngine);
             calibrationForm.ShowDialog();
-        }
-
-        private void EyeXWinForm_Load(object sender, EventArgs e)
-        {
-            _llkhk.Install(); // keyboard
-        }
-
-        private void EyeXWinForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _llkhk.Uninstall();
-        }
-
-        private void toogleETcontrolCursor()
-        {
-            ETcontrolCursor = !ETcontrolCursor;
-            
-            if(ETcontrolCursor)
-                clickDwell.startDwelling();
-
-            if(!ETcontrolCursor)
-                clickDwell.stopDwelling();
-        }
-
-        private void OnKeyboardHookPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case 'q':
-                case 'Q':
-                    toogleETcontrolCursor();
-                    break;
-
-            }
         }
 
         private void OnGetCalibrationCompleted(object sender, CalibrationReadyEventArgs e)
