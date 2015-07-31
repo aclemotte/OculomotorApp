@@ -126,7 +126,6 @@ namespace LookAndPlayForm
             }
             catch (Exception ex)
             {
-                //File.WriteAllText("lastError.txt", string.Format("Last Error @{0}: {1}", DateTime.Now, ex.GetBaseException()));
                 ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             }
         }
@@ -403,12 +402,13 @@ namespace LookAndPlayForm
 
         private bool camposCorrectamenteCompletados()
         {
-            if (comboBoxSampleText.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a sample text", "Empty field");
-                return false;
-            }
-            else if (newUser && textBoxUserName.Text == "")
+            //if (comboBoxSampleText.SelectedItem == null)
+            //{
+            //    MessageBox.Show("Please select a sample text", "Empty field");
+            //    return false;
+            //}
+            //else if ...
+            if (newUser && textBoxUserName.Text == "")
             {
                 MessageBox.Show("Name field is required", "Empty field");
                 return false;
@@ -418,7 +418,7 @@ namespace LookAndPlayForm
                 MessageBox.Show("Email field is required", "Empty field");
                 return false;
             }
-            else if(newUser && textBoxAge.Text == "")
+            else if (newUser && textBoxAge.Text == "")
             {
                 MessageBox.Show("Age field is required, Empty field");
                 return false;
@@ -450,13 +450,13 @@ namespace LookAndPlayForm
                 resumenGame1.Dispose();
         }
 
-        private void comboBoxSampleText_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if(comboBoxSampleText.SelectedIndex != -1)
-            {
-                Program.datosCompartidos.image2read = comboBoxSampleText.SelectedItem.ToString();
-            }
-        }
+        //private void comboBoxSampleText_SelectedValueChanged(object sender, EventArgs e)
+        //{
+        //    if(comboBoxSampleText.SelectedIndex != -1)
+        //    {
+        //        Program.datosCompartidos.image2read = comboBoxSampleText.SelectedItem.ToString();
+        //    }
+        //}
 
     }
 }

@@ -35,13 +35,14 @@
             this.comboBoxSampleText = new System.Windows.Forms.ComboBox();
             this.labelSampleText = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonOk = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioButtonRead
             // 
             this.radioButtonRead.AutoSize = true;
+            this.radioButtonRead.Checked = true;
             this.radioButtonRead.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonRead.Location = new System.Drawing.Point(19, 69);
             this.radioButtonRead.Name = "radioButtonRead";
@@ -59,7 +60,6 @@
             this.radioButtonPersuit.Name = "radioButtonPersuit";
             this.radioButtonPersuit.Size = new System.Drawing.Size(118, 28);
             this.radioButtonPersuit.TabIndex = 1;
-            this.radioButtonPersuit.TabStop = true;
             this.radioButtonPersuit.Text = "Persuit test";
             this.radioButtonPersuit.UseVisualStyleBackColor = true;
             // 
@@ -97,6 +97,7 @@
             this.comboBoxSampleText.Name = "comboBoxSampleText";
             this.comboBoxSampleText.Size = new System.Drawing.Size(207, 32);
             this.comboBoxSampleText.TabIndex = 35;
+            this.comboBoxSampleText.SelectedValueChanged += new System.EventHandler(this.comboBoxSampleText_SelectedValueChanged);
             // 
             // labelSampleText
             // 
@@ -119,23 +120,24 @@
             this.labelVersion.Text = "Version";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // button1
+            // buttonOk
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(226, 224);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 31);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Ok";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOk.Location = new System.Drawing.Point(226, 224);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(111, 31);
+            this.buttonOk.TabIndex = 36;
+            this.buttonOk.Text = "Ok";
+            this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // FormSelectionTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(385, 275);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -158,6 +160,6 @@
         private System.Windows.Forms.Label labelSampleText;
         private System.Windows.Forms.ComboBox comboBoxSampleText;
         private System.Windows.Forms.Label labelVersion;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonOk;
     }
 }

@@ -22,4 +22,19 @@ namespace LookAndPlayForm
         public string filter_type;
         public string image2read;
     }
+
+    public class TestData2
+    {
+        public int testdataVersion;
+        public int screen_Height;
+        public int screen_Width;
+        public string date;
+        public string eyetracker;
+        public int calibration_error_left_px;
+        public int calibration_error_right_px;
+        public string filter_type;
+        public string testDone;
+        public string image2read;
+        public string assemblyVersion;
+    }
 }

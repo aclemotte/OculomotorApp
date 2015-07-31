@@ -56,8 +56,6 @@
             this.groupBoxDiagnosedConditions = new System.Windows.Forms.GroupBox();
             this.checkBoxStrabismusEsotropia = new System.Windows.Forms.CheckBox();
             this.checkBoxStrabismusExotropia = new System.Windows.Forms.CheckBox();
-            this.comboBoxSampleText = new System.Windows.Forms.ComboBox();
-            this.labelSampleText = new System.Windows.Forms.Label();
             this.groupBoxGender = new System.Windows.Forms.GroupBox();
             this.comboBoxCountry = new System.Windows.Forms.ComboBox();
             this.labelRequiredFields = new System.Windows.Forms.Label();
@@ -375,40 +373,6 @@
             this.checkBoxStrabismusExotropia.Text = "Strabismus Exotropia";
             this.checkBoxStrabismusExotropia.UseVisualStyleBackColor = true;
             // 
-            // comboBoxSampleText
-            // 
-            this.comboBoxSampleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSampleText.FormattingEnabled = true;
-            this.comboBoxSampleText.Items.AddRange(new object[] {
-            "Level 1. Text 1",
-            "Level 1. Text 2",
-            "Level 1. Text 3",
-            "Level 2. Text 15",
-            "Level 2. Text 16",
-            "Level 2. Text 17",
-            "Level 3. Text 29",
-            "Level 3. Text 30",
-            "Level 3. Text 31",
-            "Level 7. Text 87",
-            "Level 7. Text 88",
-            "Level 7. Text 89"});
-            this.comboBoxSampleText.Location = new System.Drawing.Point(159, 369);
-            this.comboBoxSampleText.MaxDropDownItems = 12;
-            this.comboBoxSampleText.Name = "comboBoxSampleText";
-            this.comboBoxSampleText.Size = new System.Drawing.Size(207, 32);
-            this.comboBoxSampleText.TabIndex = 11;
-            this.comboBoxSampleText.SelectedValueChanged += new System.EventHandler(this.comboBoxSampleText_SelectedValueChanged);
-            // 
-            // labelSampleText
-            // 
-            this.labelSampleText.AutoSize = true;
-            this.labelSampleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSampleText.Location = new System.Drawing.Point(44, 369);
-            this.labelSampleText.Name = "labelSampleText";
-            this.labelSampleText.Size = new System.Drawing.Size(108, 24);
-            this.labelSampleText.TabIndex = 33;
-            this.labelSampleText.Text = "Sample text";
-            // 
             // groupBoxGender
             // 
             this.groupBoxGender.Location = new System.Drawing.Point(159, 307);
@@ -683,8 +647,6 @@
             this.ClientSize = new System.Drawing.Size(785, 426);
             this.Controls.Add(this.labelRequiredFields);
             this.Controls.Add(this.comboBoxCountry);
-            this.Controls.Add(this.labelSampleText);
-            this.Controls.Add(this.comboBoxSampleText);
             this.Controls.Add(this.radioButtonFemale);
             this.Controls.Add(this.radioButtonMale);
             this.Controls.Add(this.labelEmail);
@@ -743,8 +705,6 @@
         private System.Windows.Forms.CheckBox checkBoxOther;
         private System.Windows.Forms.CheckBox checkBoxAmblyopia;
         private System.Windows.Forms.GroupBox groupBoxDiagnosedConditions;
-        private System.Windows.Forms.ComboBox comboBoxSampleText;
-        private System.Windows.Forms.Label labelSampleText;
         private System.Windows.Forms.GroupBox groupBoxGender;
         private System.Windows.Forms.ComboBox comboBoxCountry;
         private System.Windows.Forms.Label labelRequiredFields;
