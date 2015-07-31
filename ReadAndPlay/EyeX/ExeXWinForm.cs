@@ -99,7 +99,6 @@ namespace LookAndPlayForm
 
 
         }
-
         
         private void buttonNewTest_Click(object sender, EventArgs e)
         {
@@ -110,7 +109,7 @@ namespace LookAndPlayForm
                 if (Program.datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.reading)
                 {
                     Game1 _Game1 = new Game1(this);
-                    _Game1.FormClosed += Game1_Closed;
+                    _Game1.FormClosed += test_Closed;
                     _Game1.Left = 0;//_TobiiForm.monitorBounds.X;
                     _Game1.StartPosition = FormStartPosition.Manual;
                     _Game1.Show();
@@ -119,12 +118,14 @@ namespace LookAndPlayForm
                 {
                     StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
                     persuit.Show();
+                    persuit.FormClosed += test_Closed;
                 }
 
             }
             else
                 MessageBox.Show("Eye tracker not connected");
         }
+
         	
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
@@ -170,29 +171,7 @@ namespace LookAndPlayForm
         {
             if (!newTest)
                 this.Close();
-        }
-
-
-        private void Game1_Closed(object sender, FormClosedEventArgs e)
-        {
-            //Show the resume window
-            if (se_grabaron_datos)
-            {
-                openWindowResumen(true, true);
-
-                //subir los datos a la nube
-                aws_class_data aws_data = new aws_class_data();
-                aws_data.AwsS3FolderName = institution_engine.institutionsList[0].institution_name;
-                aws_data.FileToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                                            Program.datosCompartidos.startTimeTest +
-                                            @"-us" + Program.datosCompartidos.activeUser;
-
-                aws_class_engine.BackupTest(aws_data);
-
-                Program.datosCompartidos.number_of_screening_done++;
-            }
-        }
-        
+        }        
 
 
 
@@ -220,6 +199,31 @@ namespace LookAndPlayForm
             resultForm.SetPlotData(Program.datosCompartidos.calibrationDataEyeX);
             resultForm.ShowDialog();
         }
+
+
+        //varios
+        private void test_Closed(object sender, FormClosedEventArgs e)
+        {
+            //Show the resume window
+            if (se_grabaron_datos)
+            {                
+                //subir los datos a la nube
+                aws_class_data aws_data = new aws_class_data();
+                aws_data.AwsS3FolderName = institution_engine.institutionsList[0].institution_name;
+                aws_data.FileToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
+                                            Program.datosCompartidos.startTimeTest +
+                                            @"-us" + Program.datosCompartidos.activeUser;
+
+                aws_class_engine.BackupTest(aws_data);
+
+                Program.datosCompartidos.number_of_screening_done++;
+
+                if (Program.datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.reading)
+                    openWindowResumen(true, true);
+
+            }
+        }
+
 
     }
 }
