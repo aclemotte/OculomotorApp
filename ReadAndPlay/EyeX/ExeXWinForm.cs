@@ -16,10 +16,11 @@ namespace LookAndPlayForm
     {
         public readonly EyeTrackingEngine eyeTrackingEngine;
         
-        private bool GameStarted = false;
+        private bool testStarted = false;
         private MouseController CursorControl = new MouseController();
         private EyeTracking.distanceDev2User distanciaDev2USer;
         private institution_class_engine institution_engine;
+        private delegate void Action();
 
 
         public EyeXWinForm(EyeTrackingEngine eyeTrackingEngine, institution_class_engine institution_engine)
@@ -41,8 +42,11 @@ namespace LookAndPlayForm
         }
         public bool se_grabaron_datos;
 
-        private delegate void Action();
+        
 
+
+
+        //form
         private void GazePoint(object sender, GazePointEventArgs gazePointEventArgs)
         {
             BeginInvoke(new Action(() =>
@@ -60,7 +64,7 @@ namespace LookAndPlayForm
                     Invalidate();
                 }));
 
-            if (GameStarted)
+            if (testStarted)
             {
                 //Creo que ni gazeWeighted ni cursorFiltered se usan
                 PointD gazeWeighted = eyetrackingFunctions.WeighGaze(gazePointEventArgs.GazeDataReceived);// creo que no se usa
@@ -97,12 +101,6 @@ namespace LookAndPlayForm
         }
 
         
-
-        public void toogleGameStatus()
-        {
-            GameStarted = !GameStarted;            
-        }
-
         private void buttonNewTest_Click(object sender, EventArgs e)
         {
             if (eyeTrackingEngine.State == EyeTrackingState.Tracking)//if (_TobiiForm.tobii_connected)            
@@ -127,6 +125,53 @@ namespace LookAndPlayForm
             else
                 MessageBox.Show("Eye tracker not connected");
         }
+        	
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            eyeTrackingEngine.Dispose();
+        }
+
+        public void toogleTestStatus()
+        {
+            testStarted = !testStarted;
+        }
+
+        
+        
+        
+        
+        //resume
+        private void buttonResumen_Click(object sender, EventArgs e)
+        {
+            openWindowResumen(false, true);
+        }
+
+        private void openWindowResumen(bool showLastTest, bool newTestAvailable)
+        {
+            Resumen.Resumen resumenGame1 = new Resumen.Resumen(showLastTest, newTestAvailable);
+            resumenGame1.ReviewClosed += resumenGame1_ReviewClosed;
+            if (resumenGame1.everythingOk)
+                resumenGame1.Show();
+            else
+                resumenGame1.Dispose();
+        }
+
+
+
+
+
+
+
+
+
+        //game
+        private void resumenGame1_ReviewClosed(bool newTest)
+        {
+            if (!newTest)
+                this.Close();
+        }
+
 
         private void Game1_Closed(object sender, FormClosedEventArgs e)
         {
@@ -147,11 +192,26 @@ namespace LookAndPlayForm
                 Program.datosCompartidos.number_of_screening_done++;
             }
         }
-        	
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        
+
+
+
+
+        //calibration
+        private void buttonCalibrate_Click(object sender, EventArgs e)
         {
-            base.OnClosing(e);
-            eyeTrackingEngine.Dispose();
+            //buttonCalibrate.Enabled = false;
+            CalibrationWinForm calibrationForm = new CalibrationWinForm(eyeTrackingEngine);
+            calibrationForm.ShowDialog();
+        }
+        
+        private void OnGetCalibrationCompleted(object sender, CalibrationReadyEventArgs e)
+        {
+            toolStripStatusLabelCalibration.Text = 
+                "Calibration value. Left: " + 
+                Program.datosCompartidos.meanCalibrationErrorLeftPx.ToString() +
+                ". Right: " +
+                Program.datosCompartidos.meanCalibrationErrorRightPx.ToString();
         }
 
         private void buttonViewCalibration_Click(object sender, EventArgs e)
@@ -161,41 +221,5 @@ namespace LookAndPlayForm
             resultForm.ShowDialog();
         }
 
-        private void buttonResumen_Click(object sender, EventArgs e)
-        {
-            openWindowResumen(false, true);
-        }
-
-        private void openWindowResumen(bool showLastTest, bool newTestAvailable)
-        {
-            Resumen.Resumen resumenGame1 = new Resumen.Resumen(showLastTest, newTestAvailable);
-            resumenGame1.ReviewClosed += resumenGame1_ReviewClosed;
-            if (resumenGame1.everythingOk)
-                resumenGame1.Show();
-            else
-                resumenGame1.Dispose();
-        }
-
-        private void resumenGame1_ReviewClosed(bool newTest)
-        {
-            if (!newTest)
-                this.Close();
-        }
-
-        private void buttonCalibrate_Click(object sender, EventArgs e)
-        {
-            //buttonCalibrate.Enabled = false;
-            CalibrationWinForm calibrationForm = new CalibrationWinForm(eyeTrackingEngine);
-            calibrationForm.ShowDialog();
-        }
-
-        private void OnGetCalibrationCompleted(object sender, CalibrationReadyEventArgs e)
-        {
-            toolStripStatusLabelCalibration.Text = 
-                "Calibration value. Left: " + 
-                Program.datosCompartidos.meanCalibrationErrorLeftPx.ToString() +
-                ". Right: " +
-                Program.datosCompartidos.meanCalibrationErrorRightPx.ToString();
-        }
     }
 }

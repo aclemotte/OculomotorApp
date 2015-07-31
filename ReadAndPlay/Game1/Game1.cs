@@ -86,7 +86,7 @@ namespace LookAndPlayForm
 
         private void end_protocol()
         {
-            _ControlFormEyeX.toogleGameStatus();
+            _ControlFormEyeX.toogleTestStatus();
             save_protocol();
             _ControlFormEyeX.se_grabaron_datos = true;
             this.Close();
@@ -134,7 +134,7 @@ namespace LookAndPlayForm
             {
                 // user clicked yes                
                 Cursor.Hide();
-                _ControlFormEyeX.toogleGameStatus();
+                _ControlFormEyeX.toogleTestStatus();
             }
             else// user clicked no
             {
