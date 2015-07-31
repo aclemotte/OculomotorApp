@@ -20,7 +20,7 @@ namespace LookAndPlayForm
         private bool ETcontrolCursorInGame = false;        
         private bool GameStarted = false;
         private MouseController CursorControl = new MouseController();
-        private Game1 _Game1;
+        //private Game1 _Game1;
         public sharedData datosCompartidos;
         private LowLevelKeyboardHook _llkhk;
         private Dwell clickDwell;
@@ -184,11 +184,21 @@ namespace LookAndPlayForm
             if (eyeTrackingEngine.State == EyeTrackingState.Tracking)//if (_TobiiForm.tobii_connected)            
             {
                 Program.datosCompartidos.getNewTime();
-                _Game1 = new Game1(this);
-                _Game1.FormClosed += Game1_Closed;
-                _Game1.Left = 0;//_TobiiForm.monitorBounds.X;
-                _Game1.StartPosition = FormStartPosition.Manual;
-                _Game1.Show();
+
+                if (datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.reading)
+                {
+                    Game1 _Game1 = new Game1(this);
+                    _Game1.FormClosed += Game1_Closed;
+                    _Game1.Left = 0;//_TobiiForm.monitorBounds.X;
+                    _Game1.StartPosition = FormStartPosition.Manual;
+                    _Game1.Show();
+                }
+                else if(datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.persuit)
+                {
+                    StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
+                    persuit.Show();
+                }
+
             }
             else
                 MessageBox.Show("Eye tracker not connected");

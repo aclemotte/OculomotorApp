@@ -17,7 +17,7 @@ namespace LookAndPlayForm.SelectTest
             persuit, reading
         }
 
-        public testType testSelected;
+        //public testType testSelected;
 
         public FormSelectionTest()
         {
@@ -25,18 +25,20 @@ namespace LookAndPlayForm.SelectTest
 
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-            testSelected = testType.reading;
+            //testSelected = testType.reading;
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
             if (radioButtonPersuit.Checked)
             {
-               testSelected = testType.persuit;
+               //testSelected = testType.persuit;
+               Program.datosCompartidos.testSelected = testType.persuit;
             }
             else if (radioButtonRead.Checked && camposCorrectamenteCompletados())
             {
-                testSelected = testType.reading;
+                //testSelected = testType.reading;
+                Program.datosCompartidos.testSelected = testType.reading;
             }
             else
                 this.DialogResult = DialogResult.None;

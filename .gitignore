@@ -187,6 +187,6 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
-/ReadAndPlay/Varios/AwsCredentials.cs
+/ReadAndPlay/AWS/AwsCredentials.cs
 /ReadAndPlay/Resources/ReadingApp.pdn
 /ReadAndPlay/ReadAndPlay - Copy.csproj
