@@ -16,7 +16,6 @@ namespace LookAndPlayForm
     {
         public readonly EyeTrackingEngine eyeTrackingEngine;
         
-        private delegate void UpdateStateDelegate(EyeTrackingStateChangedEventArgs eyeTrackingStateChangedEventArgs);
         private bool GameStarted = false;
         private MouseController CursorControl = new MouseController();
         private EyeTracking.distanceDev2User distanciaDev2USer;
@@ -30,7 +29,6 @@ namespace LookAndPlayForm
             this.institution_engine = institution_engine;
 
             this.eyeTrackingEngine = eyeTrackingEngine;
-            eyeTrackingEngine.StateChanged += this.StateChanged;
             eyeTrackingEngine.GazePoint += this.GazePoint;
             eyeTrackingEngine.OnGetCalibrationCompletedEvent += this.OnGetCalibrationCompleted;
 
@@ -98,39 +96,7 @@ namespace LookAndPlayForm
 
         }
 
-        private void StateChanged(object sender, EyeTrackingStateChangedEventArgs eyeTrackingStateChangedEventArgs)
-        {
-            // Forward state change to UI thread
-            if (InvokeRequired)
-            {
-                var updateStateDelegate = new UpdateStateDelegate(UpdateState);
-                Invoke(updateStateDelegate, new object[] { eyeTrackingStateChangedEventArgs });
-            }
-            else
-            {
-                UpdateState(eyeTrackingStateChangedEventArgs);
-            }
-        }
-
-        private void UpdateState(EyeTrackingStateChangedEventArgs eyeTrackingStateChangedEventArgs)
-        {
-            if (!string.IsNullOrEmpty(eyeTrackingStateChangedEventArgs.ErrorMessage))
-            {
-                //ErrorMessagePanel.Visible = true;
-                //ErrorMessage.Text = eyeTrackingStateChangedEventArgs.ErrorMessage;
-                //Retry.Enabled = eyeTrackingStateChangedEventArgs.CanRetry;
-                return;
-            }
-
-            //ErrorMessagePanel.Visible = false;
-
-        }
         
-
-        public void toogleGameStatus(bool ETcontrolCursor)
-        {
-            GameStarted = !GameStarted;
-        }
 
         public void toogleGameStatus()
         {

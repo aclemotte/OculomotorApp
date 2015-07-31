@@ -134,7 +134,7 @@ namespace LookAndPlayForm
             {
                 // user clicked yes                
                 Cursor.Hide();
-                _ControlFormEyeX.toogleGameStatus(true);
+                _ControlFormEyeX.toogleGameStatus();
             }
             else// user clicked no
             {
