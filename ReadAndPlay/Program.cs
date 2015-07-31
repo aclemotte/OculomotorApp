@@ -99,10 +99,11 @@ namespace LookAndPlayForm
                                 {
                                     using (_eyeTrackingEngine = new EyeTrackingEngine())
                                     {
-                                        //EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine);
-                                        //Application.Run(eyeXWinForm);
+                                        
+                                        EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine, institution_engine);
+                                        eyeXWinForm.ShowDialog();
 
-                                        Application.Run(new EyeXWinForm(_eyeTrackingEngine, institution_engine));
+                                        //Application.Run(new EyeXWinForm(_eyeTrackingEngine, institution_engine));
 
                                         //eyeXWinForm.Dispose();
 

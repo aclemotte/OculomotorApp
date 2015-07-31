@@ -103,6 +103,16 @@ namespace LookAndPlayForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dotGrey {
+            get {
+                object obj = ResourceManager.GetObject("dotGrey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MrPatch {
             get {
                 object obj = ResourceManager.GetObject("MrPatch", resourceCulture);
