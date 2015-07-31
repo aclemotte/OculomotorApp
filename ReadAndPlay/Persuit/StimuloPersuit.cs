@@ -59,6 +59,7 @@ namespace StimuloPersuitHorizontal
                 DialogResult dialogResult = MessageBox.Show("Start persuit", "Are you ready?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    Cursor.Hide();
                     persuitEngine.persuitStart();
                 }
                 else if (dialogResult == DialogResult.No)
@@ -110,11 +111,13 @@ namespace StimuloPersuitHorizontal
         }
 
         private void closeProtocol()
-        {
+        {            
             persuitEngine.newCoordinate -= persuitEngine_newCoordinate;
             persuitEngine.persuitEnd -= persuitEngine_persuitEnd;
+            
             this.BeginInvoke((Action)(() =>
                 {
+                    Cursor.Show();
                     this.Close();
                 }));
         }
