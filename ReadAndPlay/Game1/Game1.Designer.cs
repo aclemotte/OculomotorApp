@@ -29,22 +29,11 @@ namespace LookAndPlayForm
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSalir = new System.Windows.Forms.Button();
             this.pictureBoxFrame = new System.Windows.Forms.PictureBox();
             this.pictureBoxStimulus = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.SuspendLayout();
-            // 
-            // buttonSalir
-            // 
-            this.buttonSalir.Location = new System.Drawing.Point(12, 12);
-            this.buttonSalir.Name = "buttonSalir";
-            this.buttonSalir.Size = new System.Drawing.Size(75, 23);
-            this.buttonSalir.TabIndex = 0;
-            this.buttonSalir.Text = "Exit";
-            this.buttonSalir.UseVisualStyleBackColor = true;
-            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // pictureBoxFrame
             // 
@@ -71,7 +60,6 @@ namespace LookAndPlayForm
             this.ClientSize = new System.Drawing.Size(567, 404);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBoxStimulus);
-            this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.pictureBoxFrame);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
@@ -81,6 +69,7 @@ namespace LookAndPlayForm
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game1_FormClosed);
             this.Load += new System.EventHandler(this.Game1_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Game1_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).EndInit();
             this.ResumeLayout(false);
@@ -89,7 +78,6 @@ namespace LookAndPlayForm
 
         #endregion
 
-        private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.PictureBox pictureBoxStimulus;
         private System.Windows.Forms.PictureBox pictureBoxFrame;
     }

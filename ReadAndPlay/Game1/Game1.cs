@@ -83,18 +83,6 @@ namespace LookAndPlayForm
         
      
      
-        // Finalizacion de Game1
-
-        /// <summary>
-        /// The game or task 1 has a exit button. When is pressed: (1) stop the eyetracker and (2) save the captured data
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonSalir_Click(object sender, EventArgs e)
-        {
-            _datosCompartidos.LogData.AddTargetTraceEyeX(_TargetPS, true);
-            end_protocol();
-        }
 
         private void end_protocol()
         {
@@ -153,6 +141,13 @@ namespace LookAndPlayForm
                 _ControlFormEyeX.se_grabaron_datos = false;
                 this.Close();
             }
+        }
+
+        //Finalizacion de Game1
+        private void Game1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            _datosCompartidos.LogData.AddTargetTraceEyeX(_TargetPS, true);
+            end_protocol();
         }
 
                
