@@ -182,11 +182,6 @@ namespace LookAndPlayForm
                 this.Close();
         }
 
-        private void Resumen_FormClosed(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void buttonCalibrate_Click(object sender, EventArgs e)
         {
             //buttonCalibrate.Enabled = false;
