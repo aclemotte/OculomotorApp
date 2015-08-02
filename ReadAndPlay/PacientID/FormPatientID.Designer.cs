@@ -35,7 +35,6 @@
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.numericUpDownUserID = new System.Windows.Forms.NumericUpDown();
             this.labelVersion = new System.Windows.Forms.Label();
-            this.buttonResume = new System.Windows.Forms.Button();
             this.textBoxAge = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.labelAge = new System.Windows.Forms.Label();
@@ -87,7 +86,7 @@
             // 
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOk.Location = new System.Drawing.Point(409, 367);
+            this.buttonOk.Location = new System.Drawing.Point(606, 315);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(167, 35);
             this.buttonOk.TabIndex = 4;
@@ -132,24 +131,13 @@
             // 
             this.labelVersion.AutoSize = true;
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelVersion.Location = new System.Drawing.Point(12, 406);
+            this.labelVersion.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.labelVersion.Location = new System.Drawing.Point(12, 351);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(42, 13);
             this.labelVersion.TabIndex = 9;
             this.labelVersion.Text = "Version";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // buttonResume
-            // 
-            this.buttonResume.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonResume.Location = new System.Drawing.Point(606, 367);
-            this.buttonResume.Name = "buttonResume";
-            this.buttonResume.Size = new System.Drawing.Size(167, 35);
-            this.buttonResume.TabIndex = 10;
-            this.buttonResume.Text = "Review a test";
-            this.buttonResume.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonResume.UseVisualStyleBackColor = true;
-            this.buttonResume.Click += new System.EventHandler(this.buttonResume_Click);
             // 
             // textBoxAge
             // 
@@ -644,7 +632,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 426);
+            this.ClientSize = new System.Drawing.Size(798, 370);
             this.Controls.Add(this.labelRequiredFields);
             this.Controls.Add(this.comboBoxCountry);
             this.Controls.Add(this.radioButtonFemale);
@@ -655,7 +643,6 @@
             this.Controls.Add(this.labelAge);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxAge);
-            this.Controls.Add(this.buttonResume);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.numericUpDownUserID);
             this.Controls.Add(this.textBoxUserName);
@@ -686,7 +673,6 @@
         private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.NumericUpDown numericUpDownUserID;
         private System.Windows.Forms.Label labelVersion;
-        private System.Windows.Forms.Button buttonResume;
         private System.Windows.Forms.TextBox textBoxAge;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label labelAge;

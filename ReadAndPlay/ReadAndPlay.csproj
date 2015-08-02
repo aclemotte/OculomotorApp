@@ -227,20 +227,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="RegressionDetector\RegressionDetector.cs" />
-    <Compile Include="Review\class4Graphic.cs" />
-    <Compile Include="Review\Graph1.cs">
+    <Compile Include="ReviewReading\class4Graphic.cs" />
+    <Compile Include="ReviewReading\Graph1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Review\Graph1.Designer.cs">
+    <Compile Include="ReviewReading\Graph1.Designer.cs">
       <DependentUpon>Graph1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Review\Resumen.cs">
+    <Compile Include="ReviewReading\Resumen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Review\Resumen.Designer.cs">
+    <Compile Include="ReviewReading\Resumen.Designer.cs">
       <DependentUpon>Resumen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Review\TobiiClass.cs" />
+    <Compile Include="ReviewReading\TobiiClass.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="TesterID\tester_class_data.cs" />
     <Compile Include="TesterID\tester_class_engine.cs" />
@@ -310,10 +310,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Review\Graph1.resx">
+    <EmbeddedResource Include="ReviewReading\Graph1.resx">
       <DependentUpon>Graph1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Review\Resumen.resx">
+    <EmbeddedResource Include="ReviewReading\Resumen.resx">
       <DependentUpon>Resumen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectTest\FormSelectionTest.resx">

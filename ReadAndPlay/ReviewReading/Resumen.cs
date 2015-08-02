@@ -49,18 +49,18 @@ namespace LookAndPlayForm.Resumen
 
             InitializeComponent();
 
-            if (!showLastTest)
+            if (showLastTest)
+            {
+                selectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
+                                LookAndPlayForm.Program.datosCompartidos.startTimeTest +
+                                @"-us" + Program.datosCompartidos.activeUser + @"\";
+            }
+            else
             {
                 FolderBrowserDialog fbd = new FolderBrowserDialog();
                 fbd.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
                 DialogResult result = fbd.ShowDialog();
                 selectedPath = fbd.SelectedPath;
-            }
-            else
-            {
-                selectedPath =  Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                                LookAndPlayForm.Program.datosCompartidos.startTimeTest +
-                                @"-us" + Program.datosCompartidos.activeUser + @"\";
             }
 
             buttonNewTest.Enabled = newTestAvailable;
