@@ -46,8 +46,8 @@ namespace LookAndPlayForm
             eyeTrackingEngine.Initialize();
 
             //this.datosCompartidos = LookAndPlayForm.Program.datosCompartidos;
-            Program.datosCompartidos.LogData = new LogEyeTracker();
-            Program.datosCompartidos.logTest = new LogTest();
+            Program.datosCompartidos.LogEyeTrackerData = new LogEyeTracker();
+            Program.datosCompartidos.logTestData = new LogTest();
 
             distanciaDev2USer = new EyeTracking.distanceDev2User();
         }
@@ -79,7 +79,7 @@ namespace LookAndPlayForm
                 PointD gazeWeighted = eyetrackingFunctions.WeighGaze(gazePointEventArgs.GazeDataReceived);// creo que no se usa
                 PointD cursorFiltered = CursorControl.filterData(gazeWeighted, false);// creo que no se usa
                 
-                Program.datosCompartidos.LogData.AddGazeDataItem2List(gazePointEventArgs.GazeDataReceived, gazeWeighted, cursorFiltered);                
+                Program.datosCompartidos.LogEyeTrackerData.AddGazeDataItem2List(gazePointEventArgs.GazeDataReceived, gazeWeighted, cursorFiltered);                
             }
         }
 
@@ -217,7 +217,11 @@ namespace LookAndPlayForm
             if (se_grabaron_datos)
             {
 
-                 Program.datosCompartidos.logTest.saveData2File();
+                 Program.datosCompartidos.logTestData.saveData2File();
+
+                 //datos del tracker
+                 Program.datosCompartidos.LogEyeTrackerData.saveData2File();
+                 Program.datosCompartidos.updateCsv = true;
 
                 //subir los datos a la nube
                 aws_class_data aws_data = new aws_class_data();

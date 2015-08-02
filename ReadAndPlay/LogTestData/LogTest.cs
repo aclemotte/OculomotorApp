@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace LookAndPlayForm
 {
-    class LogTest
+    public class LogTest
     {
         public TestData testData { get; set; }
 

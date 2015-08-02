@@ -15,7 +15,6 @@ namespace LookAndPlayForm
     {
         EyeXWinForm _ControlFormEyeX;
         TargetPosSize.Target _TargetPS;
-        LogEyeTracker.eyetrackerDataEyeX generalDataEyeX;
 
 
 
@@ -32,8 +31,6 @@ namespace LookAndPlayForm
 
             //para avisar a _ControlFormEyeX si se cancelo la tarea (cuando se pregunta Are you ready?)
             _ControlFormEyeX.se_grabaron_datos = false;
-
-            generalDataEyeX = new LogEyeTracker.eyetrackerDataEyeX();
         }
 
         private void setPictureBoxStimulus()
@@ -83,17 +80,17 @@ namespace LookAndPlayForm
         private void end_protocol()
         {
             _ControlFormEyeX.toogleTestStatus();
-            save_protocol();
+            //save_protocol();
             _ControlFormEyeX.se_grabaron_datos = true;
             this.Close();
         }
 
-        private void save_protocol()
-        {    
-            //datos del tracker
-            Program.datosCompartidos.LogData.saveData2File(generalDataEyeX);
-            Program.datosCompartidos.updateCsv = true;
-        }
+        //private void save_protocol()
+        //{    
+        //    ////datos del tracker
+        //    //Program.datosCompartidos.LogEyeTrackerData.saveData2File();
+        //    //Program.datosCompartidos.updateCsv = true;
+        //}
 
         
 
@@ -123,7 +120,7 @@ namespace LookAndPlayForm
         //Finalizacion de Game1
         private void Game1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Program.datosCompartidos.LogData.AddTargetTraceEyeX(_TargetPS, true);
+            Program.datosCompartidos.LogEyeTrackerData.AddTargetTraceEyeX(_TargetPS, true);
             end_protocol();
         }
 

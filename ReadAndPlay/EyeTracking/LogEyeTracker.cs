@@ -18,22 +18,39 @@ namespace LookAndPlayForm
             public TargetPosSize.Target targetPositionSize;
             public bool clickInsideTarget;
         }
+
+        //Referencias que luego se agregaran a la lista TargetTraceL y que a lo largo de la app iran apuntando a lugares diferentes
+        public List<Tobii.Gaze.Core.GazeData> GazeDataItemEyeXL { get; set; }
+        public List<PointD> GazeWeigthedL { get; set; }
+        public List<PointD> GazeFilteredL { get; set; }
+
+        public TargetTraceDefinitionEyeX TargetTraceEyeX;//no se puede usar get;set xq es una estructura ¿?
+
+
+
+
+
                 
         public struct eyetrackerDataEyeX
         {
-            //public test_info test_info;
             public List<TargetTraceDefinitionEyeX> targetTraceL;
         }
 
+        //Referencias que luego se agregaran a la lista TargetTraceL y que a lo largo de la app iran apuntando a lugares diferentes        
 
-        //Referencias que luego se agregaran a la lista TargetTraceL y que a lo largo de la app iran apuntando a lugares diferentes
-        public List<Tobii.Gaze.Core.GazeData> GazeDataItemEyeXL;
-        public List<PointD> GazeWeigthedL;
-        public List<PointD> GazeFilteredL;
-        public TargetTraceDefinitionEyeX TargetTraceEyeX;
+        public List<TargetTraceDefinitionEyeX> TargetTraceEyeXL { get; set; }//Lista que contiene todos los datos
 
-        //Lista que contiene todos los datos
-        public List<TargetTraceDefinitionEyeX> TargetTraceEyeXL;
+
+
+
+
+
+        public eyetrackerDataEyeX generalDataEyeX;
+
+
+
+
+
 
         /// <summary>
         /// Todas las listas (1, 2, y 3) son bufferes que almacenaran datos mediantes los metodos:
@@ -49,7 +66,12 @@ namespace LookAndPlayForm
             GazeWeigthedL = new List<PointD>();
             GazeFilteredL = new List<PointD>();
             TargetTraceEyeXL = new List<TargetTraceDefinitionEyeX>();
+            generalDataEyeX = new eyetrackerDataEyeX();
         }
+
+
+
+
 
         public void AddGazeDataItem2List(Tobii.Gaze.Core.GazeData GazeDataItemTemp, PointD GazeWeigthed, PointD GazeFiltered)
         {
@@ -107,9 +129,15 @@ namespace LookAndPlayForm
             GazeFilteredL = new List<PointD>();
         }
        
-        public void saveData2File(eyetrackerDataEyeX generalData2Save)
+
+
+
+
+
+        //public void saveData2File(eyetrackerDataEyeX generalData2Save)
+        public void saveData2File()
         {
-            generalData2Save.targetTraceL = TargetTraceEyeXL;
+            generalDataEyeX.targetTraceL = TargetTraceEyeXL;
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
                             LookAndPlayForm.Program.datosCompartidos.startTimeTest + 
                             @"-us" + Program.datosCompartidos.activeUser + @"\";
@@ -119,7 +147,7 @@ namespace LookAndPlayForm
             if (!exists)
                 System.IO.Directory.CreateDirectory(path);
 
-            File.WriteAllText(path + @"eyetrackerData.json", JsonConvert.SerializeObject(generalData2Save));
+            File.WriteAllText(path + @"eyetrackerData.json", JsonConvert.SerializeObject(generalDataEyeX));
 
             ClearList();
         }
