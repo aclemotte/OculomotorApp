@@ -92,8 +92,8 @@ namespace LookAndPlayForm
         /// </summary>
         private void generateCalibrationPoints()
         {
-            int Width = Program.datosCompartidos.monitorBounds.Width;
-            int Height = Program.datosCompartidos.monitorBounds.Height;
+            int Width = Screen.PrimaryScreen.Bounds.Width;
+            int Height = Screen.PrimaryScreen.Bounds.Height;
             double offsetX = (double)calibrationPointOffset / (double)Width;
             double offsetY = (double)calibrationPointOffset / (double)Height;
             calibrationPoint puntoCalibracion = new calibrationPoint();

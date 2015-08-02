@@ -47,8 +47,8 @@ namespace LookAndPlayForm
         private Point initPictureBoxLocation()
         {
             Point location = new Point();
-            location.X = (int)((double)(Program.datosCompartidos.monitorBounds.Width - pictureBoxStimulus.Size.Width) * (double)0.5);
-            location.Y = (int)((double)(Program.datosCompartidos.monitorBounds.Height - pictureBoxStimulus.Size.Height) * (double)0.5);
+            location.X = (int)((double)(Screen.PrimaryScreen.Bounds.Width - pictureBoxStimulus.Size.Width) * (double)0.5);
+            location.Y = (int)((double)(Screen.PrimaryScreen.Bounds.Height - pictureBoxStimulus.Size.Height) * (double)0.5);
             return location;
         }
 

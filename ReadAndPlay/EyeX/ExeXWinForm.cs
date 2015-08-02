@@ -76,7 +76,7 @@ namespace LookAndPlayForm
             {
                 //Creo que ni gazeWeighted ni cursorFiltered se usan
                 PointD gazeWeighted = eyetrackingFunctions.WeighGaze(gazePointEventArgs.GazeDataReceived);// creo que no se usa
-                PointD cursorFiltered = CursorControl.filterData(gazeWeighted, false);// creo que no se usa
+                PointD cursorFiltered = CursorControl.filterData(gazeWeighted, false);// creo que no se usa los datos filtrados
                 
                 Program.datosCompartidos.LogEyeTrackerData.AddGazeDataItem2List(gazePointEventArgs.GazeDataReceived, gazeWeighted, cursorFiltered);                
             }
