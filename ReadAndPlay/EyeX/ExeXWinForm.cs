@@ -15,6 +15,8 @@ namespace LookAndPlayForm
     public partial class EyeXWinForm : Form
     {
         public readonly EyeTrackingEngine eyeTrackingEngine;
+        public bool se_grabaron_datos { get; set; }
+
         
         private bool testStarted = false;
         private MouseController CursorControl = new MouseController();
@@ -23,6 +25,14 @@ namespace LookAndPlayForm
         private delegate void Action();
 
 
+
+
+
+
+        
+        
+        
+        
         public EyeXWinForm(EyeTrackingEngine eyeTrackingEngine, institution_class_engine institution_engine)
         {
             InitializeComponent();
@@ -37,13 +47,12 @@ namespace LookAndPlayForm
 
             //this.datosCompartidos = LookAndPlayForm.Program.datosCompartidos;
             Program.datosCompartidos.LogData = new LogEyeTracker();
+            Program.datosCompartidos.logTest = new LogTest();
 
             distanciaDev2USer = new EyeTracking.distanceDev2User();
         }
-        public bool se_grabaron_datos;
-
         
-
+        
 
 
         //form
@@ -206,7 +215,10 @@ namespace LookAndPlayForm
         {
             //Show the resume window
             if (se_grabaron_datos)
-            {                
+            {
+
+                 Program.datosCompartidos.logTest.saveData2File();
+
                 //subir los datos a la nube
                 aws_class_data aws_data = new aws_class_data();
                 aws_data.AwsS3FolderName = institution_engine.institutionsList[0].institution_name;

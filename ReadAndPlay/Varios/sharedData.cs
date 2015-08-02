@@ -15,6 +15,7 @@ namespace LookAndPlayForm
         public string EyeTrackerInfo { get; set; }
         public Tobii.Gaze.Core.Calibration calibrationDataEyeX { get; set; }
         public LogEyeTracker LogData { get; set; }
+        public LogTest logTest { get; set; }
         public bool eyeNotFound { get; set; }
         public  System.Drawing.Rectangle monitorBounds { get; set; }
         public string activeUser { get; set; }

@@ -16,7 +16,6 @@ namespace LookAndPlayForm
         EyeXWinForm _ControlFormEyeX;
         TargetPosSize.Target _TargetPS;
         LogEyeTracker.eyetrackerDataEyeX generalDataEyeX;
-        LogTest logTest;
 
 
 
@@ -35,7 +34,6 @@ namespace LookAndPlayForm
             _ControlFormEyeX.se_grabaron_datos = false;
 
             generalDataEyeX = new LogEyeTracker.eyetrackerDataEyeX();
-            logTest = new LogTest();
         }
 
         private void setPictureBoxStimulus()
@@ -91,14 +89,9 @@ namespace LookAndPlayForm
         }
 
         private void save_protocol()
-        {
-
-            //datos del test
-            logTest.saveData2File();
-    
+        {    
             //datos del tracker
             Program.datosCompartidos.LogData.saveData2File(generalDataEyeX);
-
             Program.datosCompartidos.updateCsv = true;
         }
 

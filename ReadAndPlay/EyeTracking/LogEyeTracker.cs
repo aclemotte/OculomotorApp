@@ -9,27 +9,7 @@ using System.IO;
 namespace LookAndPlayForm
 {
     public class LogEyeTracker
-    {
-        //public struct test_info
-        //{
-        //    public int screen_Height;
-        //    public int screen_Width;
-        //    public int trials;
-        //    public string date;
-        //    public string eyetracker;
-        //    public string click_type;
-        //    public string pointer_type;
-        //    public int blink_time_min;
-        //    public int blink_time_max;
-        //    public int dwell_area;
-        //    public int dwell_time;
-        //    public int dewll_time_latency;
-        //    public int calibration_error_left_px;
-        //    public int calibration_error_right_px;
-        //    public string filter_type;
-        //};
-
-        
+    {        
         public struct TargetTraceDefinitionEyeX
         {
             public List<Tobii.Gaze.Core.GazeData> gazeDataItemL;
@@ -38,15 +18,6 @@ namespace LookAndPlayForm
             public TargetPosSize.Target targetPositionSize;
             public bool clickInsideTarget;
         }
-
-        //public struct TargetTraceDefinitionEyeTribe
-        //{
-        //    public List<TETCSharpClient.Data.GazeData> gazeDataItemL;
-        //    public List<PointD> gazeWeigthedL;
-        //    public List<PointD> gazeFilteredL;
-        //    public TargetPosSize.Target targetPositionSize;
-        //    public bool clickInsideTarget;
-        //}
                 
         public struct eyetrackerDataEyeX
         {
@@ -54,23 +25,15 @@ namespace LookAndPlayForm
             public List<TargetTraceDefinitionEyeX> targetTraceL;
         }
 
-        //public struct eyetrackerDataEyeTribe
-        //{
-        //    //public test_info test_info;
-        //    public List<TargetTraceDefinitionEyeTribe> targetTraceL;
-        //}
 
         //Referencias que luego se agregaran a la lista TargetTraceL y que a lo largo de la app iran apuntando a lugares diferentes
         public List<Tobii.Gaze.Core.GazeData> GazeDataItemEyeXL;
-        //public List<TETCSharpClient.Data.GazeData> GazeDataItemEyeTribeL;
         public List<PointD> GazeWeigthedL;
         public List<PointD> GazeFilteredL;
         public TargetTraceDefinitionEyeX TargetTraceEyeX;
-        //public TargetTraceDefinitionEyeTribe TargetTraceEyeTribe;
 
         //Lista que contiene todos los datos
         public List<TargetTraceDefinitionEyeX> TargetTraceEyeXL;
-        //public List<TargetTraceDefinitionEyeTribe> TargetTraceEyeTribeL;
 
         /// <summary>
         /// Todas las listas (1, 2, y 3) son bufferes que almacenaran datos mediantes los metodos:
@@ -83,11 +46,9 @@ namespace LookAndPlayForm
         public LogEyeTracker()
         {
             GazeDataItemEyeXL = new List<Tobii.Gaze.Core.GazeData>();
-            //GazeDataItemEyeTribeL = new List<TETCSharpClient.Data.GazeData>();
             GazeWeigthedL = new List<PointD>();
             GazeFilteredL = new List<PointD>();
             TargetTraceEyeXL = new List<TargetTraceDefinitionEyeX>();
-            //TargetTraceEyeTribeL = new List<TargetTraceDefinitionEyeTribe>();
         }
 
         public void AddGazeDataItem2List(Tobii.Gaze.Core.GazeData GazeDataItemTemp, PointD GazeWeigthed, PointD GazeFiltered)
@@ -167,11 +128,9 @@ namespace LookAndPlayForm
         private void ClearList()
         {           
             GazeDataItemEyeXL.Clear();
-            //GazeDataItemEyeTribeL.Clear();
             GazeWeigthedL.Clear();
             GazeFilteredL.Clear();
             TargetTraceEyeXL.Clear();
-            //TargetTraceEyeTribeL.Clear();
         }
 
     }
