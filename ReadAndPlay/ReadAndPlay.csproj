@@ -122,7 +122,7 @@
     <Compile Include="ConsentForm\consentForm.Designer.cs">
       <DependentUpon>consentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ErrorLog\ClassErrorLog.cs" />
+    <Compile Include="LogErrorData\ClassErrorLog.cs" />
     <Compile Include="EyeTracking\Calibration\CalibrationError.cs" />
     <Compile Include="EyeTracking\Calibration\CalibrationResultForm.cs">
       <SubType>Form</SubType>
@@ -256,7 +256,7 @@
     <Compile Include="Game1\Game1.Designer.cs">
       <DependentUpon>Game1.cs</DependentUpon>
     </Compile>
-    <Compile Include="EyeTracking\LogEyeTracker.cs" />
+    <Compile Include="LogEyeTrackerData\LogEyeTracker.cs" />
     <Compile Include="Varios\LogMouse.cs" />
     <Compile Include="LogTestData\LogTest.cs" />
     <Compile Include="Varios\MouseControl.cs" />

@@ -134,7 +134,6 @@ namespace LookAndPlayForm
 
 
 
-        //public void saveData2File(eyetrackerDataEyeX generalData2Save)
         public void saveData2File()
         {
             generalDataEyeX.targetTraceL = TargetTraceEyeXL;
@@ -151,8 +150,8 @@ namespace LookAndPlayForm
 
             ClearList();
         }
-       
 
+        //Esto hay que separar de saveData2File(). Ahora mismo si se guardan gatos se graban. Pero existe la posibilidad de guardar datos pero que no quieran grabarse esos datos. Debe crearse una nueva variable que sea se_quieren_guardar_los_datos
         private void ClearList()
         {           
             GazeDataItemEyeXL.Clear();
