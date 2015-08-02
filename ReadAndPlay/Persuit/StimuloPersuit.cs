@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using LookAndPlayForm;
 
 namespace StimuloPersuitHorizontal
 {
@@ -15,12 +16,13 @@ namespace StimuloPersuitHorizontal
         bool screenDimensionsOk, dotSizeOk;
         private int _y;
         private int _x;
+        EyeXWinForm _ControlFormEyeX;
 
-
-        public StimuloPersuit()
+        public StimuloPersuit(EyeXWinForm ControlForm)
         {
             InitializeComponent();
 
+            _ControlFormEyeX = ControlForm;
 
             persuitEngine = new StimuloPersuitEngine(this);
             persuitEngine.newCoordinate += persuitEngine_newCoordinate;
@@ -60,11 +62,14 @@ namespace StimuloPersuitHorizontal
                 if (dialogResult == DialogResult.Yes)
                 {
                     Cursor.Hide();
+                    _ControlFormEyeX.toogleSaveEyeTrackerDataValue();
+                    _ControlFormEyeX.se_grabaron_datos = true;
                     persuitEngine.persuitStart();
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    closeProtocol();
+                    _ControlFormEyeX.se_grabaron_datos = false;
+                    end_protocol();
                 }
             }
             else
@@ -107,14 +112,17 @@ namespace StimuloPersuitHorizontal
         //final del test
         void persuitEngine_persuitEnd(object sender, EventArgs e)
         {
-            closeProtocol();
+            end_protocol();
         }
 
-        private void closeProtocol()
+        private void end_protocol()
         {            
             persuitEngine.newCoordinate -= persuitEngine_newCoordinate;
             persuitEngine.persuitEnd -= persuitEngine_persuitEnd;
-            
+
+            Program.datosCompartidos.LogEyeTrackerData.AddTargetTraceEyeX(new TargetPosSize.Target(), true);        
+            _ControlFormEyeX.toogleSaveEyeTrackerDataValue();
+
             this.BeginInvoke((Action)(() =>
                 {
                     Cursor.Show();
@@ -125,11 +133,10 @@ namespace StimuloPersuitHorizontal
 
 
 
-        //final del test por teclado
+        //final del test por teclado. no se guardan datos
         private void StimuloPersuit_KeyPress(object sender, KeyPressEventArgs e)
         {
-            closeProtocol();
-            this.Close();
+            end_protocol();
         }
         
     }

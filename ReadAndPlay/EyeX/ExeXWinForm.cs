@@ -15,10 +15,11 @@ namespace LookAndPlayForm
     public partial class EyeXWinForm : Form
     {
         public readonly EyeTrackingEngine eyeTrackingEngine;
-        public bool se_grabaron_datos { get; set; }
+        public bool se_grabaron_datos { get; set; }//para avisar a EyeXWinForm si se cancelo la tarea (cuando se pregunta Are you ready?)
+
 
         
-        private bool testStarted = false;
+        private bool saveEyeTrackerData = false;
         private MouseController CursorControl = new MouseController();
         private EyeTracking.distanceDev2User distanciaDev2USer;
         private institution_class_engine institution_engine;
@@ -72,7 +73,7 @@ namespace LookAndPlayForm
                     Invalidate();
                 }));
 
-            if (testStarted)
+            if (saveEyeTrackerData)
             {
                 //Creo que ni gazeWeighted ni cursorFiltered se usan
                 PointD gazeWeighted = eyetrackingFunctions.WeighGaze(gazePointEventArgs.GazeDataReceived);// creo que no se usa
@@ -124,7 +125,7 @@ namespace LookAndPlayForm
                 }
                 else if (Program.datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.persuit)
                 {
-                    StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
+                    StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit(this);
                     persuit.Show();
                     persuit.FormClosed += test_Closed;
                 }
@@ -141,9 +142,9 @@ namespace LookAndPlayForm
             eyeTrackingEngine.Dispose();
         }
 
-        public void toogleTestStatus()
+        public void toogleSaveEyeTrackerDataValue()
         {
-            testStarted = !testStarted;
+            saveEyeTrackerData = !saveEyeTrackerData;
         }
 
         

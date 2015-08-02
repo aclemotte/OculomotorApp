@@ -18,9 +18,6 @@ namespace LookAndPlayForm
 
 
 
-    
-
-
         public Game1(EyeXWinForm ControlForm)
         {
             InitializeComponent();
@@ -28,9 +25,6 @@ namespace LookAndPlayForm
             _ControlFormEyeX = ControlForm;
 
             setPictureBoxStimulus();           
-
-            //para avisar a _ControlFormEyeX si se cancelo la tarea (cuando se pregunta Are you ready?)
-            _ControlFormEyeX.se_grabaron_datos = false;
         }
 
         private void setPictureBoxStimulus()
@@ -66,31 +60,9 @@ namespace LookAndPlayForm
             }
         }
         
-
-
-
        
+              
 
-
-
-        
-     
-     
-
-        private void end_protocol()
-        {
-            _ControlFormEyeX.toogleTestStatus();
-            _ControlFormEyeX.se_grabaron_datos = true;
-            this.Close();
-        }
-
-        
-
-        //vuelve a mostrar el cursor
-        private void Game1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Cursor.Show();
-        }
 
         // Before starting the game a confirmation is expected
         private void Game1_Load(object sender, EventArgs e)
@@ -100,7 +72,8 @@ namespace LookAndPlayForm
             {
                 // user clicked yes                
                 Cursor.Hide();
-                _ControlFormEyeX.toogleTestStatus();
+                _ControlFormEyeX.toogleSaveEyeTrackerDataValue();
+                _ControlFormEyeX.se_grabaron_datos = true;
             }
             else// user clicked no
             {
@@ -116,6 +89,17 @@ namespace LookAndPlayForm
             end_protocol();
         }
 
-               
+
+        private void end_protocol()
+        {
+            _ControlFormEyeX.toogleSaveEyeTrackerDataValue();
+            this.Close();
+        }
+
+
+        private void Game1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Cursor.Show();
+        }
     }
 }
