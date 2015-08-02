@@ -159,10 +159,12 @@ namespace LookAndPlayForm
                 System.IO.Directory.CreateDirectory(path);
 
             File.WriteAllText(path + @"eyetrackerData.json", JsonConvert.SerializeObject(generalData2Save));
+
+            ClearList();
         }
        
 
-        public void ClearList()
+        private void ClearList()
         {           
             GazeDataItemEyeXL.Clear();
             //GazeDataItemEyeTribeL.Clear();
