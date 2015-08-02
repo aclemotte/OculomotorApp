@@ -80,17 +80,9 @@ namespace LookAndPlayForm
         private void end_protocol()
         {
             _ControlFormEyeX.toogleTestStatus();
-            //save_protocol();
             _ControlFormEyeX.se_grabaron_datos = true;
             this.Close();
         }
-
-        //private void save_protocol()
-        //{    
-        //    ////datos del tracker
-        //    //Program.datosCompartidos.LogEyeTrackerData.saveData2File();
-        //    //Program.datosCompartidos.updateCsv = true;
-        //}
 
         
 
@@ -100,7 +92,7 @@ namespace LookAndPlayForm
             Cursor.Show();
         }
 
-       // Before starting the game a confirmation is expected
+        // Before starting the game a confirmation is expected
         private void Game1_Load(object sender, EventArgs e)
         {
 

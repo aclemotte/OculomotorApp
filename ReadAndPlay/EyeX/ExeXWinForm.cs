@@ -45,7 +45,6 @@ namespace LookAndPlayForm
 
             eyeTrackingEngine.Initialize();
 
-            //this.datosCompartidos = LookAndPlayForm.Program.datosCompartidos;
             Program.datosCompartidos.LogEyeTrackerData = new LogEyeTracker();
             Program.datosCompartidos.logTestData = new LogTest();
 
@@ -216,12 +215,12 @@ namespace LookAndPlayForm
             //Show the resume window
             if (se_grabaron_datos)
             {
-
+                //datos del test
                  Program.datosCompartidos.logTestData.saveData2File();
 
                  //datos del tracker
                  Program.datosCompartidos.LogEyeTrackerData.saveData2File();
-                 Program.datosCompartidos.updateCsv = true;
+
 
                 //subir los datos a la nube
                 aws_class_data aws_data = new aws_class_data();

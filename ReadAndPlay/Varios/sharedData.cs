@@ -19,7 +19,6 @@ namespace LookAndPlayForm
         public bool eyeNotFound { get; set; }
         public  System.Drawing.Rectangle monitorBounds { get; set; }
         public string activeUser { get; set; }
-        public bool updateCsv { get; set; }
         public string image2read { get; set; }
         public string startTimeTest { get; set; }//ojo que se pueden correr varios test sin cerrar la app
         public int number_of_screening_done { get; set; }
@@ -29,7 +28,6 @@ namespace LookAndPlayForm
         public sharedData()
         {
             eyeNotFound = true;
-            updateCsv = false;
             getDisplaySelected();
             image2read = "";
             startTimeTest = Varios.functions.getCurrentTime();
