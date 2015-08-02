@@ -9,14 +9,12 @@ namespace LookAndPlayForm
     {
         private int numberOfNoEyesTracked;
         private int maxNumberOfDataReceived;
-        private sharedData datosCompartidos;
 
 
         public eyesDetector()
         {
             numberOfNoEyesTracked = 0;
             maxNumberOfDataReceived = settings.maxNumberOfDataReceived;
-            this.datosCompartidos = LookAndPlayForm.Program.datosCompartidos;
         }
 
         public void dataReceived(Tobii.Gaze.Core.TrackingStatus dataStatus)
@@ -46,10 +44,10 @@ namespace LookAndPlayForm
         private void checkNumberOfNoEyesTrackedReceived()
         {
             if (numberOfNoEyesTracked == 0)
-                datosCompartidos.eyeNotFound = false;
+                Program.datosCompartidos.eyeNotFound = false;
 
             if (numberOfNoEyesTracked == maxNumberOfDataReceived)
-                datosCompartidos.eyeNotFound = true;            
+                Program.datosCompartidos.eyeNotFound = true;            
         }
 
         private void numberOfNoEyesTrackedMasMas()

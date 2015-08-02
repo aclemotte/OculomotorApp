@@ -18,7 +18,6 @@ namespace LookAndPlayForm
 
         private static int HistorySize = 30;
         private static int EyeRadius = 8;
-        private sharedData datosCompartidos;
 
         public TrackStatusControlMirada()
         {
@@ -36,7 +35,6 @@ namespace LookAndPlayForm
 
             _eyesValidity = TrackingStatus.NoEyesTracked;
 
-            this.datosCompartidos = LookAndPlayForm.Program.datosCompartidos;
         }
        
         public void OnGazeData(Tobii.Gaze.Core.GazeData gd)

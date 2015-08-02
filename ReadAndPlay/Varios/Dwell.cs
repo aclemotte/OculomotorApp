@@ -16,14 +16,13 @@ namespace LookAndPlayForm
         Point avgPoint = new Point();
         Point stdPoint = new Point();
         MouseController controladorMouse;
-        sharedData datosCompartidos;
         int DwellArea = settings.DwellArea;//pix
         int DwellTime = settings.DwellTime;//mseg
         int DwellLatency = settings.DwellLatency;
 
         public event EventHandler dwellClickFired;
         
-        public Dwell(sharedData datosCompartidos)
+        public Dwell()
         {
             timerDwell = new Timer();
             timerDwell.Interval = 33;
@@ -39,7 +38,6 @@ namespace LookAndPlayForm
 
             controladorMouse = new MouseController();
 
-            this.datosCompartidos = datosCompartidos;
         }
 
         /// <summary>
@@ -50,7 +48,7 @@ namespace LookAndPlayForm
         /// <param name="e"></param>
         private void timerDwell_Tick(object sender, EventArgs e)
         {
-            if (!datosCompartidos.eyeNotFound)            
+            if (!Program.datosCompartidos.eyeNotFound)            
             {
                 if (cursor_dwell())// && !dwelling)
                 {

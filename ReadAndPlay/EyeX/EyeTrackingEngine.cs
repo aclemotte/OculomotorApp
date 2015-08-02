@@ -51,7 +51,6 @@ namespace LookAndPlayForm
         private Thread _thread;
 
         private eyesDetector detectorDeOjos;
-        private sharedData _datosCompartidos;
         
         /// <summary>
         /// Create eye tracking engine 
@@ -59,9 +58,7 @@ namespace LookAndPlayForm
         /// </summary>
         public EyeTrackingEngine()
         {
-            this._datosCompartidos = LookAndPlayForm.Program.datosCompartidos;
-            detectorDeOjos = new eyesDetector();
-            
+            detectorDeOjos = new eyesDetector();            
         }
 
         public EyeTrackingState State
@@ -276,16 +273,16 @@ namespace LookAndPlayForm
 
         private void OnDeviceInfoCompleted(DeviceInfo deviceInfo, Tobii.Gaze.Core.ErrorCode errorCode)
         {
-            _datosCompartidos.EyeTrackerInfo = deviceInfo.Model;
+            Program.datosCompartidos.EyeTrackerInfo = deviceInfo.Model;
         }
 
         private void OnGetCalibrationCompleted(Calibration calibration, Tobii.Gaze.Core.ErrorCode errorCode)
         {
-            _datosCompartidos.calibrationDataEyeX = calibration;
+            Program.datosCompartidos.calibrationDataEyeX = calibration;
 
-            CalibrationError errorCalibracion = new CalibrationError(_datosCompartidos.calibrationDataEyeX.GetCalibrationPointDataItems());
-            _datosCompartidos.meanCalibrationErrorLeftPx = errorCalibracion.meanCalibrationErrorLeftPx;
-            _datosCompartidos.meanCalibrationErrorRightPx = errorCalibracion.meanCalibrationErrorRightPx;
+            CalibrationError errorCalibracion = new CalibrationError(Program.datosCompartidos.calibrationDataEyeX.GetCalibrationPointDataItems());
+            Program.datosCompartidos.meanCalibrationErrorLeftPx = errorCalibracion.meanCalibrationErrorLeftPx;
+            Program.datosCompartidos.meanCalibrationErrorRightPx = errorCalibracion.meanCalibrationErrorRightPx;
 
             Console.WriteLine("EyetrackingEngine.OnGetCalibrationCompleted. errorCode: " + errorCode.ToString() + 
                 "error: " +
