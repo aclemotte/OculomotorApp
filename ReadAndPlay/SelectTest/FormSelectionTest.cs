@@ -12,13 +12,6 @@ namespace LookAndPlayForm.SelectTest
     public partial class FormSelectionTest : Form
     {
 
-        public enum testType
-        {
-            persuit, reading
-        }
-
-        //public testType testSelected;
-
         public FormSelectionTest()
         {
             InitializeComponent();

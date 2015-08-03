@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using LookAndPlayForm.BackupClass;
 using LookAndPlayForm.InstitutionID;
 using LookAndPlayForm.Varios;
+using Newtonsoft.Json;
 using Tobii.Gaze.Core;
 using WobbrockLib.Devices;
 
@@ -115,7 +117,7 @@ namespace LookAndPlayForm
             {
                 Program.datosCompartidos.getNewTime();
 
-                if (Program.datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.reading)
+                if (Program.datosCompartidos.testSelected == testType.reading)
                 {
                     Game1 _Game1 = new Game1(this);
                     _Game1.FormClosed += test_Closed;
@@ -123,7 +125,7 @@ namespace LookAndPlayForm
                     _Game1.StartPosition = FormStartPosition.Manual;
                     _Game1.Show();
                 }
-                else if (Program.datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.persuit)
+                else if (Program.datosCompartidos.testSelected == testType.persuit)
                 {
                     StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit(this);
                     persuit.Show();
@@ -154,12 +156,66 @@ namespace LookAndPlayForm
         //resume
         private void buttonResumen_Click(object sender, EventArgs e)
         {
-            openWindowResumen(false, true);
+
+            string selectedPath = selectionOfFolder();
+            testType testType = checkTipoTest(selectedPath);
+
+            if (testType == testType.reading)
+            {
+                openWindowReviewReading(false, true, selectedPath);
+            }
+            else if (testType == testType.persuit)
+                openWindowReviewPersuit();
+            else
+                MessageBox.Show("Error. Test type not identified.");
         }
 
-        private void openWindowResumen(bool showLastTest, bool newTestAvailable)
+        private string selectionOfFolder()
         {
-            Resumen.Resumen resumenGame1 = new Resumen.Resumen(showLastTest, newTestAvailable);
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
+            DialogResult result = fbd.ShowDialog();
+            string selectedPath = fbd.SelectedPath;
+            return selectedPath;
+        }
+
+        private string openTestDatajsonAndGetField(string path)
+        {
+            TestData testData;
+            string file = @"\testData.json";
+
+            if (File.Exists(path + file))
+            {
+                string json = File.ReadAllText(path + file);
+                testData = JsonConvert.DeserializeObject<TestData>(json);
+                return testData.image2read;
+            }
+            else
+            {
+                MessageBox.Show("El archivo " + file + " no existe");
+                return null;
+            }
+        }
+
+        private testType checkTipoTest(string selectedPath)
+        {
+            string image2read = openTestDatajsonAndGetField(selectedPath);
+
+            if (string.IsNullOrEmpty(image2read))
+                return testType.persuit;
+            else
+                return testType.reading;
+        }
+        
+        private void openWindowReviewPersuit()
+        {
+            //ReviewPersuit reviewPersuit = new ReviewPersuit();
+            //reviewPersuit.Show();
+        }         
+        
+        private void openWindowReviewReading(bool showLastTest, bool newTestAvailable, string selectedPath)
+        {
+            Resumen.Resumen resumenGame1 = new Resumen.Resumen(showLastTest, newTestAvailable, selectedPath);
             resumenGame1.ReviewClosed += resumenGame1_ReviewClosed;
             if (resumenGame1.everythingOk)
                 resumenGame1.Show();
@@ -234,8 +290,8 @@ namespace LookAndPlayForm
 
                 Program.datosCompartidos.number_of_screening_done++;
 
-                if (Program.datosCompartidos.testSelected == SelectTest.FormSelectionTest.testType.reading)
-                    openWindowResumen(true, true);
+                if (Program.datosCompartidos.testSelected == testType.reading)
+                    openWindowReviewReading(true, true, null);
 
             }
         }

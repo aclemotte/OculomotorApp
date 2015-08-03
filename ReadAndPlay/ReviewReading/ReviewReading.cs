@@ -41,11 +41,11 @@ namespace LookAndPlayForm.Resumen
 
 
 
-        public Resumen(bool showLastTest, bool newTestAvailable)
+        public Resumen(bool showLastTest, bool newTestAvailable, string selectedPath)
         {
             InitializeComponent();
 
-            string selectedPath;
+            //string selectedPath;
 
             newTest = false;
 
@@ -55,13 +55,13 @@ namespace LookAndPlayForm.Resumen
                                 Program.datosCompartidos.startTimeTest +
                                 @"-us" + Program.datosCompartidos.activeUser + @"\";
             }
-            else
-            {
-                FolderBrowserDialog fbd = new FolderBrowserDialog();
-                fbd.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
-                DialogResult result = fbd.ShowDialog();
-                selectedPath = fbd.SelectedPath;
-            }
+            //else
+            //{
+            //    FolderBrowserDialog fbd = new FolderBrowserDialog();
+            //    fbd.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
+            //    DialogResult result = fbd.ShowDialog();
+            //    selectedPath = fbd.SelectedPath;
+            //}
 
             buttonNewTest.Enabled = newTestAvailable;
             

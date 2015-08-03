@@ -78,4 +78,9 @@ namespace LookAndPlayForm
     {
         left, right
     }
+
+    public enum testType
+    {
+        persuit, reading
+    }
 }

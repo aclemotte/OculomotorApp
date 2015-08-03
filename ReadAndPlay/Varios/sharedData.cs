@@ -22,7 +22,7 @@ namespace LookAndPlayForm
         public string startTimeTest { get; set; }//ojo que se pueden correr varios test sin cerrar la app
         public int number_of_screening_done { get; set; }
 
-        public SelectTest.FormSelectionTest.testType testSelected { get; set; }
+        public testType testSelected { get; set; }
 
         public sharedData()
         {

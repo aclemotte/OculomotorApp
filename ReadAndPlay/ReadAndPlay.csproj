@@ -240,11 +240,11 @@
     <Compile Include="ReviewReading\Graph1.Designer.cs">
       <DependentUpon>Graph1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReviewReading\Resumen.cs">
+    <Compile Include="ReviewReading\ReviewReading.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReviewReading\Resumen.Designer.cs">
-      <DependentUpon>Resumen.cs</DependentUpon>
+    <Compile Include="ReviewReading\ReviewReading.Designer.cs">
+      <DependentUpon>ReviewReading.cs</DependentUpon>
     </Compile>
     <Compile Include="ReviewReading\TobiiClass.cs" />
     <Compile Include="Settings.cs" />
@@ -322,8 +322,8 @@
     <EmbeddedResource Include="ReviewReading\Graph1.resx">
       <DependentUpon>Graph1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReviewReading\Resumen.resx">
-      <DependentUpon>Resumen.cs</DependentUpon>
+    <EmbeddedResource Include="ReviewReading\ReviewReading.resx">
+      <DependentUpon>ReviewReading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectTest\FormSelectionTest.resx">
       <DependentUpon>FormSelectionTest.cs</DependentUpon>
