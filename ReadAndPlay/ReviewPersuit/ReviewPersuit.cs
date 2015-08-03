@@ -113,25 +113,3 @@ namespace ReviewPersuit
         }
     }
 }
-
-
-
-//Random rdn = new Random();
-
-//for (int i = 0; i < 720; i++)
-//{
-//    chartHorizontalGaze.Series["Reference"].Points.AddXY(i, Math.Sin(grados2radianes(i)));
-//    chartHorizontalGaze.Series["Right Gaze"].Points.AddXY(i, Math.Sin(grados2radianes(i + rdn.Next(0, 10))));
-//    chartHorizontalGaze.Series["Left Gaze"].Points.AddXY(i, Math.Sin(grados2radianes(i + rdn.Next(0, 10))));
-//}
-
-//chartHorizontalGaze.Series["Reference"].ChartType = SeriesChartType.FastLine;
-//chartHorizontalGaze.Series["Reference"].Color = Color.Red;
-
-//chartHorizontalGaze.Series["Right Gaze"].ChartType = SeriesChartType.FastLine;
-//chartHorizontalGaze.Series["Right Gaze"].Color = Color.Blue;
-
-//chartHorizontalGaze.Series["Left Gaze"].ChartType = SeriesChartType.FastLine;
-//chartHorizontalGaze.Series["Left Gaze"].Color = Color.Green;
-
-//chartHorizontalGaze.Invalidate();

@@ -1,13 +1,13 @@
 
 Falta:
 
-cuando se da al boton de review test tengo q leer el archivo de test y ver q tipo de test fue: 
-persuit o lectura y en funcion de que tipo de test es tengo q llamar a uno u otro review
-
-cuando termina un test tengo q ver q tipo de test es para abrir el review q corresponde
-
+sacar el offset de tiempo de los datos del gaze
 
 trace del persuit. 
+
+
+
+
 parrafo para comentarios
 
 Cambiar test data a nueva version

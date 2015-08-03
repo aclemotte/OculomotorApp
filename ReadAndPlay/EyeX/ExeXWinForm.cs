@@ -165,7 +165,7 @@ namespace LookAndPlayForm
                 openWindowReviewReading(false, true, selectedPath);
             }
             else if (testType == testType.persuit)
-                openWindowReviewPersuit(selectedPath);
+                openWindowReviewPersuit(false, selectedPath);
             else
                 MessageBox.Show("Error. Test type not identified.");
         }
@@ -207,9 +207,9 @@ namespace LookAndPlayForm
                 return testType.reading;
         }
 
-        private void openWindowReviewPersuit(string selectedPath)
+        private void openWindowReviewPersuit(bool showLastTest, string selectedPath)
         {
-            ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(false, true, selectedPath);
+            ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(showLastTest, true, selectedPath);
             reviewPersuit.Show();
         }         
         
@@ -292,6 +292,9 @@ namespace LookAndPlayForm
 
                 if (Program.datosCompartidos.testSelected == testType.reading)
                     openWindowReviewReading(true, true, null);
+
+                else if (Program.datosCompartidos.testSelected == testType.persuit)
+                    openWindowReviewPersuit(true, null);
 
             }
         }
