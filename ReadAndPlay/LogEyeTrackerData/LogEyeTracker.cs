@@ -10,6 +10,10 @@ namespace LookAndPlayForm.LogEyeTracker
 {
     public class LogEyeTracker
     {
+
+        #region esto hay que mejorar
+
+        //Ya existe este tipo de dato en TobiiOpenDataClass, pero se creo de nuevo xq hay que hacer una conversion de Tobii.Gaze.Core.GazeData a TobiiOpenDataClass.GazeData, que son basicamente lo mismo pero uno con datos privados y el otro con datos publicos. 
         public struct TargetTraceDefinitionEyeX
         {
             public List<Tobii.Gaze.Core.GazeData> gazeDataItemL;
@@ -36,9 +40,7 @@ namespace LookAndPlayForm.LogEyeTracker
 
         public eyetrackerDataEyeX generalDataEyeX;
 
-
-
-
+        #endregion
 
 
         /// <summary>

@@ -69,7 +69,7 @@ namespace LookAndPlayForm
                 if (fTester.ShowDialog() == DialogResult.OK)
                 {
                     fTester.updateCsv();
-                    aws_class_engine.UpdateTestersFile(institution_engine.institutionsList[0].institution_name);
+                    //aws_class_engine.UpdateTestersFile(institution_engine.institutionsList[0].institution_name);
                                         
 
 
@@ -79,7 +79,7 @@ namespace LookAndPlayForm
                     if (formPatientID.ShowDialog() == DialogResult.OK)
                     {
                         formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
-                        aws_class_engine.UpdateUsersFile(institution_engine.institutionsList[0].institution_name);
+                        //aws_class_engine.UpdateUsersFile(institution_engine.institutionsList[0].institution_name);
 
                         datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
 
@@ -115,7 +115,7 @@ namespace LookAndPlayForm
 
                                         ClassLogEngine.Log(data2Log);
 
-                                        aws_class_engine.UpdateLogFile(institution_engine.institutionsList[0].institution_name);
+                                        //aws_class_engine.UpdateLogFile(institution_engine.institutionsList[0].institution_name);
                                         
                                     }
                                 }
@@ -131,7 +131,7 @@ namespace LookAndPlayForm
                                     ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                                 }
 
-                                aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
+                                //aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
                             }
                         }
                     }

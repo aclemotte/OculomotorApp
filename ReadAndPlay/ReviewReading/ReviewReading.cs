@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using LookAndPlayForm.FixDetector;
 using LookAndPlayForm.LogEyeTracker;
+using LookAndPlayForm.Review;
 using Newtonsoft.Json;
 //using WobbrockLib.Controls;
 
@@ -22,8 +23,6 @@ namespace LookAndPlayForm.Resumen
         TestData testData;
 
         
-        bool testDataFound;
-        bool eyetrackerDataFound;
         bool fixDataFound;
         bool imageFound;
         
@@ -63,16 +62,32 @@ namespace LookAndPlayForm.Resumen
 
             processFixData(selectedPath);//procesa los datos de los ojos y genera un archivo fixData.json
             fixDataFound = loadFixationDataFromJson(selectedPath);//carga el archivo fixData.json
-            eyetrackerDataFound = loadEyetrackerDataFromJson(selectedPath);
-            testDataFound = loadTestDataFromJson(selectedPath);
-            getStimulusFeactures(eyetrackerDataFound);
-            imageFound = class4Graphic.loadImage2Control(testDataFound, testData, pictureBoxStimulus);
+            eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(selectedPath);
+            testData = ReviewClass.loadTestDataFromJson(selectedPath);
+            getStimulusFeactures(eyetrackerDataFound());
+            imageFound = class4Graphic.loadImage2Control(testDataFound(), testData, pictureBoxStimulus);
 
-            everythingOk = fixDataFound & eyetrackerDataFound & testDataFound & imageFound;
+            everythingOk = fixDataFound & eyetrackerDataFound() & testDataFound() & imageFound;
 
             if (everythingOk)
                 processMetrics();
 
+        }
+
+        private bool testDataFound()
+        {
+            if (testData == null)
+                return false;
+            else
+                return true;
+        }
+
+        private bool eyetrackerDataFound()
+        {
+            if (eyetrackerDataL.targetTraceL == null)
+                return false;
+            else
+                return true;
         }
 
         private void processFixData(string path)
@@ -99,43 +114,7 @@ namespace LookAndPlayForm.Resumen
                 MessageBox.Show("El archivo " + file + " no existe");
                 return false;
             }
-        }
-        
-        private bool loadEyetrackerDataFromJson(string path)
-        {
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string file = @"\eyetrackerData.json";
-
-            if (File.Exists(path + file))
-            {
-                string json = File.ReadAllText(path + file);
-                eyetrackerDataL = JsonConvert.DeserializeObject<eyetrackerDataEyeX>(json);
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("El archivo " + file + " no existe");
-                return false;
-            }
-        }
-
-        private bool loadTestDataFromJson(string path)
-        {
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string file = @"\testData.json";
-
-            if (File.Exists(path + file))
-            {
-                string json = File.ReadAllText(path + file);
-                testData = JsonConvert.DeserializeObject<TestData>(json);
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("El archivo " + file + " no existe");
-                return false;
-            }
-        }
+        }        
 
         #endregion
 

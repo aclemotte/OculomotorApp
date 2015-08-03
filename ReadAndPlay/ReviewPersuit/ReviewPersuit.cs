@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using LookAndPlayForm;
+using LookAndPlayForm.Review;
 
 namespace ReviewPersuit
 {
@@ -41,8 +42,8 @@ namespace ReviewPersuit
 
             toolStripStatusLabelFileName.Text = selectedPath;
 
-            //eyetrackerDataFound = loadEyetrackerDataFromJson(selectedPath);
-            //testDataFound = loadTestDataFromJson(selectedPath);
+            //eyetrackerDataFound = ReviewClass.loadEyetrackerDataFromJson(selectedPath);
+            //testDataFound = ReviewClass.loadTestDataFromJson(selectedPath);
 
 
             //getStimulusFeactures(eyetrackerDataFound);
