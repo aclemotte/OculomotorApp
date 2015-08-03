@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using LookAndPlayForm;
+using LookAndPlayForm.LogEyeTracker;
 using LookAndPlayForm.Review;
 
 namespace ReviewPersuit
@@ -17,9 +18,10 @@ namespace ReviewPersuit
     {
 
         bool newTest;
-        bool eyetrackerDataFound;
-        bool testDataFound;
         bool everythingOk;
+
+        eyetrackerDataEyeX eyetrackerDataL;
+        TestData testData;
 
 
 
@@ -42,21 +44,73 @@ namespace ReviewPersuit
 
             toolStripStatusLabelFileName.Text = selectedPath;
 
-            //eyetrackerDataFound = ReviewClass.loadEyetrackerDataFromJson(selectedPath);
-            //testDataFound = ReviewClass.loadTestDataFromJson(selectedPath);
+            eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(selectedPath);
+            testData = ReviewClass.loadTestDataFromJson(selectedPath);
+            //getStimulusFeactures(ReviewClass.eyetrackerDataFound(eyetrackerDataL));
+            //imageFound = class4Graphic.loadImage2Control(ReviewClass.testDataFound(testData), testData, pictureBoxStimulus);
 
+            everythingOk = ReviewClass.eyetrackerDataFound(eyetrackerDataL) & ReviewClass.testDataFound(testData);
 
-            //getStimulusFeactures(eyetrackerDataFound);
-            //imageFound = class4Graphic.loadImage2Control(testDataFound, testData, pictureBoxStimulus);
-
-            everythingOk = eyetrackerDataFound & testDataFound; // &imageFound;
-
+            if (everythingOk)
+            {
+                plotGazeData2Control();
+            }
         }
 
-        //private double grados2radianes(double grados)
-        //{
-        //    return grados * Math.PI / 180;
-        //}
+        private void buttonPlot_Click(object sender, EventArgs e)
+        {
+            if (everythingOk)
+            {
+                plotGazeData2Control();
+            }
+        }
+
+        private void plotGazeData2Control()
+        {
+            foreach (var series in chartHorizontalGaze.Series)
+            {
+                series.Points.Clear();
+            }
+
+            List<ReviewClass.GazePositionAndTimeClass> gazeDataDoubleList;
+
+            if (checkBoxL.Checked)
+            {
+                gazeDataDoubleList = ReviewClass.getGazePositionAndTimeList(eyetrackerDataL, testData, eye.left);
+                plotGazeDataList(gazeDataDoubleList, eye.left, settings.leftEyeColor);
+            }
+
+            if (checkBoxR.Checked)
+            {
+                gazeDataDoubleList = ReviewClass.getGazePositionAndTimeList(eyetrackerDataL, testData, eye.right);
+                plotGazeDataList(gazeDataDoubleList, eye.right, settings.rightEyeColor);
+            }
+        }
+
+        private void plotGazeDataList(List<ReviewClass.GazePositionAndTimeClass> gazeDataDoubleList, eye eye2Plot, Color eyeColor)
+        {
+            string nombreSerieX;
+            string nombreSerieY;
+            if (eye2Plot == eye.left)
+            {
+                nombreSerieX = "Left Gaze X";
+                nombreSerieY = "Left Gaze Y";
+            }
+            else
+            {
+                nombreSerieX = "Right Gaze X";
+                nombreSerieY = "Right Gaze Y";
+            }
+
+            for(int indice = 0; indice < gazeDataDoubleList.Count; indice++)
+            {
+                chartHorizontalGaze.Series[nombreSerieX].Points.AddXY(gazeDataDoubleList[indice].timeSegundos, gazeDataDoubleList[indice].gazePosition.X);
+                chartHorizontalGaze.Series[nombreSerieY].Points.AddXY(gazeDataDoubleList[indice].timeSegundos, gazeDataDoubleList[indice].gazePosition.Y);
+            }
+
+            chartHorizontalGaze.Series[nombreSerieX].Color = eyeColor;
+            chartHorizontalGaze.Invalidate();
+        }
     }
 }
 

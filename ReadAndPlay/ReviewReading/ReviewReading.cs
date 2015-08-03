@@ -64,30 +64,14 @@ namespace LookAndPlayForm.Resumen
             fixDataFound = loadFixationDataFromJson(selectedPath);//carga el archivo fixData.json
             eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(selectedPath);
             testData = ReviewClass.loadTestDataFromJson(selectedPath);
-            getStimulusFeactures(eyetrackerDataFound());
-            imageFound = class4Graphic.loadImage2Control(testDataFound(), testData, pictureBoxStimulus);
+            getStimulusFeactures(ReviewClass.eyetrackerDataFound(eyetrackerDataL));
+            imageFound = class4Graphic.loadImage2Control(ReviewClass.testDataFound(testData), testData, pictureBoxStimulus);
 
-            everythingOk = fixDataFound & eyetrackerDataFound() & testDataFound() & imageFound;
+            everythingOk = fixDataFound & ReviewClass.eyetrackerDataFound(eyetrackerDataL) & ReviewClass.testDataFound(testData) & imageFound;
 
             if (everythingOk)
                 processMetrics();
 
-        }
-
-        private bool testDataFound()
-        {
-            if (testData == null)
-                return false;
-            else
-                return true;
-        }
-
-        private bool eyetrackerDataFound()
-        {
-            if (eyetrackerDataL.targetTraceL == null)
-                return false;
-            else
-                return true;
         }
 
         private void processFixData(string path)

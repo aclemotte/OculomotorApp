@@ -30,7 +30,7 @@ namespace LookAndPlayForm
         //calibration error
         public const int maxCalibracionError = 50;
 
-        public const int indiceTrial = 0;
+        public const int indiceTrial = 0;//en mi sw base habian varios target. En esta app hay un solo target. por defecto será siempre cero
 
         public static Color leftEyeColor = Color.Green;
         public static Color rightEyeColor = Color.Blue; 
