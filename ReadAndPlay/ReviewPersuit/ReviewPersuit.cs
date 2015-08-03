@@ -41,8 +41,10 @@ namespace ReviewPersuit
 
             toolStripStatusLabelFileName.Text = selectedPath;
 
-            eyetrackerDataFound = loadEyetrackerDataFromJson(selectedPath);
-            testDataFound = loadTestDataFromJson(selectedPath);
+            //eyetrackerDataFound = loadEyetrackerDataFromJson(selectedPath);
+            //testDataFound = loadTestDataFromJson(selectedPath);
+
+
             //getStimulusFeactures(eyetrackerDataFound);
             //imageFound = class4Graphic.loadImage2Control(testDataFound, testData, pictureBoxStimulus);
 

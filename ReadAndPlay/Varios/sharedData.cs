@@ -14,7 +14,7 @@ namespace LookAndPlayForm
         public int meanCalibrationErrorRightPx { get; set; }
         public string EyeTrackerInfo { get; set; }
         public Tobii.Gaze.Core.Calibration calibrationDataEyeX { get; set; }
-        public LogEyeTracker LogEyeTrackerData { get; set; }
+        public LogEyeTracker.LogEyeTracker LogEyeTrackerData { get; set; }
         public LogTest logTestData { get; set; }
         public bool eyeNotFound { get; set; }
         public string activeUser { get; set; }

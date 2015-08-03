@@ -165,7 +165,7 @@
     </Compile>
     <Compile Include="FixDetector\FixDetectorData.cs" />
     <Compile Include="FixDetector\FixDetector.cs" />
-    <Compile Include="FixDetector\TobiiOpenDataClass.cs" />
+    <Compile Include="LogEyeTrackerData\TobiiOpenDataClass.cs" />
     <Compile Include="InitialForm\initialForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +191,7 @@
     </Compile>
     <Compile Include="PacientID\patient_class_data.cs" />
     <Compile Include="PacientID\patient_class_engine.cs" />
+    <Compile Include="Review\ReviewClass.cs" />
     <Compile Include="TestPersuit\StimuloPersuit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,7 +247,6 @@
     <Compile Include="ReviewReading\ReviewReading.Designer.cs">
       <DependentUpon>ReviewReading.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReviewReading\TobiiClass.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="TesterID\tester_class_data.cs" />
     <Compile Include="TesterID\tester_class_engine.cs" />

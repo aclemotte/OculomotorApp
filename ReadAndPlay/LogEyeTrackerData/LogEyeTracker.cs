@@ -6,10 +6,10 @@ using Newtonsoft.Json;
 using System.IO;
 
 
-namespace LookAndPlayForm
+namespace LookAndPlayForm.LogEyeTracker
 {
     public class LogEyeTracker
-    {        
+    {
         public struct TargetTraceDefinitionEyeX
         {
             public List<Tobii.Gaze.Core.GazeData> gazeDataItemL;
@@ -17,7 +17,7 @@ namespace LookAndPlayForm
             public List<PointD> gazeFilteredL;
             public TargetPosSize.Target targetPositionSize;
             public bool clickInsideTarget;
-        }
+        }     
 
         //Referencias que luego se agregaran a la lista TargetTraceL y que a lo largo de la app iran apuntando a lugares diferentes
         public List<Tobii.Gaze.Core.GazeData> GazeDataItemEyeXL { get; set; }
@@ -26,24 +26,13 @@ namespace LookAndPlayForm
 
         public TargetTraceDefinitionEyeX TargetTraceEyeX;//no se puede usar get;set xq es una estructura ¿?
 
-
-
-
-
-                
         public struct eyetrackerDataEyeX
         {
             public List<TargetTraceDefinitionEyeX> targetTraceL;
         }
 
         //Referencias que luego se agregaran a la lista TargetTraceL y que a lo largo de la app iran apuntando a lugares diferentes        
-
         public List<TargetTraceDefinitionEyeX> TargetTraceEyeXL { get; set; }//Lista que contiene todos los datos
-
-
-
-
-
 
         public eyetrackerDataEyeX generalDataEyeX;
 

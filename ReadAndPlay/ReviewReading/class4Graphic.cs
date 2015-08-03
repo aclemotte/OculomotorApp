@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LookAndPlayForm.FixDetector;
+using LookAndPlayForm.LogEyeTracker;
 
 namespace LookAndPlayForm.Resumen
 {

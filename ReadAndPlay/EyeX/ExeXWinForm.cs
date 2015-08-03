@@ -48,7 +48,7 @@ namespace LookAndPlayForm
 
             eyeTrackingEngine.Initialize();
 
-            Program.datosCompartidos.LogEyeTrackerData = new LogEyeTracker();
+            Program.datosCompartidos.LogEyeTrackerData = new LogEyeTracker.LogEyeTracker();
             Program.datosCompartidos.logTestData = new LogTest();
 
             distanciaDev2USer = new EyeTracking.distanceDev2User();

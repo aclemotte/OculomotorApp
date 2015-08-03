@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LookAndPlayForm.FixDetector
+namespace LookAndPlayForm.LogEyeTracker
 {
     public struct eyetrackerDataEyeX
     {
-        //public test_info test_info;
         public List<TargetTraceDefinitionEyeX> targetTraceL;
     }
 
