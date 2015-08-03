@@ -16,8 +16,8 @@ namespace ReviewPersuit
 {
     public partial class ReviewPersuit : Form
     {
-        bool everythingOk;
-
+        public bool everythingOk { get; set; }
+        bool newTest;
         eyetrackerDataEyeX eyetrackerDataL;
         TestData testData;
 
@@ -106,6 +106,25 @@ namespace ReviewPersuit
 
             chartHorizontalGaze.Series[nombreSerieX].Color = eyeColor;
             chartHorizontalGaze.Invalidate();
+        }
+
+        private void buttonNewTest_Click(object sender, EventArgs e)
+        {
+            newTest = true;
+            this.Close();
+        }
+
+        public delegate void ReviewClosedDelegate(bool newTest);
+        public event ReviewClosedDelegate ReviewClosed;
+
+        private void ReviewPersuit_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //avisar a la app que le llamo que se cerro la app, avisando tb si 
+            // se cerro la ventana para hacer un nuevo test
+            // se cerro para cerrar toda la app
+            if (ReviewClosed != null)
+                ReviewClosed(newTest);
+
         }
     }
 }

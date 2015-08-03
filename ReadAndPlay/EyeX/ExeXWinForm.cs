@@ -210,8 +210,12 @@ namespace LookAndPlayForm
         private void openWindowReviewPersuit(bool showLastTest, string selectedPath)
         {
             ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(showLastTest, true, selectedPath);
-            reviewPersuit.Show();
-        }         
+            reviewPersuit.ReviewClosed += reviewPersuit_ReviewClosed;
+            if(reviewPersuit.everythingOk)
+                reviewPersuit.Show();
+            else
+                reviewPersuit.Dispose();
+        }
         
         private void openWindowReviewReading(bool showLastTest, bool newTestAvailable, string selectedPath)
         {
@@ -229,9 +233,12 @@ namespace LookAndPlayForm
 
 
 
+        void reviewPersuit_ReviewClosed(bool newTest)
+        {
+            if (!newTest)
+                this.Close();
+        }         
 
-
-        //game
         private void resumenGame1_ReviewClosed(bool newTest)
         {
             if (!newTest)

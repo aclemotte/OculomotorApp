@@ -35,6 +35,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReviewPersuit));
             this.chartHorizontalGaze = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelZoomGuide = new System.Windows.Forms.Label();
             this.buttonNewTest = new System.Windows.Forms.Button();
@@ -118,6 +119,7 @@
             this.buttonNewTest.TabIndex = 3;
             this.buttonNewTest.Text = "New Test";
             this.buttonNewTest.UseVisualStyleBackColor = true;
+            this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
             // 
             // statusStripResumen
             // 
@@ -202,9 +204,11 @@
             this.Controls.Add(this.buttonNewTest);
             this.Controls.Add(this.labelZoomGuide);
             this.Controls.Add(this.chartHorizontalGaze);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReviewPersuit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Review Persuit Data";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReviewPersuit_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.chartHorizontalGaze)).EndInit();
             this.statusStripResumen.ResumeLayout(false);
             this.statusStripResumen.PerformLayout();

@@ -3,7 +3,6 @@ Falta:
 
 referencia
 boton new test
-sampling del estimulo persuit multiplo del frame refress de la pantalla ¿?
 
 
 dificiles
