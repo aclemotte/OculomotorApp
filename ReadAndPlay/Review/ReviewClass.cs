@@ -26,6 +26,8 @@ namespace LookAndPlayForm.Review
         public static List<GazePositionAndTimeClass> getGazePositionAndTimeList(eyetrackerDataEyeX eyetrackerDataL, TestData testData, eye fromEye)
         {
             List<GazePositionAndTimeClass> gazePositionAndTime = new List<GazePositionAndTimeClass>();
+            double timeSegundosInicial = 0;
+            double timeSegundos = 0;
 
             if (fromEye == eye.left)
             {
@@ -33,7 +35,17 @@ namespace LookAndPlayForm.Review
                 {
                     int gazeX = (int)(eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.X * (double)testData.screen_Width);
                     int gazeY = (int)(eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.Y * (double)testData.screen_Height);
-                    double timeSegundos = (double)eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Timestamp/(double)1000000.0;
+
+                    if (indiceSample == 0)
+                    {
+                        timeSegundos = 0;
+                        timeSegundosInicial = (double)eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Timestamp / (double)1000000.0;
+                    }
+                    else
+                    {
+                        timeSegundos = ((double)eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Timestamp / (double)1000000.0) - timeSegundosInicial;
+                    }
+
                     if (
                         !double.IsNaN(eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.X)
                         && !double.IsNaN(eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.Y)
@@ -50,7 +62,16 @@ namespace LookAndPlayForm.Review
                 {
                     int gazeX = (int)(eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.X * (double)testData.screen_Width);
                     int gazeY = (int)(eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.Y * (double)testData.screen_Height);
-                    double timeSegundos = (double)eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Timestamp / (double)1000000.0;
+
+                    if (indiceSample == 0)
+                    {
+                        timeSegundos = 0;
+                        timeSegundosInicial = (double)eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Timestamp / (double)1000000.0;
+                    }
+                    else
+                    {
+                        timeSegundos = ((double)eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Timestamp / (double)1000000.0) - timeSegundosInicial;
+                    }
 
                     if (
                         !double.IsNaN(eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.X)

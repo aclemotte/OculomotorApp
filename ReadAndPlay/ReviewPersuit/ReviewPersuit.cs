@@ -16,8 +16,6 @@ namespace ReviewPersuit
 {
     public partial class ReviewPersuit : Form
     {
-
-        bool newTest;
         bool everythingOk;
 
         eyetrackerDataEyeX eyetrackerDataL;
@@ -28,8 +26,6 @@ namespace ReviewPersuit
         public ReviewPersuit(bool showLastTest, bool newTestAvailable, string selectedPath)
         {
             InitializeComponent();
-
-            newTest = false;
 
             if (showLastTest)
             {

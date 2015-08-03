@@ -3,7 +3,6 @@ Falta:
 
 sacar el offset de tiempo de los datos del gaze
 referencia
-ventana del persuuitReview en el medio
 boton new test
 sampling del estimulo persuit multiplo del frame refress de la pantalla ¿?
 
@@ -12,6 +11,9 @@ dificiles
 Agregar un campo para que el optometrista agregue sus comentarios e impresiones al final del test y debajo del plot. Si se puede que aparezca con su firma (o el nombre de la institución).
 Botón para distinguir los modos outloud reading de silent reading
 Agregar convergence insufficiency a la lista de enfermedades al principio 
+
+
+
 
 Cambiar test data a nueva version
 Agregar los datos de configuracion del persuit: tiempo de ida y vuelta, etc
