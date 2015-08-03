@@ -41,18 +41,16 @@ namespace LookAndPlayForm
             this.labelDistance = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this._trackStatusControlMirada = new LookAndPlayForm.TrackStatusControlMirada();
-            this._trackStatus = new LookAndPlayForm.TrackStatusControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCalibration = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this._trackStatus = new LookAndPlayForm.TrackStatusControl();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,9 +67,9 @@ namespace LookAndPlayForm
             // 
             // progressBar4Distance
             // 
-            this.progressBar4Distance.Location = new System.Drawing.Point(9, 242);
+            this.progressBar4Distance.Location = new System.Drawing.Point(13, 302);
             this.progressBar4Distance.Name = "progressBar4Distance";
-            this.progressBar4Distance.Size = new System.Drawing.Size(256, 23);
+            this.progressBar4Distance.Size = new System.Drawing.Size(357, 23);
             this.progressBar4Distance.TabIndex = 5;
             // 
             // buttonViewCalibration
@@ -112,7 +110,7 @@ namespace LookAndPlayForm
             this.labelDistance.AutoSize = true;
             this.labelDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDistance.ForeColor = System.Drawing.Color.Black;
-            this.labelDistance.Location = new System.Drawing.Point(6, 268);
+            this.labelDistance.Location = new System.Drawing.Point(12, 331);
             this.labelDistance.Name = "labelDistance";
             this.labelDistance.Size = new System.Drawing.Size(82, 16);
             this.labelDistance.TabIndex = 23;
@@ -122,7 +120,7 @@ namespace LookAndPlayForm
             // 
             this.groupBox1.Controls.Add(this.buttonGame1);
             this.groupBox1.Controls.Add(this.buttonResumen);
-            this.groupBox1.Location = new System.Drawing.Point(291, 474);
+            this.groupBox1.Location = new System.Drawing.Point(291, 484);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(273, 94);
             this.groupBox1.TabIndex = 24;
@@ -132,71 +130,30 @@ namespace LookAndPlayForm
             // 
             this.groupBox2.Controls.Add(this.buttonCalibrate);
             this.groupBox2.Controls.Add(this.buttonViewCalibration);
-            this.groupBox2.Location = new System.Drawing.Point(12, 474);
+            this.groupBox2.Location = new System.Drawing.Point(12, 484);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(273, 94);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(86, 171);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 24);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Eye position";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(356, 171);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 24);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Gaze position";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.progressBar4Distance);
-            this.groupBox3.Controls.Add(this.labelDistance);
-            this.groupBox3.Location = new System.Drawing.Point(291, 163);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(273, 291);
-            this.groupBox3.TabIndex = 25;
-            this.groupBox3.TabStop = false;
-            // 
             // groupBox4
             // 
-            this.groupBox4.Location = new System.Drawing.Point(12, 163);
+            this.groupBox4.Controls.Add(this.progressBar4Distance);
+            this.groupBox4.Controls.Add(this.labelDistance);
+            this.groupBox4.Controls.Add(this._trackStatus);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(90, 123);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(273, 291);
+            this.groupBox4.Size = new System.Drawing.Size(378, 355);
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
-            // 
-            // _trackStatusControlMirada
-            // 
-            this._trackStatusControlMirada.BackColor = System.Drawing.Color.Black;
-            this._trackStatusControlMirada.Location = new System.Drawing.Point(300, 202);
-            this._trackStatusControlMirada.Name = "_trackStatusControlMirada";
-            this._trackStatusControlMirada.Size = new System.Drawing.Size(256, 201);
-            this._trackStatusControlMirada.TabIndex = 4;
-            // 
-            // _trackStatus
-            // 
-            this._trackStatus.BackColor = System.Drawing.Color.Black;
-            this._trackStatus.Location = new System.Drawing.Point(20, 202);
-            this._trackStatus.Name = "_trackStatus";
-            this._trackStatus.Size = new System.Drawing.Size(256, 226);
-            this._trackStatus.TabIndex = 3;
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelCalibration});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 590);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 660);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(580, 22);
             this.statusStrip1.TabIndex = 28;
@@ -214,24 +171,51 @@ namespace LookAndPlayForm
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(552, 151);
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(552, 111);
             this.textBox1.TabIndex = 37;
             this.textBox1.Text = resources.GetString("textBox1.Text");
+            // 
+            // _trackStatus
+            // 
+            this._trackStatus.BackColor = System.Drawing.Color.Black;
+            this._trackStatus.Location = new System.Drawing.Point(13, 41);
+            this._trackStatus.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this._trackStatus.Name = "_trackStatus";
+            this._trackStatus.Size = new System.Drawing.Size(354, 254);
+            this._trackStatus.TabIndex = 3;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(12, 586);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(552, 59);
+            this.textBox3.TabIndex = 39;
+            this.textBox3.Text = "Please make sure the calibration value is below 50 to continue with the test";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(51, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(278, 24);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "This black box shows your eyes";
             // 
             // EyeXWinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 612);
+            this.ClientSize = new System.Drawing.Size(580, 682);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this._trackStatusControlMirada);
-            this.Controls.Add(this._trackStatus);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -242,8 +226,8 @@ namespace LookAndPlayForm
             this.Text = "Calibration and positioning window";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -255,7 +239,6 @@ namespace LookAndPlayForm
 
         private System.Windows.Forms.Button buttonGame1;
         private TrackStatusControl _trackStatus;
-        private TrackStatusControlMirada _trackStatusControlMirada;
         private System.Windows.Forms.ProgressBar progressBar4Distance;
         private System.Windows.Forms.Button buttonViewCalibration;
         private System.Windows.Forms.Button buttonResumen;
@@ -263,13 +246,12 @@ namespace LookAndPlayForm
         private System.Windows.Forms.Label labelDistance;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCalibration;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label1;
     }
 }
 

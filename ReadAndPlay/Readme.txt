@@ -8,13 +8,6 @@ boton new test
 sampling del estimulo persuit multiplo del frame refress de la pantalla ¿?
 
 
-
-On the patient dta screening there are two mistakes:
-On the Reading Analysis page there are some instructions near the top half of the window, they don’t make much sense and are grammatically incorrect.
-We can put instead:
-"Look at the center of the black box on the left in order to calibrate the system. Please make sure the calibration value is below 50 to continue with the test"
-
-
 dificiles
 Agregar un campo para que el optometrista agregue sus comentarios e impresiones al final del test y debajo del plot. Si se puede que aparezca con su firma (o el nombre de la institución).
 Botón para distinguir los modos outloud reading de silent reading

@@ -70,7 +70,7 @@ namespace LookAndPlayForm
                     }
 
                     _trackStatus.OnGazeData(gazePointEventArgs.GazeDataReceived);
-                    _trackStatusControlMirada.OnGazeData(gazePointEventArgs.GazeDataReceived);
+                    //_trackStatusControlMirada.OnGazeData(gazePointEventArgs.GazeDataReceived);
                     distance2Controls(distanciaDev2USer.distance(gazePointEventArgs.GazeDataReceived));
                     Invalidate();
                 }));
