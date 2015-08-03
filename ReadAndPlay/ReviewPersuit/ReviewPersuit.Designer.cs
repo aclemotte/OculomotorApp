@@ -202,6 +202,7 @@
             this.Controls.Add(this.labelZoomGuide);
             this.Controls.Add(this.chartHorizontalGaze);
             this.Name = "ReviewPersuit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Review Persuit Data";
             ((System.ComponentModel.ISupportInitialize)(this.chartHorizontalGaze)).EndInit();
             this.statusStripResumen.ResumeLayout(false);
