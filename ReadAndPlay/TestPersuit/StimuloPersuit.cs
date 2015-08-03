@@ -34,9 +34,9 @@ namespace StimuloPersuitHorizontal
 
         private bool setPictureBoxsize()
         {
-            if(persuitEngine.dotSizeX > 1 && persuitEngine.dotSizeY > 1)
+            if(persuitEngine.dotDiameterPixelsX > 1 && persuitEngine.dotDiameterPixelsY > 1)
             {
-                pictureBoxDotStimulus.Size = new Size(persuitEngine.dotSizeX, persuitEngine.dotSizeY);
+                pictureBoxDotStimulus.Size = new Size(persuitEngine.dotDiameterPixelsX, persuitEngine.dotDiameterPixelsY);
                 return true;
             }
             else

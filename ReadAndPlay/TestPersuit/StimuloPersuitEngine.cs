@@ -16,16 +16,18 @@ namespace StimuloPersuitHorizontal
 
         public int offset_izquierda { get; set; }
         public int offset_arriba { get; set; }
-        public int dotSizeX { get; set; }
-        public int dotSizeY { get; set; }
+        public int dotDiameterPixelsX { get; set; }
+        public int dotDiameterPixelsY { get; set; }
 
         private Form stimuloPersuitForm;
+
         private int amplitud_movimiento = 1000;
         private int numero_vueltas = 2;
         private int tiempo_1_vuelta = 8;
         private double intervalMseg = 50;
         private double dpix, dpiy;
-        private int dotmilimeter = 5;
+        private int dotDiameterMilimeter = 5;
+        
         private double tiempo;
         private double velocidad;
         private int xCoordinate;      
@@ -70,8 +72,8 @@ namespace StimuloPersuitHorizontal
             offset_izquierda = (int)((double)(Screen.PrimaryScreen.Bounds.Size.Width - amplitud_movimiento) * (double)0.5);
             offset_arriba = (int)((double)(Screen.PrimaryScreen.Bounds.Size.Height) * (double)0.5);
 
-            dotSizeX = milimeter2Pixels(dotmilimeter, dpix);
-            dotSizeY = milimeter2Pixels(dotmilimeter, dpiy);
+            dotDiameterPixelsX = milimeter2Pixels(dotDiameterMilimeter, dpix);
+            dotDiameterPixelsY = milimeter2Pixels(dotDiameterMilimeter, dpiy);
         }      
 
         public void persuitStart()

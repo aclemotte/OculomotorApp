@@ -43,16 +43,16 @@ namespace LookAndPlayForm.Resumen
 
         public Resumen(bool showLastTest, bool newTestAvailable)
         {
+            InitializeComponent();
+
             string selectedPath;
 
             newTest = false;
 
-            InitializeComponent();
-
             if (showLastTest)
             {
                 selectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                                LookAndPlayForm.Program.datosCompartidos.startTimeTest +
+                                Program.datosCompartidos.startTimeTest +
                                 @"-us" + Program.datosCompartidos.activeUser + @"\";
             }
             else

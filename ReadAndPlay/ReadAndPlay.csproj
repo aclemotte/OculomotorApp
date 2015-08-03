@@ -191,13 +191,19 @@
     </Compile>
     <Compile Include="PacientID\patient_class_data.cs" />
     <Compile Include="PacientID\patient_class_engine.cs" />
-    <Compile Include="Persuit\StimuloPersuit.cs">
+    <Compile Include="TestPersuit\StimuloPersuit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Persuit\StimuloPersuit.Designer.cs">
+    <Compile Include="TestPersuit\StimuloPersuit.Designer.cs">
       <DependentUpon>StimuloPersuit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Persuit\StimuloPersuitEngine.cs" />
+    <Compile Include="TestPersuit\StimuloPersuitEngine.cs" />
+    <Compile Include="ReviewPersuit\ReviewPersuit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReviewPersuit\ReviewPersuit.Designer.cs">
+      <DependentUpon>ReviewPersuit.cs</DependentUpon>
+    </Compile>
     <Compile Include="SelectTest\FormSelectionTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,10 +256,10 @@
     <Compile Include="Varios\Definitions.cs" />
     <Compile Include="Varios\Dwell.cs" />
     <Compile Include="EyeTracking\Filters.cs" />
-    <Compile Include="Game1\Game1.cs">
+    <Compile Include="TestReading\Game1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Game1\Game1.Designer.cs">
+    <Compile Include="TestReading\Game1.Designer.cs">
       <DependentUpon>Game1.cs</DependentUpon>
     </Compile>
     <Compile Include="LogEyeTrackerData\LogEyeTracker.cs" />
@@ -264,7 +270,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Varios\settings.cs" />
     <Compile Include="Varios\sharedData.cs" />
-    <Compile Include="Game1\TargetPosSize.cs" />
+    <Compile Include="TestReading\TargetPosSize.cs" />
     <Compile Include="LogTestData\TestData.cs" />
     <Compile Include="EyeTracking\eyetrackingFunctions.cs" />
     <EmbeddedResource Include="ConsentForm\consentForm.resx">
@@ -298,10 +304,10 @@
       <DependentUpon>FormPatientID.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Game1\Game1.resx">
+    <EmbeddedResource Include="TestReading\Game1.resx">
       <DependentUpon>Game1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Persuit\StimuloPersuit.resx">
+    <EmbeddedResource Include="TestPersuit\StimuloPersuit.resx">
       <DependentUpon>StimuloPersuit.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -309,6 +315,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReviewPersuit\ReviewPersuit.resx">
+      <DependentUpon>ReviewPersuit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReviewReading\Graph1.resx">
       <DependentUpon>Graph1.cs</DependentUpon>
