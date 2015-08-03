@@ -1,7 +1,6 @@
 
 Falta:
 
-sacar el offset de tiempo de los datos del gaze
 referencia
 boton new test
 sampling del estimulo persuit multiplo del frame refress de la pantalla ¿?
