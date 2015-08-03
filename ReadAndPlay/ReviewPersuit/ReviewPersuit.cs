@@ -11,9 +11,9 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ReviewPersuit
 {
-    public partial class FormReviewPersuit : Form
+    public partial class ReviewPersuit : Form
     {
-        public FormReviewPersuit()
+        public ReviewPersuit(bool showLastTest, bool newTestAvailable, string selectedPath)
         {
             InitializeComponent();
 

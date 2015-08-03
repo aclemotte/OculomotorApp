@@ -45,8 +45,6 @@ namespace LookAndPlayForm.Resumen
         {
             InitializeComponent();
 
-            //string selectedPath;
-
             newTest = false;
 
             if (showLastTest)
@@ -55,15 +53,8 @@ namespace LookAndPlayForm.Resumen
                                 Program.datosCompartidos.startTimeTest +
                                 @"-us" + Program.datosCompartidos.activeUser + @"\";
             }
-            //else
-            //{
-            //    FolderBrowserDialog fbd = new FolderBrowserDialog();
-            //    fbd.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
-            //    DialogResult result = fbd.ShowDialog();
-            //    selectedPath = fbd.SelectedPath;
-            //}
 
-            buttonNewTest.Enabled = newTestAvailable;
+            buttonNewTest.Enabled = newTestAvailable;//se quito. era para cuando se le llamaba desde el form de paciente
             
             Console.WriteLine("selectedPath: " + selectedPath);
 

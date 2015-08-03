@@ -1,6 +1,6 @@
 ﻿namespace ReviewPersuit
 {
-    partial class FormReviewPersuit
+    partial class ReviewPersuit
     {
         /// <summary>
         /// Required designer variable.
@@ -82,14 +82,14 @@
             this.labelZoomGuide.TabIndex = 2;
             this.labelZoomGuide.Text = "You can select an horizontal area to make a zoom";
             // 
-            // FormReviewPersuit
+            // ReviewPersuit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 633);
             this.Controls.Add(this.labelZoomGuide);
             this.Controls.Add(this.chartHorizontalGaze);
-            this.Name = "FormReviewPersuit";
+            this.Name = "ReviewPersuit";
             this.Text = "Review Persuit Data";
             ((System.ComponentModel.ISupportInitialize)(this.chartHorizontalGaze)).EndInit();
             this.ResumeLayout(false);
