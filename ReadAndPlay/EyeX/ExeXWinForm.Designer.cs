@@ -49,11 +49,7 @@ namespace LookAndPlayForm
             this._trackStatus = new LookAndPlayForm.TrackStatusControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCalibration = new System.Windows.Forms.ToolStripStatusLabel();
-            this.labelDescription = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -212,71 +208,22 @@ namespace LookAndPlayForm
             this.toolStripStatusLabelCalibration.Size = new System.Drawing.Size(100, 17);
             this.toolStripStatusLabelCalibration.Text = "Calibration Result";
             // 
-            // labelDescription
+            // textBox1
             // 
-            this.labelDescription.AutoSize = true;
-            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(8, 16);
-            this.labelDescription.MaximumSize = new System.Drawing.Size(560, 0);
-            this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(247, 20);
-            this.labelDescription.TabIndex = 29;
-            this.labelDescription.Text = "Please make yourself comfortable";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 52);
-            this.label2.MaximumSize = new System.Drawing.Size(560, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(301, 20);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "The black box on the left shows your eyes";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(37, 76);
-            this.label4.MaximumSize = new System.Drawing.Size(560, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(342, 20);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Please try these appear in the center of the box";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(37, 100);
-            this.label5.MaximumSize = new System.Drawing.Size(560, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(296, 20);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "And do not forget to calibrate the system";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(37, 124);
-            this.label6.MaximumSize = new System.Drawing.Size(360, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(330, 20);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "A good calibration is one with values below 50";
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(552, 151);
+            this.textBox1.TabIndex = 37;
+            this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
             // EyeXWinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 612);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelDescription);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -322,11 +269,7 @@ namespace LookAndPlayForm
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCalibration;
-        private System.Windows.Forms.Label labelDescription;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

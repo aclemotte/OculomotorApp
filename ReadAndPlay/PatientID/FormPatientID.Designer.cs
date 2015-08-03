@@ -68,9 +68,9 @@
             this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.Location = new System.Drawing.Point(58, 45);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(94, 24);
+            this.labelUser.Size = new System.Drawing.Size(88, 24);
             this.labelUser.TabIndex = 1;
-            this.labelUser.Text = "Pacient ID";
+            this.labelUser.Text = "Patient ID";
             // 
             // labelName
             // 
@@ -247,9 +247,9 @@
             this.checkBoxDislexia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxDislexia.Location = new System.Drawing.Point(243, 36);
             this.checkBoxDislexia.Name = "checkBoxDislexia";
-            this.checkBoxDislexia.Size = new System.Drawing.Size(94, 28);
+            this.checkBoxDislexia.Size = new System.Drawing.Size(99, 28);
             this.checkBoxDislexia.TabIndex = 28;
-            this.checkBoxDislexia.Text = "Dislexia";
+            this.checkBoxDislexia.Text = "Dyslexia";
             this.checkBoxDislexia.UseVisualStyleBackColor = true;
             // 
             // checkBoxNystagmus
@@ -656,7 +656,7 @@
             this.MaximizeBox = false;
             this.Name = "FormPatientID";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pacient Window";
+            this.Text = "Patient Window";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).EndInit();
             this.groupBoxDiagnosedConditions.ResumeLayout(false);
             this.groupBoxDiagnosedConditions.PerformLayout();
