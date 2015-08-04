@@ -15,7 +15,7 @@ namespace LookAndPlayForm.TestPersuit
         public int amplitudMovimientoMilimeter { get; set; }
         public int numero_vueltas { get; set; }
         public int tiempo_1_vuelta { get; set; }
-        public double intervalMseg { get; set; }
+        public int intervalMseg { get; set; }
         public int dotDiameterMilimeter { get; set; }
 
 
@@ -36,8 +36,8 @@ namespace LookAndPlayForm.TestPersuit
             //variables independientes
             amplitudMovimientoMilimeter = 200;//20cm
             numero_vueltas = 2;
-            tiempo_1_vuelta = 8;
-            intervalMseg = 50;
+            tiempo_1_vuelta = 10;
+            intervalMseg = 200;
             dotDiameterMilimeter = 5;
 
             //variables dependientes

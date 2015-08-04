@@ -39,7 +39,7 @@ namespace StimuloPersuitHorizontal
         {
             timer = new System.Timers.Timer(stimuloPersuitSetup.intervalMseg);
             timer.Elapsed += timer_Elapsed;
-        }  
+        }
 
         public void persuitStart()
         {
@@ -73,7 +73,7 @@ namespace StimuloPersuitHorizontal
                     persuitEnd(this, null);
             }
         }
-
+        
         private double rad2Deg(double deg)
         {
             return (Math.PI / 180 * deg);

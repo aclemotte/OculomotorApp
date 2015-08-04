@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBoxDotStimulus = new System.Windows.Forms.PictureBox();
+            this.timerMoveDot = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDotStimulus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +66,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxDotStimulus;
+        private System.Windows.Forms.Timer timerMoveDot;
     }
 }
 
