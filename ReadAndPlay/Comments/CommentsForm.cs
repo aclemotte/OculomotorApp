@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace LookAndPlayForm.Comments
+{
+    public partial class CommentsForm : Form
+    {
+        bool commentsDone;
+        string selectedPath;
+
+        public CommentsForm(string selectedPath)
+        {
+            InitializeComponent();
+
+            this.selectedPath = selectedPath;
+            commentsDone = false;
+            openCommentsFile(selectedPath);
+        }
+
+        private void openCommentsFile(string selectedPath)
+        {
+            string file = @"\comments.txt";
+
+            if (File.Exists(selectedPath + file))
+            {
+                textBoxComments.Text = File.ReadAllText(selectedPath + file);
+                textBoxComments.SelectionStart = 0;
+                commentsDone = false;
+            }
+        }
+
+        private void CommentsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (commentsDone)
+            {
+                DialogResult dialogResult = MessageBox.Show("Comments done", "Save changes?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                    saveComments();
+
+
+            }
+        }
+
+        private void saveComments()
+        {
+            File.WriteAllText(selectedPath + @"\comments.txt", textBoxComments.Text);            
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            commentsDone = true;
+        }
+    }
+}

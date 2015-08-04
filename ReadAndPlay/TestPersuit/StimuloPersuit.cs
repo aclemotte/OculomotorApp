@@ -130,6 +130,7 @@ namespace StimuloPersuitHorizontal
             xCoordinate = stimuloPersuitSetup.offset_izquierda + (int)((double)stimuloPersuitSetup.amplitudMovimientoPixels * (((Math.Sin(rad2Deg(stimuloPersuitSetup.velocidad * tiempoSegundos + 270))) * 0.5) + 0.5));
             yCoordinate = Screen.PrimaryScreen.Bounds.Size.Height / 2;
             pictureBoxDotStimulus.Refresh();
+            
 
             stimuloPersuitSetup.stimulusDataList.Add(new DataPointPersuit(xCoordinate, yCoordinate, tiempoSegundos));
 

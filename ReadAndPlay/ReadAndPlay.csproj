@@ -116,6 +116,12 @@
   <ItemGroup>
     <Compile Include="AWS\aws_class_engine.cs" />
     <Compile Include="AWS\aws_class_data.cs" />
+    <Compile Include="Comments\CommentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comments\CommentsForm.Designer.cs">
+      <DependentUpon>CommentsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsentForm\consentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +280,9 @@
     <Compile Include="TestReading\TargetPosSize.cs" />
     <Compile Include="LogTestData\TestData.cs" />
     <Compile Include="EyeTracking\eyetrackingFunctions.cs" />
+    <EmbeddedResource Include="Comments\CommentsForm.resx">
+      <DependentUpon>CommentsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsentForm\consentForm.resx">
       <DependentUpon>consentForm.cs</DependentUpon>
       <SubType>Designer</SubType>

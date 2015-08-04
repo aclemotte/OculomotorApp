@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using LookAndPlayForm;
+using LookAndPlayForm.Comments;
 using LookAndPlayForm.LogEyeTracker;
 using LookAndPlayForm.Review;
 using LookAndPlayForm.TestPersuit;
@@ -22,12 +23,13 @@ namespace ReviewPersuit
         eyetrackerDataEyeX eyetrackerDataL;
         TestData testData;
         StimuloPersuitSetup stimuloPersuitSetup;
+        string selectedPath;
 
 
         public ReviewPersuit(bool showLastTest, bool newTestAvailable, string selectedPath)
         {
             InitializeComponent();
-
+            
             if (showLastTest)
             {
                 selectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
@@ -35,7 +37,8 @@ namespace ReviewPersuit
                                 @"-us" + Program.datosCompartidos.activeUser + @"\";
             }
 
-            buttonNewTest.Enabled = newTestAvailable;//se quito. era para cuando se le llamaba desde el form de paciente
+            this.selectedPath = selectedPath;
+            buttonNewTest.Enabled = newTestAvailable;//era para cuando se le llamaba desde el form de paciente. ahora siempre es true;
 
             Console.WriteLine("selectedPath: " + selectedPath);
 
@@ -140,6 +143,12 @@ namespace ReviewPersuit
             if (ReviewClosed != null)
                 ReviewClosed(newTest);
 
+        }
+
+        private void buttonComment_Click(object sender, EventArgs e)
+        {
+            CommentsForm commentsF = new CommentsForm(selectedPath);
+            commentsF.Show();
         }
     }
 }

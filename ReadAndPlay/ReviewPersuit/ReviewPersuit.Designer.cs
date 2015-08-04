@@ -45,6 +45,7 @@
             this.checkBoxL = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonPlot = new System.Windows.Forms.Button();
+            this.buttonComment = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartHorizontalGaze)).BeginInit();
             this.statusStripResumen.SuspendLayout();
             this.SuspendLayout();
@@ -113,7 +114,7 @@
             // 
             this.buttonNewTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewTest.Location = new System.Drawing.Point(881, 227);
+            this.buttonNewTest.Location = new System.Drawing.Point(881, 540);
             this.buttonNewTest.Name = "buttonNewTest";
             this.buttonNewTest.Size = new System.Drawing.Size(141, 34);
             this.buttonNewTest.TabIndex = 3;
@@ -191,11 +192,24 @@
             this.buttonPlot.UseVisualStyleBackColor = true;
             this.buttonPlot.Click += new System.EventHandler(this.buttonPlot_Click);
             // 
+            // buttonComment
+            // 
+            this.buttonComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonComment.Location = new System.Drawing.Point(881, 222);
+            this.buttonComment.Name = "buttonComment";
+            this.buttonComment.Size = new System.Drawing.Size(141, 34);
+            this.buttonComment.TabIndex = 31;
+            this.buttonComment.Text = "Comments";
+            this.buttonComment.UseVisualStyleBackColor = true;
+            this.buttonComment.Click += new System.EventHandler(this.buttonComment_Click);
+            // 
             // ReviewPersuit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 657);
+            this.Controls.Add(this.buttonComment);
             this.Controls.Add(this.buttonPlot);
             this.Controls.Add(this.checkBoxR);
             this.Controls.Add(this.checkBoxL);
@@ -228,6 +242,7 @@
         private System.Windows.Forms.CheckBox checkBoxL;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonPlot;
+        private System.Windows.Forms.Button buttonComment;
 
     }
 }

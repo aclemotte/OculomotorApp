@@ -1,9 +1,6 @@
 
 Falta:
 
-referencia
-
-
 dificiles
 Agregar un campo para que el optometrista agregue sus comentarios e impresiones al final del test y debajo del plot. Si se puede que aparezca con su firma (o el nombre de la institución).
 Botón para distinguir los modos outloud reading de silent reading
