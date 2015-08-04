@@ -42,12 +42,12 @@ namespace LookAndPlayForm
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this._trackStatus = new LookAndPlayForm.TrackStatusControl();
+            this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCalibration = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this._trackStatus = new LookAndPlayForm.TrackStatusControl();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -60,7 +60,7 @@ namespace LookAndPlayForm
             this.buttonGame1.Location = new System.Drawing.Point(145, 19);
             this.buttonGame1.Name = "buttonGame1";
             this.buttonGame1.Size = new System.Drawing.Size(100, 60);
-            this.buttonGame1.TabIndex = 2;
+            this.buttonGame1.TabIndex = 1;
             this.buttonGame1.Text = "New test";
             this.buttonGame1.UseVisualStyleBackColor = true;
             this.buttonGame1.Click += new System.EventHandler(this.buttonNewTest_Click);
@@ -78,7 +78,7 @@ namespace LookAndPlayForm
             this.buttonViewCalibration.Location = new System.Drawing.Point(153, 19);
             this.buttonViewCalibration.Name = "buttonViewCalibration";
             this.buttonViewCalibration.Size = new System.Drawing.Size(100, 60);
-            this.buttonViewCalibration.TabIndex = 6;
+            this.buttonViewCalibration.TabIndex = 3;
             this.buttonViewCalibration.Text = "Calibration";
             this.buttonViewCalibration.UseVisualStyleBackColor = true;
             this.buttonViewCalibration.Click += new System.EventHandler(this.buttonViewCalibration_Click);
@@ -89,7 +89,7 @@ namespace LookAndPlayForm
             this.buttonResumen.Location = new System.Drawing.Point(24, 19);
             this.buttonResumen.Name = "buttonResumen";
             this.buttonResumen.Size = new System.Drawing.Size(100, 60);
-            this.buttonResumen.TabIndex = 7;
+            this.buttonResumen.TabIndex = 2;
             this.buttonResumen.Text = "Review a test";
             this.buttonResumen.UseVisualStyleBackColor = true;
             this.buttonResumen.Click += new System.EventHandler(this.buttonResumen_Click);
@@ -100,7 +100,7 @@ namespace LookAndPlayForm
             this.buttonCalibrate.Location = new System.Drawing.Point(19, 19);
             this.buttonCalibrate.Name = "buttonCalibrate";
             this.buttonCalibrate.Size = new System.Drawing.Size(100, 60);
-            this.buttonCalibrate.TabIndex = 22;
+            this.buttonCalibrate.TabIndex = 4;
             this.buttonCalibrate.Text = "Calibrate";
             this.buttonCalibrate.UseVisualStyleBackColor = true;
             this.buttonCalibrate.Click += new System.EventHandler(this.buttonCalibrate_Click);
@@ -149,6 +149,25 @@ namespace LookAndPlayForm
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             // 
+            // _trackStatus
+            // 
+            this._trackStatus.BackColor = System.Drawing.Color.Black;
+            this._trackStatus.Location = new System.Drawing.Point(13, 41);
+            this._trackStatus.Margin = new System.Windows.Forms.Padding(6);
+            this._trackStatus.Name = "_trackStatus";
+            this._trackStatus.Size = new System.Drawing.Size(354, 254);
+            this._trackStatus.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(51, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(278, 24);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "This black box shows your eyes";
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -176,15 +195,6 @@ namespace LookAndPlayForm
             this.textBox1.TabIndex = 37;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
-            // _trackStatus
-            // 
-            this._trackStatus.BackColor = System.Drawing.Color.Black;
-            this._trackStatus.Location = new System.Drawing.Point(13, 41);
-            this._trackStatus.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this._trackStatus.Name = "_trackStatus";
-            this._trackStatus.Size = new System.Drawing.Size(354, 254);
-            this._trackStatus.TabIndex = 3;
-            // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -195,16 +205,6 @@ namespace LookAndPlayForm
             this.textBox3.Size = new System.Drawing.Size(552, 59);
             this.textBox3.TabIndex = 39;
             this.textBox3.Text = "Please make sure the calibration value is below 50 to continue with the test";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(51, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(278, 24);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "This black box shows your eyes";
             // 
             // EyeXWinForm
             // 

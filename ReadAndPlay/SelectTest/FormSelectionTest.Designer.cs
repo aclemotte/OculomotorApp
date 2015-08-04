@@ -42,24 +42,24 @@
             // radioButtonRead
             // 
             this.radioButtonRead.AutoSize = true;
-            this.radioButtonRead.Checked = true;
             this.radioButtonRead.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonRead.Location = new System.Drawing.Point(19, 69);
             this.radioButtonRead.Name = "radioButtonRead";
             this.radioButtonRead.Size = new System.Drawing.Size(132, 28);
             this.radioButtonRead.TabIndex = 0;
-            this.radioButtonRead.TabStop = true;
             this.radioButtonRead.Text = "Reading test";
             this.radioButtonRead.UseVisualStyleBackColor = true;
             // 
             // radioButtonPersuit
             // 
             this.radioButtonPersuit.AutoSize = true;
+            this.radioButtonPersuit.Checked = true;
             this.radioButtonPersuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonPersuit.Location = new System.Drawing.Point(19, 23);
             this.radioButtonPersuit.Name = "radioButtonPersuit";
             this.radioButtonPersuit.Size = new System.Drawing.Size(118, 28);
             this.radioButtonPersuit.TabIndex = 1;
+            this.radioButtonPersuit.TabStop = true;
             this.radioButtonPersuit.Text = "Persuit test";
             this.radioButtonPersuit.UseVisualStyleBackColor = true;
             // 
@@ -127,7 +127,7 @@
             this.buttonOk.Location = new System.Drawing.Point(226, 224);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(111, 31);
-            this.buttonOk.TabIndex = 36;
+            this.buttonOk.TabIndex = 1;
             this.buttonOk.Text = "Ok";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);

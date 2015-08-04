@@ -89,7 +89,7 @@
             this.buttonOk.Location = new System.Drawing.Point(606, 315);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(167, 35);
-            this.buttonOk.TabIndex = 4;
+            this.buttonOk.TabIndex = 1;
             this.buttonOk.Text = "OK";
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             this.textBoxUserName.Location = new System.Drawing.Point(159, 99);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(207, 29);
-            this.textBoxUserName.TabIndex = 2;
+            this.textBoxUserName.TabIndex = 3;
             // 
             // numericUpDownUserID
             // 
@@ -119,7 +119,7 @@
             0});
             this.numericUpDownUserID.Name = "numericUpDownUserID";
             this.numericUpDownUserID.Size = new System.Drawing.Size(207, 29);
-            this.numericUpDownUserID.TabIndex = 1;
+            this.numericUpDownUserID.TabIndex = 2;
             this.numericUpDownUserID.Value = new decimal(new int[] {
             1,
             0,
@@ -145,7 +145,7 @@
             this.textBoxAge.Location = new System.Drawing.Point(159, 207);
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(207, 29);
-            this.textBoxAge.TabIndex = 11;
+            this.textBoxAge.TabIndex = 5;
             // 
             // textBoxEmail
             // 
@@ -153,7 +153,7 @@
             this.textBoxEmail.Location = new System.Drawing.Point(159, 153);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(207, 29);
-            this.textBoxEmail.TabIndex = 14;
+            this.textBoxEmail.TabIndex = 4;
             // 
             // labelAge
             // 
@@ -616,7 +616,7 @@
             this.comboBoxCountry.Location = new System.Drawing.Point(159, 261);
             this.comboBoxCountry.Name = "comboBoxCountry";
             this.comboBoxCountry.Size = new System.Drawing.Size(207, 32);
-            this.comboBoxCountry.TabIndex = 36;
+            this.comboBoxCountry.TabIndex = 6;
             // 
             // labelRequiredFields
             // 

@@ -18,10 +18,10 @@ namespace StimuloPersuitHorizontal
         public int offset_arriba { get; set; }//distancia del stimulo al margen superior de la pantalla
         public int dotDiameterPixelsX { get; set; }//el tamaño del stimulo en pixeles
         public int dotDiameterPixelsY { get; set; }//el tamaño del stimulo en pixeles
-
+        public int amplitudMovimientoPixels { get; set; }
         private Form stimuloPersuitForm;
 
-        private int amplitud_movimiento = 1000;
+        private int amplitudMovimientoMilimeter = 100;//10cm
         private int numero_vueltas = 2;
         private int tiempo_1_vuelta = 8;
         private double intervalMseg = 50;
@@ -44,6 +44,7 @@ namespace StimuloPersuitHorizontal
             velocidad = 360 / (double)tiempo_1_vuelta;
 
             getDPI();
+            amplitudMovimientoPixels = milimeter2Pixels(amplitudMovimientoMilimeter, dpix);
             setDotFeactures();
         }
 
@@ -68,7 +69,7 @@ namespace StimuloPersuitHorizontal
 
         private void setDotFeactures()
         {
-            offset_izquierda = (int)((double)(Screen.PrimaryScreen.Bounds.Size.Width - amplitud_movimiento) * (double)0.5);
+            offset_izquierda = (int)((double)(Screen.PrimaryScreen.Bounds.Size.Width - amplitudMovimientoPixels) * (double)0.5);
             offset_arriba = (int)((double)(Screen.PrimaryScreen.Bounds.Size.Height) * (double)0.5);
 
             dotDiameterPixelsX = milimeter2Pixels(dotDiameterMilimeter, dpix);
@@ -89,7 +90,7 @@ namespace StimuloPersuitHorizontal
         private void timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             //xCoordinate = offset_izquierda + (int)((double)amplitud_movimiento * Math.Abs(Math.Sin(Math.PI / 180 * velocidad * tiempo)));
-            xCoordinate = offset_izquierda + (int)((double)amplitud_movimiento * (((Math.Sin(rad2Deg(velocidad * tiempo + 270))) * 0.5) + 0.5));
+            xCoordinate = offset_izquierda + (int)((double)amplitudMovimientoPixels * (((Math.Sin(rad2Deg(velocidad * tiempo + 270))) * 0.5) + 0.5));
 
             if (tiempo < (double)(numero_vueltas * tiempo_1_vuelta))
             {
