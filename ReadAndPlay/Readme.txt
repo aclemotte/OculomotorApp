@@ -2,10 +2,9 @@
 Falta:
 
 dificiles
-Agregar un campo para que el optometrista agregue sus comentarios e impresiones al final del test y debajo del plot. Si se puede que aparezca con su firma (o el nombre de la institución).
 Botón para distinguir los modos outloud reading de silent reading
 Agregar convergence insufficiency a la lista de enfermedades al principio 
-
+subir datos de comentarios y persuit data al cloud
 
 
 
