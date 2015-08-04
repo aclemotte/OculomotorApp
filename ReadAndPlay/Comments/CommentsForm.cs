@@ -40,7 +40,7 @@ namespace LookAndPlayForm.Comments
         {
             if (commentsDone)
             {
-                DialogResult dialogResult = MessageBox.Show("Comments done", "Save changes?", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Save changes?", "Comments done", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                     saveComments();
 

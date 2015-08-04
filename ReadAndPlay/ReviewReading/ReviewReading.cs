@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using LookAndPlayForm.Comments;
 using LookAndPlayForm.FixDetector;
 using LookAndPlayForm.LogEyeTracker;
 using LookAndPlayForm.Review;
@@ -38,7 +39,7 @@ namespace LookAndPlayForm.Resumen
 
         bool newTest;
         public bool everythingOk { get; set; }
-
+        string selectedPath;
 
 
         public Resumen(bool showLastTest, bool newTestAvailable, string selectedPath)
@@ -54,7 +55,8 @@ namespace LookAndPlayForm.Resumen
                                 @"-us" + Program.datosCompartidos.activeUser + @"\";
             }
 
-            buttonNewTest.Enabled = newTestAvailable;//se quito. era para cuando se le llamaba desde el form de paciente
+            this.selectedPath = selectedPath;
+            buttonNewTest.Enabled = newTestAvailable;//era para cuando se le llamaba desde el form de paciente. ahora siempre es true;
             
             Console.WriteLine("selectedPath: " + selectedPath);
 
@@ -467,6 +469,12 @@ namespace LookAndPlayForm.Resumen
             // se cerro para cerrar toda la app
             if (ReviewClosed != null)
                 ReviewClosed(newTest);
+        }
+
+        private void buttonComments_Click(object sender, EventArgs e)
+        {
+            CommentsForm commentsF = new CommentsForm(selectedPath);
+            commentsF.Show();
         }
     }
 }

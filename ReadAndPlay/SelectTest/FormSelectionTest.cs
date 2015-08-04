@@ -41,7 +41,7 @@ namespace LookAndPlayForm.SelectTest
         {
             if (comboBoxSampleText.SelectedItem == null)
             {
-                MessageBox.Show("Please select a sample text", "Empty field");
+                MessageBox.Show("Please select a sample text", "Empty field", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else

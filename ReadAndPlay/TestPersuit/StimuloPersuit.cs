@@ -82,7 +82,7 @@ namespace StimuloPersuitHorizontal
         {
             if (screenDimensionsOk && dotSizeOk)
             {
-                DialogResult dialogResult = MessageBox.Show("Start persuit", "Are you ready?", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Start persuit", "Are you ready?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
                     Cursor.Hide();
@@ -101,11 +101,11 @@ namespace StimuloPersuitHorizontal
             {
                 if (!screenDimensionsOk)
                 {
-                    MessageBox.Show("The test can not be performed. The screen is too small.");
+                    MessageBox.Show("The test can not be performed. The screen is too small.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 if (!dotSizeOk)
                 {
-                    MessageBox.Show("The test can not be performed. The stimulus dot is too small.");
+                    MessageBox.Show("The test can not be performed. The stimulus dot is too small.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
                 this.Close();

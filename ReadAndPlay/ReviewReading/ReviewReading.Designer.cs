@@ -77,6 +77,7 @@
             this.textBoxReadingTime = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.buttonNewTest = new System.Windows.Forms.Button();
+            this.buttonComments = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -123,7 +124,7 @@
             this.buttonPlot.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.buttonPlot.Location = new System.Drawing.Point(889, 16);
             this.buttonPlot.Name = "buttonPlot";
-            this.buttonPlot.Size = new System.Drawing.Size(133, 38);
+            this.buttonPlot.Size = new System.Drawing.Size(147, 38);
             this.buttonPlot.TabIndex = 1;
             this.buttonPlot.Text = "Plot";
             this.buttonPlot.UseVisualStyleBackColor = true;
@@ -218,11 +219,11 @@
             this.checkBoxL.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxL.ForeColor = System.Drawing.Color.Green;
-            this.checkBoxL.Location = new System.Drawing.Point(911, 155);
+            this.checkBoxL.Location = new System.Drawing.Point(911, 180);
             this.checkBoxL.Name = "checkBoxL";
-            this.checkBoxL.Size = new System.Drawing.Size(39, 28);
+            this.checkBoxL.Size = new System.Drawing.Size(58, 28);
             this.checkBoxL.TabIndex = 22;
-            this.checkBoxL.Text = "L";
+            this.checkBoxL.Text = "Left";
             this.checkBoxL.UseVisualStyleBackColor = true;
             // 
             // checkBoxR
@@ -232,11 +233,11 @@
             this.checkBoxR.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxR.ForeColor = System.Drawing.Color.Blue;
-            this.checkBoxR.Location = new System.Drawing.Point(911, 208);
+            this.checkBoxR.Location = new System.Drawing.Point(911, 219);
             this.checkBoxR.Name = "checkBoxR";
-            this.checkBoxR.Size = new System.Drawing.Size(42, 28);
+            this.checkBoxR.Size = new System.Drawing.Size(72, 28);
             this.checkBoxR.TabIndex = 23;
-            this.checkBoxR.Text = "R";
+            this.checkBoxR.Text = "Right";
             this.checkBoxR.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -399,9 +400,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(889, 137);
+            this.groupBox2.Location = new System.Drawing.Point(889, 171);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(133, 109);
+            this.groupBox2.Size = new System.Drawing.Size(147, 86);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             // 
@@ -411,7 +412,7 @@
             this.checkBoxFixations.Checked = true;
             this.checkBoxFixations.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxFixations.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxFixations.Location = new System.Drawing.Point(908, 273);
+            this.checkBoxFixations.Location = new System.Drawing.Point(908, 282);
             this.checkBoxFixations.Name = "checkBoxFixations";
             this.checkBoxFixations.Size = new System.Drawing.Size(104, 28);
             this.checkBoxFixations.TabIndex = 27;
@@ -431,9 +432,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Location = new System.Drawing.Point(889, 252);
+            this.groupBox3.Location = new System.Drawing.Point(889, 263);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(133, 109);
+            this.groupBox3.Size = new System.Drawing.Size(147, 98);
             this.groupBox3.TabIndex = 27;
             this.groupBox3.TabStop = false;
             // 
@@ -463,7 +464,7 @@
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(889, 365);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(133, 170);
+            this.groupBox4.Size = new System.Drawing.Size(147, 170);
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             // 
@@ -504,7 +505,7 @@
             this.toolStripStatusLabelFileName});
             this.statusStripResumen.Location = new System.Drawing.Point(0, 614);
             this.statusStripResumen.Name = "statusStripResumen";
-            this.statusStripResumen.Size = new System.Drawing.Size(1034, 26);
+            this.statusStripResumen.Size = new System.Drawing.Size(1058, 26);
             this.statusStripResumen.TabIndex = 101;
             this.statusStripResumen.Text = "File name";
             // 
@@ -524,9 +525,9 @@
             // buttonPlotExtern
             // 
             this.buttonPlotExtern.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPlotExtern.Location = new System.Drawing.Point(889, 70);
+            this.buttonPlotExtern.Location = new System.Drawing.Point(889, 68);
             this.buttonPlotExtern.Name = "buttonPlotExtern";
-            this.buttonPlotExtern.Size = new System.Drawing.Size(132, 61);
+            this.buttonPlotExtern.Size = new System.Drawing.Size(147, 38);
             this.buttonPlotExtern.TabIndex = 102;
             this.buttonPlotExtern.Text = "Plot full screen";
             this.buttonPlotExtern.UseVisualStyleBackColor = true;
@@ -594,17 +595,29 @@
             this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNewTest.Location = new System.Drawing.Point(890, 549);
             this.buttonNewTest.Name = "buttonNewTest";
-            this.buttonNewTest.Size = new System.Drawing.Size(133, 55);
+            this.buttonNewTest.Size = new System.Drawing.Size(146, 55);
             this.buttonNewTest.TabIndex = 115;
             this.buttonNewTest.Text = "New test";
             this.buttonNewTest.UseVisualStyleBackColor = true;
             this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
             // 
+            // buttonComments
+            // 
+            this.buttonComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonComments.Location = new System.Drawing.Point(890, 122);
+            this.buttonComments.Name = "buttonComments";
+            this.buttonComments.Size = new System.Drawing.Size(147, 38);
+            this.buttonComments.TabIndex = 116;
+            this.buttonComments.Text = "Comments";
+            this.buttonComments.UseVisualStyleBackColor = true;
+            this.buttonComments.Click += new System.EventHandler(this.buttonComments_Click);
+            // 
             // Resumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 640);
+            this.ClientSize = new System.Drawing.Size(1058, 640);
+            this.Controls.Add(this.buttonComments);
             this.Controls.Add(this.buttonNewTest);
             this.Controls.Add(this.buttonPlotExtern);
             this.Controls.Add(this.statusStripResumen);
@@ -698,6 +711,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label labelCalibration;
         private System.Windows.Forms.Button buttonNewTest;
+        private System.Windows.Forms.Button buttonComments;
 
 
 

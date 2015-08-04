@@ -85,7 +85,7 @@ namespace LookAndPlayForm.TesterID
         {
             if (string.IsNullOrEmpty(textBoxTesterName.Text))
             {
-                MessageBox.Show("Name field is required", "Empty field");
+                MessageBox.Show("Name field is required", "Empty field", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else

@@ -134,7 +134,7 @@ namespace LookAndPlayForm
 
             }
             else
-                MessageBox.Show("Eye tracker not connected");
+                MessageBox.Show("Eye tracker not connected", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         	
@@ -167,7 +167,7 @@ namespace LookAndPlayForm
             else if (testType == testType.persuit)
                 openWindowReviewPersuit(false, selectedPath);
             else
-                MessageBox.Show("Error. Test type not identified.");
+                MessageBox.Show("Error. Test type not identified.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private string selectionOfFolder()
@@ -192,7 +192,7 @@ namespace LookAndPlayForm
             }
             else
             {
-                MessageBox.Show("El archivo " + file + " no existe");
+                MessageBox.Show("El archivo " + file + " no existe", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }

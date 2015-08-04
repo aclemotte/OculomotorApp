@@ -410,17 +410,17 @@ namespace LookAndPlayForm
             //else if ...
             if (newUser && textBoxUserName.Text == "")
             {
-                MessageBox.Show("Name field is required", "Empty field");
+                MessageBox.Show("Name field is required", "Empty field", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (newUser && textBoxEmail.Text == "")
             {
-                MessageBox.Show("Email field is required", "Empty field");
+                MessageBox.Show("Email field is required", "Empty field", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (newUser && textBoxAge.Text == "")
             {
-                MessageBox.Show("Age field is required, Empty field");
+                MessageBox.Show("Age field is required, Empty field", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else

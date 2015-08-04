@@ -68,7 +68,7 @@ namespace LookAndPlayForm.InstitutionID
         {
             if (camposCorrectamenteCompletados())
             {
-                DialogResult dialogResult = MessageBox.Show("This information cannot be changed later. Please confirm the data", "", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("This information cannot be changed later. Please confirm the data", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -95,7 +95,7 @@ namespace LookAndPlayForm.InstitutionID
         {
             if (string.IsNullOrEmpty(textBoxInstitutionName.Text))
             {
-                MessageBox.Show("Please complete all the fields");
+                MessageBox.Show("Please complete all the fields", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else
