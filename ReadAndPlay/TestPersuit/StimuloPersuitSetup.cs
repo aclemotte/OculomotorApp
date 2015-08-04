@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace LookAndPlayForm.TestPersuit
 {
@@ -27,9 +29,7 @@ namespace LookAndPlayForm.TestPersuit
         public  double dpiy { get; set; }
         public double velocidad { get; set; }
         
-
-        public  double tiempo { get; set; }
-        public  int xCoordinate { get; set; }
+        public List<DataPointPersuit> stimulusDataList;
    
         public StimuloPersuitSetup()
         {
@@ -41,6 +41,7 @@ namespace LookAndPlayForm.TestPersuit
             dotDiameterMilimeter = 5;
 
             //variables dependientes
+            stimulusDataList = new List<DataPointPersuit>();
             velocidad = 360 / (double)tiempo_1_vuelta;//grados por segundo
             getDPI();
             amplitudMovimientoPixels = milimeter2Pixels(amplitudMovimientoMilimeter, dpix);
@@ -71,6 +72,32 @@ namespace LookAndPlayForm.TestPersuit
         {
             dotDiameterPixelsX = milimeter2Pixels(dotDiameterMilimeter, dpix);
             dotDiameterPixelsY = milimeter2Pixels(dotDiameterMilimeter, dpiy);
-        } 
+        }
+
+        public void SavePersuitData()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
+                            LookAndPlayForm.Program.datosCompartidos.startTimeTest +
+                            @"-us" + Program.datosCompartidos.activeUser + @"\";
+
+            bool exists = System.IO.Directory.Exists(path);
+
+            if (!exists)
+                System.IO.Directory.CreateDirectory(path);
+
+            File.WriteAllText(path + @"persuitData.json", JsonConvert.SerializeObject(this));
+        }
+    }
+
+    public class DataPointPersuit
+    {
+        public Point dotPositionPixels;
+        public double timeSegundos;
+
+        public DataPointPersuit(int xCoordinate, int yCoordinate, double timeSegundos)
+        {
+            this.dotPositionPixels = new Point(xCoordinate, yCoordinate);
+            this.timeSegundos = timeSegundos;
+        }
     }
 }

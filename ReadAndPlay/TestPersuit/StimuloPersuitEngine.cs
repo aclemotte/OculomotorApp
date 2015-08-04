@@ -12,7 +12,7 @@ namespace StimuloPersuitHorizontal
 {
     class StimuloPersuitEngine
     {
-        public delegate void newCoordinateDelegate(int xCoordinate);
+        public delegate void newCoordinateDelegate(int xCoordinate, int yCoordinate);
         public event newCoordinateDelegate newCoordinate;
         public event EventHandler persuitEnd;
 
@@ -20,8 +20,9 @@ namespace StimuloPersuitHorizontal
         private System.Timers.Timer timer;
 
 
-        private double tiempo;
+        private double tiempoSegundos;
         private int xCoordinate;
+        private int yCoordinate;
 
 
 
@@ -31,7 +32,7 @@ namespace StimuloPersuitHorizontal
             this.stimuloPersuitSetup = stimuloPersuitSetup;
 
             setTimer();
-            tiempo = 0;
+            tiempoSegundos = 0;
         }
 
         private void setTimer()
@@ -42,7 +43,7 @@ namespace StimuloPersuitHorizontal
 
         public void persuitStart()
         {
-            tiempo = 0;
+            tiempoSegundos = 0;
             timer.Start();
         }
 
@@ -53,17 +54,20 @@ namespace StimuloPersuitHorizontal
 
         private void timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            xCoordinate = stimuloPersuitSetup.offset_izquierda + (int)((double)stimuloPersuitSetup.amplitudMovimientoPixels * (((Math.Sin(rad2Deg(stimuloPersuitSetup.velocidad * tiempo + 270))) * 0.5) + 0.5));
+            xCoordinate = stimuloPersuitSetup.offset_izquierda + (int)((double)stimuloPersuitSetup.amplitudMovimientoPixels * (((Math.Sin(rad2Deg(stimuloPersuitSetup.velocidad * tiempoSegundos + 270))) * 0.5) + 0.5));
+            yCoordinate = Screen.PrimaryScreen.Bounds.Size.Height / 2;
 
-            if (tiempo < (double)(stimuloPersuitSetup.numero_vueltas * stimuloPersuitSetup.tiempo_1_vuelta))
+            stimuloPersuitSetup.stimulusDataList.Add(new DataPointPersuit(xCoordinate, yCoordinate, tiempoSegundos));
+
+            if (tiempoSegundos < (double)(stimuloPersuitSetup.numero_vueltas * stimuloPersuitSetup.tiempo_1_vuelta))
             {
-                tiempo += stimuloPersuitSetup.intervalMseg / 1000;
+                tiempoSegundos += stimuloPersuitSetup.intervalMseg / 1000;
                 if (newCoordinate != null)
-                    newCoordinate(xCoordinate);
+                    newCoordinate(xCoordinate, yCoordinate);
             }
             else
             {
-                tiempo = 0;
+                tiempoSegundos = 0;
                 persuitStop();
                 if (persuitEnd != null)
                     persuitEnd(this, null);

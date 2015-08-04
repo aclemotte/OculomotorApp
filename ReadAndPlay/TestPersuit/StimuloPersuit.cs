@@ -94,12 +94,10 @@ namespace StimuloPersuitHorizontal
         
 
         //new x, y data from engine
-        void persuitEngine_newCoordinate(int xCoordinate)
+        void persuitEngine_newCoordinate(int xCoordinate, int yCoordinate)
         {
-
             _x = xCoordinate;
-            _y = Screen.PrimaryScreen.Bounds.Size.Height / 2;
-
+            _y = yCoordinate;
             pictureBoxDotStimulus.Invalidate();
         }
 
@@ -125,6 +123,7 @@ namespace StimuloPersuitHorizontal
 
             Program.datosCompartidos.LogEyeTrackerData.AddTargetTraceEyeX(new TargetPosSize.Target(), true);        
             _ControlFormEyeX.toogleSaveEyeTrackerDataValue();
+            stimuloPersuitSetup.SavePersuitData();
 
             this.BeginInvoke((Action)(() =>
                 {
