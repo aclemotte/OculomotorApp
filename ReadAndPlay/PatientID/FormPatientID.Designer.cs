@@ -58,6 +58,7 @@
             this.groupBoxGender = new System.Windows.Forms.GroupBox();
             this.comboBoxCountry = new System.Windows.Forms.ComboBox();
             this.labelRequiredFields = new System.Windows.Forms.Label();
+            this.checkBoxConvergenceInsufficiency = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).BeginInit();
             this.groupBoxDiagnosedConditions.SuspendLayout();
             this.SuspendLayout();
@@ -86,9 +87,9 @@
             // 
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOk.Location = new System.Drawing.Point(606, 315);
+            this.buttonOk.Location = new System.Drawing.Point(409, 312);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(167, 35);
+            this.buttonOk.Size = new System.Drawing.Size(438, 35);
             this.buttonOk.TabIndex = 1;
             this.buttonOk.Text = "OK";
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -129,10 +130,11 @@
             // 
             // labelVersion
             // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelVersion.AutoSize = true;
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelVersion.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelVersion.Location = new System.Drawing.Point(12, 351);
+            this.labelVersion.Location = new System.Drawing.Point(12, 362);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(42, 13);
             this.labelVersion.TabIndex = 9;
@@ -223,7 +225,7 @@
             // 
             this.checkBoxMyopia.AutoSize = true;
             this.checkBoxMyopia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxMyopia.Location = new System.Drawing.Point(243, 110);
+            this.checkBoxMyopia.Location = new System.Drawing.Point(282, 184);
             this.checkBoxMyopia.Name = "checkBoxMyopia";
             this.checkBoxMyopia.Size = new System.Drawing.Size(90, 28);
             this.checkBoxMyopia.TabIndex = 22;
@@ -234,7 +236,7 @@
             // 
             this.checkBoxCranialNervePalsy.AutoSize = true;
             this.checkBoxCranialNervePalsy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxCranialNervePalsy.Location = new System.Drawing.Point(25, 110);
+            this.checkBoxCranialNervePalsy.Location = new System.Drawing.Point(25, 147);
             this.checkBoxCranialNervePalsy.Name = "checkBoxCranialNervePalsy";
             this.checkBoxCranialNervePalsy.Size = new System.Drawing.Size(188, 28);
             this.checkBoxCranialNervePalsy.TabIndex = 24;
@@ -245,7 +247,7 @@
             // 
             this.checkBoxDislexia.AutoSize = true;
             this.checkBoxDislexia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxDislexia.Location = new System.Drawing.Point(243, 36);
+            this.checkBoxDislexia.Location = new System.Drawing.Point(282, 147);
             this.checkBoxDislexia.Name = "checkBoxDislexia";
             this.checkBoxDislexia.Size = new System.Drawing.Size(99, 28);
             this.checkBoxDislexia.TabIndex = 28;
@@ -267,7 +269,7 @@
             // 
             this.checkBoxADHD.AutoSize = true;
             this.checkBoxADHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxADHD.Location = new System.Drawing.Point(243, 147);
+            this.checkBoxADHD.Location = new System.Drawing.Point(282, 36);
             this.checkBoxADHD.Name = "checkBoxADHD";
             this.checkBoxADHD.Size = new System.Drawing.Size(82, 28);
             this.checkBoxADHD.TabIndex = 26;
@@ -289,7 +291,7 @@
             // 
             this.checkBoxHypermetropia.AutoSize = true;
             this.checkBoxHypermetropia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxHypermetropia.Location = new System.Drawing.Point(25, 147);
+            this.checkBoxHypermetropia.Location = new System.Drawing.Point(282, 110);
             this.checkBoxHypermetropia.Name = "checkBoxHypermetropia";
             this.checkBoxHypermetropia.Size = new System.Drawing.Size(153, 28);
             this.checkBoxHypermetropia.TabIndex = 31;
@@ -300,7 +302,7 @@
             // 
             this.checkBoxOther.AutoSize = true;
             this.checkBoxOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxOther.Location = new System.Drawing.Point(243, 184);
+            this.checkBoxOther.Location = new System.Drawing.Point(282, 221);
             this.checkBoxOther.Name = "checkBoxOther";
             this.checkBoxOther.Size = new System.Drawing.Size(76, 28);
             this.checkBoxOther.TabIndex = 30;
@@ -311,7 +313,7 @@
             // 
             this.checkBoxAmblyopia.AutoSize = true;
             this.checkBoxAmblyopia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxAmblyopia.Location = new System.Drawing.Point(243, 73);
+            this.checkBoxAmblyopia.Location = new System.Drawing.Point(282, 73);
             this.checkBoxAmblyopia.Name = "checkBoxAmblyopia";
             this.checkBoxAmblyopia.Size = new System.Drawing.Size(118, 28);
             this.checkBoxAmblyopia.TabIndex = 29;
@@ -320,6 +322,7 @@
             // 
             // groupBoxDiagnosedConditions
             // 
+            this.groupBoxDiagnosedConditions.Controls.Add(this.checkBoxConvergenceInsufficiency);
             this.groupBoxDiagnosedConditions.Controls.Add(this.checkBoxStrabismusEsotropia);
             this.groupBoxDiagnosedConditions.Controls.Add(this.checkBoxStrabismusExotropia);
             this.groupBoxDiagnosedConditions.Controls.Add(this.checkBoxHypermetropia);
@@ -334,7 +337,7 @@
             this.groupBoxDiagnosedConditions.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxDiagnosedConditions.Location = new System.Drawing.Point(409, 45);
             this.groupBoxDiagnosedConditions.Name = "groupBoxDiagnosedConditions";
-            this.groupBoxDiagnosedConditions.Size = new System.Drawing.Size(364, 260);
+            this.groupBoxDiagnosedConditions.Size = new System.Drawing.Size(438, 262);
             this.groupBoxDiagnosedConditions.TabIndex = 32;
             this.groupBoxDiagnosedConditions.TabStop = false;
             this.groupBoxDiagnosedConditions.Text = "Diagnosed conditions";
@@ -343,7 +346,7 @@
             // 
             this.checkBoxStrabismusEsotropia.AutoSize = true;
             this.checkBoxStrabismusEsotropia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxStrabismusEsotropia.Location = new System.Drawing.Point(25, 73);
+            this.checkBoxStrabismusEsotropia.Location = new System.Drawing.Point(25, 110);
             this.checkBoxStrabismusEsotropia.Name = "checkBoxStrabismusEsotropia";
             this.checkBoxStrabismusEsotropia.Size = new System.Drawing.Size(205, 28);
             this.checkBoxStrabismusEsotropia.TabIndex = 33;
@@ -354,7 +357,7 @@
             // 
             this.checkBoxStrabismusExotropia.AutoSize = true;
             this.checkBoxStrabismusExotropia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxStrabismusExotropia.Location = new System.Drawing.Point(25, 36);
+            this.checkBoxStrabismusExotropia.Location = new System.Drawing.Point(25, 73);
             this.checkBoxStrabismusExotropia.Name = "checkBoxStrabismusExotropia";
             this.checkBoxStrabismusExotropia.Size = new System.Drawing.Size(206, 28);
             this.checkBoxStrabismusExotropia.TabIndex = 32;
@@ -628,11 +631,22 @@
             this.labelRequiredFields.TabIndex = 37;
             this.labelRequiredFields.Text = "* Indicate required fields";
             // 
+            // checkBoxConvergenceInsufficiency
+            // 
+            this.checkBoxConvergenceInsufficiency.AutoSize = true;
+            this.checkBoxConvergenceInsufficiency.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxConvergenceInsufficiency.Location = new System.Drawing.Point(25, 36);
+            this.checkBoxConvergenceInsufficiency.Name = "checkBoxConvergenceInsufficiency";
+            this.checkBoxConvergenceInsufficiency.Size = new System.Drawing.Size(251, 28);
+            this.checkBoxConvergenceInsufficiency.TabIndex = 34;
+            this.checkBoxConvergenceInsufficiency.Text = "Convergence insufficiency";
+            this.checkBoxConvergenceInsufficiency.UseVisualStyleBackColor = true;
+            // 
             // FormPatientID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 370);
+            this.ClientSize = new System.Drawing.Size(859, 381);
             this.Controls.Add(this.labelRequiredFields);
             this.Controls.Add(this.comboBoxCountry);
             this.Controls.Add(this.radioButtonFemale);
@@ -696,6 +710,7 @@
         private System.Windows.Forms.Label labelRequiredFields;
         private System.Windows.Forms.CheckBox checkBoxStrabismusEsotropia;
         private System.Windows.Forms.CheckBox checkBoxStrabismusExotropia;
+        private System.Windows.Forms.CheckBox checkBoxConvergenceInsufficiency;
     }
 }
 
