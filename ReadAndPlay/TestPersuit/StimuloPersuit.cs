@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LookAndPlayForm;
+using LookAndPlayForm.TestPersuit;
 
 namespace StimuloPersuitHorizontal
 {
     public partial class StimuloPersuit : Form
     {
+        StimuloPersuitSetup stimuloPersuitSetup;
         StimuloPersuitEngine persuitEngine;
         bool screenDimensionsOk, dotSizeOk;
         private int _y, _x;
@@ -23,7 +25,9 @@ namespace StimuloPersuitHorizontal
 
             _ControlFormEyeX = ControlForm;
 
-            persuitEngine = new StimuloPersuitEngine(this);
+
+            stimuloPersuitSetup = new StimuloPersuitSetup();
+            persuitEngine = new StimuloPersuitEngine(stimuloPersuitSetup);
             persuitEngine.newCoordinate += persuitEngine_newCoordinate;
             persuitEngine.persuitEnd += persuitEngine_persuitEnd;
 
@@ -33,9 +37,9 @@ namespace StimuloPersuitHorizontal
 
         private bool setPictureBoxsize()
         {
-            if(persuitEngine.dotDiameterPixelsX > 1 && persuitEngine.dotDiameterPixelsY > 1)
+            if (stimuloPersuitSetup.dotDiameterPixelsX > 1 && stimuloPersuitSetup.dotDiameterPixelsY > 1)
             {
-                pictureBoxDotStimulus.Size = new Size(persuitEngine.dotDiameterPixelsX, persuitEngine.dotDiameterPixelsY);
+                pictureBoxDotStimulus.Size = new Size(stimuloPersuitSetup.dotDiameterPixelsX, stimuloPersuitSetup.dotDiameterPixelsY);
                 return true;
             }
             else
@@ -44,9 +48,9 @@ namespace StimuloPersuitHorizontal
 
         private bool setPictureBoxLocation()
         {
-            if (persuitEngine.offset_izquierda > 0 && persuitEngine.offset_arriba > 0)
+            if (stimuloPersuitSetup.offset_izquierda > 0 && stimuloPersuitSetup.offset_arriba > 0)
             {
-                pictureBoxDotStimulus.Location = new Point(persuitEngine.offset_izquierda - (persuitEngine.dotDiameterPixelsX / 2), persuitEngine.offset_arriba - (persuitEngine.dotDiameterPixelsX / 2));
+                pictureBoxDotStimulus.Location = new Point(stimuloPersuitSetup.offset_izquierda - (stimuloPersuitSetup.dotDiameterPixelsX / 2), stimuloPersuitSetup.offset_arriba - (stimuloPersuitSetup.dotDiameterPixelsX / 2));
                 return true;
             }
             else
@@ -101,7 +105,7 @@ namespace StimuloPersuitHorizontal
 
         private void pictureBoxDotStimulus_Paint(object sender, PaintEventArgs e)
         {
-            pictureBoxDotStimulus.Location = new Point(_x - (persuitEngine.dotDiameterPixelsX / 2), _y - (persuitEngine.dotDiameterPixelsX / 2));
+            pictureBoxDotStimulus.Location = new Point(_x - (stimuloPersuitSetup.dotDiameterPixelsX / 2), _y - (stimuloPersuitSetup.dotDiameterPixelsX / 2));
         }
 
 

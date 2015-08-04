@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Timers;
 using System.Windows.Forms;
+using LookAndPlayForm.TestPersuit;
+
 
 namespace StimuloPersuitHorizontal
 {
@@ -14,67 +16,29 @@ namespace StimuloPersuitHorizontal
         public event newCoordinateDelegate newCoordinate;
         public event EventHandler persuitEnd;
 
-        public int offset_izquierda { get; set; }//distancia del stimulo al margen izquierdo de la pantalla
-        public int offset_arriba { get; set; }//distancia del stimulo al margen superior de la pantalla
-        public int dotDiameterPixelsX { get; set; }//el tamaño del stimulo en pixeles
-        public int dotDiameterPixelsY { get; set; }//el tamaño del stimulo en pixeles
-        public int amplitudMovimientoPixels { get; set; }
-        private Form stimuloPersuitForm;
-
-        private int amplitudMovimientoMilimeter = 100;//10cm
-        private int numero_vueltas = 2;
-        private int tiempo_1_vuelta = 8;
-        private double intervalMseg = 50;
-        private double dpix, dpiy;
-        private int dotDiameterMilimeter = 5;
-        
-        private double tiempo, velocidad;
-        private int xCoordinate;      
+        StimuloPersuitSetup stimuloPersuitSetup;
         private System.Timers.Timer timer;
 
 
+        private double tiempo;
+        private int xCoordinate;
 
-        public StimuloPersuitEngine(Form StimuloPersuitForm)
+
+
+
+        public StimuloPersuitEngine(StimuloPersuitSetup stimuloPersuitSetup)
         {
-            this.stimuloPersuitForm = StimuloPersuitForm;
-            timer = new System.Timers.Timer(intervalMseg);
-            timer.Elapsed += timer_Elapsed;
+            this.stimuloPersuitSetup = stimuloPersuitSetup;
 
+            setTimer();
             tiempo = 0;
-            velocidad = 360 / (double)tiempo_1_vuelta;
-
-            getDPI();
-            amplitudMovimientoPixels = milimeter2Pixels(amplitudMovimientoMilimeter, dpix);
-            setDotFeactures();
         }
 
-        private void getDPI()
+        private void setTimer()
         {
-            Graphics g = stimuloPersuitForm.CreateGraphics();
-            try
-            {
-                dpix = (double)g.DpiX;
-                dpiy = (double)g.DpiY;
-            }
-            finally
-            {
-                g.Dispose();
-            }
-        }
-
-        private int milimeter2Pixels(double milimeter, double dpi)
-        {
-            return (int)(milimeter*dpix/25.4);
-        }
-
-        private void setDotFeactures()
-        {
-            offset_izquierda = (int)((double)(Screen.PrimaryScreen.Bounds.Size.Width - amplitudMovimientoPixels) * (double)0.5);
-            offset_arriba = (int)((double)(Screen.PrimaryScreen.Bounds.Size.Height) * (double)0.5);
-
-            dotDiameterPixelsX = milimeter2Pixels(dotDiameterMilimeter, dpix);
-            dotDiameterPixelsY = milimeter2Pixels(dotDiameterMilimeter, dpiy);
-        }      
+            timer = new System.Timers.Timer(stimuloPersuitSetup.intervalMseg);
+            timer.Elapsed += timer_Elapsed;
+        }  
 
         public void persuitStart()
         {
@@ -89,12 +53,11 @@ namespace StimuloPersuitHorizontal
 
         private void timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            //xCoordinate = offset_izquierda + (int)((double)amplitud_movimiento * Math.Abs(Math.Sin(Math.PI / 180 * velocidad * tiempo)));
-            xCoordinate = offset_izquierda + (int)((double)amplitudMovimientoPixels * (((Math.Sin(rad2Deg(velocidad * tiempo + 270))) * 0.5) + 0.5));
+            xCoordinate = stimuloPersuitSetup.offset_izquierda + (int)((double)stimuloPersuitSetup.amplitudMovimientoPixels * (((Math.Sin(rad2Deg(stimuloPersuitSetup.velocidad * tiempo + 270))) * 0.5) + 0.5));
 
-            if (tiempo < (double)(numero_vueltas * tiempo_1_vuelta))
+            if (tiempo < (double)(stimuloPersuitSetup.numero_vueltas * stimuloPersuitSetup.tiempo_1_vuelta))
             {
-                tiempo += intervalMseg/1000;
+                tiempo += stimuloPersuitSetup.intervalMseg / 1000;
                 if (newCoordinate != null)
                     newCoordinate(xCoordinate);
             }

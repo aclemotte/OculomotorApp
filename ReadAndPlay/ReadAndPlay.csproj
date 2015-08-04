@@ -251,6 +251,7 @@
     <Compile Include="TesterID\tester_class_data.cs" />
     <Compile Include="TesterID\tester_class_engine.cs" />
     <Compile Include="AWS\AwsCredentials.cs" />
+    <Compile Include="TestPersuit\StimuloPersuitSetup.cs" />
     <Compile Include="Varios\functions.cs" />
     <Compile Include="Varios\ImageDictionary.cs" />
     <Compile Include="Varios\Definitions.cs" />
