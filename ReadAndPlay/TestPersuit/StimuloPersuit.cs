@@ -14,8 +14,7 @@ namespace StimuloPersuitHorizontal
     {
         StimuloPersuitEngine persuitEngine;
         bool screenDimensionsOk, dotSizeOk;
-        private int _y;
-        private int _x;
+        private int _y, _x;
         EyeXWinForm _ControlFormEyeX;
 
         public StimuloPersuit(EyeXWinForm ControlForm)
@@ -28,7 +27,7 @@ namespace StimuloPersuitHorizontal
             persuitEngine.newCoordinate += persuitEngine_newCoordinate;
             persuitEngine.persuitEnd += persuitEngine_persuitEnd;
 
-            screenDimensionsOk = setPictureBoxFeattures();
+            screenDimensionsOk = setPictureBoxLocation();
             dotSizeOk = setPictureBoxsize();
         }
 
@@ -43,11 +42,11 @@ namespace StimuloPersuitHorizontal
                 return false;
         }
 
-        private bool setPictureBoxFeattures()
+        private bool setPictureBoxLocation()
         {
             if (persuitEngine.offset_izquierda > 0 && persuitEngine.offset_arriba > 0)
             {
-                pictureBoxDotStimulus.Location = new Point(persuitEngine.offset_izquierda, persuitEngine.offset_arriba);
+                pictureBoxDotStimulus.Location = new Point(persuitEngine.offset_izquierda - (persuitEngine.dotDiameterPixelsX / 2), persuitEngine.offset_arriba - (persuitEngine.dotDiameterPixelsX / 2));
                 return true;
             }
             else
@@ -102,7 +101,7 @@ namespace StimuloPersuitHorizontal
 
         private void pictureBoxDotStimulus_Paint(object sender, PaintEventArgs e)
         {
-            pictureBoxDotStimulus.Location = new Point(_x, _y);
+            pictureBoxDotStimulus.Location = new Point(_x - (persuitEngine.dotDiameterPixelsX / 2), _y - (persuitEngine.dotDiameterPixelsX / 2));
         }
 
 

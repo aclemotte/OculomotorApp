@@ -14,10 +14,10 @@ namespace StimuloPersuitHorizontal
         public event newCoordinateDelegate newCoordinate;
         public event EventHandler persuitEnd;
 
-        public int offset_izquierda { get; set; }
-        public int offset_arriba { get; set; }
-        public int dotDiameterPixelsX { get; set; }
-        public int dotDiameterPixelsY { get; set; }
+        public int offset_izquierda { get; set; }//distancia del stimulo al margen izquierdo de la pantalla
+        public int offset_arriba { get; set; }//distancia del stimulo al margen superior de la pantalla
+        public int dotDiameterPixelsX { get; set; }//el tamaño del stimulo en pixeles
+        public int dotDiameterPixelsY { get; set; }//el tamaño del stimulo en pixeles
 
         private Form stimuloPersuitForm;
 
@@ -28,8 +28,7 @@ namespace StimuloPersuitHorizontal
         private double dpix, dpiy;
         private int dotDiameterMilimeter = 5;
         
-        private double tiempo;
-        private double velocidad;
+        private double tiempo, velocidad;
         private int xCoordinate;      
         private System.Timers.Timer timer;
 
