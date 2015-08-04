@@ -128,5 +128,26 @@ namespace LookAndPlayForm.Review
             else
                 return true;
         }
+
+        public static TestPersuit.StimuloPersuitSetup loadPersuitDataFromJson(string path)
+        {
+            TestPersuit.StimuloPersuitSetup stimuloPersuitSetup = null;
+            string file = @"\persuitData.json";
+
+            if (File.Exists(path + file))
+            {
+                string json = File.ReadAllText(path + file);
+                stimuloPersuitSetup = JsonConvert.DeserializeObject<TestPersuit.StimuloPersuitSetup>(json);
+            }
+            return stimuloPersuitSetup;
+        }
+
+        public static bool persuitDataFound(TestPersuit.StimuloPersuitSetup stimuloPersuitSetup)
+        {
+            if (stimuloPersuitSetup == null)
+                return false;
+            else
+                return true;
+        }
     }
 }

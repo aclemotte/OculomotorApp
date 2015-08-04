@@ -11,6 +11,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using LookAndPlayForm;
 using LookAndPlayForm.LogEyeTracker;
 using LookAndPlayForm.Review;
+using LookAndPlayForm.TestPersuit;
 
 namespace ReviewPersuit
 {
@@ -20,7 +21,7 @@ namespace ReviewPersuit
         bool newTest;
         eyetrackerDataEyeX eyetrackerDataL;
         TestData testData;
-
+        StimuloPersuitSetup stimuloPersuitSetup;
 
 
         public ReviewPersuit(bool showLastTest, bool newTestAvailable, string selectedPath)
@@ -42,10 +43,9 @@ namespace ReviewPersuit
 
             eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(selectedPath);
             testData = ReviewClass.loadTestDataFromJson(selectedPath);
-            //getStimulusFeactures(ReviewClass.eyetrackerDataFound(eyetrackerDataL));
-            //imageFound = class4Graphic.loadImage2Control(ReviewClass.testDataFound(testData), testData, pictureBoxStimulus);
+            stimuloPersuitSetup = ReviewClass.loadPersuitDataFromJson(selectedPath);
 
-            everythingOk = ReviewClass.eyetrackerDataFound(eyetrackerDataL) & ReviewClass.testDataFound(testData);
+            everythingOk = ReviewClass.eyetrackerDataFound(eyetrackerDataL) & ReviewClass.testDataFound(testData) & ReviewClass.persuitDataFound(stimuloPersuitSetup);
 
             if (everythingOk)
             {
@@ -68,6 +68,8 @@ namespace ReviewPersuit
                 series.Points.Clear();
             }
 
+            plotReference();
+
             List<ReviewClass.GazePositionAndTimeClass> gazeDataDoubleList;
 
             if (checkBoxL.Checked)
@@ -81,6 +83,19 @@ namespace ReviewPersuit
                 gazeDataDoubleList = ReviewClass.getGazePositionAndTimeList(eyetrackerDataL, testData, eye.right);
                 plotGazeDataList(gazeDataDoubleList, eye.right, settings.rightEyeColor);
             }
+        }
+
+        private void plotReference()
+        {
+            string nombreSerie = "Reference";
+
+            for (int indice = 0; indice < stimuloPersuitSetup.stimulusDataList.Count; indice++)
+            {
+                chartHorizontalGaze.Series[nombreSerie].Points.AddXY(stimuloPersuitSetup.stimulusDataList[indice].timeSegundos, stimuloPersuitSetup.stimulusDataList[indice].dotPositionPixels.X);
+            }
+
+            //chartHorizontalGaze.Series[nombreSerie].Color = eyeColor;
+            chartHorizontalGaze.Invalidate();
         }
 
         private void plotGazeDataList(List<ReviewClass.GazePositionAndTimeClass> gazeDataDoubleList, eye eye2Plot, Color eyeColor)
