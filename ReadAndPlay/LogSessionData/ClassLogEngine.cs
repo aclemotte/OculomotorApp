@@ -22,6 +22,7 @@ namespace LookAndPlayForm.LogData
                     data.Time_end + "," + 
                     data.Tester + "," + 
                     data.Patient + "," +
+                    data.testDone + "," + 
                     data.number_of_screening_done + "," + 
                     data.AssemblyVersion);
             }
