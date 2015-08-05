@@ -38,15 +38,16 @@ namespace LookAndPlayForm
         */
 
         string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
-        bool datosMigrados2NewClass = false;
+        bool datosMigrados2NewFromClassv1 = false;
+        bool datosMigrados2NewFromClassv2 = false;
         string institution_name;
 
 
         public bool newUser { get; set; }                
         
-        public patient_class_datav2 patientDataSelected { get; set; }
+        public patient_class_datav3 patientDataSelected { get; set; }
 
-        public List<patient_class_datav2> patientsList { get; set; }
+        public List<patient_class_datav3> patientsList { get; set; }
 
 
 
@@ -75,7 +76,7 @@ namespace LookAndPlayForm
                 {
                     patientsList.Add(patientDataSelected);
 
-                    if (datosMigrados2NewClass)
+                    if (datosMigrados2NewFromClassv1 || datosMigrados2NewFromClassv2)
                         BackUpOldUserFile();
 
                     reWriteCsv();
@@ -83,7 +84,7 @@ namespace LookAndPlayForm
                 else 
                 {                
                     //caso que no se haya introducido un nuevo usuario, se almacena la lista xq se ha migrado
-                    if (datosMigrados2NewClass)
+                    if (datosMigrados2NewFromClassv1 || datosMigrados2NewFromClassv2)
                     {
                         //usersList.Add(userDataSelected);
                         BackUpOldUserFile();
@@ -95,7 +96,7 @@ namespace LookAndPlayForm
             }
             else
             {
-                patientsList = new List<patient_class_datav2>();
+                patientsList = new List<patient_class_datav3>();
                 patientsList.Add(patientDataSelected);
 
                 using (var sw = new StreamWriter(rootPath + @"users.csv"))
@@ -122,7 +123,10 @@ namespace LookAndPlayForm
         {
             try
             {
-                File.Copy(rootPath + @"users.csv", rootPath + @"users_classv1.csv");
+                if(datosMigrados2NewFromClassv1)
+                    File.Copy(rootPath + @"users.csv", rootPath + @"users_classv1.csv");
+                else if(datosMigrados2NewFromClassv2)
+                    File.Copy(rootPath + @"users.csv", rootPath + @"users_classv2.csv");
             }
             catch (Exception ex)
             {
@@ -154,68 +158,116 @@ namespace LookAndPlayForm
 
         private bool usersFileExist(bool rootFolderExist)
         {
-            if (File.Exists(rootPath + @"users.csv"))
+            string fileName = rootPath + @"users.csv";
+
+            if (File.Exists(fileName))
             {
-                using (var sr1 = new StreamReader(rootPath + @"users.csv"))
+
+                //leer patient_class_datav3
+                using (var sr3 = new StreamReader(fileName))
                 {
-                    var reader1 = new CsvReader(sr1);
+                    var reader3 = new CsvReader(sr3);
                     try
                     {
-                        datosMigrados2NewClass = false;
-                        patientsList = reader1.GetRecords<patient_class_datav2>().ToList();
+                        datosMigrados2NewFromClassv1 = false;
+                        datosMigrados2NewFromClassv2 = false;
+                        patientsList = reader3.GetRecords<patient_class_datav3>().ToList();
                         return true;
                     }
-                    catch (Exception e1)
+                    catch (Exception e3)
                     {
-                        ErrorLog.ErrorLog.toErrorFile(e1.GetBaseException().ToString());
-
-                        datosMigrados2NewClass = true;
-                        //MessageBox.Show(e1.Message);                        
-                        try
+                        ErrorLog.ErrorLog.toErrorFile(e3.GetBaseException().ToString());
+                        
+                        //leer patient_class_datav2
+                        using (var sr2 = new StreamReader(fileName))
                         {
-                            //migracion local de datos a clase nueva
-                            
-                            using (var sr2 = new StreamReader(rootPath + @"users.csv"))
+                            var reader2 = new CsvReader(sr2);
+                            try
                             {
-                                var reader2 = new CsvReader(sr2);
-                                try
+                                patientClassv2ToClassv3(reader2);
+                                datosMigrados2NewFromClassv2 = true;
+                                return true;
+                            }
+                            catch (Exception e2)
+                            {
+                                ErrorLog.ErrorLog.toErrorFile(e2.GetBaseException().ToString());
+                                
+                                //leer patient_class_datav1
+                                using (var sr1 = new StreamReader(fileName))
                                 {
-                                    patientsList = new List<patient_class_datav2>();//lista vacia
-                                    List<patient_class_datav1> usersListOldClass = reader2.GetRecords<patient_class_datav1>().ToList();//lista de la clase vieja
-                                    //Convertidor de Lista de clase nueva
-                                    for (int indiceLista = 0; indiceLista < usersListOldClass.Count; indiceLista++)
+                                    var reader1 = new CsvReader(sr1);
+                                    try
                                     {
-                                        patient_class_datav2 one_users_classv2 = new patient_class_datav2();
-                                        one_users_classv2.user_id = usersListOldClass[indiceLista].user_id;
-                                        one_users_classv2.user_name = usersListOldClass[indiceLista].user_name;
-                                        one_users_classv2.user_institution = usersListOldClass[indiceLista].user_institution;
-                                        patientsList.Add(one_users_classv2);
+                                        patientClassv1ToClassv3(reader1);
+                                        datosMigrados2NewFromClassv1 = true;
+                                        return true;
                                     }
-
-                                    return true;
-                                }
-                                catch (Exception e3)
-                                {
-                                    //MessageBox.Show(e3.Message);
-                                    ErrorLog.ErrorLog.toErrorFile(e3.GetBaseException().ToString());
-                                    return false;
+                                    catch (Exception e1)
+                                    {
+                                        //MessageBox.Show(e3.Message);
+                                        ErrorLog.ErrorLog.toErrorFile(e1.GetBaseException().ToString());
+                                        return false;
+                                    }
                                 }
                             }
                         }
-                        catch(Exception e2)
-                        {
-                            //MessageBox.Show(e2.Message);
-                            ErrorLog.ErrorLog.toErrorFile(e2.GetBaseException().ToString());
-                            return false;
-                        }
                     }
                 }
-                
             }
             else
             {
+                ErrorLog.ErrorLog.toErrorFile("usersFile no existe");
                 Console.WriteLine("usersFile no existe");
                 return false;
+            }
+        }
+
+
+        private void patientClassv1ToClassv3(CsvReader reader)
+        {
+            patientsList = new List<patient_class_datav3>();//lista vacia
+            List<patient_class_datav1> usersListOldClass = reader.GetRecords<patient_class_datav1>().ToList();//lista de la clase vieja
+
+            //Convertidor de Lista de clase nueva
+            for (int indiceLista = 0; indiceLista < usersListOldClass.Count; indiceLista++)
+            {
+                patient_class_datav3 one_users_NewClass = new patient_class_datav3();
+                one_users_NewClass.user_id = usersListOldClass[indiceLista].user_id;
+                one_users_NewClass.user_name = usersListOldClass[indiceLista].user_name;
+                one_users_NewClass.user_institution = usersListOldClass[indiceLista].user_institution;
+                patientsList.Add(one_users_NewClass);
+            }
+        }
+
+        private void patientClassv2ToClassv3(CsvReader reader)
+        {
+            patientsList = new List<patient_class_datav3>();//lista vacia
+            List<patient_class_datav2> usersListOldClass = reader.GetRecords<patient_class_datav2>().ToList();//lista de la clase vieja
+
+            //Convertidor de Lista de clase nueva
+            for (int indiceLista = 0; indiceLista < usersListOldClass.Count; indiceLista++)
+            {
+                patient_class_datav3 one_users_NewClass = new patient_class_datav3();
+                one_users_NewClass.user_id = usersListOldClass[indiceLista].user_id;
+                one_users_NewClass.user_name = usersListOldClass[indiceLista].user_name;
+                one_users_NewClass.user_institution = usersListOldClass[indiceLista].user_institution;
+                one_users_NewClass.user_age = usersListOldClass[indiceLista].user_age;//age
+                one_users_NewClass.user_country = usersListOldClass[indiceLista].user_country;//country
+                one_users_NewClass.user_email = usersListOldClass[indiceLista].user_email;//email
+                one_users_NewClass.user_gender = usersListOldClass[indiceLista].user_gender;//gender
+                one_users_NewClass.user_diagnosedConditions.strabismusExotropia = usersListOldClass[indiceLista].user_diagnosedConditions.strabismusExotropia;
+                one_users_NewClass.user_diagnosedConditions.strabismusEsotropia = usersListOldClass[indiceLista].user_diagnosedConditions.strabismusEsotropia;
+                one_users_NewClass.user_diagnosedConditions.astigmatism = usersListOldClass[indiceLista].user_diagnosedConditions.astigmatism;
+                one_users_NewClass.user_diagnosedConditions.nystagmus = usersListOldClass[indiceLista].user_diagnosedConditions.nystagmus;
+                one_users_NewClass.user_diagnosedConditions.amblyopia = usersListOldClass[indiceLista].user_diagnosedConditions.amblyopia;
+                one_users_NewClass.user_diagnosedConditions.hypermetropia = usersListOldClass[indiceLista].user_diagnosedConditions.hypermetropia;
+                one_users_NewClass.user_diagnosedConditions.myopia = usersListOldClass[indiceLista].user_diagnosedConditions.myopia;
+                one_users_NewClass.user_diagnosedConditions.cranialNervePalsy = usersListOldClass[indiceLista].user_diagnosedConditions.cranialNervePalsy;
+                one_users_NewClass.user_diagnosedConditions.ADHD = usersListOldClass[indiceLista].user_diagnosedConditions.ADHD;
+                one_users_NewClass.user_diagnosedConditions.dislexia = usersListOldClass[indiceLista].user_diagnosedConditions.dislexia;
+                one_users_NewClass.user_diagnosedConditions.other = usersListOldClass[indiceLista].user_diagnosedConditions.other;
+                //one_users_NewClass.user_diagnosedConditions.convergenceInsufficiency = usersListOldClass[indiceLista].user_diagnosedConditions;//nuevo
+                patientsList.Add(one_users_NewClass);
             }
         }
 
@@ -321,7 +373,7 @@ namespace LookAndPlayForm
         /// class diagnosedConditionsClass -> checkboxes
         /// </summary>
         /// <param name="dCondition"></param>
-        private void setDiagnosedConditionsControl(diagnosedConditionsClass dCondition)
+        private void setDiagnosedConditionsControl(diagnosedConditionsClassv2 dCondition)
         {
             if (dCondition == null)
             {
@@ -336,6 +388,7 @@ namespace LookAndPlayForm
                 checkBoxADHD.Checked = false;
                 checkBoxDislexia.Checked = false;
                 checkBoxOther.Checked = false;
+                checkBoxConvergenceInsufficiency.Checked = false;
             }
             else
             {
@@ -350,6 +403,7 @@ namespace LookAndPlayForm
                 checkBoxADHD.Checked = dCondition.ADHD;
                 checkBoxDislexia.Checked = dCondition.dislexia;
                 checkBoxOther.Checked = dCondition.other;
+                checkBoxConvergenceInsufficiency.Checked = dCondition.convergenceInsufficiency;
             }           
         }
 
@@ -357,9 +411,9 @@ namespace LookAndPlayForm
         /// checkboxes -> class diagnosedConditionsClass
         /// </summary>
         /// <returns></returns>
-        private diagnosedConditionsClass getDiagnosedConditionFromControl()
+        private diagnosedConditionsClassv2 getDiagnosedConditionFromControl()
         {
-            diagnosedConditionsClass dCondition = new diagnosedConditionsClass();
+            diagnosedConditionsClassv2 dCondition = new diagnosedConditionsClassv2();
 
             dCondition.strabismusExotropia = checkBoxStrabismusExotropia.Checked;
             dCondition.strabismusEsotropia = checkBoxStrabismusEsotropia.Checked;
@@ -372,7 +426,7 @@ namespace LookAndPlayForm
             dCondition.ADHD = checkBoxADHD.Checked;
             dCondition.dislexia = checkBoxDislexia.Checked;
             dCondition.other = checkBoxOther.Checked;
-
+            dCondition.convergenceInsufficiency = checkBoxConvergenceInsufficiency.Checked;
             return dCondition;
         }
 
@@ -384,7 +438,7 @@ namespace LookAndPlayForm
         {
             if (camposCorrectamenteCompletados())
             {
-                patientDataSelected = new patient_class_datav2();
+                patientDataSelected = new patient_class_datav3();
                 patientDataSelected.user_id = numericUpDownUserID.Value.ToString();
                 patientDataSelected.user_name = textBoxUserName.Text;
                 patientDataSelected.user_institution = institution_name;// textBoxUserInstitution.Text;

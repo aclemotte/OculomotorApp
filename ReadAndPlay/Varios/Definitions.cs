@@ -81,6 +81,6 @@ namespace LookAndPlayForm
 
     public enum testType
     {
-        persuit, reading
+        persuit, reading //Outloud, readingSilent
     }
 }

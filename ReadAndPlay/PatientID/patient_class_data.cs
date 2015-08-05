@@ -22,7 +22,25 @@ namespace LookAndPlayForm
         public string user_country { get; set; }
         public string user_email { get; set; }
         public userGender user_gender { get; set; }
-        public diagnosedConditionsClass user_diagnosedConditions { get; set; }
+        public diagnosedConditionsClassv1 user_diagnosedConditions { get; set; }
+
+    }
+
+    public class patient_class_datav3
+    {
+        public string user_id { get; set; }
+        public string user_name { get; set; }
+        public string user_institution { get; set; }
+        public string user_age { get; set; }
+        public string user_country { get; set; }
+        public string user_email { get; set; }
+        public userGender user_gender { get; set; }
+        public diagnosedConditionsClassv2 user_diagnosedConditions { get; set; }
+
+        public patient_class_datav3()
+        {
+            user_diagnosedConditions = new diagnosedConditionsClassv2();
+        }
 
     }
 
@@ -31,7 +49,7 @@ namespace LookAndPlayForm
         male = 1, female = 2
     }
 
-    public class diagnosedConditionsClass
+    public class diagnosedConditionsClassv1
     {
         public bool strabismusExotropia { get; set; }
         public bool strabismusEsotropia { get; set; }
@@ -45,31 +63,21 @@ namespace LookAndPlayForm
         public bool dislexia { get; set; }
         public bool other { get; set; }
 
-        //public diagnosedConditionsClass(
-        //                            bool strabismusExotropia,
-        //                            bool strabismusEsotropia,
-        //                            bool astigmatism,
-        //                            bool nystagmus,
-        //                            bool amblyopia,
-        //                            bool hypermetropia,
-        //                            bool myopia,
-        //                            bool cranialNervePalsy,
-        //                            bool ADHD,
-        //                            bool dislexia,
-        //                            bool other
-        //                            )
-        //{
-        //    this.strabismusExotropia = strabismusExotropia;
-        //    this.strabismusEsotropia = strabismusEsotropia;
-        //    this.astigmatism = astigmatism;
-        //    this.nystagmus = nystagmus;
-        //    this.amblyopia = amblyopia;
-        //    this.hypermetropia = hypermetropia;
-        //    this.myopia = myopia;
-        //    this.cranialNervePalsy = cranialNervePalsy;
-        //    this.ADHD = ADHD;
-        //    this.dislexia = dislexia;
-        //    this.other = other;
-        //}
+    }
+
+    public class diagnosedConditionsClassv2
+    {
+        public bool strabismusExotropia { get; set; }
+        public bool strabismusEsotropia { get; set; }
+        public bool astigmatism { get; set; }
+        public bool nystagmus { get; set; }
+        public bool amblyopia { get; set; }
+        public bool hypermetropia { get; set; }
+        public bool myopia { get; set; }
+        public bool cranialNervePalsy { get; set; }
+        public bool ADHD { get; set; }
+        public bool dislexia { get; set; }
+        public bool other { get; set; }
+        public bool convergenceInsufficiency { get; set; }
     }
 }

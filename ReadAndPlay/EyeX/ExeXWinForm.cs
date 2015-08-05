@@ -117,7 +117,7 @@ namespace LookAndPlayForm
             {
                 Program.datosCompartidos.getNewTime();
 
-                if (Program.datosCompartidos.testSelected == testType.reading)
+                if (Program.datosCompartidos.testSelected == testType.reading) //Outloud || Program.datosCompartidos.testSelected == testType.readingSilent)
                 {
                     Game1 _Game1 = new Game1(this);
                     _Game1.FormClosed += test_Closed;
