@@ -130,6 +130,7 @@ namespace LookAndPlayForm
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CalibrationResultForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calibration Result";
             this.ResumeLayout(false);
             this.PerformLayout();
