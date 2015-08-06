@@ -10,11 +10,11 @@ namespace LookAndPlayForm
 {
     public class LogTest
     {
-        public TestData testData { get; set; }
+        public TestData1 testData { get; set; }
 
         public LogTest()
         {
-            testData = new TestData();
+            testData = new TestData1();
         }
 
         public void saveData2File()

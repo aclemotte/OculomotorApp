@@ -117,7 +117,7 @@ namespace LookAndPlayForm
             {
                 Program.datosCompartidos.getNewTime();
 
-                if (Program.datosCompartidos.testSelected == testType.reading) //Outloud || Program.datosCompartidos.testSelected == testType.readingSilent)
+                if (Program.datosCompartidos.testSelected == testType.reading)
                 {
                     Game1 _Game1 = new Game1(this);
                     _Game1.FormClosed += test_Closed;
@@ -181,13 +181,13 @@ namespace LookAndPlayForm
 
         private string openTestDatajsonAndGetField(string path)
         {
-            TestData testData;
+            TestData1 testData;
             string file = @"\testData.json";
 
             if (File.Exists(path + file))
             {
                 string json = File.ReadAllText(path + file);
-                testData = JsonConvert.DeserializeObject<TestData>(json);
+                testData = JsonConvert.DeserializeObject<TestData1>(json);
                 return testData.image2read;
             }
             else
@@ -204,7 +204,7 @@ namespace LookAndPlayForm
             if (string.IsNullOrEmpty(image2read))
                 return testType.persuit;
             else
-                return testType.reading;
+                return testType.reading;//aca se puede ir mas y buscar la forma de saber si es silent o outloud
         }
 
         private void openWindowReviewPersuit(bool showLastTest, string selectedPath)

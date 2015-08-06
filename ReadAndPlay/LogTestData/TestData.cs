@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LookAndPlayForm
 {
-    public class TestData
+    public class TestData1
     {
         public int screen_Height;
         public int screen_Width;
@@ -25,7 +25,6 @@ namespace LookAndPlayForm
 
     public class TestData2
     {
-        public int testdataVersion;
         public int screen_Height;
         public int screen_Width;
         public string date;
@@ -33,7 +32,8 @@ namespace LookAndPlayForm
         public int calibration_error_left_px;
         public int calibration_error_right_px;
         public string filter_type;
-        public string testDone;
+        public testType typeTestDone;
+        public readingTestType readingTestTypeDone;
         public string image2read;
         public string assemblyVersion;
     }

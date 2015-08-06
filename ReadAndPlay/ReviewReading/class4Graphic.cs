@@ -13,7 +13,7 @@ namespace LookAndPlayForm.Resumen
     public static class class4Graphic
     {
         
-        public static List<Point> getGazeData2List(eyetrackerDataEyeX eyetrackerDataL, TestData testData, eye fromEye)
+        public static List<Point> getGazeData2List(eyetrackerDataEyeX eyetrackerDataL, TestData1 testData, eye fromEye)
         {
 
             List<Point> gazeDataDoubleList = new List<Point>();
@@ -248,7 +248,7 @@ namespace LookAndPlayForm.Resumen
 
 
 
-        public static bool loadImage2Control(bool testDataFound, TestData testData, PictureBox pictureBoxStimulus)
+        public static bool loadImage2Control(bool testDataFound, TestData1 testData, PictureBox pictureBoxStimulus)
         {
             /*
              * leer testdata.imagen

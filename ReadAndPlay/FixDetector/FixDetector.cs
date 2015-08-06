@@ -18,7 +18,7 @@ namespace LookAndPlayForm.FixDetector
         fixationData fixData;
 
         eyetrackerDataEyeX eyetrackerDatajson;
-        TestData testDatajson;
+        TestData1 testDatajson;
 
         string path;
         string eyetrackerData = string.Empty;
@@ -129,7 +129,7 @@ namespace LookAndPlayForm.FixDetector
             try
             {
                 eyetrackerDatajson = JsonConvert.DeserializeObject<eyetrackerDataEyeX>(eyetrackerData);
-                testDatajson = JsonConvert.DeserializeObject<TestData>(testData);
+                testDatajson = JsonConvert.DeserializeObject<TestData1>(testData);
             }
             catch (Exception ex)
             {

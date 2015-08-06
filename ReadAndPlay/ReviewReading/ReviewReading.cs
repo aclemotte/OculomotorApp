@@ -21,7 +21,7 @@ namespace LookAndPlayForm.Resumen
     {
         fixationData fixData;
         eyetrackerDataEyeX eyetrackerDataL;
-        TestData testData;
+        TestData1 testData;
 
         
         bool fixDataFound;

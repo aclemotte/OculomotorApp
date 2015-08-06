@@ -83,4 +83,9 @@ namespace LookAndPlayForm
     {
         persuit, reading //Outloud, readingSilent
     }
+
+    public enum readingTestType
+    {
+        readingOutloud, readingSilent
+    }
 }

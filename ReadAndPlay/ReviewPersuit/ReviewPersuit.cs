@@ -21,7 +21,7 @@ namespace ReviewPersuit
         public bool everythingOk { get; set; }
         bool newTest;
         eyetrackerDataEyeX eyetrackerDataL;
-        TestData testData;
+        TestData1 testData;
         StimuloPersuitSetup stimuloPersuitSetup;
         string selectedPath;
 

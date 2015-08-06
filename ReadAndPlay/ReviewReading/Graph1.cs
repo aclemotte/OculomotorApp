@@ -14,7 +14,7 @@ namespace LookAndPlayForm.Resumen
     public partial class Graph1 : Form
     {
 
-        TestData testData;
+        TestData1 testData;
         fixationData fixData;
         eyetrackerDataEyeX eyetrackerDataL;
         Size stimulusSize;
@@ -29,7 +29,7 @@ namespace LookAndPlayForm.Resumen
         int gazeDotRadius = 2;
 
 
-        public Graph1(TestData testData, Size stimulusSize, Point stimulusLocation, fixationData fixData, eyetrackerDataEyeX eyetrackerDataL, CheckBox checkBoxGaze, CheckBox checkBoxFixations, CheckBox checkBoxL, CheckBox checkBoxR)
+        public Graph1(TestData1 testData, Size stimulusSize, Point stimulusLocation, fixationData fixData, eyetrackerDataEyeX eyetrackerDataL, CheckBox checkBoxGaze, CheckBox checkBoxFixations, CheckBox checkBoxL, CheckBox checkBoxR)
         {
             InitializeComponent();
 

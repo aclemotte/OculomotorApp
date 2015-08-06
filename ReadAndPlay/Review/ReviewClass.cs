@@ -23,7 +23,7 @@ namespace LookAndPlayForm.Review
             }
         }
 
-        public static List<GazePositionAndTimeClass> getGazePositionAndTimeList(eyetrackerDataEyeX eyetrackerDataL, TestData testData, eye fromEye)
+        public static List<GazePositionAndTimeClass> getGazePositionAndTimeList(eyetrackerDataEyeX eyetrackerDataL, TestData1 testData, eye fromEye)
         {
             List<GazePositionAndTimeClass> gazePositionAndTime = new List<GazePositionAndTimeClass>();
             double timeSegundosInicial = 0;
@@ -100,20 +100,20 @@ namespace LookAndPlayForm.Review
             return eyetrackerDataL;
         }
 
-        public static TestData loadTestDataFromJson(string path)
+        public static TestData1 loadTestDataFromJson(string path)
         {
-            TestData testData = null;
+            TestData1 testData = null;
             string file = @"\testData.json";
 
             if (File.Exists(path + file))
             {
                 string json = File.ReadAllText(path + file);
-                testData = JsonConvert.DeserializeObject<TestData>(json);
+                testData = JsonConvert.DeserializeObject<TestData1>(json);
             }
             return testData;
         }
 
-        public static bool testDataFound(TestData testData)
+        public static bool testDataFound(TestData1 testData)
         {
             if (testData == null)
                 return false;
