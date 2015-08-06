@@ -197,9 +197,9 @@
             this.labelRight.ForeColor = System.Drawing.Color.Blue;
             this.labelRight.Location = new System.Drawing.Point(12, 126);
             this.labelRight.Name = "labelRight";
-            this.labelRight.Size = new System.Drawing.Size(23, 24);
+            this.labelRight.Size = new System.Drawing.Size(53, 24);
             this.labelRight.TabIndex = 20;
-            this.labelRight.Text = "R";
+            this.labelRight.Text = "Right";
             // 
             // labelLeft
             // 
@@ -208,9 +208,9 @@
             this.labelLeft.ForeColor = System.Drawing.Color.Green;
             this.labelLeft.Location = new System.Drawing.Point(24, 443);
             this.labelLeft.Name = "labelLeft";
-            this.labelLeft.Size = new System.Drawing.Size(20, 24);
+            this.labelLeft.Size = new System.Drawing.Size(39, 24);
             this.labelLeft.TabIndex = 21;
-            this.labelLeft.Text = "L";
+            this.labelLeft.Text = "Left";
             // 
             // checkBoxL
             // 
@@ -442,7 +442,7 @@
             // 
             this.textBoxCalibErrorR.BackColor = System.Drawing.Color.White;
             this.textBoxCalibErrorR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCalibErrorR.Location = new System.Drawing.Point(932, 487);
+            this.textBoxCalibErrorR.Location = new System.Drawing.Point(954, 487);
             this.textBoxCalibErrorR.Name = "textBoxCalibErrorR";
             this.textBoxCalibErrorR.ReadOnly = true;
             this.textBoxCalibErrorR.Size = new System.Drawing.Size(70, 26);
@@ -452,7 +452,7 @@
             // 
             this.textBoxCalibErrorL.BackColor = System.Drawing.Color.White;
             this.textBoxCalibErrorL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCalibErrorL.Location = new System.Drawing.Point(932, 444);
+            this.textBoxCalibErrorL.Location = new System.Drawing.Point(954, 444);
             this.textBoxCalibErrorL.Name = "textBoxCalibErrorL";
             this.textBoxCalibErrorL.ReadOnly = true;
             this.textBoxCalibErrorL.Size = new System.Drawing.Size(70, 26);
@@ -482,21 +482,21 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(906, 444);
+            this.label8.Location = new System.Drawing.Point(899, 444);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 24);
+            this.label8.Size = new System.Drawing.Size(39, 24);
             this.label8.TabIndex = 32;
-            this.label8.Text = "L";
+            this.label8.Text = "Left";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(906, 488);
+            this.label9.Location = new System.Drawing.Point(899, 488);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(23, 24);
+            this.label9.Size = new System.Drawing.Size(53, 24);
             this.label9.TabIndex = 31;
-            this.label9.Text = "R";
+            this.label9.Text = "Right";
             // 
             // statusStripResumen
             // 
