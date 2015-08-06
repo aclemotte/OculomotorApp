@@ -28,23 +28,18 @@ namespace LookAndPlayForm.SelectTest
                //testSelected = testType.persuit;
                Program.datosCompartidos.testSelected = testType.persuit;
             }
-            else if (radioButtonRead.Checked && camposCorrectamenteCompletados())
+            else if (radioButtonOutloudReading.Checked && camposCorrectamenteCompletados())
             {
-                //testSelected = testType.reading;
                 Program.datosCompartidos.testSelected = testType.reading;
-                Program.datosCompartidos.readingTestTypeSelected = getReadingTestType();
+                Program.datosCompartidos.readingTestTypeSelected = readingTestType.readingOutloud;
+            }
+            else if(radioButtonSilentReading.Checked && camposCorrectamenteCompletados())
+            {
+                Program.datosCompartidos.testSelected = testType.reading;
+                Program.datosCompartidos.readingTestTypeSelected = readingTestType.readingSilent;
             }
             else
                 this.DialogResult = DialogResult.None;
-        }
-
-        private readingTestType getReadingTestType()
-        {
-            if (radioButtonOutloudReading.Checked)
-                return readingTestType.readingOutloud;            
-            else //if (radioButtonSilentReading.Checked)
-                return readingTestType.readingSilent;
-
         }
 
         private bool camposCorrectamenteCompletados()
