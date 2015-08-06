@@ -24,6 +24,8 @@ namespace LookAndPlayForm
 
         public testType testSelected { get; set; }
 
+        public readingTestType readingTestTypeSelected { get; set; }
+
         public sharedData()
         {
             eyeNotFound = true;

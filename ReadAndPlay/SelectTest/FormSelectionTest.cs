@@ -32,9 +32,19 @@ namespace LookAndPlayForm.SelectTest
             {
                 //testSelected = testType.reading;
                 Program.datosCompartidos.testSelected = testType.reading;
+                Program.datosCompartidos.readingTestTypeSelected = getReadingTestType();
             }
             else
                 this.DialogResult = DialogResult.None;
+        }
+
+        private readingTestType getReadingTestType()
+        {
+            if (radioButtonOutloudReading.Checked)
+                return readingTestType.readingOutloud;            
+            else //if (radioButtonSilentReading.Checked)
+                return readingTestType.readingSilent;
+
         }
 
         private bool camposCorrectamenteCompletados()

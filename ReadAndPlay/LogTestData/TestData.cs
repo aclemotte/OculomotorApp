@@ -7,34 +7,34 @@ namespace LookAndPlayForm
 {
     public class TestData1
     {
-        public int screen_Height;
-        public int screen_Width;
-        public string date;
-        public string eyetracker;
-        public string pointer_type;
-        public int blink_time_min;
-        public int blink_time_max;
-        public int dwell_area;
-        public int dwell_time;
-        public int dewll_time_latency;
-        public int calibration_error_left_px;
-        public int calibration_error_right_px;
-        public string filter_type;
-        public string image2read;
+        public int screen_Height { get; set; }
+        public int screen_Width { get; set; }
+        public string date { get; set; }
+        public string eyetracker { get; set; }
+        public string pointer_type { get; set; }
+        public int blink_time_min { get; set; }
+        public int blink_time_max { get; set; }
+        public int dwell_area { get; set; }
+        public int dwell_time { get; set; }
+        public int dewll_time_latency { get; set; }
+        public int calibration_error_left_px { get; set; }
+        public int calibration_error_right_px { get; set; }
+        public string filter_type { get; set; }
+        public string image2read { get; set; }
     }
 
     public class TestData2
     {
-        public int screen_Height;
-        public int screen_Width;
-        public string date;
-        public string eyetracker;
-        public int calibration_error_left_px;
-        public int calibration_error_right_px;
-        public string filter_type;
-        public testType typeTestDone;
-        public readingTestType readingTestTypeDone;
-        public string image2read;
-        public string assemblyVersion;
+        public int screen_Height { get; set; }
+        public int screen_Width { get; set; }
+        public string date { get; set; }
+        public string eyetracker { get; set; }
+        public int calibration_error_left_px { get; set; }
+        public int calibration_error_right_px { get; set; }
+        public string filter_type { get; set; }
+        public testType typeTestDone { get; set; }
+        public readingTestType readingTestTypeDone { get; set; }
+        public string image2read { get; set; }
+        public string assemblyVersion { get; set; }
     }
 }

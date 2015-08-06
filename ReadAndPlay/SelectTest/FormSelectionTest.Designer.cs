@@ -32,13 +32,13 @@
             this.radioButtonRead = new System.Windows.Forms.RadioButton();
             this.radioButtonPersuit = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButtonSilentReading = new System.Windows.Forms.RadioButton();
+            this.radioButtonOutloudReading = new System.Windows.Forms.RadioButton();
             this.comboBoxSampleText = new System.Windows.Forms.ComboBox();
             this.labelSampleText = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +79,40 @@
             this.groupBox1.Size = new System.Drawing.Size(388, 229);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioButtonSilentReading);
+            this.groupBox2.Controls.Add(this.radioButtonOutloudReading);
+            this.groupBox2.Location = new System.Drawing.Point(19, 142);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(350, 65);
+            this.groupBox2.TabIndex = 36;
+            this.groupBox2.TabStop = false;
+            // 
+            // radioButtonSilentReading
+            // 
+            this.radioButtonSilentReading.AutoSize = true;
+            this.radioButtonSilentReading.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonSilentReading.Location = new System.Drawing.Point(194, 21);
+            this.radioButtonSilentReading.Name = "radioButtonSilentReading";
+            this.radioButtonSilentReading.Size = new System.Drawing.Size(143, 28);
+            this.radioButtonSilentReading.TabIndex = 38;
+            this.radioButtonSilentReading.Text = "Silent reading";
+            this.radioButtonSilentReading.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonOutloudReading
+            // 
+            this.radioButtonOutloudReading.AutoSize = true;
+            this.radioButtonOutloudReading.Checked = true;
+            this.radioButtonOutloudReading.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonOutloudReading.Location = new System.Drawing.Point(6, 21);
+            this.radioButtonOutloudReading.Name = "radioButtonOutloudReading";
+            this.radioButtonOutloudReading.Size = new System.Drawing.Size(164, 28);
+            this.radioButtonOutloudReading.TabIndex = 37;
+            this.radioButtonOutloudReading.TabStop = true;
+            this.radioButtonOutloudReading.Text = "Outloud reading";
+            this.radioButtonOutloudReading.UseVisualStyleBackColor = true;
             // 
             // comboBoxSampleText
             // 
@@ -139,40 +173,6 @@
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Location = new System.Drawing.Point(19, 142);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(350, 65);
-            this.groupBox2.TabIndex = 36;
-            this.groupBox2.TabStop = false;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(6, 21);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(164, 28);
-            this.radioButton1.TabIndex = 37;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Outloud reading";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(194, 21);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(143, 28);
-            this.radioButton2.TabIndex = 38;
-            this.radioButton2.Text = "Silent reading";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
             // FormSelectionTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,7 +205,7 @@
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButtonSilentReading;
+        private System.Windows.Forms.RadioButton radioButtonOutloudReading;
     }
 }
