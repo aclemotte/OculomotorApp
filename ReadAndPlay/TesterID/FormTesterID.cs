@@ -17,7 +17,7 @@ namespace LookAndPlayForm.TesterID
 
         private tester_class_engine tester_engine;
 
-
+        public bool closeApp { get; set; }
 
 
 
@@ -25,6 +25,8 @@ namespace LookAndPlayForm.TesterID
         public FormTesterID(tester_class_engine tester_engine)
         {
             InitializeComponent();
+            
+            closeApp = true;
 
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
@@ -74,11 +76,13 @@ namespace LookAndPlayForm.TesterID
                 testerDataSelected = new tester_class_data();
                 testerDataSelected.tester_id = numericUpDownTesterID.Value.ToString();
                 testerDataSelected.tester_name = textBoxTesterName.Text;
+                closeApp = false;
+                this.Close();
             }
-            else
-            {
-                this.DialogResult = DialogResult.None;
-            }
+            //else
+            //{
+            //    //this.DialogResult = DialogResult.None;
+            //}
         }
 
         private bool camposCorrectamenteCompletados()
