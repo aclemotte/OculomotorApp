@@ -38,10 +38,6 @@ namespace LookAndPlayForm
             SplashScreen sscreen = new SplashScreen();
             sscreen.ShowDialog();
 
-
-            //initial_class_engine initial_engine = new initial_class_engine();
-            //initialForm finitial = new initialForm(initial_engine);
-
             institution_class_engine institution_engine = new institution_class_engine();
             FormInstitutionID fInstitution = new FormInstitutionID(institution_engine);
 
@@ -61,76 +57,83 @@ namespace LookAndPlayForm
             {
                 fInstitution.updateCsv();
 
-            
-                
-                tester_class_engine tester_engine = new tester_class_engine();
-                FormTesterID fTester = new FormTesterID(tester_engine);
-
-                if (fTester.ShowDialog() == DialogResult.OK)
+                while (true)
                 {
-                    fTester.updateCsv();
-                    aws_class_engine.UpdateTestersFile(institution_engine.institutionsList[0].institution_name);
-                                        
+                    HomeFormEngine homeFormEngine = new HomeFormEngine();
+                    HomeForm homeForm;// = new HomeForm(homeFormEngine);
+                    homeForm = new HomeForm(homeFormEngine);
+                    homeForm.ShowDialog();
 
 
+                    tester_class_engine tester_engine = new tester_class_engine();
+                    FormTesterID fTester = new FormTesterID(tester_engine);
 
-                    FormPatientID formPatientID = new FormPatientID(institution_engine.institutionsList[0].institution_name);
-
-                    if (formPatientID.ShowDialog() == DialogResult.OK)
+                    if (fTester.ShowDialog() == DialogResult.OK)
                     {
-                        formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
-                        aws_class_engine.UpdateUsersFile(institution_engine.institutionsList[0].institution_name);
+                        fTester.updateCsv();
+                        aws_class_engine.UpdateTestersFile(institution_engine.institutionsList[0].institution_name);
 
-                        datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
 
-                        ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
 
-                        //si es no es un usuario nuevo o 
-                        //(si es un usuario nuevo y acepta las clausulas)
-                        if (!formPatientID.newUser ||
-                                (formPatientID.newUser && formularioConsentimiento.ShowDialog() == DialogResult.OK))
+
+                        FormPatientID formPatientID = new FormPatientID(institution_engine.institutionsList[0].institution_name);
+
+                        if (formPatientID.ShowDialog() == DialogResult.OK)
                         {
+                            formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
+                            aws_class_engine.UpdateUsersFile(institution_engine.institutionsList[0].institution_name);
 
-                            FormSelectionTest selectionTestForm = new FormSelectionTest();
+                            datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
 
-                            if (selectionTestForm.ShowDialog() == DialogResult.OK)
+                            ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
+
+                            //si es no es un usuario nuevo o 
+                            //(si es un usuario nuevo y acepta las clausulas)
+                            if (!formPatientID.newUser ||
+                                    (formPatientID.newUser && formularioConsentimiento.ShowDialog() == DialogResult.OK))
                             {
-                                try
+
+                                FormSelectionTest selectionTestForm = new FormSelectionTest();
+
+                                if (selectionTestForm.ShowDialog() == DialogResult.OK)
                                 {
-                                    using (_eyeTrackingEngine = new EyeTrackingEngine())
+                                    try
                                     {
-                                        
-                                        EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine, institution_engine);
-                                        eyeXWinForm.ShowDialog();
-                                        //Application.Run(new EyeXWinForm(_eyeTrackingEngine, institution_engine));
-                                        //eyeXWinForm.Dispose();
+                                        using (_eyeTrackingEngine = new EyeTrackingEngine())
+                                        {
 
-                                        data2Log.Time_end = DateTime.Now.ToString("HH:mm:ss");
-                                        data2Log.Tester = fTester.testerDataSelected.tester_name;
-                                        data2Log.Patient = formPatientID.patientDataSelected.user_name;
-                                        data2Log.testDone = Program.datosCompartidos.testSelected.ToString();
-                                        data2Log.number_of_screening_done = datosCompartidos.number_of_screening_done;
-                                        data2Log.AssemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                                            EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine, institution_engine);
+                                            eyeXWinForm.ShowDialog();
+                                            //Application.Run(new EyeXWinForm(_eyeTrackingEngine, institution_engine));
+                                            //eyeXWinForm.Dispose();
 
-                                        ClassLogEngine.Log(data2Log);
+                                            data2Log.Time_end = DateTime.Now.ToString("HH:mm:ss");
+                                            data2Log.Tester = fTester.testerDataSelected.tester_name;
+                                            data2Log.Patient = formPatientID.patientDataSelected.user_name;
+                                            data2Log.testDone = Program.datosCompartidos.testSelected.ToString();
+                                            data2Log.number_of_screening_done = datosCompartidos.number_of_screening_done;
+                                            data2Log.AssemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-                                        aws_class_engine.UpdateLogFile(institution_engine.institutionsList[0].institution_name);
-                                        
+                                            ClassLogEngine.Log(data2Log);
+
+                                            aws_class_engine.UpdateLogFile(institution_engine.institutionsList[0].institution_name);
+
+                                        }
                                     }
-                                }
 
-                                catch (EyeTrackerException ex)
-                                {
-                                    MessageBox.Show(ex.Message, "Failed loading application!");
-                                    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show(ex.ToString(), "Error!");
-                                    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                                }
+                                    catch (EyeTrackerException ex)
+                                    {
+                                        MessageBox.Show(ex.Message, "Failed loading application!");
+                                        ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show(ex.ToString(), "Error!");
+                                        ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                                    }
 
-                                aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
+                                    aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
+                                }
                             }
                         }
                     }

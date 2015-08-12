@@ -22,12 +22,12 @@ namespace LookAndPlayForm.InitialForm
 
         private void buttonReviewTest_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void buttonNewTest_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

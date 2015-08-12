@@ -38,22 +38,22 @@
             // buttonNewTest
             // 
             this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewTest.Location = new System.Drawing.Point(246, 130);
+            this.buttonNewTest.Location = new System.Drawing.Point(103, 140);
             this.buttonNewTest.Name = "buttonNewTest";
-            this.buttonNewTest.Size = new System.Drawing.Size(141, 35);
+            this.buttonNewTest.Size = new System.Drawing.Size(213, 35);
             this.buttonNewTest.TabIndex = 0;
-            this.buttonNewTest.Text = "New test";
+            this.buttonNewTest.Text = "Start a new test";
             this.buttonNewTest.UseVisualStyleBackColor = true;
             this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
             // 
             // buttonReviewTest
             // 
             this.buttonReviewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReviewTest.Location = new System.Drawing.Point(43, 130);
+            this.buttonReviewTest.Location = new System.Drawing.Point(103, 190);
             this.buttonReviewTest.Name = "buttonReviewTest";
-            this.buttonReviewTest.Size = new System.Drawing.Size(141, 35);
+            this.buttonReviewTest.Size = new System.Drawing.Size(213, 35);
             this.buttonReviewTest.TabIndex = 1;
-            this.buttonReviewTest.Text = "Review a test";
+            this.buttonReviewTest.Text = "Review a test done";
             this.buttonReviewTest.UseVisualStyleBackColor = true;
             this.buttonReviewTest.Click += new System.EventHandler(this.buttonReviewTest_Click);
             // 
@@ -61,7 +61,7 @@
             // 
             this.labelOptions.AutoSize = true;
             this.labelOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOptions.Location = new System.Drawing.Point(92, 75);
+            this.labelOptions.Location = new System.Drawing.Point(92, 55);
             this.labelOptions.Name = "labelOptions";
             this.labelOptions.Size = new System.Drawing.Size(217, 24);
             this.labelOptions.TabIndex = 2;
@@ -77,18 +77,19 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Welcome to Reading App!";
             // 
-            // initialForm
+            // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 194);
+            this.ClientSize = new System.Drawing.Size(428, 293);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelOptions);
             this.Controls.Add(this.buttonReviewTest);
             this.Controls.Add(this.buttonNewTest);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "initialForm";
-            this.Text = "Mr. Patch";
+            this.Name = "HomeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Home";
             this.ResumeLayout(false);
             this.PerformLayout();
 
