@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -10,6 +11,7 @@ using LookAndPlayForm.BackupClass;
 using LookAndPlayForm.LogData;
 using LookAndPlayForm.SelectTest;
 using LookAndPlayForm.TesterID;
+using Newtonsoft.Json;
 
 namespace LookAndPlayForm.InitialForm
 {
@@ -35,7 +37,75 @@ namespace LookAndPlayForm.InitialForm
 
         private void buttonReviewTest_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+
+            string selectedPath = selectionOfFolder();
+            testType testType = checkTipoTest(selectedPath);
+
+            switch(testType)
+            {
+                case LookAndPlayForm.testType.reading:
+
+                    Resumen.Resumen resumenGame1 = new Resumen.Resumen(false, true, selectedPath);
+                    resumenGame1.ShowDialog();
+
+                    if (resumenGame1.closeApp)
+                        this.Close();
+                    else
+                        this.Show();
+                    break;
+                case LookAndPlayForm.testType.persuit:
+
+                    ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(false, true, selectedPath);
+                    reviewPersuit.ShowDialog();
+
+                    if (reviewPersuit.closeApp)
+                        this.Close();
+                    else
+                        this.Show();
+                    break;
+                default:
+                    MessageBox.Show("Error. Test type not identified.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+
+            }
+        }
+
+        private string selectionOfFolder()
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
+            DialogResult result = fbd.ShowDialog();
+            string selectedPath = fbd.SelectedPath;
+            return selectedPath;
+        }
+
+        private string openTestDatajsonAndGetField(string path)
+        {
+            TestData1 testData;
+            string file = @"\testData.json";
+
+            if (File.Exists(path + file))
+            {
+                string json = File.ReadAllText(path + file);
+                testData = JsonConvert.DeserializeObject<TestData1>(json);
+                return testData.image2read;
+            }
+            else
+            {
+                MessageBox.Show("El archivo " + file + " no existe", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        private testType checkTipoTest(string selectedPath)
+        {
+            string image2read = openTestDatajsonAndGetField(selectedPath);
+
+            if (string.IsNullOrEmpty(image2read))
+                return testType.persuit;
+            else
+                return testType.reading;//aca se puede ir mas y buscar la forma de saber si es silent o outloud
         }
 
         private void buttonNewTest_Click(object sender, EventArgs e)
