@@ -25,11 +25,13 @@ namespace ReviewPersuit
         StimuloPersuitSetup stimuloPersuitSetup;
         string selectedPath;
 
+        public bool closeApp { get; set; }
 
         public ReviewPersuit(bool showLastTest, bool newTestAvailable, string selectedPath)
         {
             InitializeComponent();
-            
+            closeApp = true;
+
             if (showLastTest)
             {
                 selectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
@@ -128,20 +130,21 @@ namespace ReviewPersuit
 
         private void buttonNewTest_Click(object sender, EventArgs e)
         {
-            newTest = true;
+            //newTest = true;
+            closeApp = false;
             this.Close();
         }
 
-        public delegate void ReviewClosedDelegate(bool newTest);
-        public event ReviewClosedDelegate ReviewClosed;
+        //public delegate void ReviewClosedDelegate(bool newTest);
+        //public event ReviewClosedDelegate ReviewClosed;
 
         private void ReviewPersuit_FormClosed(object sender, FormClosedEventArgs e)
         {
             //avisar a la app que le llamo que se cerro la app, avisando tb si 
             // se cerro la ventana para hacer un nuevo test
             // se cerro para cerrar toda la app
-            if (ReviewClosed != null)
-                ReviewClosed(newTest);
+            //if (ReviewClosed != null)
+            //    ReviewClosed(newTest);
 
         }
 

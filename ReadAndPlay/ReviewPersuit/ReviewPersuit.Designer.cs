@@ -118,7 +118,7 @@
             this.buttonNewTest.Name = "buttonNewTest";
             this.buttonNewTest.Size = new System.Drawing.Size(141, 34);
             this.buttonNewTest.TabIndex = 3;
-            this.buttonNewTest.Text = "New Test";
+            this.buttonNewTest.Text = "Home";
             this.buttonNewTest.UseVisualStyleBackColor = true;
             this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
             // 

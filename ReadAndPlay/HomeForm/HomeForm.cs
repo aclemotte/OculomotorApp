@@ -97,23 +97,110 @@ namespace LookAndPlayForm.InitialForm
                                 this.Close();
                             else
                             {
-                                eyeXWinForm.Dispose();
+                                if (Program.eyeTrackingEngine.State == EyeTrackingState.Tracking)//if (_TobiiForm.tobii_connected)            
+                                {
 
-                                data2Log.Time_end = DateTime.Now.ToString("HH:mm:ss");
-                                data2Log.testDone = Program.datosCompartidos.testSelected.ToString();
-                                data2Log.number_of_screening_done = Program.datosCompartidos.number_of_screening_done;
-                                data2Log.AssemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                                    eyeXWinForm.Dispose();
+                                    eyeXWinForm = null;
 
-                                ClassLogEngine.Log(data2Log);
+                                    switch (Program.datosCompartidos.testSelected)
+                                    {
+                                        case testType.reading:
 
-                                aws_class_engine.UpdateLogFile(Program.datosCompartidos.institutionName);
+                                            Game1 game1 = new Game1();
+                                            game1.ShowDialog();
 
-                                this.Show();
+                                            if (game1.closeApp)
+                                                this.Close();
+                                            else
+                                            {
+                                                game1.Dispose();
+                                                game1 = null;
+
+                                                saveData();
+
+                                                Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
+                                                resumenGame1.ShowDialog();
+
+                                                if (resumenGame1.closeApp)
+                                                    this.Close();
+                                                else
+                                                    this.Show();
+                                            }
+                                            break;
+
+                                        case testType.persuit:
+                                            StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
+                                            persuit.ShowDialog();
+
+                                            if (persuit.closeApp)
+                                                this.Close();
+                                            else
+                                            {
+                                                persuit.Dispose();
+                                                persuit = null;
+
+                                                saveData();
+
+                                                ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
+                                                reviewPersuit.ShowDialog();
+
+                                                if (reviewPersuit.closeApp)
+                                                    this.Close();
+                                                else
+                                                    this.Show();
+                                            }
+                                            break;
+                                        default:
+                                            MessageBox.Show("Test unknow");
+                                            break;
+                                    }
+                                }
+                                else
+                                    MessageBox.Show("Eye tracker not connected", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                             }
                         }                        
                     }
                 }
             }
+        }
+
+        private void saveData()
+        {
+            //Show the resume window
+            if (Program.datosCompartidos.se_grabaron_datos)
+            {
+                //datos del test
+                Program.datosCompartidos.logTestData.saveData2File();
+
+                //datos del tracker
+                Program.datosCompartidos.LogEyeTrackerData.saveData2File();
+
+
+                //subir los datos a la nube
+                aws_class_data aws_data = new aws_class_data();
+                aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
+                aws_data.FileToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
+                                            Program.datosCompartidos.startTimeTest +
+                                            @"-us" + Program.datosCompartidos.activeUser;
+
+                aws_class_engine.BackupTest(aws_data);
+
+                Program.datosCompartidos.number_of_screening_done++;
+            }
+        }
+
+        private void updateLogFile()
+        {
+            data2Log.Time_end = DateTime.Now.ToString("HH:mm:ss");
+            data2Log.testDone = Program.datosCompartidos.testSelected.ToString();
+            data2Log.number_of_screening_done = Program.datosCompartidos.number_of_screening_done;
+            data2Log.AssemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+            ClassLogEngine.Log(data2Log);
+
+            aws_class_engine.UpdateLogFile(Program.datosCompartidos.institutionName);
         }
     }
 }

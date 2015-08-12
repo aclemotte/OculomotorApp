@@ -16,15 +16,18 @@ namespace StimuloPersuitHorizontal
         StimuloPersuitSetup stimuloPersuitSetup;
         bool screenDimensionsOk, dotSizeOk;
         private int xCoordinate, yCoordinate;
-        EyeXWinForm _ControlFormEyeX;
+        //EyeXWinForm _ControlFormEyeX;
         double tiempoSegundos;
 
 
-        public StimuloPersuit(EyeXWinForm ControlForm)
+        public bool closeApp { get; set; }
+
+        public StimuloPersuit()
         {
             InitializeComponent();
 
-            _ControlFormEyeX = ControlForm;
+            closeApp = true;
+            //_ControlFormEyeX = ControlForm;
 
 
             stimuloPersuitSetup = new StimuloPersuitSetup();
@@ -86,14 +89,17 @@ namespace StimuloPersuitHorizontal
                 if (dialogResult == DialogResult.Yes)
                 {
                     Cursor.Hide();
-                    _ControlFormEyeX.toogleSaveEyeTrackerDataValue();
-                    _ControlFormEyeX.se_grabaron_datos = true;
+                    //_ControlFormEyeX.toogleSaveEyeTrackerDataValue();
+                    //_ControlFormEyeX.se_grabaron_datos = true;
+                    Program.eyeTrackingEngine.toogleSaveEyeTrackerDataValue();
+                    Program.datosCompartidos.se_grabaron_datos = true;
                     timerMoveDot.Enabled = true;
                     tiempoSegundos = 0;
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    _ControlFormEyeX.se_grabaron_datos = false;
+                    //_ControlFormEyeX.se_grabaron_datos = false;
+                    Program.datosCompartidos.se_grabaron_datos = false;
                     end_protocol();
                 }
             }
@@ -180,12 +186,14 @@ namespace StimuloPersuitHorizontal
         private void end_protocol()
         {            
             Program.datosCompartidos.LogEyeTrackerData.AddTargetTraceEyeX(new TargetPosSize.Target(), true);        
-            _ControlFormEyeX.toogleSaveEyeTrackerDataValue();
+            //_ControlFormEyeX.toogleSaveEyeTrackerDataValue();
+            Program.eyeTrackingEngine.toogleSaveEyeTrackerDataValue();
             stimuloPersuitSetup.SavePersuitData();
 
             this.BeginInvoke((Action)(() =>
                 {
                     Cursor.Show();
+                    closeApp = false;
                     this.Close();
                 }));
         }

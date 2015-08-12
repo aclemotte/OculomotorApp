@@ -215,7 +215,7 @@ namespace LookAndPlayForm
         private void openWindowReviewPersuit(bool showLastTest, string selectedPath)
         {
             ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(showLastTest, true, selectedPath);
-            reviewPersuit.ReviewClosed += reviewPersuit_ReviewClosed;
+            //reviewPersuit.ReviewClosed += reviewPersuit_ReviewClosed;
             if(reviewPersuit.everythingOk)
                 reviewPersuit.Show();
             else
@@ -225,7 +225,7 @@ namespace LookAndPlayForm
         private void openWindowReviewReading(bool showLastTest, bool newTestAvailable, string selectedPath)
         {
             Resumen.Resumen resumenGame1 = new Resumen.Resumen(showLastTest, newTestAvailable, selectedPath);
-            resumenGame1.ReviewClosed += resumenGame1_ReviewClosed;
+            //resumenGame1.ReviewClosed += resumenGame1_ReviewClosed;
             if (resumenGame1.everythingOk)
                 resumenGame1.Show();
             else

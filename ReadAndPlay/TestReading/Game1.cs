@@ -13,16 +13,16 @@ namespace LookAndPlayForm
 {
     public partial class Game1 : Form
     {
-        EyeXWinForm _ControlFormEyeX;
+        //EyeXWinForm _ControlFormEyeX;
         TargetPosSize.Target _TargetPS;
 
+        public bool closeApp { get; set; }
 
-
-        public Game1(EyeXWinForm ControlForm)
+        public Game1()
         {
             InitializeComponent();
 
-            _ControlFormEyeX = ControlForm;
+            //_ControlFormEyeX = ControlForm;
 
             setPictureBoxStimulus();           
         }
@@ -72,12 +72,15 @@ namespace LookAndPlayForm
             {
                 // user clicked yes                
                 Cursor.Hide();
-                _ControlFormEyeX.toogleSaveEyeTrackerDataValue();
-                _ControlFormEyeX.se_grabaron_datos = true;
+                //_ControlFormEyeX.toogleSaveEyeTrackerDataValue();
+                //_ControlFormEyeX.se_grabaron_datos = true;
+                Program.eyeTrackingEngine.toogleSaveEyeTrackerDataValue();
+                Program.datosCompartidos.se_grabaron_datos = true;
             }
             else// user clicked no
             {
-                _ControlFormEyeX.se_grabaron_datos = false;
+                //_ControlFormEyeX.se_grabaron_datos = false;
+                Program.datosCompartidos.se_grabaron_datos = false;
                 this.Close();
             }
         }
@@ -92,7 +95,8 @@ namespace LookAndPlayForm
 
         private void end_protocol()
         {
-            _ControlFormEyeX.toogleSaveEyeTrackerDataValue();
+            //_ControlFormEyeX.toogleSaveEyeTrackerDataValue();
+            Program.eyeTrackingEngine.toogleSaveEyeTrackerDataValue();
             this.Close();
         }
 

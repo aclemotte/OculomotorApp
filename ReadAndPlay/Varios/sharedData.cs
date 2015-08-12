@@ -22,8 +22,11 @@ namespace LookAndPlayForm
         public int number_of_screening_done { get; set; }
         public testType testSelected { get; set; }
         public readingTestType readingTestTypeSelected { get; set; }
-
         public string institutionName { get; set; }
+
+        public bool se_grabaron_datos { get; set; }
+
+
         public sharedData()
         {
             eyeNotFound = true;
