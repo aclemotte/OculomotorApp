@@ -24,7 +24,6 @@ namespace LookAndPlayForm
         private bool saveEyeTrackerData = false;
         private MouseController CursorControl = new MouseController();
         private EyeTracking.distanceDev2User distanciaDev2USer;
-        //private institution_class_engine institution_engine;
         private delegate void Action();
 
         public bool closeApp { get; set; }
@@ -118,20 +117,25 @@ namespace LookAndPlayForm
             {
                 Program.datosCompartidos.getNewTime();
 
-                if (Program.datosCompartidos.testSelected == testType.reading)
-                {
-                    Game1 _Game1 = new Game1(this);
-                    _Game1.FormClosed += test_Closed;
-                    _Game1.Left = 0;//_TobiiForm.monitorBounds.X;
-                    _Game1.StartPosition = FormStartPosition.Manual;
-                    _Game1.Show();
-                }
-                else if (Program.datosCompartidos.testSelected == testType.persuit)
-                {
-                    StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit(this);
-                    persuit.Show();
-                    persuit.FormClosed += test_Closed;
-                }
+                eyeTrackingEngine.GazePoint -= this.GazePoint;
+                eyeTrackingEngine.OnGetCalibrationCompletedEvent -= this.OnGetCalibrationCompleted;
+
+                closeApp = false;
+                this.Hide();
+                //if (Program.datosCompartidos.testSelected == testType.reading)
+                //{
+                //    Game1 _Game1 = new Game1(this);
+                //    _Game1.FormClosed += test_Closed;
+                //    _Game1.Left = 0;//_TobiiForm.monitorBounds.X;
+                //    _Game1.StartPosition = FormStartPosition.Manual;
+                //    _Game1.Show();
+                //}
+                //else if (Program.datosCompartidos.testSelected == testType.persuit)
+                //{
+                //    StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit(this);
+                //    persuit.Show();
+                //    persuit.FormClosed += test_Closed;
+                //}
 
             }
             else
@@ -139,11 +143,11 @@ namespace LookAndPlayForm
         }
 
         	
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
-        {
-            base.OnClosing(e);
-            eyeTrackingEngine.Dispose();
-        }
+        //protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        //{
+        //    base.OnClosing(e);
+        //    eyeTrackingEngine.Dispose();
+        //}
 
         public void toogleSaveEyeTrackerDataValue()
         {

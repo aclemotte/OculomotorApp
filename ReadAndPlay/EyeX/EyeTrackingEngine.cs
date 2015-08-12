@@ -49,8 +49,9 @@ namespace LookAndPlayForm
         private Uri _eyeTrackerUrl;
         private IEyeTracker _eyeTracker;
         private Thread _thread;
+        private bool saveEyeTrackerData = false;
 
-        private eyesDetector detectorDeOjos;
+        //private eyesDetector detectorDeOjos;
         
         /// <summary>
         /// Create eye tracking engine 
@@ -58,7 +59,7 @@ namespace LookAndPlayForm
         /// </summary>
         public EyeTrackingEngine()
         {
-            detectorDeOjos = new eyesDetector();            
+            //detectorDeOjos = new eyesDetector();            
         }
 
         public EyeTrackingState State
@@ -381,11 +382,25 @@ namespace LookAndPlayForm
         {
             var gazeData = gazeDataEventArgs.GazeData;
 
-            detectorDeOjos.dataReceived(gazeData.TrackingStatus);
+            //detectorDeOjos.dataReceived(gazeData.TrackingStatus);
+
+            if (saveEyeTrackerData)
+            {
+                //Creo que ni gazeWeighted ni cursorFiltered se usan
+                PointD gazeWeighted = new PointD();// eyetrackingFunctions.WeighGaze(gazeDataEventArgs.GazeData);// creo que no se usa
+                PointD cursorFiltered = new PointD();// CursorControl.filterData(gazeWeighted, false);// creo que no se usa los datos filtrados
+
+                Program.datosCompartidos.LogEyeTrackerData.AddGazeDataItem2List(gazeDataEventArgs.GazeData, gazeWeighted, cursorFiltered);
+            }
 
             RaiseGazePoint(gazeData);
         }
 
+
+        public void toogleSaveEyeTrackerDataValue()
+        {
+            saveEyeTrackerData = !saveEyeTrackerData;
+        }
 
     }
 
