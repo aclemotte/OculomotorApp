@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LookAndPlayForm.InitialForm
 {
-    public class initial_class_engine
+    public class HomeFormEngine
     {
     }
 }

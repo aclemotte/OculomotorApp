@@ -1,6 +1,6 @@
 ﻿namespace LookAndPlayForm.InitialForm
 {
-    partial class initialForm
+    partial class HomeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(initialForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.buttonNewTest = new System.Windows.Forms.Button();
             this.buttonReviewTest = new System.Windows.Forms.Button();
             this.labelOptions = new System.Windows.Forms.Label();

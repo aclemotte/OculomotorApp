@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace LookAndPlayForm.InitialForm
 {
-    public partial class initialForm : Form
+    public partial class HomeForm : Form
     {
-        initial_class_engine initial_engine;
+        HomeFormEngine initial_engine;
             
-        public initialForm(initial_class_engine initial_engine)
+        public HomeForm(HomeFormEngine initial_engine)
         {
             InitializeComponent();
 
