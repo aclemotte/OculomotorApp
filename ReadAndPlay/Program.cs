@@ -57,6 +57,8 @@ namespace LookAndPlayForm
             {
                 fInstitution.updateCsv();
 
+                datosCompartidos.institutionName = institution_engine.institutionsList[0].institution_name;
+
                 HomeFormEngine homeFormEngine = new HomeFormEngine();
                 HomeForm homeForm = new HomeForm(homeFormEngine);
                 Application.Run(homeForm);
@@ -68,9 +70,6 @@ namespace LookAndPlayForm
                 //{
                 //    fTester.updateCsv();
                 //    aws_class_engine.UpdateTestersFile(institution_engine.institutionsList[0].institution_name);
-
-
-
 
                 //    FormPatientID formPatientID = new FormPatientID(institution_engine.institutionsList[0].institution_name);
 

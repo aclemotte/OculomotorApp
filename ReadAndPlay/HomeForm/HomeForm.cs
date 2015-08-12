@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LookAndPlayForm.BackupClass;
+using LookAndPlayForm.SelectTest;
 using LookAndPlayForm.TesterID;
 
 namespace LookAndPlayForm.InitialForm
@@ -41,13 +42,39 @@ namespace LookAndPlayForm.InitialForm
             else
             {
 
-                //fTester.updateCsv();
-                //aws_class_engine.UpdateTestersFile(institution_engine.institutionsList[0].institution_name);
+                fTester.updateCsv();
+                aws_class_engine.UpdateTestersFile(Program.datosCompartidos.institutionName);
                 fTester.Dispose();
                 fTester = null;
 
+                FormPatientID formPatientID = new FormPatientID(Program.datosCompartidos.institutionName);
+                formPatientID.ShowDialog();
 
-                this.Show();
+                if (formPatientID.closeApp)
+                    this.Close();
+                else
+                {
+                    formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
+                    aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
+                    Program.datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
+
+                    //ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
+
+                    formPatientID.Dispose();
+
+                    FormSelectionTest selectionTestForm = new FormSelectionTest();
+                    selectionTestForm.ShowDialog();
+
+                    //cambiar: primero user position dsp seleccion del test
+                    if (selectionTestForm.closeApp)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        this.Show();
+                    }
+                }
             }
         }
     }

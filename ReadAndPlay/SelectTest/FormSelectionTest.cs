@@ -12,9 +12,13 @@ namespace LookAndPlayForm.SelectTest
     public partial class FormSelectionTest : Form
     {
 
+        public bool closeApp { get; set; }
+
         public FormSelectionTest()
         {
             InitializeComponent();
+
+            closeApp = true;
 
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
@@ -38,8 +42,11 @@ namespace LookAndPlayForm.SelectTest
                 Program.datosCompartidos.testSelected = testType.reading;
                 Program.datosCompartidos.readingTestTypeSelected = readingTestType.readingSilent;
             }
-            else
-                this.DialogResult = DialogResult.None;
+            //else
+            //    this.DialogResult = DialogResult.None;
+
+            closeApp = false;
+            this.Close();
         }
 
         private bool camposCorrectamenteCompletados()

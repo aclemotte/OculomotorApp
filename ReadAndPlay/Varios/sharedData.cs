@@ -7,7 +7,6 @@ using Tobii.Gaze.Core;
 
 namespace LookAndPlayForm
 {
-    //el que instancio esta clase es EyeTrackingEngine
     public class sharedData
     {
         public int meanCalibrationErrorLeftPx { get; set; }
@@ -21,11 +20,10 @@ namespace LookAndPlayForm
         public string image2read { get; set; }
         public string startTimeTest { get; set; }//ojo que se pueden correr varios test sin cerrar la app
         public int number_of_screening_done { get; set; }
-
         public testType testSelected { get; set; }
-
         public readingTestType readingTestTypeSelected { get; set; }
 
+        public string institutionName { get; set; }
         public sharedData()
         {
             eyeNotFound = true;

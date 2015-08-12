@@ -49,11 +49,13 @@ namespace LookAndPlayForm
 
         public List<patient_class_datav3> patientsList { get; set; }
 
-
+        public bool closeApp { get; set; }
 
         public FormPatientID(string institution_name)
         {
             InitializeComponent();
+
+            closeApp = true;
 
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
@@ -447,11 +449,13 @@ namespace LookAndPlayForm
                 patientDataSelected.user_email = textBoxEmail.Text;
                 patientDataSelected.user_gender = getGenderFromControl();
                 patientDataSelected.user_diagnosedConditions = getDiagnosedConditionFromControl();
+                closeApp = false;
+                this.Close();
             }
-            else
-            {
-                this.DialogResult = DialogResult.None;
-            }
+            //else
+            //{
+            //    this.DialogResult = DialogResult.None;
+            //}
         }
 
         private bool camposCorrectamenteCompletados()
