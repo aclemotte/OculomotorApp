@@ -108,6 +108,14 @@ namespace LookAndPlayForm.InitialForm
                 return testType.reading;//aca se puede ir mas y buscar la forma de saber si es silent o outloud
         }
 
+
+
+
+
+
+
+
+
         private void buttonNewTest_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -167,7 +175,7 @@ namespace LookAndPlayForm.InitialForm
                                 this.Close();
                             else
                             {
-                                if (Program.eyeTrackingEngine.State == EyeTrackingState.Tracking)//if (_TobiiForm.tobii_connected)            
+                                if (Program.eyeTrackingEngine.State == EyeTrackingState.Tracking)           
                                 {
 
                                     eyeXWinForm.Dispose();
@@ -271,6 +279,11 @@ namespace LookAndPlayForm.InitialForm
             ClassLogEngine.Log(data2Log);
 
             aws_class_engine.UpdateLogFile(Program.datosCompartidos.institutionName);
+        }
+
+        private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            updateLogFile();
         }
     }
 }

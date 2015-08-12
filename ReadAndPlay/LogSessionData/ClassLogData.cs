@@ -12,9 +12,9 @@ namespace LookAndPlayForm.LogData
         public string Date;
         public string Time_start;
         public string Time_end;
-        public string Tester;
-        public string Patient;
-        public string testDone;
+        public string Tester;//el ultimo
+        public string Patient;//el ultimo
+        public string testDone;//el ultimo
         public int number_of_screening_done;
         public string AssemblyVersion;
 

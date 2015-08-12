@@ -1,4 +1,10 @@
 
 Falta:
 
-Cambiar test data a nueva version para la lectura. Ya esta en la escritura. La app funciona asó (con dos versiones diferentes en la escritura y lectura) xq los campos para leer estan en la clase version 2
+log file, tendra datos del ultimo tester, patient y testdone: poner dsp de saveData solucionara el problema¿?
+
+
+temas:
+va al home y no al screening
+orden: seleccion test y dsp posicionamiento
+
