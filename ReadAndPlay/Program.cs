@@ -14,7 +14,7 @@ namespace LookAndPlayForm
 
     public static class Program
     {
-        private static EyeTrackingEngine _eyeTrackingEngine;
+        public static EyeTrackingEngine eyeTrackingEngine;
 
         public static sharedData datosCompartidos;
 
@@ -30,10 +30,10 @@ namespace LookAndPlayForm
             datosCompartidos = new sharedData();
 
 
-            ClassLogData data2Log = new ClassLogData();
+            //ClassLogData data2Log = new ClassLogData();
 
-            data2Log.Date = DateTime.Now.ToString("dd/MM/yyyy");
-            data2Log.Time_start = DateTime.Now.ToString("HH:mm:ss");
+            //data2Log.Date = DateTime.Now.ToString("dd/MM/yyyy");
+            //data2Log.Time_start = DateTime.Now.ToString("HH:mm:ss");
 
             SplashScreen sscreen = new SplashScreen();
             sscreen.ShowDialog();

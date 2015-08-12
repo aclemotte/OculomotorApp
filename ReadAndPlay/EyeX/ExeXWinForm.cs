@@ -24,10 +24,10 @@ namespace LookAndPlayForm
         private bool saveEyeTrackerData = false;
         private MouseController CursorControl = new MouseController();
         private EyeTracking.distanceDev2User distanciaDev2USer;
-        private institution_class_engine institution_engine;
+        //private institution_class_engine institution_engine;
         private delegate void Action();
 
-
+        public bool closeApp { get; set; }
 
 
 
@@ -36,11 +36,12 @@ namespace LookAndPlayForm
         
         
         
-        public EyeXWinForm(EyeTrackingEngine eyeTrackingEngine, institution_class_engine institution_engine)
+        public EyeXWinForm(EyeTrackingEngine eyeTrackingEngine)
         {
             InitializeComponent();
 
-            this.institution_engine = institution_engine;
+            closeApp = true;
+            //this.institution_engine = institution_engine;
 
             this.eyeTrackingEngine = eyeTrackingEngine;
             eyeTrackingEngine.GazePoint += this.GazePoint;
@@ -288,7 +289,7 @@ namespace LookAndPlayForm
 
                 //subir los datos a la nube
                 aws_class_data aws_data = new aws_class_data();
-                aws_data.AwsS3FolderName = institution_engine.institutionsList[0].institution_name;
+                aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
                 aws_data.FileToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
                                             Program.datosCompartidos.startTimeTest +
                                             @"-us" + Program.datosCompartidos.activeUser;
