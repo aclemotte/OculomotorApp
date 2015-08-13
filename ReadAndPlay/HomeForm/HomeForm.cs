@@ -120,6 +120,8 @@ namespace LookAndPlayForm.InitialForm
         {
             this.Hide();
 
+
+            //tester search
             tester_class_engine tester_engine = new tester_class_engine();
             FormTesterID fTester = new FormTesterID(tester_engine);
             fTester.ShowDialog();
@@ -136,6 +138,7 @@ namespace LookAndPlayForm.InitialForm
             fTester.Dispose();
             fTester = null;
 
+            //patient search
             FormPatientID formPatientID = new FormPatientID(Program.datosCompartidos.institutionName);
             formPatientID.ShowDialog();
 
@@ -147,6 +150,7 @@ namespace LookAndPlayForm.InitialForm
 
             if (formPatientID.newUser)
             {
+                //nuevo patient
                 ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
                 formularioConsentimiento.ShowDialog();
 
@@ -170,21 +174,8 @@ namespace LookAndPlayForm.InitialForm
             formPatientID.Dispose();
             formPatientID = null;
 
-            FormSelectionTest selectionTestForm = new FormSelectionTest();
-            selectionTestForm.ShowDialog();
-
-            //cambiar: primero user position dsp seleccion del test
-            if (selectionTestForm.closeApp)
-            {
-                this.Close();
-                return;
-            }
-
-            selectionTestForm.Dispose();
-            selectionTestForm = null;
-
+            //user position
             Program.eyeTrackingEngine = new EyeTrackingEngine();
-
             EyeXWinForm eyeXWinForm = new EyeXWinForm(Program.eyeTrackingEngine);
             eyeXWinForm.ShowDialog();
 
@@ -197,10 +188,24 @@ namespace LookAndPlayForm.InitialForm
             eyeXWinForm.Dispose();
             eyeXWinForm = null;
 
+            //test selection
+            FormSelectionTest selectionTestForm = new FormSelectionTest();
+            selectionTestForm.ShowDialog();
+
+            if (selectionTestForm.closeApp)
+            {
+                this.Close();
+                return;
+            }
+
+            selectionTestForm.Dispose();
+            selectionTestForm = null;
+
             switch (Program.datosCompartidos.testSelected)
             {
                 case testType.reading:
 
+                    //test reading
                     Game1 game1 = new Game1();
                     game1.ShowDialog();
 
@@ -215,6 +220,7 @@ namespace LookAndPlayForm.InitialForm
 
                     saveData();
 
+                    //review reading test
                     Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
                     resumenGame1.ShowDialog();
 
@@ -229,6 +235,18 @@ namespace LookAndPlayForm.InitialForm
                     break;
 
                 case testType.persuit:
+
+                    //instruction pursuit test
+                    InstructionPursuitForm.InstructionPursuit instructionPursuit = new InstructionPursuitForm.InstructionPursuit();
+                    instructionPursuit.ShowDialog();
+
+                    if (instructionPursuit.closeApp)
+                    {
+                        this.Close();
+                        return;
+                    }
+
+                    //test pursuit
                     StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
                     persuit.ShowDialog();
 
@@ -243,6 +261,7 @@ namespace LookAndPlayForm.InitialForm
 
                     saveData();
 
+                    //review pursuit test
                     ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
                     reviewPersuit.ShowDialog();
 
