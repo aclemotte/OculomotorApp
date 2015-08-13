@@ -43,8 +43,6 @@ namespace LookAndPlayForm.Comments
                 DialogResult dialogResult = MessageBox.Show("Save changes?", "Comments done", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                     saveComments();
-
-
             }
         }
 
@@ -60,12 +58,14 @@ namespace LookAndPlayForm.Comments
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-
+            saveComments();
+            commentsDone = false;
         }
 
         private void buttonDiscard_Click(object sender, EventArgs e)
         {
-
+            commentsDone = false;
+            this.Close();
         }
     }
 }

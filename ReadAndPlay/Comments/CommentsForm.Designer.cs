@@ -45,7 +45,7 @@
             this.textBoxComments.Multiline = true;
             this.textBoxComments.Name = "textBoxComments";
             this.textBoxComments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxComments.Size = new System.Drawing.Size(594, 369);
+            this.textBoxComments.Size = new System.Drawing.Size(574, 369);
             this.textBoxComments.TabIndex = 2;
             this.textBoxComments.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -63,9 +63,9 @@
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(612, 55);
+            this.buttonSave.Location = new System.Drawing.Point(592, 55);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(94, 35);
+            this.buttonSave.Size = new System.Drawing.Size(140, 35);
             this.buttonSave.TabIndex = 5;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -75,11 +75,11 @@
             // 
             this.buttonDiscard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDiscard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDiscard.Location = new System.Drawing.Point(612, 96);
+            this.buttonDiscard.Location = new System.Drawing.Point(592, 96);
             this.buttonDiscard.Name = "buttonDiscard";
-            this.buttonDiscard.Size = new System.Drawing.Size(94, 35);
+            this.buttonDiscard.Size = new System.Drawing.Size(140, 35);
             this.buttonDiscard.TabIndex = 6;
-            this.buttonDiscard.Text = "Discard";
+            this.buttonDiscard.Text = "Discard and exit";
             this.buttonDiscard.UseVisualStyleBackColor = true;
             this.buttonDiscard.Click += new System.EventHandler(this.buttonDiscard_Click);
             // 
@@ -87,7 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 447);
+            this.ClientSize = new System.Drawing.Size(744, 447);
             this.Controls.Add(this.buttonDiscard);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.label1);
