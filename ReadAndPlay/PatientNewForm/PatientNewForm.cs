@@ -50,7 +50,6 @@ namespace LookAndPlayForm
                 patientDataSelected.user_email = textBoxEmail.Text;
                 patientDataSelected.user_gender = getGenderFromControl();
                 patientDataSelected.user_diagnosedConditions = getDiagnosedConditionFromControl();
-                //closeApp = false;
                 newUser = true;
             }
             else

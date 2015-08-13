@@ -12,7 +12,7 @@ namespace LookAndPlayForm.TesterNewForm
 {
     public partial class TesterNewForm : Form
     {
-        public TesterLoginEngineData patientDataSelected { get; set; } 
+        public TesterLoginEngineData testerDataSelected { get; set; } 
         public bool newUser { get; set; }
 
 
@@ -26,19 +26,14 @@ namespace LookAndPlayForm.TesterNewForm
             numericUpDownUserID.Value = patientID;
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            newUser = false;
-            this.Close();
-        }
-
+        
         private void buttonOk_Click(object sender, EventArgs e)
         {
             if (camposCorrectamenteCompletados())
             {
-                patientDataSelected = new TesterLoginEngineData();
-                patientDataSelected.tester_id = numericUpDownUserID.Value.ToString();
-                patientDataSelected.tester_name = textBoxUserName.Text;
+                testerDataSelected = new TesterLoginEngineData();
+                testerDataSelected.tester_id = numericUpDownUserID.Value.ToString();
+                testerDataSelected.tester_name = textBoxUserName.Text;
                 newUser = true;
             }
             else
@@ -57,5 +52,12 @@ namespace LookAndPlayForm.TesterNewForm
             else
                 return true;
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            newUser = false;
+            this.Close();
+        }
+
     }
 }
