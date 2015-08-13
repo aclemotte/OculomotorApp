@@ -128,6 +128,8 @@ namespace LookAndPlayForm.InitialForm
 
             if (fTester.closeApp)
             {
+                fTester.Dispose();
+                fTester = null;
                 this.Close();
                 return;
             }
@@ -144,6 +146,8 @@ namespace LookAndPlayForm.InitialForm
 
             if (formPatientID.closeApp)
             {
+                formPatientID.Dispose();
+                formPatientID = null;
                 this.Close();
                 return;
             }
@@ -156,6 +160,8 @@ namespace LookAndPlayForm.InitialForm
 
                 if (formularioConsentimiento.closeApp)
                 {
+                    formularioConsentimiento.Dispose();
+                    formularioConsentimiento = null;
                     this.Close();//no acepto las condiciones
                     return;
                 }
@@ -181,6 +187,9 @@ namespace LookAndPlayForm.InitialForm
 
             if (eyeXWinForm.closeApp)
             {
+                releaseEyeTracker();
+                eyeXWinForm.Dispose();
+                eyeXWinForm = null;
                 this.Close();
                 return;
             }
@@ -194,6 +203,9 @@ namespace LookAndPlayForm.InitialForm
 
             if (selectionTestForm.closeApp)
             {
+                releaseEyeTracker();
+                selectionTestForm.Dispose();
+                selectionTestForm = null;
                 this.Close();
                 return;
             }
@@ -211,6 +223,9 @@ namespace LookAndPlayForm.InitialForm
 
                     if(configurationReadingForm.closeApp)
                     {
+                        releaseEyeTracker();
+                        configurationReadingForm.Dispose();
+                        configurationReadingForm = null;
                         this.Close();
                         return;
                     }
@@ -224,6 +239,9 @@ namespace LookAndPlayForm.InitialForm
 
                     if(instructionReadingForm.closeApp)
                     {
+                        releaseEyeTracker();
+                        instructionReadingForm.Dispose();
+                        instructionReadingForm = null;
                         this.Close();
                         return;
                     }
@@ -237,9 +255,13 @@ namespace LookAndPlayForm.InitialForm
 
                     if (game1.closeApp)
                     {
+                        game1.Dispose();
+                        game1 = null;
+                        releaseEyeTracker();
                         this.Close();
                         return;
                     }
+
                     game1.Dispose();
                     game1 = null;
                     releaseEyeTracker();
@@ -251,7 +273,11 @@ namespace LookAndPlayForm.InitialForm
                     resumenGame1.ShowDialog();
 
                     if (resumenGame1.closeApp)
+                    {
+                        resumenGame1.Dispose();
+                        resumenGame1 = null;
                         this.Close();
+                    }
                     else
                     {
                         resumenGame1.Dispose();
@@ -268,6 +294,9 @@ namespace LookAndPlayForm.InitialForm
 
                     if (instructionPursuit.closeApp)
                     {
+                        releaseEyeTracker();
+                        instructionPursuit.Dispose();
+                        instructionPursuit = null;
                         this.Close();
                         return;
                     }
@@ -281,9 +310,13 @@ namespace LookAndPlayForm.InitialForm
 
                     if (persuit.closeApp)
                     {
+                        persuit.Dispose();
+                        persuit = null;
+                        releaseEyeTracker();
                         this.Close();
                         return;
                     }
+
                     persuit.Dispose();
                     persuit = null;
                     releaseEyeTracker();
@@ -295,7 +328,11 @@ namespace LookAndPlayForm.InitialForm
                     reviewPersuit.ShowDialog();
 
                     if (reviewPersuit.closeApp)
+                    {
+                        reviewPersuit.Dispose();
+                        reviewPersuit = null;
                         this.Close();
+                    }
                     else
                     {
                         reviewPersuit.Dispose();
@@ -304,7 +341,9 @@ namespace LookAndPlayForm.InitialForm
                     }
                     break;
                 default:
-                    MessageBox.Show("Test unknow");
+                    releaseEyeTracker();
+                    MessageBox.Show("Error. Unknow test.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Show();
                     break;
             }
         }
