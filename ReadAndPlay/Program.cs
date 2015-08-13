@@ -29,12 +29,6 @@ namespace LookAndPlayForm
             
             datosCompartidos = new sharedData();
 
-
-            //ClassLogData data2Log = new ClassLogData();
-
-            //data2Log.Date = DateTime.Now.ToString("dd/MM/yyyy");
-            //data2Log.Time_start = DateTime.Now.ToString("HH:mm:ss");
-
             SplashScreen sscreen = new SplashScreen();
             sscreen.ShowDialog();
 
@@ -49,9 +43,6 @@ namespace LookAndPlayForm
             //{
             //    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             //}
-
-            //aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
-
             
             if (institution_engine.institutionsList != null || fInstitution.ShowDialog() == DialogResult.OK)
             {
@@ -62,76 +53,6 @@ namespace LookAndPlayForm
                 HomeFormEngine homeFormEngine = new HomeFormEngine();
                 HomeForm homeForm = new HomeForm(homeFormEngine);
                 Application.Run(homeForm);
-
-                //tester_class_engine tester_engine = new tester_class_engine();
-                //FormTesterID fTester = new FormTesterID(tester_engine);
-
-                //if (fTester.ShowDialog() == DialogResult.OK)
-                //{
-                //    fTester.updateCsv();
-                //    aws_class_engine.UpdateTestersFile(institution_engine.institutionsList[0].institution_name);
-
-                //    FormPatientID formPatientID = new FormPatientID(institution_engine.institutionsList[0].institution_name);
-
-                //    if (formPatientID.ShowDialog() == DialogResult.OK)
-                //    {
-                //        formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
-                //        aws_class_engine.UpdateUsersFile(institution_engine.institutionsList[0].institution_name);
-
-                //        datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
-
-                //        ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
-
-                //        //si es no es un usuario nuevo o 
-                //        //(si es un usuario nuevo y acepta las clausulas)
-                //        if (!formPatientID.newUser ||
-                //                (formPatientID.newUser && formularioConsentimiento.ShowDialog() == DialogResult.OK))
-                //        {
-
-                //            FormSelectionTest selectionTestForm = new FormSelectionTest();
-
-                //            if (selectionTestForm.ShowDialog() == DialogResult.OK)
-                //            {
-                //                try
-                //                {
-                //                    using (_eyeTrackingEngine = new EyeTrackingEngine())
-                //                    {
-
-                //                        EyeXWinForm eyeXWinForm = new EyeXWinForm(_eyeTrackingEngine, institution_engine);
-                //                        eyeXWinForm.ShowDialog();
-                //                        //Application.Run(new EyeXWinForm(_eyeTrackingEngine, institution_engine));
-                //                        //eyeXWinForm.Dispose();
-
-                //                        data2Log.Time_end = DateTime.Now.ToString("HH:mm:ss");
-                //                        data2Log.Tester = fTester.testerDataSelected.tester_name;
-                //                        data2Log.Patient = formPatientID.patientDataSelected.user_name;
-                //                        data2Log.testDone = Program.datosCompartidos.testSelected.ToString();
-                //                        data2Log.number_of_screening_done = datosCompartidos.number_of_screening_done;
-                //                        data2Log.AssemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-                //                        ClassLogEngine.Log(data2Log);
-
-                //                        aws_class_engine.UpdateLogFile(institution_engine.institutionsList[0].institution_name);
-
-                //                    }
-                //                }
-
-                //                catch (EyeTrackerException ex)
-                //                {
-                //                    MessageBox.Show(ex.Message, "Failed loading application!");
-                //                    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                //                }
-                //                catch (Exception ex)
-                //                {
-                //                    MessageBox.Show(ex.ToString(), "Error!");
-                //                    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                //                }
-
-                //                aws_class_engine.UpdateErrorFile(institution_engine.institutionsList[0].institution_name);
-                //            }
-                //        }
-                //    }
-                //}
             }
         }
 

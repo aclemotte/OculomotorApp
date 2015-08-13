@@ -36,39 +36,52 @@ namespace LookAndPlayForm.InitialForm
             data2Log.Time_start = DateTime.Now.ToString("HH:mm:ss");
         }
 
+
+
+
+
+        //review test
         private void buttonReviewTest_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            string selectedPath = selectionOfFolder();
-            testType testType = checkTipoTest(selectedPath);
-
-            switch(testType)
+            try
             {
-                case LookAndPlayForm.testType.reading:
+                this.Hide();
 
-                    Resumen.Resumen resumenGame1 = new Resumen.Resumen(false, true, selectedPath);
-                    resumenGame1.ShowDialog();
+                string selectedPath = selectionOfFolder();
+                testType testType = checkTipoTest(selectedPath);
 
-                    if (resumenGame1.closeApp)
-                        this.Close();
-                    else
-                        this.Show();
-                    break;
-                case LookAndPlayForm.testType.persuit:
+                switch (testType)
+                {
+                    case LookAndPlayForm.testType.reading:
 
-                    ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(false, true, selectedPath);
-                    reviewPersuit.ShowDialog();
+                        Resumen.Resumen resumenGame1 = new Resumen.Resumen(false, true, selectedPath);
+                        resumenGame1.ShowDialog();
 
-                    if (reviewPersuit.closeApp)
-                        this.Close();
-                    else
-                        this.Show();
-                    break;
-                default:
-                    MessageBox.Show("Error. Test type not identified.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
+                        if (resumenGame1.closeApp)
+                            this.Close();
+                        else
+                            this.Show();
+                        break;
+                    case LookAndPlayForm.testType.persuit:
 
+                        ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(false, true, selectedPath);
+                        reviewPersuit.ShowDialog();
+
+                        if (reviewPersuit.closeApp)
+                            this.Close();
+                        else
+                            this.Show();
+                        break;
+                    default:
+                        MessageBox.Show("Error. Test type not identified.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+
+                }
+            }
+            catch(Exception ex)
+            {
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                this.Close();
             }
         }
 
@@ -116,250 +129,258 @@ namespace LookAndPlayForm.InitialForm
 
 
 
-
+        //new test
         private void buttonNewTest_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-
-            //tester search
-            tester_class_engine tester_engine = new tester_class_engine();
-            FormTesterID fTester = new FormTesterID(tester_engine);
-            fTester.ShowDialog();
-
-            if (fTester.closeApp)
+            try
             {
-                fTester.Dispose();
-                fTester = null;
-                this.Close();
-                return;
-            }
+                this.Hide();
 
-            fTester.updateCsv();
-            aws_class_engine.UpdateTestersFile(Program.datosCompartidos.institutionName);
-            data2Log.Tester = fTester.testerDataSelected.tester_name;
-            fTester.Dispose();
-            fTester = null;
 
-            //patient search
-            FormPatientID formPatientID = new FormPatientID(Program.datosCompartidos.institutionName);
-            formPatientID.ShowDialog();
+                //tester search
+                tester_class_engine tester_engine = new tester_class_engine();
+                FormTesterID fTester = new FormTesterID(tester_engine);
+                fTester.ShowDialog();
 
-            if (formPatientID.closeApp)
-            {
-                formPatientID.Dispose();
-                formPatientID = null;
-                this.Close();
-                return;
-            }
-
-            if (formPatientID.newUser)
-            {
-                //nuevo patient
-                ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
-                formularioConsentimiento.ShowDialog();
-
-                if (formularioConsentimiento.closeApp)
+                if (fTester.closeApp)
                 {
-                    formularioConsentimiento.Dispose();
-                    formularioConsentimiento = null;
-                    this.Close();//no acepto las condiciones
+                    fTester.Dispose();
+                    fTester = null;
+                    this.Close();
                     return;
                 }
-                else
-                {                //si acepto las condiciones
-                    formularioConsentimiento.Dispose();
-                    formularioConsentimiento = null;
+
+                fTester.updateCsv();
+                aws_class_engine.UpdateTestersFile(Program.datosCompartidos.institutionName);
+                data2Log.Tester = fTester.testerDataSelected.tester_name;
+                fTester.Dispose();
+                fTester = null;
+
+                //patient search
+                FormPatientID formPatientID = new FormPatientID(Program.datosCompartidos.institutionName);
+                formPatientID.ShowDialog();
+
+                if (formPatientID.closeApp)
+                {
+                    formPatientID.Dispose();
+                    formPatientID = null;
+                    this.Close();
+                    return;
                 }
-            }
 
-            formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
-            aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
-            data2Log.Patient = formPatientID.patientDataSelected.user_name;
-            Program.datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
+                if (formPatientID.newUser)
+                {
+                    //nuevo patient
+                    ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
+                    formularioConsentimiento.ShowDialog();
 
-            formPatientID.Dispose();
-            formPatientID = null;
+                    if (formularioConsentimiento.closeApp)
+                    {
+                        formularioConsentimiento.Dispose();
+                        formularioConsentimiento = null;
+                        this.Close();//no acepto las condiciones
+                        return;
+                    }
+                    else
+                    {                //si acepto las condiciones
+                        formularioConsentimiento.Dispose();
+                        formularioConsentimiento = null;
+                    }
+                }
 
-            //user position
-            Program.eyeTrackingEngine = new EyeTrackingEngine();
-            EyeXWinForm eyeXWinForm = new EyeXWinForm(Program.eyeTrackingEngine);
-            eyeXWinForm.ShowDialog();
+                formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
+                aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
+                data2Log.Patient = formPatientID.patientDataSelected.user_name;
+                Program.datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
 
-            if (eyeXWinForm.closeApp)
-            {
-                releaseEyeTracker();
+                formPatientID.Dispose();
+                formPatientID = null;
+
+                //user position
+                Program.eyeTrackingEngine = new EyeTrackingEngine();
+                EyeXWinForm eyeXWinForm = new EyeXWinForm(Program.eyeTrackingEngine);
+                eyeXWinForm.ShowDialog();
+
+                if (eyeXWinForm.closeApp)
+                {
+                    releaseEyeTracker();
+                    eyeXWinForm.Dispose();
+                    eyeXWinForm = null;
+                    this.Close();
+                    return;
+                }
+
                 eyeXWinForm.Dispose();
                 eyeXWinForm = null;
-                this.Close();
-                return;
-            }
 
-            eyeXWinForm.Dispose();
-            eyeXWinForm = null;
+                //test selection
+                FormSelectionTest selectionTestForm = new FormSelectionTest();
+                selectionTestForm.ShowDialog();
 
-            //test selection
-            FormSelectionTest selectionTestForm = new FormSelectionTest();
-            selectionTestForm.ShowDialog();
+                if (selectionTestForm.closeApp)
+                {
+                    releaseEyeTracker();
+                    selectionTestForm.Dispose();
+                    selectionTestForm = null;
+                    this.Close();
+                    return;
+                }
 
-            if (selectionTestForm.closeApp)
-            {
-                releaseEyeTracker();
                 selectionTestForm.Dispose();
                 selectionTestForm = null;
-                this.Close();
-                return;
-            }
 
-            selectionTestForm.Dispose();
-            selectionTestForm = null;
+                switch (Program.datosCompartidos.testSelected)
+                {
+                    case testType.reading:
 
-            switch (Program.datosCompartidos.testSelected)
-            {
-                case testType.reading:
+                        //configuration reading test
+                        ConfigurationReadingForm.ConfigurationReadingForm configurationReadingForm = new ConfigurationReadingForm.ConfigurationReadingForm();
+                        configurationReadingForm.ShowDialog();
 
-                    //configuration reading test
-                    ConfigurationReadingForm.ConfigurationReadingForm configurationReadingForm = new ConfigurationReadingForm.ConfigurationReadingForm();
-                    configurationReadingForm.ShowDialog();
+                        if (configurationReadingForm.closeApp)
+                        {
+                            releaseEyeTracker();
+                            configurationReadingForm.Dispose();
+                            configurationReadingForm = null;
+                            this.Close();
+                            return;
+                        }
 
-                    if(configurationReadingForm.closeApp)
-                    {
-                        releaseEyeTracker();
                         configurationReadingForm.Dispose();
                         configurationReadingForm = null;
-                        this.Close();
-                        return;
-                    }
 
-                    configurationReadingForm.Dispose();
-                    configurationReadingForm = null;
-                    
-                    //instruction reading test
-                    InstructionReadingForm.InstructionReadingForm instructionReadingForm = new InstructionReadingForm.InstructionReadingForm();
-                    instructionReadingForm.ShowDialog();
+                        //instruction reading test
+                        InstructionReadingForm.InstructionReadingForm instructionReadingForm = new InstructionReadingForm.InstructionReadingForm();
+                        instructionReadingForm.ShowDialog();
 
-                    if(instructionReadingForm.closeApp)
-                    {
-                        releaseEyeTracker();
+                        if (instructionReadingForm.closeApp)
+                        {
+                            releaseEyeTracker();
+                            instructionReadingForm.Dispose();
+                            instructionReadingForm = null;
+                            this.Close();
+                            return;
+                        }
+
                         instructionReadingForm.Dispose();
                         instructionReadingForm = null;
-                        this.Close();
-                        return;
-                    }
 
-                    instructionReadingForm.Dispose();
-                    instructionReadingForm = null;
+                        //test reading
+                        Game1 game1 = new Game1();
+                        game1.ShowDialog();
 
-                    //test reading
-                    Game1 game1 = new Game1();
-                    game1.ShowDialog();
+                        if (game1.closeApp)
+                        {
+                            game1.Dispose();
+                            game1 = null;
+                            releaseEyeTracker();
+                            this.Close();
+                            return;
+                        }
 
-                    if (game1.closeApp)
-                    {
                         game1.Dispose();
                         game1 = null;
                         releaseEyeTracker();
-                        this.Close();
-                        return;
-                    }
 
-                    game1.Dispose();
-                    game1 = null;
-                    releaseEyeTracker();
-
-                    if (Program.datosCompartidos.no_se_cancelo_el_test)
-                    {
-                        saveData();
-
-                        //review reading test
-                        Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
-                        resumenGame1.ShowDialog();
-
-                        if (resumenGame1.closeApp)
+                        if (Program.datosCompartidos.no_se_cancelo_el_test)
                         {
-                            resumenGame1.Dispose();
-                            resumenGame1 = null;
-                            this.Close();
+                            saveData();
+
+                            //review reading test
+                            Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
+                            resumenGame1.ShowDialog();
+
+                            if (resumenGame1.closeApp)
+                            {
+                                resumenGame1.Dispose();
+                                resumenGame1 = null;
+                                this.Close();
+                            }
+                            else
+                            {
+                                resumenGame1.Dispose();
+                                resumenGame1 = null;
+                                this.Show();
+                            }
                         }
                         else
                         {
-                            resumenGame1.Dispose();
-                            resumenGame1 = null;
                             this.Show();
                         }
-                    }
-                    else
-                    {
-                        this.Show();
-                    }
-                    break;
+                        break;
 
-                case testType.persuit:
+                    case testType.persuit:
 
-                    //instruction pursuit test
-                    InstructionPursuitForm.InstructionPursuit instructionPursuit = new InstructionPursuitForm.InstructionPursuit();
-                    instructionPursuit.ShowDialog();
+                        //instruction pursuit test
+                        InstructionPursuitForm.InstructionPursuit instructionPursuit = new InstructionPursuitForm.InstructionPursuit();
+                        instructionPursuit.ShowDialog();
 
-                    if (instructionPursuit.closeApp)
-                    {
-                        releaseEyeTracker();
+                        if (instructionPursuit.closeApp)
+                        {
+                            releaseEyeTracker();
+                            instructionPursuit.Dispose();
+                            instructionPursuit = null;
+                            this.Close();
+                            return;
+                        }
+
                         instructionPursuit.Dispose();
                         instructionPursuit = null;
-                        this.Close();
-                        return;
-                    }
 
-                    instructionPursuit.Dispose();
-                    instructionPursuit = null;
+                        //test pursuit
+                        StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
+                        persuit.ShowDialog();
 
-                    //test pursuit
-                    StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
-                    persuit.ShowDialog();
+                        if (persuit.closeApp)
+                        {
+                            persuit.Dispose();
+                            persuit = null;
+                            releaseEyeTracker();
+                            this.Close();
+                            return;
+                        }
 
-                    if (persuit.closeApp)
-                    {
                         persuit.Dispose();
                         persuit = null;
                         releaseEyeTracker();
-                        this.Close();
-                        return;
-                    }
 
-                    persuit.Dispose();
-                    persuit = null;
-                    releaseEyeTracker();
-
-                    if (Program.datosCompartidos.no_se_cancelo_el_test)
-                    {
-                        saveData();
-
-                        //review pursuit test
-                        ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
-                        reviewPersuit.ShowDialog();
-
-                        if (reviewPersuit.closeApp)
+                        if (Program.datosCompartidos.no_se_cancelo_el_test)
                         {
-                            reviewPersuit.Dispose();
-                            reviewPersuit = null;
-                            this.Close();
+                            saveData();
+
+                            //review pursuit test
+                            ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
+                            reviewPersuit.ShowDialog();
+
+                            if (reviewPersuit.closeApp)
+                            {
+                                reviewPersuit.Dispose();
+                                reviewPersuit = null;
+                                this.Close();
+                            }
+                            else
+                            {
+                                reviewPersuit.Dispose();
+                                reviewPersuit = null;
+                                this.Show();
+                            }
                         }
                         else
                         {
-                            reviewPersuit.Dispose();
-                            reviewPersuit = null;
                             this.Show();
                         }
-                    }
-                    else
-                    {
+                        break;
+                    default:
+                        releaseEyeTracker();
+                        MessageBox.Show("Error. Unknow test.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.Show();
-                    }
-                    break;
-                default:
-                    releaseEyeTracker();
-                    MessageBox.Show("Error. Unknow test.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Show();
-                    break;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                this.Close();
             }
         }
 
@@ -390,6 +411,16 @@ namespace LookAndPlayForm.InitialForm
             Program.datosCompartidos.number_of_screening_done++;
         }
 
+
+
+
+        //cerrando app      
+        private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            updateLogFile();
+            aws_class_engine.UpdateErrorFile(Program.datosCompartidos.institutionName);
+        }
+
         private void updateLogFile()
         {
             data2Log.Time_end = DateTime.Now.ToString("HH:mm:ss");
@@ -400,11 +431,6 @@ namespace LookAndPlayForm.InitialForm
             ClassLogEngine.Log(data2Log);
 
             aws_class_engine.UpdateLogFile(Program.datosCompartidos.institutionName);
-        }
-
-        private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            updateLogFile();
         }
     }
 }
