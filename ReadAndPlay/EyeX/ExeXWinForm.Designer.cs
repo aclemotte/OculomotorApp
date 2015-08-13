@@ -176,6 +176,7 @@ namespace LookAndPlayForm
             this.Name = "EyeXWinForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calibration and positioning window";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EyeXWinForm_FormClosing);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

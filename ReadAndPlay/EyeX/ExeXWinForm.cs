@@ -112,9 +112,7 @@ namespace LookAndPlayForm
             if (eyeTrackingEngine.State == EyeTrackingState.Tracking)       
             {
                 Program.datosCompartidos.getNewTime();
-
-                eyeTrackingEngine.GazePoint -= this.GazePoint;
-                eyeTrackingEngine.OnGetCalibrationCompletedEvent -= this.OnGetCalibrationCompleted;
+                unHookEvents();
 
                 closeApp = false;
                 this.Hide();
@@ -139,6 +137,11 @@ namespace LookAndPlayForm
                 MessageBox.Show("Eye tracker not connected", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private void unHookEvents()
+        {
+            eyeTrackingEngine.GazePoint -= this.GazePoint;
+            eyeTrackingEngine.OnGetCalibrationCompletedEvent -= this.OnGetCalibrationCompleted;
+        }
         	
         //protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         //{
@@ -265,6 +268,11 @@ namespace LookAndPlayForm
                 Program.datosCompartidos.meanCalibrationErrorLeftPx.ToString() +
                 ". Right: " +
                 Program.datosCompartidos.meanCalibrationErrorRightPx.ToString();
+        }
+
+        private void EyeXWinForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            unHookEvents();
         }
 
         //private void buttonViewCalibration_Click(object sender, EventArgs e)

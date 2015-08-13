@@ -57,5 +57,15 @@ namespace LookAndPlayForm.Comments
         {
             commentsDone = true;
         }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDiscard_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
