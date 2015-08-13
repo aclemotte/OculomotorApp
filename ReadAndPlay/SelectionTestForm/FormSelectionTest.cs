@@ -17,12 +17,8 @@ namespace LookAndPlayForm.SelectTest
         public FormSelectionTest()
         {
             InitializeComponent();
-
-            closeApp = true;
-
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-            //testSelected = testType.reading;
+            closeApp = true;
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
@@ -32,40 +28,14 @@ namespace LookAndPlayForm.SelectTest
                Program.datosCompartidos.testSelected = testType.persuit;
                closeApp = false;
             }
-            else if (radioButtonOutloudReading.Checked && camposCorrectamenteCompletados())
+            else if (radioButtonReading.Checked )
             {
                 Program.datosCompartidos.testSelected = testType.reading;
-                Program.datosCompartidos.readingTestTypeSelected = readingTestType.readingOutloud;
-                closeApp = false;
-            }
-            else if(radioButtonSilentReading.Checked && camposCorrectamenteCompletados())
-            {
-                Program.datosCompartidos.testSelected = testType.reading;
-                Program.datosCompartidos.readingTestTypeSelected = readingTestType.readingSilent;
                 closeApp = false;
             }
             else
                 this.DialogResult = DialogResult.None;
 
-        }
-
-        private bool camposCorrectamenteCompletados()
-        {
-            if (comboBoxSampleText.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a sample text", "Empty field", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-                return true;
-        }
-
-        private void comboBoxSampleText_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (comboBoxSampleText.SelectedIndex != -1)
-            {
-                Program.datosCompartidos.image2read = comboBoxSampleText.SelectedItem.ToString();
-            }
         }
     }
 }

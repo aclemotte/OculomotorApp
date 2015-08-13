@@ -205,6 +205,19 @@ namespace LookAndPlayForm.InitialForm
             {
                 case testType.reading:
 
+                    //configuration reading test
+                    ConfigurationReadingForm.ConfigurationReadingForm configurationReadingForm = new ConfigurationReadingForm.ConfigurationReadingForm();
+                    configurationReadingForm.ShowDialog();
+
+                    if(configurationReadingForm.closeApp)
+                    {
+                        this.Close();
+                        return;
+                    }
+
+                    configurationReadingForm.Dispose();
+                    configurationReadingForm = null;
+                    
                     //instruction reading test
                     InstructionReadingForm.InstructionReadingForm instructionReadingForm = new InstructionReadingForm.InstructionReadingForm();
                     instructionReadingForm.ShowDialog();

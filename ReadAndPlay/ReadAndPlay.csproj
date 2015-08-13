@@ -122,6 +122,12 @@
     <Compile Include="CommentsForm\CommentsForm.Designer.cs">
       <DependentUpon>CommentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfigurationReadingForm\ConfigurationReadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigurationReadingForm\ConfigurationReadingForm.Designer.cs">
+      <DependentUpon>ConfigurationReadingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsentForm\consentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,9 @@
     <EmbeddedResource Include="CommentsForm\CommentsForm.resx">
       <DependentUpon>CommentsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConfigurationReadingForm\ConfigurationReadingForm.resx">
+      <DependentUpon>ConfigurationReadingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsentForm\consentForm.resx">
       <DependentUpon>consentForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -444,7 +453,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ConfigurationReadingForm\" />
     <Folder Include="PatientSeachForm\" />
     <Folder Include="TesterNewForm\" />
   </ItemGroup>
