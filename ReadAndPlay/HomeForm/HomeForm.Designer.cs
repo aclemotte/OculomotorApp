@@ -33,6 +33,7 @@
             this.buttonReviewTest = new System.Windows.Forms.Button();
             this.labelOptions = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonNewTest
@@ -77,11 +78,25 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Welcome to Oculomotor App!";
             // 
+            // labelVersion
+            // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelVersion.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.labelVersion.Location = new System.Drawing.Point(12, 236);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(42, 13);
+            this.labelVersion.TabIndex = 10;
+            this.labelVersion.Text = "Version";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 293);
+            this.ClientSize = new System.Drawing.Size(428, 258);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelOptions);
             this.Controls.Add(this.buttonReviewTest);
@@ -102,5 +117,6 @@
         private System.Windows.Forms.Button buttonReviewTest;
         private System.Windows.Forms.Label labelOptions;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelVersion;
     }
 }

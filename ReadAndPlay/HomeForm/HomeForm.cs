@@ -27,6 +27,7 @@ namespace LookAndPlayForm.InitialForm
         public HomeForm(HomeFormEngine initial_engine)
         {
             InitializeComponent();
+            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             this.initial_engine = initial_engine;
 
