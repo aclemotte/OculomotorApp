@@ -283,8 +283,8 @@
       <DependentUpon>ReviewReading.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="TesterLoginForm\tester_class_data.cs" />
-    <Compile Include="TesterLoginForm\tester_class_engine.cs" />
+    <Compile Include="TesterLoginForm\TesterLoginEngineData.cs" />
+    <Compile Include="TesterLoginForm\TesterLoginEngine.cs" />
     <Compile Include="AWS\AwsCredentials.cs" />
     <Compile Include="TestPersuit\StimuloPersuitSetup.cs" />
     <Compile Include="TestReading\StimuloReadingSetup.cs" />

@@ -1,6 +1,6 @@
 ﻿namespace LookAndPlayForm.TesterID
 {
-    partial class FormTesterID
+    partial class TesterLoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTesterID));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TesterLoginForm));
             this.labelTesterName = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
             this.textBoxTesterName = new System.Windows.Forms.TextBox();
@@ -144,7 +144,7 @@
             this.buttonNewTester.UseVisualStyleBackColor = true;
             this.buttonNewTester.Click += new System.EventHandler(this.buttonNewTester_Click);
             // 
-            // FormTesterID
+            // TesterLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -160,7 +160,7 @@
             this.Controls.Add(this.labelTesterName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "FormTesterID";
+            this.Name = "TesterLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tester Login";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTesterID)).EndInit();

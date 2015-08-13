@@ -9,29 +9,25 @@ using System.Windows.Forms;
 
 namespace LookAndPlayForm.TesterID
 {
-    public partial class FormTesterID : Form
+    public partial class TesterLoginForm : Form
     {
 
-        public tester_class_data testerDataSelected { get; set; }
+        public TesterLoginEngineData testerDataSelected { get; set; }
         public bool newUser { get; set; }
 
-        private tester_class_engine tester_engine;
+        private TesterLoginEngine tester_engine;
 
         public bool closeApp { get; set; }
 
 
 
 
-        public FormTesterID(tester_class_engine tester_engine)
+        public TesterLoginForm(TesterLoginEngine tester_engine)
         {
             InitializeComponent();
-            
-            closeApp = true;
-
-            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
+            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();            
             this.tester_engine = tester_engine;
-
+            closeApp = true;
             testers2Form();
         }
 
@@ -73,7 +69,7 @@ namespace LookAndPlayForm.TesterID
         {
             if (camposCorrectamenteCompletados())
             {
-                testerDataSelected = new tester_class_data();
+                testerDataSelected = new TesterLoginEngineData();
                 testerDataSelected.tester_id = numericUpDownTesterID.Value.ToString();
                 testerDataSelected.tester_name = textBoxTesterName.Text;
                 closeApp = false;

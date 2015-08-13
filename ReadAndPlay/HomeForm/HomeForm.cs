@@ -138,8 +138,8 @@ namespace LookAndPlayForm.InitialForm
 
 
                 //tester search
-                tester_class_engine tester_engine = new tester_class_engine();
-                FormTesterID fTester = new FormTesterID(tester_engine);
+                TesterLoginEngine tester_engine = new TesterLoginEngine();
+                TesterLoginForm fTester = new TesterLoginForm(tester_engine);
                 fTester.ShowDialog();
 
                 if (fTester.closeApp)

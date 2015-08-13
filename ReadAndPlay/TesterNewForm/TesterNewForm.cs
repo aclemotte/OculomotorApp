@@ -12,7 +12,7 @@ namespace LookAndPlayForm.TesterNewForm
 {
     public partial class TesterNewForm : Form
     {
-        public tester_class_data patientDataSelected { get; set; } 
+        public TesterLoginEngineData patientDataSelected { get; set; } 
         public bool newUser { get; set; }
 
 
@@ -36,7 +36,7 @@ namespace LookAndPlayForm.TesterNewForm
         {
             if (camposCorrectamenteCompletados())
             {
-                patientDataSelected = new tester_class_data();
+                patientDataSelected = new TesterLoginEngineData();
                 patientDataSelected.tester_id = numericUpDownUserID.Value.ToString();
                 patientDataSelected.tester_name = textBoxUserName.Text;
                 newUser = true;

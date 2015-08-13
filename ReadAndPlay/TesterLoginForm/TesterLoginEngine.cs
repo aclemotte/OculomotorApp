@@ -8,23 +8,23 @@ using CsvHelper;
 
 namespace LookAndPlayForm.TesterID
 {
-    public class tester_class_engine
+    public class TesterLoginEngine
     {
         private string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
         
-        public List<tester_class_data> testersList { get; set; }
+        public List<TesterLoginEngineData> testersList { get; set; }
         
 
 
 
 
-        public tester_class_engine()
+        public TesterLoginEngine()
         {
             bool rootFolder = rootFolderExist();
             bool userFile = testersFileExist(rootFolder);
         }
 
-        public void updateCsv(NumericUpDown numericUpDownTesterID, tester_class_data testerDataSelected)
+        public void updateCsv(NumericUpDown numericUpDownTesterID, TesterLoginEngineData testerDataSelected)
         {
             if (testersList != null)
             {
@@ -44,7 +44,7 @@ namespace LookAndPlayForm.TesterID
             }
             else
             {
-                testersList = new List<tester_class_data>();
+                testersList = new List<TesterLoginEngineData>();
                 testersList.Add(testerDataSelected);
 
                 using (var sw = new StreamWriter(rootPath + @"testers.csv"))
@@ -69,7 +69,7 @@ namespace LookAndPlayForm.TesterID
                     var reader1 = new CsvReader(sr1);
                     try
                     {
-                        testersList = reader1.GetRecords<tester_class_data>().ToList();
+                        testersList = reader1.GetRecords<TesterLoginEngineData>().ToList();
                         return true;
                     }
                     catch (Exception ex)

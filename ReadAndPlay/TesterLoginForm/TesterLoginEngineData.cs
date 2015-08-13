@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LookAndPlayForm.TesterID
 {
-    public class tester_class_data
+    public class TesterLoginEngineData
     {
         public string tester_id { get; set; }
         public string tester_name { get; set; }
