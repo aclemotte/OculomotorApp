@@ -38,7 +38,7 @@
             // buttonNewTest
             // 
             this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewTest.Location = new System.Drawing.Point(103, 140);
+            this.buttonNewTest.Location = new System.Drawing.Point(96, 116);
             this.buttonNewTest.Name = "buttonNewTest";
             this.buttonNewTest.Size = new System.Drawing.Size(213, 35);
             this.buttonNewTest.TabIndex = 0;
@@ -49,7 +49,7 @@
             // buttonReviewTest
             // 
             this.buttonReviewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReviewTest.Location = new System.Drawing.Point(103, 190);
+            this.buttonReviewTest.Location = new System.Drawing.Point(96, 166);
             this.buttonReviewTest.Name = "buttonReviewTest";
             this.buttonReviewTest.Size = new System.Drawing.Size(213, 35);
             this.buttonReviewTest.TabIndex = 1;
@@ -71,11 +71,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(84, 20);
+            this.label1.Location = new System.Drawing.Point(70, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 24);
+            this.label1.Size = new System.Drawing.Size(260, 24);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Welcome to Reading App!";
+            this.label1.Text = "Welcome to Oculomotor App!";
             // 
             // HomeForm
             // 
