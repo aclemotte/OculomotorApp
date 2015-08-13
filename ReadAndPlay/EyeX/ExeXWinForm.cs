@@ -264,7 +264,7 @@ namespace LookAndPlayForm
         private void OnGetCalibrationCompleted(object sender, CalibrationReadyEventArgs e)
         {
             toolStripStatusLabelCalibration.Text = 
-                "Calibration value. Left: " + 
+                "Last calibration value. Left: " + 
                 Program.datosCompartidos.meanCalibrationErrorLeftPx.ToString() +
                 ". Right: " +
                 Program.datosCompartidos.meanCalibrationErrorRightPx.ToString();
