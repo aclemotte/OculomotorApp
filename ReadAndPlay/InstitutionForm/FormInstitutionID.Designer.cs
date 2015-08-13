@@ -87,7 +87,7 @@
             this.MaximizeBox = false;
             this.Name = "FormInstitutionID";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Institution Window";
+            this.Text = "Institution Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
