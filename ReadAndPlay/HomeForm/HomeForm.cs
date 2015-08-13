@@ -124,138 +124,151 @@ namespace LookAndPlayForm.InitialForm
             FormTesterID fTester = new FormTesterID(tester_engine);
             fTester.ShowDialog();
 
-            if(fTester.closeApp)
-                this.Close();
-            else
+            if (fTester.closeApp)
             {
+                this.Close();
+                return;
+            }
 
-                fTester.updateCsv();
-                aws_class_engine.UpdateTestersFile(Program.datosCompartidos.institutionName);
-                data2Log.Tester = fTester.testerDataSelected.tester_name;
-                fTester.Dispose();
-                fTester = null;
+            fTester.updateCsv();
+            aws_class_engine.UpdateTestersFile(Program.datosCompartidos.institutionName);
+            data2Log.Tester = fTester.testerDataSelected.tester_name;
+            fTester.Dispose();
+            fTester = null;
 
-                FormPatientID formPatientID = new FormPatientID(Program.datosCompartidos.institutionName);
-                formPatientID.ShowDialog();
+            FormPatientID formPatientID = new FormPatientID(Program.datosCompartidos.institutionName);
+            formPatientID.ShowDialog();
 
-                if (formPatientID.closeApp)
-                    this.Close();
-                else
+            if (formPatientID.closeApp)
+            {
+                this.Close();
+                return;
+            }
+
+            if (formPatientID.newUser)
+            {
+                ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
+                formularioConsentimiento.ShowDialog();
+
+                if (formularioConsentimiento.closeApp)
                 {
-                    if(formPatientID.newUser)
-                    {
-                        ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
-                        formularioConsentimiento.ShowDialog();
+                    this.Close();//no acepto las condiciones
+                    return;
+                }
+                else
+                {                //si acepto las condiciones
+                    formularioConsentimiento.Dispose();
+                    formularioConsentimiento = null;
+                }
+            }
 
-                        if (formularioConsentimiento.closeApp)
+            formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
+            aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
+            data2Log.Patient = formPatientID.patientDataSelected.user_name;
+            Program.datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
+
+            formPatientID.Dispose();
+            formPatientID = null;
+
+            FormSelectionTest selectionTestForm = new FormSelectionTest();
+            selectionTestForm.ShowDialog();
+
+            //cambiar: primero user position dsp seleccion del test
+            if (selectionTestForm.closeApp)
+            {
+                this.Close();
+                return;
+            }
+
+            selectionTestForm.Dispose();
+            selectionTestForm = null;
+
+            Program.eyeTrackingEngine = new EyeTrackingEngine();
+
+            EyeXWinForm eyeXWinForm = new EyeXWinForm(Program.eyeTrackingEngine);
+            eyeXWinForm.ShowDialog();
+
+            if (eyeXWinForm.closeApp)
+            {
+                this.Close();
+                return;
+            }
+
+            eyeXWinForm.Dispose();
+            eyeXWinForm = null;
+
+            //se supone que esta conectado el tracker, sino no llegaria hasta aca xq se quedaria en eyeXWinForm.ShowDialog();
+            //if (Program.eyeTrackingEngine.State == EyeTrackingState.Tracking)
+            //{
+                switch (Program.datosCompartidos.testSelected)
+                {
+                    case testType.reading:
+
+                        Game1 game1 = new Game1();
+                        game1.ShowDialog();
+
+                        if (game1.closeApp)
                         {
-                            this.Close();//no acepto las condiciones
+                            this.Close();
                             return;
                         }
+                        game1.Dispose();
+                        game1 = null;
+                        releaseEyeTracker();
+
+                        saveData();
+
+                        Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
+                        resumenGame1.ShowDialog();
+
+                        if (resumenGame1.closeApp)
+                            this.Close();
                         else
-                        {                //si acepto las condiciones
-                            formularioConsentimiento.Dispose();
-                            formularioConsentimiento = null;
-                        }
-                    }
-
-                    formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
-                    aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
-                    data2Log.Patient = formPatientID.patientDataSelected.user_name;
-                    Program.datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
-
-                    formPatientID.Dispose();
-                    formPatientID = null;
-
-                    FormSelectionTest selectionTestForm = new FormSelectionTest();
-                    selectionTestForm.ShowDialog();
-
-                    //cambiar: primero user position dsp seleccion del test
-                    if (selectionTestForm.closeApp)
-                    {
-                        this.Close();
-                    }
-                    else
-                    {
-                        selectionTestForm.Dispose();
-                        selectionTestForm = null;
-
-                        using (Program.eyeTrackingEngine = new EyeTrackingEngine())
                         {
-
-                            EyeXWinForm eyeXWinForm = new EyeXWinForm(Program.eyeTrackingEngine);
-                            eyeXWinForm.ShowDialog();
-
-                            if (eyeXWinForm.closeApp)
-                                this.Close();
-                            else
-                            {
-                                if (Program.eyeTrackingEngine.State == EyeTrackingState.Tracking)
-                                {
-
-                                    eyeXWinForm.Dispose();
-                                    eyeXWinForm = null;
-
-                                    switch (Program.datosCompartidos.testSelected)
-                                    {
-                                        case testType.reading:
-
-                                            Game1 game1 = new Game1();
-                                            game1.ShowDialog();
-
-                                            if (game1.closeApp)
-                                                this.Close();
-                                            else
-                                            {
-                                                game1.Dispose();
-                                                game1 = null;
-
-                                                saveData();
-
-                                                Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
-                                                resumenGame1.ShowDialog();
-
-                                                if (resumenGame1.closeApp)
-                                                    this.Close();
-                                                else
-                                                    this.Show();
-                                            }
-                                            break;
-
-                                        case testType.persuit:
-                                            StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
-                                            persuit.ShowDialog();
-
-                                            if (persuit.closeApp)
-                                                this.Close();
-                                            else
-                                            {
-                                                persuit.Dispose();
-                                                persuit = null;
-
-                                                saveData();
-
-                                                ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
-                                                reviewPersuit.ShowDialog();
-
-                                                if (reviewPersuit.closeApp)
-                                                    this.Close();
-                                                else
-                                                    this.Show();
-                                            }
-                                            break;
-                                        default:
-                                            MessageBox.Show("Test unknow");
-                                            break;
-                                    }
-                                }
-                                else
-                                    MessageBox.Show("Eye tracker not connected", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            resumenGame1.Dispose();
+                            resumenGame1 = null;
+                            this.Show();
                         }
-                    }                        
-                }                                    
-            }
+                        break;
+
+                    case testType.persuit:
+                        StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
+                        persuit.ShowDialog();
+
+                        if (persuit.closeApp)
+                        {
+                            this.Close();
+                            return;
+                        }
+                        persuit.Dispose();
+                        persuit = null;
+                        releaseEyeTracker();
+
+                        saveData();
+
+                        ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
+                        reviewPersuit.ShowDialog();
+
+                        if (reviewPersuit.closeApp)
+                            this.Close();
+                        else
+                        {
+                            reviewPersuit.Dispose();
+                            reviewPersuit = null;
+                            this.Show();
+                        }
+                        break;
+                    default:
+                        MessageBox.Show("Test unknow");
+                        break;
+                }
+            //}
+        }
+
+        private void releaseEyeTracker()
+        {
+            Program.eyeTrackingEngine.Dispose();
+            Program.eyeTrackingEngine = null;
         }
 
         private void saveData()

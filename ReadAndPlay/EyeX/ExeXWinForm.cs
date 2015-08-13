@@ -109,7 +109,7 @@ namespace LookAndPlayForm
         
         private void buttonNewTest_Click(object sender, EventArgs e)
         {
-            if (eyeTrackingEngine.State == EyeTrackingState.Tracking)       
+            if (eyeTrackingEngine.State == EyeTrackingState.Tracking)
             {
                 Program.datosCompartidos.getNewTime();
                 unHookEvents();
@@ -134,7 +134,12 @@ namespace LookAndPlayForm
 
             }
             else
-                MessageBox.Show("Eye tracker not connected", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                messageEyetrackerNotConnected();
+        }
+
+        private void messageEyetrackerNotConnected()
+        {
+            MessageBox.Show("Eye tracker not connected. Please connect the tracker and re-star the App.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void unHookEvents()
@@ -256,9 +261,16 @@ namespace LookAndPlayForm
         //calibration
         private void buttonCalibrate_Click(object sender, EventArgs e)
         {
-            //buttonCalibrate.Enabled = false;
-            CalibrationWinForm calibrationForm = new CalibrationWinForm(eyeTrackingEngine);
-            calibrationForm.ShowDialog();
+            if (Program.eyeTrackingEngine.State == EyeTrackingState.Tracking)
+            {
+                //buttonCalibrate.Enabled = false;
+                CalibrationWinForm calibrationForm = new CalibrationWinForm(eyeTrackingEngine);
+                calibrationForm.ShowDialog();
+                calibrationForm.Dispose();
+                calibrationForm = null;
+            }
+            else
+                messageEyetrackerNotConnected();
         }
         
         private void OnGetCalibrationCompleted(object sender, CalibrationReadyEventArgs e)
