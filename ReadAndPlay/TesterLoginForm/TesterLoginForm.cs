@@ -122,5 +122,10 @@ namespace LookAndPlayForm.TesterID
             }
         }
 
+        private void buttonNewTester_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

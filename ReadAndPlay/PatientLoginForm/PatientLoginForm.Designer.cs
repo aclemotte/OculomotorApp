@@ -55,7 +55,7 @@
             // 
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(75, 133);
+            this.labelName.Location = new System.Drawing.Point(75, 135);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(61, 24);
             this.labelName.TabIndex = 3;
@@ -65,7 +65,7 @@
             // 
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOk.Location = new System.Drawing.Point(147, 176);
+            this.buttonOk.Location = new System.Drawing.Point(147, 180);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(207, 35);
             this.buttonOk.TabIndex = 1;
@@ -77,7 +77,7 @@
             // textBoxUserName
             // 
             this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserName.Location = new System.Drawing.Point(147, 133);
+            this.textBoxUserName.Location = new System.Drawing.Point(147, 135);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.ReadOnly = true;
             this.textBoxUserName.Size = new System.Drawing.Size(207, 29);
@@ -166,7 +166,7 @@
             this.MaximizeBox = false;
             this.Name = "PatientLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Patient Window";
+            this.Text = "Patient Login";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

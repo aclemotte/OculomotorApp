@@ -221,6 +221,12 @@
     </Compile>
     <Compile Include="PatientNewForm\patient_class_data.cs" />
     <Compile Include="Review\ReviewClass.cs" />
+    <Compile Include="TesterNewForm\TesterNewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TesterNewForm\TesterNewForm.Designer.cs">
+      <DependentUpon>TesterNewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestPersuit\StimuloPersuit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,11 +252,11 @@
     <Compile Include="SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="TesterSeachForm\FormTesterID.cs">
+    <Compile Include="TesterLoginForm\TesterLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TesterSeachForm\FormTesterID.Designer.cs">
-      <DependentUpon>FormTesterID.cs</DependentUpon>
+    <Compile Include="TesterLoginForm\TesterLoginForm.Designer.cs">
+      <DependentUpon>TesterLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -277,8 +283,8 @@
       <DependentUpon>ReviewReading.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="TesterSeachForm\tester_class_data.cs" />
-    <Compile Include="TesterSeachForm\tester_class_engine.cs" />
+    <Compile Include="TesterLoginForm\tester_class_data.cs" />
+    <Compile Include="TesterLoginForm\tester_class_engine.cs" />
     <Compile Include="AWS\AwsCredentials.cs" />
     <Compile Include="TestPersuit\StimuloPersuitSetup.cs" />
     <Compile Include="TestReading\StimuloReadingSetup.cs" />
@@ -378,8 +384,8 @@
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TesterSeachForm\FormTesterID.resx">
-      <DependentUpon>FormTesterID.cs</DependentUpon>
+    <EmbeddedResource Include="TesterLoginForm\TesterLoginForm.resx">
+      <DependentUpon>TesterLoginForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -461,9 +467,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TesterNewForm\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
