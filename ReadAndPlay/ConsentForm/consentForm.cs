@@ -11,14 +11,18 @@ namespace LookAndPlayForm.ConsentForm
 {
     public partial class consentForm : Form
     {
+        public bool closeApp { get; set; }
+
         public consentForm()
         {
             InitializeComponent();
+
+            closeApp = true;
         }
 
         private void buttonAgree_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            closeApp = false;
         }
     }
 }

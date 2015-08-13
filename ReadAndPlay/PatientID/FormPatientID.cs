@@ -450,12 +450,11 @@ namespace LookAndPlayForm
                 patientDataSelected.user_gender = getGenderFromControl();
                 patientDataSelected.user_diagnosedConditions = getDiagnosedConditionFromControl();
                 closeApp = false;
-                this.Close();
             }
-            //else
-            //{
-            //    this.DialogResult = DialogResult.None;
-            //}
+            else
+            {
+                this.DialogResult = DialogResult.None;
+            }
         }
 
         private bool camposCorrectamenteCompletados()
