@@ -215,6 +215,12 @@
     </Compile>
     <Compile Include="PatientNewForm\patient_class_data.cs" />
     <Compile Include="PatientNewForm\patient_class_engine.cs" />
+    <Compile Include="PatientSeachForm\PatientSeachForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientSeachForm\PatientSeachForm.Designer.cs">
+      <DependentUpon>PatientSeachForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Review\ReviewClass.cs" />
     <Compile Include="TestPersuit\StimuloPersuit.cs">
       <SubType>Form</SubType>
@@ -342,6 +348,9 @@
       <DependentUpon>FormPatientID.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PatientSeachForm\PatientSeachForm.resx">
+      <DependentUpon>PatientSeachForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestReading\Game1.resx">
       <DependentUpon>Game1.cs</DependentUpon>
     </EmbeddedResource>
@@ -453,7 +462,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PatientSeachForm\" />
     <Folder Include="TesterNewForm\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
