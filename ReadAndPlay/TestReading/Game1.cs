@@ -75,12 +75,12 @@ namespace LookAndPlayForm
                 //_ControlFormEyeX.toogleSaveEyeTrackerDataValue();
                 //_ControlFormEyeX.se_grabaron_datos = true;
                 Program.eyeTrackingEngine.toogleSaveEyeTrackerDataValue();
-                Program.datosCompartidos.se_grabaron_datos = true;
+                Program.datosCompartidos.no_se_cancelo_el_test = true;
             }
             else// user clicked no
             {
                 //_ControlFormEyeX.se_grabaron_datos = false;
-                Program.datosCompartidos.se_grabaron_datos = false;
+                Program.datosCompartidos.no_se_cancelo_el_test = false;
                 this.Close();
             }
         }

@@ -24,7 +24,7 @@ namespace LookAndPlayForm
         public readingTestType readingTestTypeSelected { get; set; }
         public string institutionName { get; set; }
 
-        public bool se_grabaron_datos { get; set; }
+        public bool no_se_cancelo_el_test { get; set; }
 
 
         public sharedData()

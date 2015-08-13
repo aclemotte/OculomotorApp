@@ -92,7 +92,7 @@ namespace StimuloPersuitHorizontal
                 {
                     Cursor.Hide();
                     Program.eyeTrackingEngine.toogleSaveEyeTrackerDataValue();
-                    Program.datosCompartidos.se_grabaron_datos = true;
+                    Program.datosCompartidos.no_se_cancelo_el_test = true;
 
                     tiempoDemoraInicial = ((double)timerPausaInicial.Interval)/1000.0;
                     iniciarMovimiento = false;
@@ -102,7 +102,7 @@ namespace StimuloPersuitHorizontal
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    Program.datosCompartidos.se_grabaron_datos = false;
+                    Program.datosCompartidos.no_se_cancelo_el_test = false;
                     end_protocol();
                 }
             }

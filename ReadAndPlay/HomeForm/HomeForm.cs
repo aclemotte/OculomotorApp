@@ -266,22 +266,29 @@ namespace LookAndPlayForm.InitialForm
                     game1 = null;
                     releaseEyeTracker();
 
-                    saveData();
-
-                    //review reading test
-                    Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
-                    resumenGame1.ShowDialog();
-
-                    if (resumenGame1.closeApp)
+                    if (Program.datosCompartidos.no_se_cancelo_el_test)
                     {
-                        resumenGame1.Dispose();
-                        resumenGame1 = null;
-                        this.Close();
+                        saveData();
+
+                        //review reading test
+                        Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
+                        resumenGame1.ShowDialog();
+
+                        if (resumenGame1.closeApp)
+                        {
+                            resumenGame1.Dispose();
+                            resumenGame1 = null;
+                            this.Close();
+                        }
+                        else
+                        {
+                            resumenGame1.Dispose();
+                            resumenGame1 = null;
+                            this.Show();
+                        }
                     }
                     else
                     {
-                        resumenGame1.Dispose();
-                        resumenGame1 = null;
                         this.Show();
                     }
                     break;
@@ -321,22 +328,29 @@ namespace LookAndPlayForm.InitialForm
                     persuit = null;
                     releaseEyeTracker();
 
-                    saveData();
-
-                    //review pursuit test
-                    ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
-                    reviewPersuit.ShowDialog();
-
-                    if (reviewPersuit.closeApp)
+                    if (Program.datosCompartidos.no_se_cancelo_el_test)
                     {
-                        reviewPersuit.Dispose();
-                        reviewPersuit = null;
-                        this.Close();
+                        saveData();
+
+                        //review pursuit test
+                        ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
+                        reviewPersuit.ShowDialog();
+
+                        if (reviewPersuit.closeApp)
+                        {
+                            reviewPersuit.Dispose();
+                            reviewPersuit = null;
+                            this.Close();
+                        }
+                        else
+                        {
+                            reviewPersuit.Dispose();
+                            reviewPersuit = null;
+                            this.Show();
+                        }
                     }
                     else
                     {
-                        reviewPersuit.Dispose();
-                        reviewPersuit = null;
                         this.Show();
                     }
                     break;
@@ -356,27 +370,23 @@ namespace LookAndPlayForm.InitialForm
 
         private void saveData()
         {
-            //Show the resume window
-            if (Program.datosCompartidos.se_grabaron_datos)
-            {
-                //datos del test
-                Program.datosCompartidos.logTestData.saveData2File();
+            //datos del test
+            Program.datosCompartidos.logTestData.saveData2File();
 
-                //datos del tracker
-                Program.datosCompartidos.LogEyeTrackerData.saveData2File();
+            //datos del tracker
+            Program.datosCompartidos.LogEyeTrackerData.saveData2File();
 
 
-                //subir los datos a la nube
-                aws_class_data aws_data = new aws_class_data();
-                aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
-                aws_data.FileToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                                            Program.datosCompartidos.startTimeTest +
-                                            @"-us" + Program.datosCompartidos.activeUser;
+            //subir los datos a la nube
+            aws_class_data aws_data = new aws_class_data();
+            aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
+            aws_data.FileToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
+                                        Program.datosCompartidos.startTimeTest +
+                                        @"-us" + Program.datosCompartidos.activeUser;
 
-                aws_class_engine.BackupTest(aws_data);
+            aws_class_engine.BackupTest(aws_data);
 
-                Program.datosCompartidos.number_of_screening_done++;
-            }
+            Program.datosCompartidos.number_of_screening_done++;
         }
 
         private void updateLogFile()
