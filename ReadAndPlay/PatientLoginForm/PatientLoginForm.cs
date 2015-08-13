@@ -54,14 +54,12 @@ namespace LookAndPlayForm
         public PatientLoginForm()
         {
             InitializeComponent();
-
+            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             closeApp = true;
 
-            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             bool rootFolder = rootFolderExist();
             bool userFile = usersFileExist(rootFolder);
-
             patients2Form();                 
         }
 

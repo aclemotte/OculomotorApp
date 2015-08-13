@@ -284,7 +284,6 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="TesterLoginForm\TesterLoginEngineData.cs" />
-    <Compile Include="TesterLoginForm\TesterLoginEngine.cs" />
     <Compile Include="AWS\AwsCredentials.cs" />
     <Compile Include="TestPersuit\StimuloPersuitSetup.cs" />
     <Compile Include="TestReading\StimuloReadingSetup.cs" />
