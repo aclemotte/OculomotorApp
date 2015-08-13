@@ -6,14 +6,56 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using LookAndPlayForm.TesterID;
 
 namespace LookAndPlayForm.TesterNewForm
 {
     public partial class TesterNewForm : Form
     {
-        public TesterNewForm()
+        public tester_class_data patientDataSelected { get; set; } 
+        public bool newUser { get; set; }
+
+
+
+
+
+        public TesterNewForm(decimal patientID)
         {
             InitializeComponent();
+            newUser = false;
+            numericUpDownUserID.Value = patientID;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            newUser = false;
+            this.Close();
+        }
+
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            if (camposCorrectamenteCompletados())
+            {
+                patientDataSelected = new tester_class_data();
+                patientDataSelected.tester_id = numericUpDownUserID.Value.ToString();
+                patientDataSelected.tester_name = textBoxUserName.Text;
+                newUser = true;
+            }
+            else
+            {
+                this.DialogResult = DialogResult.None;
+            }
+        }
+
+        private bool camposCorrectamenteCompletados()
+        {
+            if (textBoxUserName.Text == "")
+            {
+                MessageBox.Show("Name field is required", "Empty field", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else
+                return true;
         }
     }
 }

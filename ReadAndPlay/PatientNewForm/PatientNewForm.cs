@@ -15,30 +15,7 @@ namespace LookAndPlayForm
 {
     public partial class FormPatientID : Form
     {
-        /*
-            busca la carpeta root, retorno en bool, sino existe lo crea
-            busca y lee users.cvs, retorno en bool, sino existe lo crea
-            
-            espera boton ok
-                
-            al darle al boton ok pregunta por id usuario
-
-            si id usuario es nuevo (mayor a id last_session)
-            {
-                pregunta por el resto de la info
-                - name
-                - institution
-            }
-            
-            Se inicia la prueba
-
-            Al final de la prueba actualiza users.cvs con updateCsV();
-            Al final de la prueba se genera una carpeta:
-            user-date
-        */
-
         public patient_class_datav3 patientDataSelected { get; set; }
-        //public bool closeApp { get; set; }
         public bool newUser { get; set; }
         
 
@@ -49,7 +26,6 @@ namespace LookAndPlayForm
         {
             InitializeComponent();
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            //closeApp = true;
             newUser = false;
             numericUpDownUserID.Value = patientID;
         }

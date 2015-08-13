@@ -357,6 +357,9 @@
       <DependentUpon>PatientNewForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="TesterNewForm\TesterNewForm.resx">
+      <DependentUpon>TesterNewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestReading\Game1.resx">
       <DependentUpon>Game1.cs</DependentUpon>
     </EmbeddedResource>

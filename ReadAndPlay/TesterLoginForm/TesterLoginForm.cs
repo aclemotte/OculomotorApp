@@ -79,10 +79,6 @@ namespace LookAndPlayForm.TesterID
                 closeApp = false;
                 this.Close();
             }
-            //else
-            //{
-            //    //this.DialogResult = DialogResult.None;
-            //}
         }
 
         private bool camposCorrectamenteCompletados()
@@ -124,7 +120,29 @@ namespace LookAndPlayForm.TesterID
 
         private void buttonNewTester_Click(object sender, EventArgs e)
         {
+            //decimal newUserID;
 
+            //if (patientsList != null)
+            //{
+            //    newUserID = Convert.ToDecimal(patientsList.Last().user_id) + 1;
+            //}
+            //else
+            //{
+            //    newUserID = 1;
+            //}
+
+            //FormPatientID patientNewForm = new FormPatientID(newUserID);
+            //patientNewForm.ShowDialog();
+            //newUser = patientNewForm.newUser;
+
+            //if (newUser)
+            //{
+            //    patientDataSelected = patientNewForm.patientDataSelected;
+            //    newUser2Form();//cargar datos del nuevo usuario al form
+            //}
+
+            //patientNewForm.Dispose();
+            //patientNewForm = null;
         }
 
     }
