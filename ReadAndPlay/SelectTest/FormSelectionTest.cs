@@ -29,24 +29,24 @@ namespace LookAndPlayForm.SelectTest
         {
             if (radioButtonPersuit.Checked)
             {
-               //testSelected = testType.persuit;
                Program.datosCompartidos.testSelected = testType.persuit;
+               closeApp = false;
             }
             else if (radioButtonOutloudReading.Checked && camposCorrectamenteCompletados())
             {
                 Program.datosCompartidos.testSelected = testType.reading;
                 Program.datosCompartidos.readingTestTypeSelected = readingTestType.readingOutloud;
+                closeApp = false;
             }
             else if(radioButtonSilentReading.Checked && camposCorrectamenteCompletados())
             {
                 Program.datosCompartidos.testSelected = testType.reading;
                 Program.datosCompartidos.readingTestTypeSelected = readingTestType.readingSilent;
+                closeApp = false;
             }
-            //else
-            //    this.DialogResult = DialogResult.None;
+            else
+                this.DialogResult = DialogResult.None;
 
-            closeApp = false;
-            this.Close();
         }
 
         private bool camposCorrectamenteCompletados()
