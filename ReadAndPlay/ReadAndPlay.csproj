@@ -210,22 +210,16 @@
     <Compile Include="PatientLoginForm\PatientLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PatientLoginForm\PatientLoginForm.Designer.cs" >
+    <Compile Include="PatientLoginForm\PatientLoginForm.Designer.cs">
       <DependentUpon>PatientLoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PatientNewForm\FormPatientID.cs">
+    <Compile Include="PatientNewForm\PatientNewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PatientNewForm\FormPatientID.Designer.cs">
-      <DependentUpon>FormPatientID.cs</DependentUpon>
+    <Compile Include="PatientNewForm\PatientNewForm.Designer.cs">
+      <DependentUpon>PatientNewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientNewForm\patient_class_data.cs" />
-    <Compile Include="PatientSeachForm\PatientSeachForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PatientSeachForm\PatientSeachForm.Designer.cs">
-      <DependentUpon>PatientSeachForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Review\ReviewClass.cs" />
     <Compile Include="TestPersuit\StimuloPersuit.cs">
       <SubType>Form</SubType>
@@ -349,16 +343,13 @@
     <EmbeddedResource Include="InstructionReadingForm\InstructionReadingForm.resx">
       <DependentUpon>InstructionReadingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PatientLoginForm\PatientLoginForm.resx" >
+    <EmbeddedResource Include="PatientLoginForm\PatientLoginForm.resx">
       <DependentUpon>PatientLoginForm.cs</DependentUpon>
-    <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PatientNewForm\FormPatientID.resx">
-      <DependentUpon>FormPatientID.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PatientSeachForm\PatientSeachForm.resx">
-      <DependentUpon>PatientSeachForm.cs</DependentUpon>
+    <EmbeddedResource Include="PatientNewForm\PatientNewForm.resx">
+      <DependentUpon>PatientNewForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="TestReading\Game1.resx">
       <DependentUpon>Game1.cs</DependentUpon>

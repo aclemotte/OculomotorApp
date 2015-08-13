@@ -157,18 +157,18 @@ namespace LookAndPlayForm.InitialForm
                 fTester = null;
 
                 //patient search
-                FormPatientID formPatientID = new FormPatientID(Program.datosCompartidos.institutionName);
-                formPatientID.ShowDialog();
+                PatientLoginForm patientLoginForm = new PatientLoginForm();
+                patientLoginForm.ShowDialog();
 
-                if (formPatientID.closeApp)
+                if (patientLoginForm.closeApp)
                 {
-                    formPatientID.Dispose();
-                    formPatientID = null;
+                    patientLoginForm.Dispose();
+                    patientLoginForm = null;
                     this.Close();
                     return;
                 }
 
-                if (formPatientID.newUser)
+                if (patientLoginForm.newUser)
                 {
                     //nuevo patient
                     ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
@@ -176,6 +176,8 @@ namespace LookAndPlayForm.InitialForm
 
                     if (formularioConsentimiento.closeApp)
                     {
+                        patientLoginForm.Dispose();
+                        patientLoginForm = null;
                         formularioConsentimiento.Dispose();
                         formularioConsentimiento = null;
                         this.Close();//no acepto las condiciones
@@ -188,13 +190,13 @@ namespace LookAndPlayForm.InitialForm
                     }
                 }
 
-                formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
+                patientLoginForm.updateCsv();//almacena los datos del usuario al pasar el formulario
                 aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
-                data2Log.Patient = formPatientID.patientDataSelected.user_name;
-                Program.datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
+                data2Log.Patient = patientLoginForm.patientDataSelected.user_name;
+                Program.datosCompartidos.activeUser = patientLoginForm.patientDataSelected.user_id;
 
-                formPatientID.Dispose();
-                formPatientID = null;
+                patientLoginForm.Dispose();
+                patientLoginForm = null;
 
                 //user position
                 Program.eyeTrackingEngine = new EyeTrackingEngine();
@@ -379,6 +381,7 @@ namespace LookAndPlayForm.InitialForm
             }
             catch (Exception ex)
             {
+                MessageBox.Show("There was an error. Please contact Mr. Patch.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                 this.Close();
             }

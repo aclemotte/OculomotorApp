@@ -155,6 +155,7 @@
             this.buttonNewPatient.TabIndex = 11;
             this.buttonNewPatient.Text = "New patient";
             this.buttonNewPatient.UseVisualStyleBackColor = true;
+            this.buttonNewPatient.Click += new System.EventHandler(this.buttonNewPatient_Click);
             // 
             // PatientLoginForm
             // 

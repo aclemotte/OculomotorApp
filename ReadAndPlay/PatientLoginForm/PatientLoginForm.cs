@@ -40,7 +40,6 @@ namespace LookAndPlayForm
         string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
         bool datosMigrados2NewFromClassv1 = false;
         bool datosMigrados2NewFromClassv2 = false;
-        string institution_name;
 
 
         public bool newUser { get; set; }                
@@ -51,7 +50,7 @@ namespace LookAndPlayForm
 
         public bool closeApp { get; set; }
 
-        public PatientLoginForm(string institution_name)
+        public PatientLoginForm()
         {
             InitializeComponent();
 
@@ -61,7 +60,6 @@ namespace LookAndPlayForm
 
             bool rootFolder = rootFolderExist();
             bool userFile = usersFileExist(rootFolder);
-            this.institution_name = institution_name;
 
             patients2Form();                 
         }
@@ -218,8 +216,7 @@ namespace LookAndPlayForm
             }
             else
             {
-                ErrorLog.ErrorLog.toErrorFile("usersFile no existe");
-                Console.WriteLine("usersFile no existe");
+                ErrorLog.ErrorLog.toErrorFile(fileName + " no existe (users file)");
                 return false;
             }
         }
@@ -286,10 +283,10 @@ namespace LookAndPlayForm
                     textBoxUserName.ReadOnly = true;
                 }
             }
-            else
+            else//aun no hay patients
             {
-                numericUpDownUserID.Maximum = 1;
-                numericUpDownUserID.Value = 1;
+                numericUpDownUserID.Maximum = 0;
+                numericUpDownUserID.Value = 0;
             }
 
             return true;
@@ -299,12 +296,13 @@ namespace LookAndPlayForm
 
         private void numericUpDownUserID_ValueChanged(object sender, EventArgs e)
         {
-            //2. para cuando se llega al numero de un usuario conocido se rellena con texto del usuario
-
-            int userIndex = Convert.ToInt32(numericUpDownUserID.Value) - 1;
-            textBoxUserName.Text = patientsList[userIndex].user_name;
-            textBoxUserName.ReadOnly = true;
-            newUser = false;
+            if (numericUpDownUserID.Value <= Convert.ToDecimal(patientsList.Last().user_id))
+            {
+                //2. para cuando se llega al numero de un usuario conocido se rellena con texto del usuario
+                int userIndex = Convert.ToInt32(numericUpDownUserID.Value) - 1;
+                textBoxUserName.Text = patientsList[userIndex].user_name;
+                textBoxUserName.ReadOnly = true;
+            }
         }
         
         private void buttonOk_Click(object sender, EventArgs e)
@@ -312,8 +310,31 @@ namespace LookAndPlayForm
             patientDataSelected = new patient_class_datav3();
             patientDataSelected.user_id = numericUpDownUserID.Value.ToString();
             patientDataSelected.user_name = textBoxUserName.Text;
-            patientDataSelected.user_institution = institution_name;// textBoxUserInstitution.Text;
+            patientDataSelected.user_institution = Program.datosCompartidos.institutionName;
             closeApp = false;
+        }
+
+        private void buttonNewPatient_Click(object sender, EventArgs e)
+        {
+            FormPatientID patientNewForm = new FormPatientID(Convert.ToDecimal(patientsList.Last().user_id) + 1);
+            patientNewForm.ShowDialog();
+            newUser = patientNewForm.newUser;
+
+            if (newUser)
+            {
+                patientDataSelected = patientNewForm.patientDataSelected;
+                newUser2Form();//cargar datos del nuevo usuario al form
+            }
+
+            patientNewForm.Dispose();
+            patientNewForm = null;
+        }
+
+        private void newUser2Form()
+        {
+            numericUpDownUserID.Maximum = Convert.ToDecimal(patientDataSelected.user_id);
+            numericUpDownUserID.Value = Convert.ToDecimal(patientDataSelected.user_id);
+            textBoxUserName.Text = patientDataSelected.user_name;
         }
     }
 }
