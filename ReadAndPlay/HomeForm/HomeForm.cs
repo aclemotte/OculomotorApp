@@ -142,113 +142,119 @@ namespace LookAndPlayForm.InitialForm
                     this.Close();
                 else
                 {
-                    formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
-                    aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
-                    data2Log.Patient = formPatientID.patientDataSelected.user_name;
-                    Program.datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
-
                     if(formPatientID.newUser)
                     {
                         ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
                         formularioConsentimiento.ShowDialog();
 
-                        if(formularioConsentimiento.closeApp)
-                            this.Close();
-                        else
+                        if (formularioConsentimiento.closeApp)
                         {
-                            formPatientID.Dispose();
-                            formPatientID = null;
+                            this.Close();//no acepto las condiciones
+                            return;
+                        }
+                        else
+                        {                //si acepto las condiciones
+                            formularioConsentimiento.Dispose();
+                            formularioConsentimiento = null;
+                        }
+                    }
 
-                            FormSelectionTest selectionTestForm = new FormSelectionTest();
-                            selectionTestForm.ShowDialog();
+                    formPatientID.updateCsv();//almacena los datos del usuario al pasar el formulario
+                    aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
+                    data2Log.Patient = formPatientID.patientDataSelected.user_name;
+                    Program.datosCompartidos.activeUser = formPatientID.patientDataSelected.user_id;
 
-                            //cambiar: primero user position dsp seleccion del test
-                            if (selectionTestForm.closeApp)
-                            {
+                    formPatientID.Dispose();
+                    formPatientID = null;
+
+                    FormSelectionTest selectionTestForm = new FormSelectionTest();
+                    selectionTestForm.ShowDialog();
+
+                    //cambiar: primero user position dsp seleccion del test
+                    if (selectionTestForm.closeApp)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        selectionTestForm.Dispose();
+                        selectionTestForm = null;
+
+                        using (Program.eyeTrackingEngine = new EyeTrackingEngine())
+                        {
+
+                            EyeXWinForm eyeXWinForm = new EyeXWinForm(Program.eyeTrackingEngine);
+                            eyeXWinForm.ShowDialog();
+
+                            if (eyeXWinForm.closeApp)
                                 this.Close();
-                            }
                             else
                             {
-                                selectionTestForm.Dispose();
-                                selectionTestForm = null;
-
-                                using (Program.eyeTrackingEngine = new EyeTrackingEngine())
+                                if (Program.eyeTrackingEngine.State == EyeTrackingState.Tracking)
                                 {
 
-                                    EyeXWinForm eyeXWinForm = new EyeXWinForm(Program.eyeTrackingEngine);
-                                    eyeXWinForm.ShowDialog();
+                                    eyeXWinForm.Dispose();
+                                    eyeXWinForm = null;
 
-                                    if (eyeXWinForm.closeApp)
-                                        this.Close();
-                                    else
+                                    switch (Program.datosCompartidos.testSelected)
                                     {
-                                        if (Program.eyeTrackingEngine.State == EyeTrackingState.Tracking)
-                                        {
+                                        case testType.reading:
 
-                                            eyeXWinForm.Dispose();
-                                            eyeXWinForm = null;
+                                            Game1 game1 = new Game1();
+                                            game1.ShowDialog();
 
-                                            switch (Program.datosCompartidos.testSelected)
+                                            if (game1.closeApp)
+                                                this.Close();
+                                            else
                                             {
-                                                case testType.reading:
+                                                game1.Dispose();
+                                                game1 = null;
 
-                                                    Game1 game1 = new Game1();
-                                                    game1.ShowDialog();
+                                                saveData();
 
-                                                    if (game1.closeApp)
-                                                        this.Close();
-                                                    else
-                                                    {
-                                                        game1.Dispose();
-                                                        game1 = null;
+                                                Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
+                                                resumenGame1.ShowDialog();
 
-                                                        saveData();
-
-                                                        Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
-                                                        resumenGame1.ShowDialog();
-
-                                                        if (resumenGame1.closeApp)
-                                                            this.Close();
-                                                        else
-                                                            this.Show();
-                                                    }
-                                                    break;
-
-                                                case testType.persuit:
-                                                    StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
-                                                    persuit.ShowDialog();
-
-                                                    if (persuit.closeApp)
-                                                        this.Close();
-                                                    else
-                                                    {
-                                                        persuit.Dispose();
-                                                        persuit = null;
-
-                                                        saveData();
-
-                                                        ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
-                                                        reviewPersuit.ShowDialog();
-
-                                                        if (reviewPersuit.closeApp)
-                                                            this.Close();
-                                                        else
-                                                            this.Show();
-                                                    }
-                                                    break;
-                                                default:
-                                                    MessageBox.Show("Test unknow");
-                                                    break;
+                                                if (resumenGame1.closeApp)
+                                                    this.Close();
+                                                else
+                                                    this.Show();
                                             }
-                                        }
-                                        else
-                                            MessageBox.Show("Eye tracker not connected", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            break;
+
+                                        case testType.persuit:
+                                            StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
+                                            persuit.ShowDialog();
+
+                                            if (persuit.closeApp)
+                                                this.Close();
+                                            else
+                                            {
+                                                persuit.Dispose();
+                                                persuit = null;
+
+                                                saveData();
+
+                                                ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
+                                                reviewPersuit.ShowDialog();
+
+                                                if (reviewPersuit.closeApp)
+                                                    this.Close();
+                                                else
+                                                    this.Show();
+                                            }
+                                            break;
+                                        default:
+                                            MessageBox.Show("Test unknow");
+                                            break;
                                     }
                                 }
+                                else
+                                    MessageBox.Show("Eye tracker not connected", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
-                    }                    
-                }
+                    }                        
+                }                                    
             }
         }
 
