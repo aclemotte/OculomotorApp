@@ -116,10 +116,10 @@
   <ItemGroup>
     <Compile Include="AWS\aws_class_engine.cs" />
     <Compile Include="AWS\aws_class_data.cs" />
-    <Compile Include="Comments\CommentsForm.cs">
+    <Compile Include="CommentsForm\CommentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Comments\CommentsForm.Designer.cs">
+    <Compile Include="CommentsForm\CommentsForm.Designer.cs">
       <DependentUpon>CommentsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsentForm\consentForm.cs">
@@ -127,6 +127,12 @@
     </Compile>
     <Compile Include="ConsentForm\consentForm.Designer.cs">
       <DependentUpon>consentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstructionPursuitForm\InstructionPursuit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructionPursuitForm\InstructionPursuit.Designer.cs">
+      <DependentUpon>InstructionPursuit.cs</DependentUpon>
     </Compile>
     <Compile Include="LogErrorData\ClassErrorLog.cs" />
     <Compile Include="EyeTracking\Calibration\CalibrationError.cs" />
@@ -150,11 +156,11 @@
     <Compile Include="EyeTracking\Calibration\CalibrationWinForm.Designer.cs">
       <DependentUpon>CalibrationWinForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EyeX\EyeTrackingEngine.cs" />
-    <Compile Include="EyeX\ExeXWinForm.cs">
+    <Compile Include="EyeXForm\EyeTrackingEngine.cs" />
+    <Compile Include="EyeXForm\ExeXWinForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EyeX\ExeXWinForm.Designer.cs">
+    <Compile Include="EyeXForm\ExeXWinForm.Designer.cs">
       <DependentUpon>ExeXWinForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EyeTracking\TrackStatusControl.cs">
@@ -179,24 +185,24 @@
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HomeForm\initial_class_engine.cs" />
-    <Compile Include="InstitutionID\institution_class_engine.cs" />
-    <Compile Include="InstitutionID\intitution_class_data.cs" />
-    <Compile Include="InstitutionID\FormInstitutionID.cs">
+    <Compile Include="InstitutionForm\institution_class_engine.cs" />
+    <Compile Include="InstitutionForm\intitution_class_data.cs" />
+    <Compile Include="InstitutionForm\FormInstitutionID.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InstitutionID\FormInstitutionID.Designer.cs">
+    <Compile Include="InstitutionForm\FormInstitutionID.Designer.cs">
       <DependentUpon>FormInstitutionID.cs</DependentUpon>
     </Compile>
     <Compile Include="LogSessionData\ClassLogData.cs" />
     <Compile Include="LogSessionData\ClassLogEngine.cs" />
-    <Compile Include="PatientID\FormPatientID.cs">
+    <Compile Include="PatientNewForm\FormPatientID.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PatientID\FormPatientID.Designer.cs">
+    <Compile Include="PatientNewForm\FormPatientID.Designer.cs">
       <DependentUpon>FormPatientID.cs</DependentUpon>
     </Compile>
-    <Compile Include="PatientID\patient_class_data.cs" />
-    <Compile Include="PatientID\patient_class_engine.cs" />
+    <Compile Include="PatientNewForm\patient_class_data.cs" />
+    <Compile Include="PatientNewForm\patient_class_engine.cs" />
     <Compile Include="Review\ReviewClass.cs" />
     <Compile Include="TestPersuit\StimuloPersuit.cs">
       <SubType>Form</SubType>
@@ -205,16 +211,16 @@
       <DependentUpon>StimuloPersuit.cs</DependentUpon>
     </Compile>
     <Compile Include="TestPersuit\StimuloPersuitEngine.cs" />
-    <Compile Include="ReviewPersuit\ReviewPersuit.cs">
+    <Compile Include="ReviewPersuitForm\ReviewPersuit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReviewPersuit\ReviewPersuit.Designer.cs">
+    <Compile Include="ReviewPersuitForm\ReviewPersuit.Designer.cs">
       <DependentUpon>ReviewPersuit.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelectTest\FormSelectionTest.cs">
+    <Compile Include="SelectionTestForm\FormSelectionTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelectTest\FormSelectionTest.Designer.cs">
+    <Compile Include="SelectionTestForm\FormSelectionTest.Designer.cs">
       <DependentUpon>FormSelectionTest.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashScreen.cs">
@@ -223,10 +229,10 @@
     <Compile Include="SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="TesterID\FormTesterID.cs">
+    <Compile Include="TesterSeachForm\FormTesterID.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TesterID\FormTesterID.Designer.cs">
+    <Compile Include="TesterSeachForm\FormTesterID.Designer.cs">
       <DependentUpon>FormTesterID.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -240,22 +246,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="RegressionDetector\RegressionDetector.cs" />
-    <Compile Include="ReviewReading\class4Graphic.cs" />
-    <Compile Include="ReviewReading\Graph1.cs">
+    <Compile Include="ReviewReadingForm\class4Graphic.cs" />
+    <Compile Include="ReviewReadingForm\Graph1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReviewReading\Graph1.Designer.cs">
+    <Compile Include="ReviewReadingForm\Graph1.Designer.cs">
       <DependentUpon>Graph1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReviewReading\ReviewReading.cs">
+    <Compile Include="ReviewReadingForm\ReviewReading.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReviewReading\ReviewReading.Designer.cs">
+    <Compile Include="ReviewReadingForm\ReviewReading.Designer.cs">
       <DependentUpon>ReviewReading.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="TesterID\tester_class_data.cs" />
-    <Compile Include="TesterID\tester_class_engine.cs" />
+    <Compile Include="TesterSeachForm\tester_class_data.cs" />
+    <Compile Include="TesterSeachForm\tester_class_engine.cs" />
     <Compile Include="AWS\AwsCredentials.cs" />
     <Compile Include="TestPersuit\StimuloPersuitSetup.cs" />
     <Compile Include="TestReading\StimuloReadingSetup.cs" />
@@ -281,7 +287,7 @@
     <Compile Include="TestReading\TargetPosSize.cs" />
     <Compile Include="LogTestData\TestData.cs" />
     <Compile Include="EyeTracking\eyetrackingFunctions.cs" />
-    <EmbeddedResource Include="Comments\CommentsForm.resx">
+    <EmbeddedResource Include="CommentsForm\CommentsForm.resx">
       <DependentUpon>CommentsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsentForm\consentForm.resx">
@@ -298,7 +304,7 @@
     <EmbeddedResource Include="EyeTracking\Calibration\CalibrationWinForm.resx">
       <DependentUpon>CalibrationWinForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EyeX\ExeXWinForm.resx">
+    <EmbeddedResource Include="EyeXForm\ExeXWinForm.resx">
       <DependentUpon>ExeXWinForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -308,10 +314,13 @@
     <EmbeddedResource Include="HomeForm\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InstitutionID\FormInstitutionID.resx">
+    <EmbeddedResource Include="InstitutionForm\FormInstitutionID.resx">
       <DependentUpon>FormInstitutionID.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PatientID\FormPatientID.resx">
+    <EmbeddedResource Include="InstructionPursuitForm\InstructionPursuit.resx">
+      <DependentUpon>InstructionPursuit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientNewForm\FormPatientID.resx">
       <DependentUpon>FormPatientID.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -327,22 +336,22 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReviewPersuit\ReviewPersuit.resx">
+    <EmbeddedResource Include="ReviewPersuitForm\ReviewPersuit.resx">
       <DependentUpon>ReviewPersuit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReviewReading\Graph1.resx">
+    <EmbeddedResource Include="ReviewReadingForm\Graph1.resx">
       <DependentUpon>Graph1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReviewReading\ReviewReading.resx">
+    <EmbeddedResource Include="ReviewReadingForm\ReviewReading.resx">
       <DependentUpon>ReviewReading.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelectTest\FormSelectionTest.resx">
+    <EmbeddedResource Include="SelectionTestForm\FormSelectionTest.resx">
       <DependentUpon>FormSelectionTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TesterID\FormTesterID.resx">
+    <EmbeddedResource Include="TesterSeachForm\FormTesterID.resx">
       <DependentUpon>FormTesterID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -425,7 +434,12 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ConfigurationReadingForm\" />
+    <Folder Include="InstructionReadingForm\" />
+    <Folder Include="PatientSeachForm\" />
+    <Folder Include="TesterNewForm\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

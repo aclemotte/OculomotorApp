@@ -197,72 +197,68 @@ namespace LookAndPlayForm.InitialForm
             eyeXWinForm.Dispose();
             eyeXWinForm = null;
 
-            //se supone que esta conectado el tracker, sino no llegaria hasta aca xq se quedaria en eyeXWinForm.ShowDialog();
-            //if (Program.eyeTrackingEngine.State == EyeTrackingState.Tracking)
-            //{
-                switch (Program.datosCompartidos.testSelected)
-                {
-                    case testType.reading:
+            switch (Program.datosCompartidos.testSelected)
+            {
+                case testType.reading:
 
-                        Game1 game1 = new Game1();
-                        game1.ShowDialog();
+                    Game1 game1 = new Game1();
+                    game1.ShowDialog();
 
-                        if (game1.closeApp)
-                        {
-                            this.Close();
-                            return;
-                        }
-                        game1.Dispose();
-                        game1 = null;
-                        releaseEyeTracker();
+                    if (game1.closeApp)
+                    {
+                        this.Close();
+                        return;
+                    }
+                    game1.Dispose();
+                    game1 = null;
+                    releaseEyeTracker();
 
-                        saveData();
+                    saveData();
 
-                        Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
-                        resumenGame1.ShowDialog();
+                    Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
+                    resumenGame1.ShowDialog();
 
-                        if (resumenGame1.closeApp)
-                            this.Close();
-                        else
-                        {
-                            resumenGame1.Dispose();
-                            resumenGame1 = null;
-                            this.Show();
-                        }
-                        break;
+                    if (resumenGame1.closeApp)
+                        this.Close();
+                    else
+                    {
+                        resumenGame1.Dispose();
+                        resumenGame1 = null;
+                        this.Show();
+                    }
+                    break;
 
-                    case testType.persuit:
-                        StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
-                        persuit.ShowDialog();
+                case testType.persuit:
+                    StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
+                    persuit.ShowDialog();
 
-                        if (persuit.closeApp)
-                        {
-                            this.Close();
-                            return;
-                        }
-                        persuit.Dispose();
-                        persuit = null;
-                        releaseEyeTracker();
+                    if (persuit.closeApp)
+                    {
+                        this.Close();
+                        return;
+                    }
+                    persuit.Dispose();
+                    persuit = null;
+                    releaseEyeTracker();
 
-                        saveData();
+                    saveData();
 
-                        ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
-                        reviewPersuit.ShowDialog();
+                    ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
+                    reviewPersuit.ShowDialog();
 
-                        if (reviewPersuit.closeApp)
-                            this.Close();
-                        else
-                        {
-                            reviewPersuit.Dispose();
-                            reviewPersuit = null;
-                            this.Show();
-                        }
-                        break;
-                    default:
-                        MessageBox.Show("Test unknow");
-                        break;
-                }
-            //}
+                    if (reviewPersuit.closeApp)
+                        this.Close();
+                    else
+                    {
+                        reviewPersuit.Dispose();
+                        reviewPersuit = null;
+                        this.Show();
+                    }
+                    break;
+                default:
+                    MessageBox.Show("Test unknow");
+                    break;
+            }
         }
 
         private void releaseEyeTracker()
