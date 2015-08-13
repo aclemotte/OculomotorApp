@@ -87,13 +87,23 @@
             this.numericUpDownTesterID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownTesterID.Location = new System.Drawing.Point(147, 87);
             this.numericUpDownTesterID.Maximum = new decimal(new int[] {
+            1,
             0,
+            0,
+            0});
+            this.numericUpDownTesterID.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
             this.numericUpDownTesterID.Name = "numericUpDownTesterID";
             this.numericUpDownTesterID.Size = new System.Drawing.Size(207, 29);
             this.numericUpDownTesterID.TabIndex = 5;
+            this.numericUpDownTesterID.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownTesterID.ValueChanged += new System.EventHandler(this.numericUpDownTesterID_ValueChanged);
             // 
             // labelVersion

@@ -88,13 +88,23 @@
             this.numericUpDownUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownUserID.Location = new System.Drawing.Point(147, 88);
             this.numericUpDownUserID.Maximum = new decimal(new int[] {
+            1,
             0,
+            0,
+            0});
+            this.numericUpDownUserID.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
             this.numericUpDownUserID.Name = "numericUpDownUserID";
             this.numericUpDownUserID.Size = new System.Drawing.Size(207, 29);
             this.numericUpDownUserID.TabIndex = 2;
+            this.numericUpDownUserID.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownUserID.ValueChanged += new System.EventHandler(this.numericUpDownUserID_ValueChanged);
             // 
             // labelVersion

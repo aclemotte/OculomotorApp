@@ -266,6 +266,11 @@ namespace LookAndPlayForm
             {
                 numericUpDownUserID.Maximum = Convert.ToDecimal(patientsList.Last().user_id);
                 numericUpDownUserID.Value = Convert.ToDecimal(patientsList.Last().user_id);
+
+                if (numericUpDownUserID.Value == 1)//como por defecto esta en 1 no se cargara el dato del user
+                {
+                    textBoxUserName.Text = patientsList[0].user_name;
+                }
             }
             //sino se queda en cero que es lo que esta por defecto
             return true;
@@ -282,14 +287,13 @@ namespace LookAndPlayForm
                     //2. para cuando se llega al numero de un usuario conocido se rellena con texto del usuario
                     int userIndex = Convert.ToInt32(numericUpDownUserID.Value) - 1;
                     textBoxUserName.Text = patientsList[userIndex].user_name;
-                    textBoxUserName.ReadOnly = true;
                 }
             }
         }
         
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if (numericUpDownUserID.Value > 0 )
+            if (patientsList != null || (patientsList == null && newUser))
             {
                 patientDataSelected = new patient_class_datav3();
                 patientDataSelected.user_id = numericUpDownUserID.Value.ToString();

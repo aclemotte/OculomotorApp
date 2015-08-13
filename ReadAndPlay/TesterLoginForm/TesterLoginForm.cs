@@ -120,6 +120,11 @@ namespace LookAndPlayForm.TesterID
             {
                 numericUpDownTesterID.Maximum = Convert.ToDecimal(testersList.Last().tester_id);
                 numericUpDownTesterID.Value = Convert.ToDecimal(testersList.Last().tester_id);
+
+                if(numericUpDownTesterID.Value == 1)//como por defecto esta en 1 no se cargara el dato del user
+                {
+                    textBoxTesterName.Text = testersList[0].tester_name;
+                }
             }
             //sino se queda en cero que es lo que esta por defecto
             return true;
@@ -134,16 +139,16 @@ namespace LookAndPlayForm.TesterID
             {
                 if (numericUpDownTesterID.Value <= Convert.ToDecimal(testersList.Last().tester_id))
                 {
+                    //2. para cuando se llega al numero de un usuario conocido se rellena con texto del usuario
                     int userIndex = Convert.ToInt32(numericUpDownTesterID.Value) - 1;
                     textBoxTesterName.Text = testersList[userIndex].tester_name;
-                    textBoxTesterName.ReadOnly = true;
                 }
             }
         }
         
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if(numericUpDownTesterID.Value > 0)
+            if (testersList != null || (testersList == null && newUser))
             {
                 testerDataSelected = new TesterLoginEngineData();
                 testerDataSelected.tester_id = numericUpDownTesterID.Value.ToString();
