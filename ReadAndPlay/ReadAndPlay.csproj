@@ -207,6 +207,12 @@
     </Compile>
     <Compile Include="LogSessionData\ClassLogData.cs" />
     <Compile Include="LogSessionData\ClassLogEngine.cs" />
+    <Compile Include="PatientLoginForm\PatientLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientLoginForm\PatientLoginForm.Designer.cs" >
+      <DependentUpon>PatientLoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientNewForm\FormPatientID.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,7 +220,6 @@
       <DependentUpon>FormPatientID.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientNewForm\patient_class_data.cs" />
-    <Compile Include="PatientNewForm\patient_class_engine.cs" />
     <Compile Include="PatientSeachForm\PatientSeachForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -343,6 +348,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InstructionReadingForm\InstructionReadingForm.resx">
       <DependentUpon>InstructionReadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientLoginForm\PatientLoginForm.resx" >
+      <DependentUpon>PatientLoginForm.cs</DependentUpon>
+    <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientNewForm\FormPatientID.resx">
       <DependentUpon>FormPatientID.cs</DependentUpon>
