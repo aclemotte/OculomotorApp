@@ -14,7 +14,7 @@ namespace LookAndPlayForm.TestPersuit
         //variables independientes
         public int amplitudMovimientoMilimeter { get; set; }
         public int numero_vueltas { get; set; }
-        public int tiempo_1_vuelta { get; set; }
+        public int segundos_1_vuelta { get; set; }
         public int intervalMseg { get; set; }
         public int dotDiameterMilimeter { get; set; }
 
@@ -36,13 +36,13 @@ namespace LookAndPlayForm.TestPersuit
             //variables independientes
             amplitudMovimientoMilimeter = 200;//20cm
             numero_vueltas = 2;
-            tiempo_1_vuelta = 10;
+            segundos_1_vuelta = 10;
             intervalMseg = 200;
             dotDiameterMilimeter = 5;
 
             //variables dependientes
             stimulusDataList = new List<DataPointPersuit>();
-            velocidad = 360 / (double)tiempo_1_vuelta;//grados por segundo
+            velocidad = 360 / (double)segundos_1_vuelta;//grados por segundo
             getDPI();
             amplitudMovimientoPixels = milimeter2Pixels(amplitudMovimientoMilimeter, dpix);
             setMargenes();

@@ -16,9 +16,9 @@ namespace StimuloPersuitHorizontal
         StimuloPersuitSetup stimuloPersuitSetup;
         bool screenDimensionsOk, dotSizeOk;
         private int xCoordinate, yCoordinate;
-        //EyeXWinForm _ControlFormEyeX;
         double tiempoSegundos;
-
+        double tiempoDemoraInicial;
+        bool iniciarMovimiento;
 
         public bool closeApp { get; set; }
 
@@ -27,7 +27,6 @@ namespace StimuloPersuitHorizontal
             InitializeComponent();
 
             closeApp = true;
-            //_ControlFormEyeX = ControlForm;
 
 
             stimuloPersuitSetup = new StimuloPersuitSetup();
@@ -62,7 +61,10 @@ namespace StimuloPersuitHorizontal
         {
             if (stimuloPersuitSetup.offset_izquierda > 0 && stimuloPersuitSetup.offset_arriba > 0)
             {
-                pictureBoxDotStimulus.Location = new Point(stimuloPersuitSetup.offset_izquierda - (stimuloPersuitSetup.dotDiameterPixelsX / 2), stimuloPersuitSetup.offset_arriba - (stimuloPersuitSetup.dotDiameterPixelsX / 2));
+                xCoordinate = stimuloPersuitSetup.offset_izquierda;
+                yCoordinate = Screen.PrimaryScreen.Bounds.Size.Height / 2;
+                pictureBoxDotStimulus.Refresh();
+            
                 return true;
             }
             else
@@ -89,16 +91,17 @@ namespace StimuloPersuitHorizontal
                 if (dialogResult == DialogResult.Yes)
                 {
                     Cursor.Hide();
-                    //_ControlFormEyeX.toogleSaveEyeTrackerDataValue();
-                    //_ControlFormEyeX.se_grabaron_datos = true;
                     Program.eyeTrackingEngine.toogleSaveEyeTrackerDataValue();
                     Program.datosCompartidos.se_grabaron_datos = true;
+
+                    tiempoDemoraInicial = ((double)timerPausaInicial.Interval)/1000.0;
+                    iniciarMovimiento = false;
+                    timerPausaInicial.Enabled = true;
                     timerMoveDot.Enabled = true;
                     tiempoSegundos = 0;
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    //_ControlFormEyeX.se_grabaron_datos = false;
                     Program.datosCompartidos.se_grabaron_datos = false;
                     end_protocol();
                 }
@@ -129,20 +132,27 @@ namespace StimuloPersuitHorizontal
 
 
 
-
-        void timerMoveDot_Tick(object sender, EventArgs e)
+        private void timerPausaInicial_Tick(object sender, EventArgs e)
         {
+            timerPausaInicial.Enabled = false;
+            iniciarMovimiento = true;
+        }
 
-            xCoordinate = stimuloPersuitSetup.offset_izquierda + (int)((double)stimuloPersuitSetup.amplitudMovimientoPixels * (((Math.Sin(rad2Deg(stimuloPersuitSetup.velocidad * tiempoSegundos + 270))) * 0.5) + 0.5));
-            yCoordinate = Screen.PrimaryScreen.Bounds.Size.Height / 2;
-            pictureBoxDotStimulus.Refresh();
-            
-
-            stimuloPersuitSetup.stimulusDataList.Add(new DataPointPersuit(xCoordinate, yCoordinate, tiempoSegundos));
-
-            if (tiempoSegundos < (double)(stimuloPersuitSetup.numero_vueltas * stimuloPersuitSetup.tiempo_1_vuelta))
+        private void timerMoveDot_Tick(object sender, EventArgs e)
+        {
+            if (tiempoSegundos < (double)(stimuloPersuitSetup.numero_vueltas * stimuloPersuitSetup.segundos_1_vuelta))
             {
                 tiempoSegundos += (double)stimuloPersuitSetup.intervalMseg / 1000.0;
+
+                if (iniciarMovimiento)
+                {
+                    xCoordinate = stimuloPersuitSetup.offset_izquierda + (int)((double)stimuloPersuitSetup.amplitudMovimientoPixels * (((Math.Sin(rad2Deg(stimuloPersuitSetup.velocidad * (tiempoSegundos - tiempoDemoraInicial) + 270))) * 0.5) + 0.5));
+                    yCoordinate = Screen.PrimaryScreen.Bounds.Size.Height / 2;
+                    pictureBoxDotStimulus.Refresh();
+                }
+
+                stimuloPersuitSetup.stimulusDataList.Add(new DataPointPersuit(xCoordinate, yCoordinate, tiempoSegundos));
+
             }
             else
             {
@@ -186,7 +196,6 @@ namespace StimuloPersuitHorizontal
         private void end_protocol()
         {            
             Program.datosCompartidos.LogEyeTrackerData.AddTargetTraceEyeX(new TargetPosSize.Target(), true);        
-            //_ControlFormEyeX.toogleSaveEyeTrackerDataValue();
             Program.eyeTrackingEngine.toogleSaveEyeTrackerDataValue();
             stimuloPersuitSetup.SavePersuitData();
 
@@ -198,11 +207,12 @@ namespace StimuloPersuitHorizontal
                 }));
         }
         
-        //final del test por teclado. no se guardan datos
+        //final del test por teclado.
         private void StimuloPersuit_KeyPress(object sender, KeyPressEventArgs e)
         {
             end_protocol();
         }
+
         
     }
 }

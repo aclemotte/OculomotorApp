@@ -10,6 +10,8 @@ using LookAndPlayForm.TestPersuit;
 
 namespace StimuloPersuitHorizontal
 {
+
+    //No se usa
     class StimuloPersuitEngine
     {
         public delegate void newCoordinateDelegate(int xCoordinate, int yCoordinate);
@@ -59,7 +61,7 @@ namespace StimuloPersuitHorizontal
 
             stimuloPersuitSetup.stimulusDataList.Add(new DataPointPersuit(xCoordinate, yCoordinate, tiempoSegundos));
 
-            if (tiempoSegundos < (double)(stimuloPersuitSetup.numero_vueltas * stimuloPersuitSetup.tiempo_1_vuelta))
+            if (tiempoSegundos < (double)(stimuloPersuitSetup.numero_vueltas * stimuloPersuitSetup.segundos_1_vuelta))
             {
                 tiempoSegundos += stimuloPersuitSetup.intervalMseg / 1000;
                 if (newCoordinate != null)

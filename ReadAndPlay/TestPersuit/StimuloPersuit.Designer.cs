@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.pictureBoxDotStimulus = new System.Windows.Forms.PictureBox();
             this.timerMoveDot = new System.Windows.Forms.Timer(this.components);
+            this.timerPausaInicial = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDotStimulus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +45,11 @@
             this.pictureBoxDotStimulus.TabIndex = 0;
             this.pictureBoxDotStimulus.TabStop = false;
             this.pictureBoxDotStimulus.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxDotStimulus_Paint);
+            // 
+            // timerPausaInicial
+            // 
+            this.timerPausaInicial.Interval = 1000;
+            this.timerPausaInicial.Tick += new System.EventHandler(this.timerPausaInicial_Tick);
             // 
             // StimuloPersuit
             // 
@@ -67,6 +73,7 @@
 
         private System.Windows.Forms.PictureBox pictureBoxDotStimulus;
         private System.Windows.Forms.Timer timerMoveDot;
+        private System.Windows.Forms.Timer timerPausaInicial;
     }
 }
 
