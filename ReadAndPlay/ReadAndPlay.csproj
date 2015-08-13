@@ -134,6 +134,12 @@
     <Compile Include="InstructionPursuitForm\InstructionPursuit.Designer.cs">
       <DependentUpon>InstructionPursuit.cs</DependentUpon>
     </Compile>
+    <Compile Include="InstructionReadingForm\InstructionReadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructionReadingForm\InstructionReadingForm.Designer.cs">
+      <DependentUpon>InstructionReadingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogErrorData\ClassErrorLog.cs" />
     <Compile Include="EyeTracking\Calibration\CalibrationError.cs" />
     <Compile Include="EyeTracking\Calibration\CalibrationResultForm.cs">
@@ -320,6 +326,9 @@
     <EmbeddedResource Include="InstructionPursuitForm\InstructionPursuit.resx">
       <DependentUpon>InstructionPursuit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InstructionReadingForm\InstructionReadingForm.resx">
+      <DependentUpon>InstructionReadingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PatientNewForm\FormPatientID.resx">
       <DependentUpon>FormPatientID.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -436,7 +445,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ConfigurationReadingForm\" />
-    <Folder Include="InstructionReadingForm\" />
     <Folder Include="PatientSeachForm\" />
     <Folder Include="TesterNewForm\" />
   </ItemGroup>

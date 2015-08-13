@@ -205,6 +205,19 @@ namespace LookAndPlayForm.InitialForm
             {
                 case testType.reading:
 
+                    //instruction reading test
+                    InstructionReadingForm.InstructionReadingForm instructionReadingForm = new InstructionReadingForm.InstructionReadingForm();
+                    instructionReadingForm.ShowDialog();
+
+                    if(instructionReadingForm.closeApp)
+                    {
+                        this.Close();
+                        return;
+                    }
+
+                    instructionReadingForm.Dispose();
+                    instructionReadingForm = null;
+
                     //test reading
                     Game1 game1 = new Game1();
                     game1.ShowDialog();
@@ -245,6 +258,9 @@ namespace LookAndPlayForm.InitialForm
                         this.Close();
                         return;
                     }
+
+                    instructionPursuit.Dispose();
+                    instructionPursuit = null;
 
                     //test pursuit
                     StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit();
