@@ -127,6 +127,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonOk);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "InstructionReadingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reading Test Instruction";

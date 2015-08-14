@@ -87,6 +87,9 @@
             // 
             // pictureBoxStimulus
             // 
+            this.pictureBoxStimulus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxStimulus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxStimulus.Location = new System.Drawing.Point(12, 16);
             this.pictureBoxStimulus.Name = "pictureBoxStimulus";
@@ -97,6 +100,7 @@
             // 
             // labelTotalNumberOfFixation
             // 
+            this.labelTotalNumberOfFixation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTotalNumberOfFixation.AutoSize = true;
             this.labelTotalNumberOfFixation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalNumberOfFixation.Location = new System.Drawing.Point(71, 392);
@@ -120,6 +124,7 @@
             // 
             // buttonPlot
             // 
+            this.buttonPlot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPlot.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.buttonPlot.Location = new System.Drawing.Point(889, 16);
@@ -132,6 +137,7 @@
             // 
             // textBoxStdFixL
             // 
+            this.textBoxStdFixL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxStdFixL.BackColor = System.Drawing.Color.White;
             this.textBoxStdFixL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxStdFixL.Location = new System.Drawing.Point(367, 443);
@@ -142,6 +148,7 @@
             // 
             // textBoxMeanFixL
             // 
+            this.textBoxMeanFixL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxMeanFixL.BackColor = System.Drawing.Color.White;
             this.textBoxMeanFixL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMeanFixL.Location = new System.Drawing.Point(227, 443);
@@ -152,6 +159,7 @@
             // 
             // textBoxNumFixL
             // 
+            this.textBoxNumFixL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxNumFixL.BackColor = System.Drawing.Color.White;
             this.textBoxNumFixL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNumFixL.Location = new System.Drawing.Point(90, 443);
@@ -203,6 +211,7 @@
             // 
             // labelLeft
             // 
+            this.labelLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelLeft.AutoSize = true;
             this.labelLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLeft.ForeColor = System.Drawing.Color.Green;
@@ -214,6 +223,7 @@
             // 
             // checkBoxL
             // 
+            this.checkBoxL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxL.AutoSize = true;
             this.checkBoxL.Checked = true;
             this.checkBoxL.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -228,6 +238,7 @@
             // 
             // checkBoxR
             // 
+            this.checkBoxR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxR.AutoSize = true;
             this.checkBoxR.Checked = true;
             this.checkBoxR.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -242,6 +253,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.labelStdDevDuration);
             this.groupBox1.Controls.Add(this.textBoxRegressionR);
             this.groupBox1.Controls.Add(this.labelMeanDuration);
@@ -400,6 +412,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Location = new System.Drawing.Point(889, 171);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(147, 86);
@@ -408,6 +421,7 @@
             // 
             // checkBoxFixations
             // 
+            this.checkBoxFixations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxFixations.AutoSize = true;
             this.checkBoxFixations.Checked = true;
             this.checkBoxFixations.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -421,6 +435,7 @@
             // 
             // checkBoxGaze
             // 
+            this.checkBoxGaze.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxGaze.AutoSize = true;
             this.checkBoxGaze.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxGaze.Location = new System.Drawing.Point(908, 317);
@@ -432,6 +447,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Location = new System.Drawing.Point(889, 263);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(147, 98);
@@ -440,6 +456,7 @@
             // 
             // textBoxCalibErrorR
             // 
+            this.textBoxCalibErrorR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCalibErrorR.BackColor = System.Drawing.Color.White;
             this.textBoxCalibErrorR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCalibErrorR.Location = new System.Drawing.Point(954, 487);
@@ -450,6 +467,7 @@
             // 
             // textBoxCalibErrorL
             // 
+            this.textBoxCalibErrorL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCalibErrorL.BackColor = System.Drawing.Color.White;
             this.textBoxCalibErrorL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCalibErrorL.Location = new System.Drawing.Point(954, 444);
@@ -460,6 +478,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.labelCalibration);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(889, 365);
@@ -480,6 +499,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(899, 444);
@@ -490,6 +510,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(899, 488);
@@ -524,6 +545,7 @@
             // 
             // buttonPlotExtern
             // 
+            this.buttonPlotExtern.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPlotExtern.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPlotExtern.Location = new System.Drawing.Point(889, 68);
             this.buttonPlotExtern.Name = "buttonPlotExtern";
@@ -576,6 +598,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox5.Controls.Add(this.labelReadingTime);
             this.groupBox5.Controls.Add(this.textBoxWordsMin);
             this.groupBox5.Controls.Add(this.labelNumberOfWords);
@@ -592,6 +615,7 @@
             // 
             // buttonNewTest
             // 
+            this.buttonNewTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNewTest.Location = new System.Drawing.Point(890, 549);
             this.buttonNewTest.Name = "buttonNewTest";
@@ -603,6 +627,7 @@
             // 
             // buttonComments
             // 
+            this.buttonComments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonComments.Location = new System.Drawing.Point(890, 122);
             this.buttonComments.Name = "buttonComments";
@@ -642,7 +667,6 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox5);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.Name = "Resumen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Review reading test";
