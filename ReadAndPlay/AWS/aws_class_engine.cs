@@ -60,10 +60,14 @@ namespace LookAndPlayForm.BackupClass
                 }
                 catch (AmazonS3Exception ex)
                 {
-                    //File.WriteAllText("lastError.txt", string.Format("Last Error @{0}: {1}", DateTime.Now, ex.GetBaseException()));
                     ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                     Console.WriteLine("Amazon error code: {0}", string.IsNullOrEmpty(ex.ErrorCode) ? "None" : ex.ErrorCode);
-                    Console.WriteLine("Exception message: {0}", ex.Message);
+                    Console.WriteLine("Exception message: {0}", ex.Message);                    
+                }
+                catch(Exception ex)
+                {
+                    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                    Console.WriteLine("Exception message: {0}", ex.Message);    
                 }
             }
         }
