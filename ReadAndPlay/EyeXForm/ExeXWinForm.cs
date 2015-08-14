@@ -15,10 +15,7 @@ namespace LookAndPlayForm
 
 
     public partial class EyeXWinForm : Form
-    {
-        //public bool se_grabaron_datos { get; set; }//para avisar a EyeXWinForm si se cancelo la tarea (cuando se pregunta Are you ready?)
-        //private bool saveEyeTrackerData = false;
-        
+    {        
         private readonly EyeTrackingEngine eyeTrackingEngine;
         private MouseController CursorControl = new MouseController();
         private EyeTracking.distanceDev2User distanciaDev2USer;
@@ -38,7 +35,6 @@ namespace LookAndPlayForm
             InitializeComponent();
 
             closeApp = true;
-            //this.institution_engine = institution_engine;
 
             this.eyeTrackingEngine = eyeTrackingEngine;
             eyeTrackingEngine.GazePoint += this.GazePoint;
@@ -54,7 +50,7 @@ namespace LookAndPlayForm
         
         
 
-
+        //eventos del engine
         private void GazePoint(object sender, GazePointEventArgs gazePointEventArgs)
         {
             BeginInvoke(new Action(() =>
@@ -81,6 +77,87 @@ namespace LookAndPlayForm
             //}
         }
 
+        private void OnGetCalibrationCompleted(object sender, CalibrationReadyEventArgs e)
+        {
+            toolStripStatusLabelCalibration.Text =
+                "Last calibration value. Left: " +
+                Program.datosCompartidos.meanCalibrationErrorLeftPx.ToString() +
+                ". Right: " +
+                Program.datosCompartidos.meanCalibrationErrorRightPx.ToString();
+        }
+
+
+
+
+        //botones
+        private void buttonNewTest_Click(object sender, EventArgs e)
+        {
+            if (eyeTrackingEngine.State == EyeTrackingState.Tracking)
+            {
+                if(!eyeTrackerCalibrated())
+                {
+                    DialogResult dialogResult = MessageBox.Show("Do you want to continue? The data will not be accurate if the eye-tracker is not calibrated", "The eye-tracker probably is not calibrated", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.No)
+                        return;
+                }
+
+                if (!goodCalibration())
+                {
+                    DialogResult dialogResult = MessageBox.Show("Do you want to continue? The data will not be accurate if the calibration is less than 50 for both eyes", "Poor calibration", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.No)
+                        return;
+                }
+
+                Program.datosCompartidos.getNewTime();
+                unHookEvents();
+
+                closeApp = false;
+                this.Hide();
+                
+            }
+            else
+                messageEyetrackerNotConnected();
+        }
+
+        private bool goodCalibration()
+        {
+            if (Program.datosCompartidos.meanCalibrationErrorLeftPx < 50 && Program.datosCompartidos.meanCalibrationErrorRightPx < 50)
+                return true;
+            else
+                return false;
+        }
+
+        private bool eyeTrackerCalibrated()
+        {
+            //si no esta calibrado aparece como -2147483648: son 8 cuartetos de 1's: 32 bits de 1's
+            if (Program.datosCompartidos.meanCalibrationErrorLeftPx > 0 && Program.datosCompartidos.meanCalibrationErrorRightPx > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+
+        private void buttonCalibrate_Click(object sender, EventArgs e)
+        {
+            if (Program.eyeTrackingEngine.State == EyeTrackingState.Tracking)
+            {
+                CalibrationWinForm calibrationForm = new CalibrationWinForm(eyeTrackingEngine);
+                calibrationForm.ShowDialog();
+                calibrationForm.Dispose();
+                calibrationForm = null;
+            }
+            else
+                messageEyetrackerNotConnected();
+        }
+        
+
+
+
+
+
+        //varios
         private void distance2Controls(double distance)
         {
             if (double.IsNaN(distance))
@@ -105,38 +182,8 @@ namespace LookAndPlayForm
             }
 
 
-        }
+        }        
         
-        private void buttonNewTest_Click(object sender, EventArgs e)
-        {
-            if (eyeTrackingEngine.State == EyeTrackingState.Tracking)
-            {
-                Program.datosCompartidos.getNewTime();
-                unHookEvents();
-
-                closeApp = false;
-                this.Hide();
-
-                //if (Program.datosCompartidos.testSelected == testType.reading)
-                //{
-                //    Game1 _Game1 = new Game1(this);
-                //    _Game1.FormClosed += test_Closed;
-                //    _Game1.Left = 0;//_TobiiForm.monitorBounds.X;
-                //    _Game1.StartPosition = FormStartPosition.Manual;
-                //    _Game1.Show();
-                //}
-                //else if (Program.datosCompartidos.testSelected == testType.persuit)
-                //{
-                //    StimuloPersuitHorizontal.StimuloPersuit persuit = new StimuloPersuitHorizontal.StimuloPersuit(this);
-                //    persuit.Show();
-                //    persuit.FormClosed += test_Closed;
-                //}
-
-            }
-            else
-                messageEyetrackerNotConnected();
-        }
-
         private void messageEyetrackerNotConnected()
         {
             MessageBox.Show("Eye tracker not connected. Please connect the tracker and re-star the App.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -146,188 +193,17 @@ namespace LookAndPlayForm
         {
             eyeTrackingEngine.GazePoint -= this.GazePoint;
             eyeTrackingEngine.OnGetCalibrationCompletedEvent -= this.OnGetCalibrationCompleted;
-        }
-        	
-        //protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
-        //{
-        //    base.OnClosing(e);
-        //    eyeTrackingEngine.Dispose();
-        //}
-
-        //public void toogleSaveEyeTrackerDataValue()
-        //{
-        //    saveEyeTrackerData = !saveEyeTrackerData;
-        //}
-
+        }        
         
         
         
         
-        //resume
-        //private void buttonResumen_Click(object sender, EventArgs e)
-        //{
-
-        //    string selectedPath = selectionOfFolder();
-        //    testType testType = checkTipoTest(selectedPath);
-
-        //    if (testType == testType.reading)
-        //    {
-        //        openWindowReviewReading(false, true, selectedPath);
-        //    }
-        //    else if (testType == testType.persuit)
-        //        openWindowReviewPersuit(false, selectedPath);
-        //    else
-        //        MessageBox.Show("Error. Test type not identified.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //}
-
-        //private string selectionOfFolder()
-        //{
-        //    FolderBrowserDialog fbd = new FolderBrowserDialog();
-        //    fbd.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
-        //    DialogResult result = fbd.ShowDialog();
-        //    string selectedPath = fbd.SelectedPath;
-        //    return selectedPath;
-        //}
-
-        //private string openTestDatajsonAndGetField(string path)
-        //{
-        //    TestData1 testData;
-        //    string file = @"\testData.json";
-
-        //    if (File.Exists(path + file))
-        //    {
-        //        string json = File.ReadAllText(path + file);
-        //        testData = JsonConvert.DeserializeObject<TestData1>(json);
-        //        return testData.image2read;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("El archivo " + file + " no existe", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return null;
-        //    }
-        //}
-
-        //private testType checkTipoTest(string selectedPath)
-        //{
-        //    string image2read = openTestDatajsonAndGetField(selectedPath);
-
-        //    if (string.IsNullOrEmpty(image2read))
-        //        return testType.persuit;
-        //    else
-        //        return testType.reading;//aca se puede ir mas y buscar la forma de saber si es silent o outloud
-        //}
-
-        //private void openWindowReviewPersuit(bool showLastTest, string selectedPath)
-        //{
-        //    ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(showLastTest, true, selectedPath);
-        //    //reviewPersuit.ReviewClosed += reviewPersuit_ReviewClosed;
-        //    if(reviewPersuit.everythingOk)
-        //        reviewPersuit.Show();
-        //    else
-        //        reviewPersuit.Dispose();
-        //}
         
-        //private void openWindowReviewReading(bool showLastTest, bool newTestAvailable, string selectedPath)
-        //{
-        //    Resumen.Resumen resumenGame1 = new Resumen.Resumen(showLastTest, newTestAvailable, selectedPath);
-        //    //resumenGame1.ReviewClosed += resumenGame1_ReviewClosed;
-        //    if (resumenGame1.everythingOk)
-        //        resumenGame1.Show();
-        //    else
-        //        resumenGame1.Dispose();
-        //}
-
-
-
-
-
-
-
-        //void reviewPersuit_ReviewClosed(bool newTest)
-        //{
-        //    if (!newTest)
-        //        this.Close();
-        //}         
-
-        //private void resumenGame1_ReviewClosed(bool newTest)
-        //{
-        //    if (!newTest)
-        //        this.Close();
-        //}        
-
-
-
-
-        //calibration
-        private void buttonCalibrate_Click(object sender, EventArgs e)
-        {
-            if (Program.eyeTrackingEngine.State == EyeTrackingState.Tracking)
-            {
-                //buttonCalibrate.Enabled = false;
-                CalibrationWinForm calibrationForm = new CalibrationWinForm(eyeTrackingEngine);
-                calibrationForm.ShowDialog();
-                calibrationForm.Dispose();
-                calibrationForm = null;
-            }
-            else
-                messageEyetrackerNotConnected();
-        }
         
-        private void OnGetCalibrationCompleted(object sender, CalibrationReadyEventArgs e)
-        {
-            toolStripStatusLabelCalibration.Text = 
-                "Last calibration value. Left: " + 
-                Program.datosCompartidos.meanCalibrationErrorLeftPx.ToString() +
-                ". Right: " +
-                Program.datosCompartidos.meanCalibrationErrorRightPx.ToString();
-        }
-
+        
         private void EyeXWinForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             unHookEvents();
-        }
-
-        //private void buttonViewCalibration_Click(object sender, EventArgs e)
-        //{
-        //    var resultForm = new CalibrationResultForm();
-        //    resultForm.SetPlotData(Program.datosCompartidos.calibrationDataEyeX);
-        //    resultForm.ShowDialog();
-        //}
-
-
-        //varios
-        //private void test_Closed(object sender, FormClosedEventArgs e)
-        //{
-        //    //Show the resume window
-        //    if (se_grabaron_datos)
-        //    {
-        //        //datos del test
-        //         Program.datosCompartidos.logTestData.saveData2File();
-
-        //         //datos del tracker
-        //         Program.datosCompartidos.LogEyeTrackerData.saveData2File();
-
-
-        //        //subir los datos a la nube
-        //        aws_class_data aws_data = new aws_class_data();
-        //        aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
-        //        aws_data.FileToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-        //                                    Program.datosCompartidos.startTimeTest +
-        //                                    @"-us" + Program.datosCompartidos.activeUser;
-
-        //        aws_class_engine.BackupTest(aws_data);
-
-        //        Program.datosCompartidos.number_of_screening_done++;
-
-        //        if (Program.datosCompartidos.testSelected == testType.reading)
-        //            openWindowReviewReading(true, true, null);
-
-        //        else if (Program.datosCompartidos.testSelected == testType.persuit)
-        //            openWindowReviewPersuit(true, null);
-
-        //    }
-        //}
-
-
+        }        
     }
 }
