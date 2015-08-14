@@ -82,7 +82,7 @@
             this.radioButtonPersuit.Size = new System.Drawing.Size(118, 28);
             this.radioButtonPersuit.TabIndex = 39;
             this.radioButtonPersuit.TabStop = true;
-            this.radioButtonPersuit.Text = "Persuit test";
+            this.radioButtonPersuit.Text = "Pursuit test";
             this.radioButtonPersuit.UseVisualStyleBackColor = true;
             // 
             // label2

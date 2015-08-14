@@ -87,7 +87,7 @@ namespace StimuloPersuitHorizontal
         {
             if (screenDimensionsOk && dotSizeOk)
             {
-                DialogResult dialogResult = MessageBox.Show("Start persuit", "Are you ready?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialogResult = MessageBox.Show("Start pursuit", "Are you ready?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
                     Cursor.Hide();

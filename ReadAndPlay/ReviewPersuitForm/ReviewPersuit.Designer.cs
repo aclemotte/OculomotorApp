@@ -221,7 +221,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReviewPersuit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Review Persuit Test";
+            this.Text = "Review Pursuit Test";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReviewPersuit_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.chartHorizontalGaze)).EndInit();
             this.statusStripResumen.ResumeLayout(false);
