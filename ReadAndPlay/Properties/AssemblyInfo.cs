@@ -6,10 +6,10 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ReadingApp")]
+[assembly: AssemblyTitle("OculomotorApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("ReadingApp")]
+[assembly: AssemblyProduct("OculomotorApp")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -23,6 +23,6 @@ using System.Resources;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("9984e160-843c-41dd-a824-369991d8926b")]
-[assembly: AssemblyCompanyAttribute("Mr. Patch")]
-[assembly: AssemblyVersionAttribute("2.1.0")]
+[assembly: AssemblyCompanyAttribute("MrPatch")]
+[assembly: AssemblyVersionAttribute("2.2.0")]
 [assembly: NeutralResourcesLanguageAttribute("en")]
