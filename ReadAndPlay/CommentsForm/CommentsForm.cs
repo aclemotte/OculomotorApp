@@ -60,6 +60,7 @@ namespace LookAndPlayForm.Comments
         {
             saveComments();
             commentsDone = false;
+            this.Close();
         }
 
         private void buttonDiscard_Click(object sender, EventArgs e)
