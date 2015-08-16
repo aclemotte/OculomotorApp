@@ -40,6 +40,11 @@ namespace LookAndPlayForm.InitialForm
 
 
 
+
+
+
+
+
         //review test
         private void buttonReviewTest_Click(object sender, EventArgs e)
         {
@@ -48,6 +53,19 @@ namespace LookAndPlayForm.InitialForm
                 this.Hide();
 
                 string selectedPath = selectionOfFolder();
+
+                if(string.IsNullOrEmpty(selectedPath))
+                {
+                    this.Show();
+                    return;
+                }
+
+                if (!directorioValido(selectedPath))
+                {
+                    this.Show();
+                    return;
+                }
+                   
                 testType testType = checkTipoTest(selectedPath);
 
                 switch (testType)
@@ -85,13 +103,47 @@ namespace LookAndPlayForm.InitialForm
             }
         }
 
+        #region review test methods
+
         private string selectionOfFolder()
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
-            DialogResult result = fbd.ShowDialog();
-            string selectedPath = fbd.SelectedPath;
-            return selectedPath;
+
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string selectedPath = fbd.SelectedPath;
+                return selectedPath;
+            }
+            else
+                return null;
+        }
+
+        private bool directorioValido(string path)
+        {
+            string fileTestData = @"\testData.json";
+            string fileEyeTrackerData = @"\eyetrackerData.json";
+
+            if (File.Exists(path + fileTestData) && File.Exists(path + fileEyeTrackerData))
+            {
+                return true; ;
+            }
+            else
+            {
+                MessageBox.Show("Missing some data files in the selected directory. Please select another directory. ", "Invalid directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        
+        private testType checkTipoTest(string selectedPath)
+        {
+            string image2read = openTestDatajsonAndGetField(selectedPath);
+
+            if (string.IsNullOrEmpty(image2read))
+                return testType.persuit;
+            else
+                return testType.reading;//aca se puede ir mas y buscar la forma de saber si es silent o outloud
         }
 
         private string openTestDatajsonAndGetField(string path)
@@ -107,20 +159,15 @@ namespace LookAndPlayForm.InitialForm
             }
             else
             {
-                MessageBox.Show("El archivo " + file + " no existe", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Missing testData.json data files in the selected directory", "Invalid directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
 
-        private testType checkTipoTest(string selectedPath)
-        {
-            string image2read = openTestDatajsonAndGetField(selectedPath);
+        #endregion
 
-            if (string.IsNullOrEmpty(image2read))
-                return testType.persuit;
-            else
-                return testType.reading;//aca se puede ir mas y buscar la forma de saber si es silent o outloud
-        }
+
+
 
 
 
@@ -386,6 +433,8 @@ namespace LookAndPlayForm.InitialForm
             }
         }
 
+        #region new test methods
+
         private void releaseEyeTracker()
         {
             Program.eyeTrackingEngine.Dispose();
@@ -413,6 +462,7 @@ namespace LookAndPlayForm.InitialForm
             Program.datosCompartidos.number_of_screening_done++;
         }
 
+        #endregion
 
 
 
