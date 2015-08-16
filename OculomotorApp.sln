@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadAndPlay", "ReadAndPlay\ReadAndPlay.csproj", "{6615CB07-9B7A-47BC-8379-9CDA5FD4EDFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OculomotorApp", "ReadAndPlay\OculomotorApp.csproj", "{6615CB07-9B7A-47BC-8379-9CDA5FD4EDFC}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Reading App Installer", "Installer\Installer.vdproj", "{A1140F44-7870-40F5-9DB4-F48E1F7A9157}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{A1140F44-7870-40F5-9DB4-F48E1F7A9157}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

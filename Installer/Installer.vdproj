@@ -881,7 +881,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_4615A348986842C7985EE64F0A16297D"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -941,7 +941,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Oculomotor App"
         "ProductCode" = "8:{86B33711-A7F5-487E-A154-111CDC84D265}"
-        "PackageCode" = "8:{D16A40FB-A096-4D0A-B589-5040EC6DFD7E}"
+        "PackageCode" = "8:{7B04794D-55F2-4968-97B4-AC73B66D040B}"
         "UpgradeCode" = "8:{D1289E79-E680-4920-B703-0FFD44BDC58E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -962,7 +962,7 @@
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
