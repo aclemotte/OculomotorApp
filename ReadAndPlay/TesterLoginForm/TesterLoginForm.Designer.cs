@@ -37,13 +37,15 @@
             this.buttonNewTester = new System.Windows.Forms.Button();
             this.comboBoxTesters = new System.Windows.Forms.ComboBox();
             this.labelCopyright = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxTesterID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelTesterName
             // 
             this.labelTesterName.AutoSize = true;
             this.labelTesterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTesterName.Location = new System.Drawing.Point(83, 88);
+            this.labelTesterName.Location = new System.Drawing.Point(83, 74);
             this.labelTesterName.Name = "labelTesterName";
             this.labelTesterName.Size = new System.Drawing.Size(61, 24);
             this.labelTesterName.TabIndex = 0;
@@ -53,7 +55,7 @@
             // 
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOk.Location = new System.Drawing.Point(147, 142);
+            this.buttonOk.Location = new System.Drawing.Point(147, 151);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(207, 35);
             this.buttonOk.TabIndex = 1;
@@ -115,10 +117,11 @@
             this.comboBoxTesters.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxTesters.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTesters.FormattingEnabled = true;
-            this.comboBoxTesters.Location = new System.Drawing.Point(147, 84);
+            this.comboBoxTesters.Location = new System.Drawing.Point(147, 70);
             this.comboBoxTesters.Name = "comboBoxTesters";
             this.comboBoxTesters.Size = new System.Drawing.Size(207, 32);
             this.comboBoxTesters.TabIndex = 15;
+            this.comboBoxTesters.SelectedValueChanged += new System.EventHandler(this.comboBoxTesters_SelectedValueChanged);
             // 
             // labelCopyright
             // 
@@ -130,11 +133,32 @@
             this.labelCopyright.TabIndex = 16;
             this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(56, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 24);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Tester ID";
+            // 
+            // textBoxTesterID
+            // 
+            this.textBoxTesterID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTesterID.Location = new System.Drawing.Point(147, 112);
+            this.textBoxTesterID.Name = "textBoxTesterID";
+            this.textBoxTesterID.ReadOnly = true;
+            this.textBoxTesterID.Size = new System.Drawing.Size(207, 29);
+            this.textBoxTesterID.TabIndex = 51;
+            // 
             // TesterLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 321);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxTesterID);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.comboBoxTesters);
             this.Controls.Add(this.buttonNewTester);
@@ -164,5 +188,7 @@
         private System.Windows.Forms.Button buttonNewTester;
         private System.Windows.Forms.ComboBox comboBoxTesters;
         private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxTesterID;
     }
 }

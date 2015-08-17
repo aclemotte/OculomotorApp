@@ -59,17 +59,6 @@ namespace LookAndPlayForm
             }
         }
 
-
-        private void reWriteCsv()
-        {
-            using (var sw = new StreamWriter(rootPath + @"users.csv"))
-            {
-                var writer = new CsvWriter(sw);
-                //Write the entire contents of the CSV file into another
-                writer.WriteRecords(patientsList);
-            }
-        }
-
         private void BackUpOldUser1File()
         {
             try
@@ -240,6 +229,10 @@ namespace LookAndPlayForm
             return true;
         }
         
+
+
+
+
         private void buttonOk_Click(object sender, EventArgs e)
         {
             if (comboBoxPatients.SelectedItem != null)
@@ -313,6 +306,11 @@ namespace LookAndPlayForm
             {
                 MessageBox.Show("To continue, register a new patient with the New patient button.", "Empty list of patients.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void comboBoxPatients_SelectedValueChanged(object sender, EventArgs e)
+        {
+            textBoxPatientID.Text =  (comboBoxPatients.Items.IndexOf(comboBoxPatients.SelectedItem.ToString()) + 1).ToString();
         }
 
 

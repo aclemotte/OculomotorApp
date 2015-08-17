@@ -36,13 +36,16 @@
             this.labelName = new System.Windows.Forms.Label();
             this.labelCopyright = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxTesterID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonCancel
             // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(73, 167);
+            this.buttonCancel.Location = new System.Drawing.Point(73, 183);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(156, 35);
             this.buttonCancel.TabIndex = 40;
@@ -53,9 +56,10 @@
             // 
             // buttonOk
             // 
+            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOk.Location = new System.Drawing.Point(270, 167);
+            this.buttonOk.Location = new System.Drawing.Point(270, 183);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(156, 35);
             this.buttonOk.TabIndex = 39;
@@ -94,9 +98,10 @@
             // 
             // labelCopyright
             // 
+            this.labelCopyright.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelCopyright.AutoSize = true;
             this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCopyright.Location = new System.Drawing.Point(12, 222);
+            this.labelCopyright.Location = new System.Drawing.Point(12, 238);
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(178, 13);
             this.labelCopyright.TabIndex = 47;
@@ -107,17 +112,38 @@
             this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelVersion.AutoSize = true;
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelVersion.Location = new System.Drawing.Point(12, 207);
+            this.labelVersion.Location = new System.Drawing.Point(12, 223);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(48, 13);
             this.labelVersion.TabIndex = 46;
             this.labelVersion.Text = "Version: ";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(71, 127);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 24);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Tester ID";
+            // 
+            // textBoxTesterID
+            // 
+            this.textBoxTesterID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTesterID.Location = new System.Drawing.Point(162, 124);
+            this.textBoxTesterID.Name = "textBoxTesterID";
+            this.textBoxTesterID.ReadOnly = true;
+            this.textBoxTesterID.Size = new System.Drawing.Size(207, 29);
+            this.textBoxTesterID.TabIndex = 53;
+            // 
             // TesterNewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 244);
+            this.ClientSize = new System.Drawing.Size(504, 260);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxTesterID);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.labelRequiredFields);
@@ -144,5 +170,7 @@
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelCopyright;
         private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxTesterID;
     }
 }

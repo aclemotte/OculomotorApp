@@ -59,6 +59,8 @@
             this.labelRequiredFields = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelCopyright = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxPatientID = new System.Windows.Forms.TextBox();
             this.groupBoxDiagnosedConditions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +68,7 @@
             // 
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(79, 53);
+            this.labelName.Location = new System.Drawing.Point(79, 110);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(73, 24);
             this.labelName.TabIndex = 3;
@@ -88,7 +90,7 @@
             // textBoxUserName
             // 
             this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserName.Location = new System.Drawing.Point(159, 48);
+            this.textBoxUserName.Location = new System.Drawing.Point(159, 105);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(207, 29);
             this.textBoxUserName.TabIndex = 3;
@@ -109,7 +111,7 @@
             // textBoxAge
             // 
             this.textBoxAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAge.Location = new System.Drawing.Point(159, 178);
+            this.textBoxAge.Location = new System.Drawing.Point(159, 205);
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(207, 29);
             this.textBoxAge.TabIndex = 5;
@@ -117,7 +119,7 @@
             // textBoxEmail
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(159, 113);
+            this.textBoxEmail.Location = new System.Drawing.Point(159, 155);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(207, 29);
             this.textBoxEmail.TabIndex = 4;
@@ -126,7 +128,7 @@
             // 
             this.labelAge.AutoSize = true;
             this.labelAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAge.Location = new System.Drawing.Point(94, 183);
+            this.labelAge.Location = new System.Drawing.Point(94, 210);
             this.labelAge.Name = "labelAge";
             this.labelAge.Size = new System.Drawing.Size(57, 24);
             this.labelAge.TabIndex = 15;
@@ -136,7 +138,7 @@
             // 
             this.labelGender.AutoSize = true;
             this.labelGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGender.Location = new System.Drawing.Point(78, 313);
+            this.labelGender.Location = new System.Drawing.Point(78, 310);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(74, 24);
             this.labelGender.TabIndex = 16;
@@ -146,7 +148,7 @@
             // 
             this.labelCountry.AutoSize = true;
             this.labelCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCountry.Location = new System.Drawing.Point(77, 248);
+            this.labelCountry.Location = new System.Drawing.Point(77, 260);
             this.labelCountry.Name = "labelCountry";
             this.labelCountry.Size = new System.Drawing.Size(75, 24);
             this.labelCountry.TabIndex = 17;
@@ -156,7 +158,7 @@
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.Location = new System.Drawing.Point(79, 118);
+            this.labelEmail.Location = new System.Drawing.Point(79, 160);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(73, 24);
             this.labelEmail.TabIndex = 18;
@@ -592,7 +594,7 @@
             "Yemen",
             "Zambia",
             "Zimbabwe"});
-            this.comboBoxCountry.Location = new System.Drawing.Point(159, 240);
+            this.comboBoxCountry.Location = new System.Drawing.Point(159, 252);
             this.comboBoxCountry.Name = "comboBoxCountry";
             this.comboBoxCountry.Size = new System.Drawing.Size(207, 32);
             this.comboBoxCountry.TabIndex = 6;
@@ -630,11 +632,32 @@
             this.labelCopyright.TabIndex = 48;
             this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(60, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 24);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Patient ID";
+            // 
+            // textBoxPatientID
+            // 
+            this.textBoxPatientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPatientID.Location = new System.Drawing.Point(159, 57);
+            this.textBoxPatientID.Name = "textBoxPatientID";
+            this.textBoxPatientID.ReadOnly = true;
+            this.textBoxPatientID.Size = new System.Drawing.Size(207, 29);
+            this.textBoxPatientID.TabIndex = 51;
+            // 
             // FormPatientID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 418);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxPatientID);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.labelRequiredFields);
@@ -698,6 +721,8 @@
         private System.Windows.Forms.CheckBox checkBoxConvergenceInsufficiency;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxPatientID;
     }
 }
 

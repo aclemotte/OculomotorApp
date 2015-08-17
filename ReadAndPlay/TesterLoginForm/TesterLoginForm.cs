@@ -199,5 +199,10 @@ namespace LookAndPlayForm.TesterID
                 MessageBox.Show("To continue, register a new tester with the New tester button.", "Empty list of testers.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void comboBoxTesters_SelectedValueChanged(object sender, EventArgs e)
+        {
+            textBoxTesterID.Text = (comboBoxTesters.Items.IndexOf(comboBoxTesters.SelectedItem.ToString()) + 1).ToString();
+        }
     }
 }

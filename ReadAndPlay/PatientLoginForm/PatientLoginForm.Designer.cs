@@ -37,13 +37,15 @@
             this.buttonNewPatient = new System.Windows.Forms.Button();
             this.comboBoxPatients = new System.Windows.Forms.ComboBox();
             this.labelCopyright = new System.Windows.Forms.Label();
+            this.textBoxPatientID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(75, 88);
+            this.labelName.Location = new System.Drawing.Point(75, 71);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(61, 24);
             this.labelName.TabIndex = 3;
@@ -53,7 +55,7 @@
             // 
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOk.Location = new System.Drawing.Point(147, 133);
+            this.buttonOk.Location = new System.Drawing.Point(147, 150);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(207, 35);
             this.buttonOk.TabIndex = 1;
@@ -118,10 +120,11 @@
             this.comboBoxPatients.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxPatients.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPatients.FormattingEnabled = true;
-            this.comboBoxPatients.Location = new System.Drawing.Point(147, 88);
+            this.comboBoxPatients.Location = new System.Drawing.Point(147, 71);
             this.comboBoxPatients.Name = "comboBoxPatients";
             this.comboBoxPatients.Size = new System.Drawing.Size(207, 32);
             this.comboBoxPatients.TabIndex = 16;
+            this.comboBoxPatients.SelectedValueChanged += new System.EventHandler(this.comboBoxPatients_SelectedValueChanged);
             // 
             // labelCopyright
             // 
@@ -133,11 +136,32 @@
             this.labelCopyright.TabIndex = 48;
             this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
             // 
+            // textBoxPatientID
+            // 
+            this.textBoxPatientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPatientID.Location = new System.Drawing.Point(147, 112);
+            this.textBoxPatientID.Name = "textBoxPatientID";
+            this.textBoxPatientID.ReadOnly = true;
+            this.textBoxPatientID.Size = new System.Drawing.Size(207, 29);
+            this.textBoxPatientID.TabIndex = 49;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(48, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 24);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "Patient ID";
+            // 
             // PatientLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 321);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxPatientID);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.comboBoxPatients);
             this.Controls.Add(this.label2);
@@ -168,6 +192,8 @@
         private System.Windows.Forms.Button buttonNewPatient;
         private System.Windows.Forms.ComboBox comboBoxPatients;
         private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.TextBox textBoxPatientID;
+        private System.Windows.Forms.Label label1;
     }
 }
 

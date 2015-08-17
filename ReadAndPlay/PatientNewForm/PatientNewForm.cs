@@ -28,8 +28,9 @@ namespace LookAndPlayForm
         {
             InitializeComponent();
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            newUser = false;
+            textBoxPatientID.Text = patientID.ToString();
             this.patientID = patientID;
+            newUser = false;
         }
 
         
