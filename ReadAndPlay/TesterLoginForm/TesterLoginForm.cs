@@ -14,12 +14,32 @@ namespace LookAndPlayForm.TesterID
     public partial class TesterLoginForm : Form
     {
 
+        /* Casos:
+         * 1. Sin el archivo testers. 
+         *      Deshabilitar: boton Ok, comboBox y avisar que no hay ningun tester al inicio (solo es posible meter un nuevo usuario)
+         * 2. Sin el archivo testers, darle a new tester y darle a cancel
+         *      Volver a la ventana de login y listo
+         * 3. Boton ok sin tester seleccionado
+         *      Avisar
+         * 4. Nuevo usuario. 
+         *      Actualizar archivo de testers
+         *      Pasar automaticamente de ventana
+         * El ID del primer usuario es 1
+         * La lista del ComboBox comienza con 0
+         */
+
+
         private string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
+
+        private bool userFile;
 
         public bool newUser { get; set; }
         public TesterLoginEngineData testerDataSelected { get; set; }
         public List<TesterLoginEngineData> testersList { get; set; }
         public bool closeApp { get; set; }
+
+
+
 
 
 
@@ -31,44 +51,19 @@ namespace LookAndPlayForm.TesterID
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();            
             closeApp = true;
 
-            bool rootFolder = rootFolderExist();
-            bool userFile = testersFileExist(rootFolder);
-            testers2Form();
-        }
-
-        public void updateCsv()
-        {
-            if (testersList != null)
-            {
-
-                //caso que se haya introducido un nuevo usuario, 
-                //se almacena en la lista el nuevo usuario y 
-                //se guarda la lista en un archivo csv
-                if (numericUpDownTesterID.Value > Convert.ToDecimal(testersList.Last().tester_id))
-                {
-                    testersList.Add(testerDataSelected);
-
-                    reWriteCsv();
-                }
-            }
+            bool rootFolder = rootFolderExist();//busca el directorio. sino existe lo crea
+            userFile = testersFileExist(rootFolder);//buscar el archivo. sino existe NO lo crea. 
+            
+            if (userFile)
+                testersFileData2Form();
             else
             {
-                testersList = new List<TesterLoginEngineData>();
-                testersList.Add(testerDataSelected);
-
-                reWriteCsv();
+                comboBoxTesters.Enabled = false;
+                buttonOk.Enabled = false;
             }
         }
 
-        private void reWriteCsv()
-        {
-            using (var sw = new StreamWriter(rootPath + @"testers.csv"))
-            {
-                var writer = new CsvWriter(sw);
-                //Write the entire contents of the CSV file into another
-                writer.WriteRecords(testersList);
-            }
-        }
+
 
 
 
@@ -100,7 +95,6 @@ namespace LookAndPlayForm.TesterID
                     }
                     catch (Exception ex)
                     {
-                        //File.WriteAllText("lastError.txt", string.Format("Last Error @{0}: {1}", DateTime.Now, ex.GetBaseException()));
                         ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                         return false;
                     }
@@ -114,17 +108,26 @@ namespace LookAndPlayForm.TesterID
             }
         }
 
-        private bool testers2Form()
+        private bool testersFileData2Form()
         {
             if(testersList != null)
             {
-                numericUpDownTesterID.Maximum = Convert.ToDecimal(testersList.Last().tester_id);
-                numericUpDownTesterID.Value = Convert.ToDecimal(testersList.Last().tester_id);
 
-                if(numericUpDownTesterID.Value == 1)//como por defecto esta en 1 no se cargara el dato del user
+                int indexTester = 0;
+                for (indexTester = 0; indexTester < testersList.Count; indexTester++ )
                 {
-                    textBoxTesterName.Text = testersList[0].tester_name;
+                    comboBoxTesters.Items.Add(testersList[indexTester].tester_name);
                 }
+
+
+
+                //numericUpDownTesterID.Maximum = Convert.ToDecimal(testersList.Last().tester_id);
+                //numericUpDownTesterID.Value = Convert.ToDecimal(testersList.Last().tester_id);
+
+                //if(numericUpDownTesterID.Value == 1)//como por defecto esta en 1 no se cargara el dato del user
+                //{
+                //    textBoxTesterName.Text = testersList[0].tester_name;
+                //}
             }
             //sino se queda en cero que es lo que esta por defecto
             return true;
@@ -133,42 +136,30 @@ namespace LookAndPlayForm.TesterID
 
 
 
-        private void numericUpDownTesterID_ValueChanged(object sender, EventArgs e)
-        {
-            if (testersList != null)
-            {
-                if (numericUpDownTesterID.Value <= Convert.ToDecimal(testersList.Last().tester_id))
-                {
-                    //2. para cuando se llega al numero de un usuario conocido se rellena con texto del usuario
-                    int userIndex = Convert.ToInt32(numericUpDownTesterID.Value) - 1;
-                    textBoxTesterName.Text = testersList[userIndex].tester_name;
-                }
-            }
-        }
         
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if (testersList != null || (testersList == null && newUser))
+            if (comboBoxTesters.SelectedItem != null)
             {
                 testerDataSelected = new TesterLoginEngineData();
-                testerDataSelected.tester_id = numericUpDownTesterID.Value.ToString();
-                testerDataSelected.tester_name = textBoxTesterName.Text;
-                closeApp = false;                
+                testerDataSelected.tester_id = (comboBoxTesters.Items.IndexOf(comboBoxTesters.SelectedItem.ToString())+1).ToString();
+                testerDataSelected.tester_name = comboBoxTesters.SelectedItem.ToString();
+                closeApp = false;
             }
             else
             {
-                MessageBox.Show("To continue, enter a new tester.", "Empty list of testers.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("To continue, select a registered tester or register a new tester with the New tester button.", "Tester not found.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.DialogResult = System.Windows.Forms.DialogResult.None;
             }
         }
         
         private void buttonNewTester_Click(object sender, EventArgs e)
         {
-            decimal newUserID;
+            int newUserID;
 
             if (testersList != null)
             {
-                newUserID = Convert.ToDecimal(testersList.Last().tester_id) + 1;
+                newUserID = Convert.ToInt32(testersList.Last().tester_id) + 1;
             }
             else
             {
@@ -182,18 +173,43 @@ namespace LookAndPlayForm.TesterID
             if (newUser)
             {
                 testerDataSelected = testerNewForm.testerDataSelected;
-                newUser2Form();//cargar datos del nuevo usuario al form
+                testerNewForm.Dispose();
+                testerNewForm = null;
+                testersList = new List<TesterLoginEngineData>();
+                testersList.Add(testerDataSelected);
+                updateTestersFile();
+                pasarDeForm();
+            }
+            else
+            {
+                testerNewForm.Dispose();
+                testerNewForm = null;
             }
 
-            testerNewForm.Dispose();
-            testerNewForm = null;
         }
 
-        private void newUser2Form()
+        private void updateTestersFile()
         {
-            numericUpDownTesterID.Maximum = Convert.ToDecimal(testerDataSelected.tester_id);
-            numericUpDownTesterID.Value = Convert.ToDecimal(testerDataSelected.tester_id);
-            textBoxTesterName.Text = testerDataSelected.tester_name;
+            using (var sw = new StreamWriter(rootPath + @"testers.csv"))
+            {
+                var writer = new CsvWriter(sw);
+                //Write the entire contents of the CSV file into another
+                writer.WriteRecords(testersList);
+            }
+        }
+
+        private void pasarDeForm()
+        {
+            closeApp = false;
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
+        private void TesterLoginForm_Shown(object sender, EventArgs e)
+        {
+            if(!buttonOk.Enabled && !comboBoxTesters.Enabled)
+            {
+                MessageBox.Show("To continue, register a new tester with the New tester button.", "Empty list of testers.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

@@ -15,15 +15,19 @@ namespace LookAndPlayForm.TesterNewForm
         public TesterLoginEngineData testerDataSelected { get; set; } 
         public bool newUser { get; set; }
 
+        
+        
+        
+        private int testerID;
 
 
 
 
-        public TesterNewForm(decimal patientID)
+        public TesterNewForm(int testerID)
         {
             InitializeComponent();
             newUser = false;
-            numericUpDownUserID.Value = patientID;
+            this.testerID = testerID;
         }
 
         
@@ -32,7 +36,7 @@ namespace LookAndPlayForm.TesterNewForm
             if (camposCorrectamenteCompletados())
             {
                 testerDataSelected = new TesterLoginEngineData();
-                testerDataSelected.tester_id = numericUpDownUserID.Value.ToString();
+                testerDataSelected.tester_id = testerID.ToString();
                 testerDataSelected.tester_name = textBoxUserName.Text;
                 newUser = true;
             }

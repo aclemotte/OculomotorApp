@@ -31,21 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TesterLoginForm));
             this.labelTesterName = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
-            this.textBoxTesterName = new System.Windows.Forms.TextBox();
-            this.labelTesterID = new System.Windows.Forms.Label();
-            this.numericUpDownTesterID = new System.Windows.Forms.NumericUpDown();
             this.labelVersion = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonNewTester = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTesterID)).BeginInit();
+            this.comboBoxTesters = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelTesterName
             // 
             this.labelTesterName.AutoSize = true;
             this.labelTesterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTesterName.Location = new System.Drawing.Point(83, 140);
+            this.labelTesterName.Location = new System.Drawing.Point(83, 92);
             this.labelTesterName.Name = "labelTesterName";
             this.labelTesterName.Size = new System.Drawing.Size(61, 24);
             this.labelTesterName.TabIndex = 0;
@@ -55,7 +52,7 @@
             // 
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOk.Location = new System.Drawing.Point(147, 190);
+            this.buttonOk.Location = new System.Drawing.Point(147, 142);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(207, 35);
             this.buttonOk.TabIndex = 1;
@@ -63,55 +60,12 @@
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
-            // textBoxTesterName
-            // 
-            this.textBoxTesterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTesterName.Location = new System.Drawing.Point(147, 138);
-            this.textBoxTesterName.Name = "textBoxTesterName";
-            this.textBoxTesterName.ReadOnly = true;
-            this.textBoxTesterName.Size = new System.Drawing.Size(207, 29);
-            this.textBoxTesterName.TabIndex = 2;
-            // 
-            // labelTesterID
-            // 
-            this.labelTesterID.AutoSize = true;
-            this.labelTesterID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTesterID.Location = new System.Drawing.Point(59, 89);
-            this.labelTesterID.Name = "labelTesterID";
-            this.labelTesterID.Size = new System.Drawing.Size(85, 24);
-            this.labelTesterID.TabIndex = 4;
-            this.labelTesterID.Text = "Tester ID";
-            // 
-            // numericUpDownTesterID
-            // 
-            this.numericUpDownTesterID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownTesterID.Location = new System.Drawing.Point(147, 87);
-            this.numericUpDownTesterID.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownTesterID.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownTesterID.Name = "numericUpDownTesterID";
-            this.numericUpDownTesterID.Size = new System.Drawing.Size(207, 29);
-            this.numericUpDownTesterID.TabIndex = 5;
-            this.numericUpDownTesterID.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownTesterID.ValueChanged += new System.EventHandler(this.numericUpDownTesterID_ValueChanged);
-            // 
             // labelVersion
             // 
             this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelVersion.AutoSize = true;
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelVersion.Location = new System.Drawing.Point(12, 363);
+            this.labelVersion.Location = new System.Drawing.Point(12, 294);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(48, 13);
             this.labelVersion.TabIndex = 6;
@@ -124,11 +78,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(81, 37);
+            this.label3.Location = new System.Drawing.Point(157, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(339, 24);
+            this.label3.Size = new System.Drawing.Size(186, 24);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Scrool Down and Up to search a Tester";
+            this.label3.Text = "Please select a tester";
             // 
             // label2
             // 
@@ -137,7 +91,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(106, 259);
+            this.label2.Location = new System.Drawing.Point(106, 211);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(288, 24);
             this.label2.TabIndex = 13;
@@ -146,7 +100,7 @@
             // buttonNewTester
             // 
             this.buttonNewTester.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewTester.Location = new System.Drawing.Point(152, 300);
+            this.buttonNewTester.Location = new System.Drawing.Point(152, 252);
             this.buttonNewTester.Name = "buttonNewTester";
             this.buttonNewTester.Size = new System.Drawing.Size(197, 35);
             this.buttonNewTester.TabIndex = 14;
@@ -154,18 +108,27 @@
             this.buttonNewTester.UseVisualStyleBackColor = true;
             this.buttonNewTester.Click += new System.EventHandler(this.buttonNewTester_Click);
             // 
+            // comboBoxTesters
+            // 
+            this.comboBoxTesters.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxTesters.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxTesters.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTesters.FormattingEnabled = true;
+            this.comboBoxTesters.Location = new System.Drawing.Point(147, 84);
+            this.comboBoxTesters.Name = "comboBoxTesters";
+            this.comboBoxTesters.Size = new System.Drawing.Size(207, 32);
+            this.comboBoxTesters.TabIndex = 15;
+            // 
             // TesterLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 390);
+            this.ClientSize = new System.Drawing.Size(493, 321);
+            this.Controls.Add(this.comboBoxTesters);
             this.Controls.Add(this.buttonNewTester);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelVersion);
-            this.Controls.Add(this.numericUpDownTesterID);
-            this.Controls.Add(this.labelTesterID);
-            this.Controls.Add(this.textBoxTesterName);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.labelTesterName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -173,7 +136,7 @@
             this.Name = "TesterLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tester Login";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTesterID)).EndInit();
+            this.Shown += new System.EventHandler(this.TesterLoginForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,12 +146,10 @@
 
         private System.Windows.Forms.Label labelTesterName;
         private System.Windows.Forms.Button buttonOk;
-        private System.Windows.Forms.TextBox textBoxTesterName;
-        private System.Windows.Forms.Label labelTesterID;
-        private System.Windows.Forms.NumericUpDown numericUpDownTesterID;
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonNewTester;
+        private System.Windows.Forms.ComboBox comboBoxTesters;
     }
 }

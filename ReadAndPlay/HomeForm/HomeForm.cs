@@ -196,7 +196,6 @@ namespace LookAndPlayForm.InitialForm
                     return;
                 }
 
-                fTester.updateCsv();
                 aws_class_engine.UpdateTestersFile(Program.datosCompartidos.institutionName);
                 data2Log.Tester = fTester.testerDataSelected.tester_name;
                 fTester.Dispose();
