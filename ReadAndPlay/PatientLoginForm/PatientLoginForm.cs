@@ -272,7 +272,8 @@ namespace LookAndPlayForm
                 patientDataSelected = patientNewForm.patientDataSelected;
                 patientNewForm.Dispose();
                 patientNewForm = null;
-                patientsList = new List<patient_class_datav3>();
+                if (!userFile)
+                    patientsList = new List<patient_class_datav3>();
                 patientsList.Add(patientDataSelected);
                 updatePatientFile();
                 pasarDeForm();

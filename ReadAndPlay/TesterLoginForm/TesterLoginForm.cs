@@ -163,7 +163,8 @@ namespace LookAndPlayForm.TesterID
                 testerDataSelected = testerNewForm.testerDataSelected;
                 testerNewForm.Dispose();
                 testerNewForm = null;
-                testersList = new List<TesterLoginEngineData>();
+                if(!userFile)
+                    testersList = new List<TesterLoginEngineData>();
                 testersList.Add(testerDataSelected);
                 updateTestersFile();
                 pasarDeForm();

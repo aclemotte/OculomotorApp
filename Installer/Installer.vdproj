@@ -99,6 +99,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_858FD924C12071D2892BF5390AFA8111"
+        "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_88402A62A89C1206168B7DC9E87817FE"
         "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
         "MsmSig" = "8:_UNDEFINED"
@@ -141,14 +147,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E0B53FF152DC52261365F985325A45DA"
-        "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_E4B432173DE51B929FF98E4E0981075D"
-        "OwnerKey" = "8:_E0B53FF152DC52261365F985325A45DA"
+        "OwnerKey" = "8:_858FD924C12071D2892BF5390AFA8111"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -167,6 +167,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_81ED2F7F91DCDEBB15862FFC4C0CCC30"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_858FD924C12071D2892BF5390AFA8111"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -197,12 +203,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_11B98B364C65483C86565FD7A4F3AA14"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E0B53FF152DC52261365F985325A45DA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -585,6 +585,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_858FD924C12071D2892BF5390AFA8111"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Interop.FixDet, Version=1.2.0.0, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_858FD924C12071D2892BF5390AFA8111"
+                    {
+                    "Name" = "8:Interop.FixDet.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Interop.FixDet.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_88402A62A89C1206168B7DC9E87817FE"
             {
             "AssemblyRegister" = "3:1"
@@ -780,37 +811,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E0B53FF152DC52261365F985325A45DA"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.FixDet, Version=1.2.0.0, Culture=neutral, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_E0B53FF152DC52261365F985325A45DA"
-                    {
-                    "Name" = "8:Interop.FixDet.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Interop.FixDet.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E4B432173DE51B929FF98E4E0981075D"
             {
             "SourcePath" = "8:FixDet.dll"
@@ -881,7 +881,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_4615A348986842C7985EE64F0A16297D"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -941,7 +941,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Oculomotor App"
         "ProductCode" = "8:{2544DB68-72DE-472B-8583-7349167F183D}"
-        "PackageCode" = "8:{C6ADA143-D68F-4D2E-A90E-B7D17EFEE22A}"
+        "PackageCode" = "8:{D59BCBF1-0CAA-4573-B44B-A1FBBFCCDFD7}"
         "UpgradeCode" = "8:{D1289E79-E680-4920-B703-0FFD44BDC58E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -962,7 +962,7 @@
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
@@ -1537,7 +1537,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_11B98B364C65483C86565FD7A4F3AA14"
             {
-            "SourcePath" = "8:..\\ReadAndPlay\\obj\\x86\\Debug\\OculomotorApp.exe"
+            "SourcePath" = "8:..\\ReadAndPlay\\obj\\x86\\Release\\OculomotorApp.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4615A348986842C7985EE64F0A16297D"
