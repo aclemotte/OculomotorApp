@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonNewTester = new System.Windows.Forms.Button();
             this.comboBoxTesters = new System.Windows.Forms.ComboBox();
+            this.labelCopyright = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelTesterName
@@ -65,7 +66,7 @@
             this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelVersion.AutoSize = true;
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelVersion.Location = new System.Drawing.Point(12, 294);
+            this.labelVersion.Location = new System.Drawing.Point(12, 284);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(48, 13);
             this.labelVersion.TabIndex = 6;
@@ -119,11 +120,22 @@
             this.comboBoxTesters.Size = new System.Drawing.Size(207, 32);
             this.comboBoxTesters.TabIndex = 15;
             // 
+            // labelCopyright
+            // 
+            this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCopyright.Location = new System.Drawing.Point(12, 299);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
+            this.labelCopyright.TabIndex = 16;
+            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            // 
             // TesterLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 321);
+            this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.comboBoxTesters);
             this.Controls.Add(this.buttonNewTester);
             this.Controls.Add(this.label2);
@@ -151,5 +163,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonNewTester;
         private System.Windows.Forms.ComboBox comboBoxTesters;
+        private System.Windows.Forms.Label labelCopyright;
     }
 }

@@ -34,6 +34,7 @@
             this.radioButtonReading = new System.Windows.Forms.RadioButton();
             this.radioButtonPersuit = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.labelCopyright = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelVersion
@@ -41,7 +42,7 @@
             this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelVersion.AutoSize = true;
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelVersion.Location = new System.Drawing.Point(12, 262);
+            this.labelVersion.Location = new System.Drawing.Point(12, 254);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(42, 13);
             this.labelVersion.TabIndex = 35;
@@ -98,11 +99,22 @@
             this.label2.TabIndex = 41;
             this.label2.Text = "Select type of screening test:";
             // 
+            // labelCopyright
+            // 
+            this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCopyright.Location = new System.Drawing.Point(12, 270);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
+            this.labelCopyright.TabIndex = 49;
+            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            // 
             // FormSelectionTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 290);
+            this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.radioButtonReading);
             this.Controls.Add(this.radioButtonPersuit);
@@ -125,5 +137,6 @@
         private System.Windows.Forms.RadioButton radioButtonReading;
         private System.Windows.Forms.RadioButton radioButtonPersuit;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelCopyright;
     }
 }

@@ -34,6 +34,8 @@
             this.labelRequiredFields = new System.Windows.Forms.Label();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
+            this.labelCopyright = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCancel
@@ -90,11 +92,34 @@
             this.labelName.TabIndex = 44;
             this.labelName.Text = "Name *";
             // 
+            // labelCopyright
+            // 
+            this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCopyright.Location = new System.Drawing.Point(12, 222);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
+            this.labelCopyright.TabIndex = 47;
+            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelVersion.Location = new System.Drawing.Point(12, 207);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(48, 13);
+            this.labelVersion.TabIndex = 46;
+            this.labelVersion.Text = "Version: ";
+            // 
             // TesterNewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 244);
+            this.Controls.Add(this.labelCopyright);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.labelRequiredFields);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.labelName);
@@ -117,5 +142,7 @@
         private System.Windows.Forms.Label labelRequiredFields;
         private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.Label labelVersion;
     }
 }

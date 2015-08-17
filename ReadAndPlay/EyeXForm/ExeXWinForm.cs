@@ -33,6 +33,7 @@ namespace LookAndPlayForm
         public EyeXWinForm(EyeTrackingEngine eyeTrackingEngine)
         {
             InitializeComponent();
+            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(); 
 
             closeApp = true;
 

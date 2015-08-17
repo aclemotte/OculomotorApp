@@ -18,7 +18,7 @@ namespace LookAndPlayForm.Comments
         public CommentsForm(string selectedPath)
         {
             InitializeComponent();
-
+            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(); 
             this.selectedPath = selectedPath;
             commentsDone = false;
             openCommentsFile(selectedPath);

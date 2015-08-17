@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonNewPatient = new System.Windows.Forms.Button();
             this.comboBoxPatients = new System.Windows.Forms.ComboBox();
+            this.labelCopyright = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelName
@@ -67,7 +68,7 @@
             this.labelVersion.AutoSize = true;
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelVersion.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelVersion.Location = new System.Drawing.Point(12, 302);
+            this.labelVersion.Location = new System.Drawing.Point(12, 283);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(42, 13);
             this.labelVersion.TabIndex = 9;
@@ -122,11 +123,22 @@
             this.comboBoxPatients.Size = new System.Drawing.Size(207, 32);
             this.comboBoxPatients.TabIndex = 16;
             // 
+            // labelCopyright
+            // 
+            this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCopyright.Location = new System.Drawing.Point(12, 299);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
+            this.labelCopyright.TabIndex = 48;
+            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            // 
             // PatientLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 321);
+            this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.comboBoxPatients);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonNewPatient);
@@ -155,6 +167,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonNewPatient;
         private System.Windows.Forms.ComboBox comboBoxPatients;
+        private System.Windows.Forms.Label labelCopyright;
     }
 }
 

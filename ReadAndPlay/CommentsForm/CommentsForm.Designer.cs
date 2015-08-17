@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonDiscard = new System.Windows.Forms.Button();
+            this.labelCopyright = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxComments
@@ -45,7 +47,7 @@
             this.textBoxComments.Multiline = true;
             this.textBoxComments.Name = "textBoxComments";
             this.textBoxComments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxComments.Size = new System.Drawing.Size(574, 369);
+            this.textBoxComments.Size = new System.Drawing.Size(574, 389);
             this.textBoxComments.TabIndex = 2;
             this.textBoxComments.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -83,11 +85,36 @@
             this.buttonDiscard.UseVisualStyleBackColor = true;
             this.buttonDiscard.Click += new System.EventHandler(this.buttonDiscard_Click);
             // 
+            // labelCopyright
+            // 
+            this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCopyright.Location = new System.Drawing.Point(9, 464);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
+            this.labelCopyright.TabIndex = 50;
+            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelVersion.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.labelVersion.Location = new System.Drawing.Point(9, 448);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(42, 13);
+            this.labelVersion.TabIndex = 49;
+            this.labelVersion.Text = "Version";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // CommentsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 447);
+            this.ClientSize = new System.Drawing.Size(744, 486);
+            this.Controls.Add(this.labelCopyright);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.buttonDiscard);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.label1);
@@ -107,5 +134,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonDiscard;
+        private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.Label labelVersion;
     }
 }

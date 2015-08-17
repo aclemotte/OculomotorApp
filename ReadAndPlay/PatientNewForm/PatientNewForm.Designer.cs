@@ -58,6 +58,7 @@
             this.comboBoxCountry = new System.Windows.Forms.ComboBox();
             this.labelRequiredFields = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.labelCopyright = new System.Windows.Forms.Label();
             this.groupBoxDiagnosedConditions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,7 +99,7 @@
             this.labelVersion.AutoSize = true;
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelVersion.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelVersion.Location = new System.Drawing.Point(12, 399);
+            this.labelVersion.Location = new System.Drawing.Point(12, 381);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(42, 13);
             this.labelVersion.TabIndex = 9;
@@ -619,11 +620,22 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // labelCopyright
+            // 
+            this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCopyright.Location = new System.Drawing.Point(12, 397);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
+            this.labelCopyright.TabIndex = 48;
+            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            // 
             // FormPatientID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 418);
+            this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.labelRequiredFields);
             this.Controls.Add(this.comboBoxCountry);
@@ -685,6 +697,7 @@
         private System.Windows.Forms.CheckBox checkBoxStrabismusExotropia;
         private System.Windows.Forms.CheckBox checkBoxConvergenceInsufficiency;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Label labelCopyright;
     }
 }
 

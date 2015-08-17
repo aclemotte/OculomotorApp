@@ -78,6 +78,8 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.buttonNewTest = new System.Windows.Forms.Button();
             this.buttonComments = new System.Windows.Forms.Button();
+            this.labelVersion = new System.Windows.Forms.Label();
+            this.labelCopyright = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -93,7 +95,7 @@
             this.pictureBoxStimulus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxStimulus.Location = new System.Drawing.Point(12, 16);
             this.pictureBoxStimulus.Name = "pictureBoxStimulus";
-            this.pictureBoxStimulus.Size = new System.Drawing.Size(850, 343);
+            this.pictureBoxStimulus.Size = new System.Drawing.Size(850, 345);
             this.pictureBoxStimulus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxStimulus.TabIndex = 5;
             this.pictureBoxStimulus.TabStop = false;
@@ -103,7 +105,7 @@
             this.labelTotalNumberOfFixation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTotalNumberOfFixation.AutoSize = true;
             this.labelTotalNumberOfFixation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalNumberOfFixation.Location = new System.Drawing.Point(71, 392);
+            this.labelTotalNumberOfFixation.Location = new System.Drawing.Point(71, 396);
             this.labelTotalNumberOfFixation.MaximumSize = new System.Drawing.Size(140, 0);
             this.labelTotalNumberOfFixation.Name = "labelTotalNumberOfFixation";
             this.labelTotalNumberOfFixation.Size = new System.Drawing.Size(122, 48);
@@ -140,7 +142,7 @@
             this.textBoxStdFixL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxStdFixL.BackColor = System.Drawing.Color.White;
             this.textBoxStdFixL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxStdFixL.Location = new System.Drawing.Point(367, 443);
+            this.textBoxStdFixL.Location = new System.Drawing.Point(367, 447);
             this.textBoxStdFixL.Name = "textBoxStdFixL";
             this.textBoxStdFixL.ReadOnly = true;
             this.textBoxStdFixL.Size = new System.Drawing.Size(70, 29);
@@ -151,7 +153,7 @@
             this.textBoxMeanFixL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxMeanFixL.BackColor = System.Drawing.Color.White;
             this.textBoxMeanFixL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMeanFixL.Location = new System.Drawing.Point(227, 443);
+            this.textBoxMeanFixL.Location = new System.Drawing.Point(227, 447);
             this.textBoxMeanFixL.Name = "textBoxMeanFixL";
             this.textBoxMeanFixL.ReadOnly = true;
             this.textBoxMeanFixL.Size = new System.Drawing.Size(70, 29);
@@ -162,7 +164,7 @@
             this.textBoxNumFixL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxNumFixL.BackColor = System.Drawing.Color.White;
             this.textBoxNumFixL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumFixL.Location = new System.Drawing.Point(90, 443);
+            this.textBoxNumFixL.Location = new System.Drawing.Point(90, 447);
             this.textBoxNumFixL.Name = "textBoxNumFixL";
             this.textBoxNumFixL.ReadOnly = true;
             this.textBoxNumFixL.Size = new System.Drawing.Size(70, 29);
@@ -215,7 +217,7 @@
             this.labelLeft.AutoSize = true;
             this.labelLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLeft.ForeColor = System.Drawing.Color.Green;
-            this.labelLeft.Location = new System.Drawing.Point(24, 443);
+            this.labelLeft.Location = new System.Drawing.Point(24, 447);
             this.labelLeft.Name = "labelLeft";
             this.labelLeft.Size = new System.Drawing.Size(39, 24);
             this.labelLeft.TabIndex = 21;
@@ -271,7 +273,7 @@
             this.groupBox1.Controls.Add(this.textBoxNumFixR);
             this.groupBox1.Controls.Add(this.textBoxMeanFixR);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 361);
+            this.groupBox1.Location = new System.Drawing.Point(12, 365);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(850, 174);
             this.groupBox1.TabIndex = 25;
@@ -524,7 +526,7 @@
             this.statusStripResumen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelString,
             this.toolStripStatusLabelFileName});
-            this.statusStripResumen.Location = new System.Drawing.Point(0, 614);
+            this.statusStripResumen.Location = new System.Drawing.Point(0, 650);
             this.statusStripResumen.Name = "statusStripResumen";
             this.statusStripResumen.Size = new System.Drawing.Size(1058, 26);
             this.statusStripResumen.TabIndex = 101;
@@ -606,7 +608,7 @@
             this.groupBox5.Controls.Add(this.textBoxNumberOfWords);
             this.groupBox5.Controls.Add(this.labelWordsPerMinute);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(12, 536);
+            this.groupBox5.Location = new System.Drawing.Point(12, 540);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(848, 68);
             this.groupBox5.TabIndex = 114;
@@ -637,11 +639,35 @@
             this.buttonComments.UseVisualStyleBackColor = true;
             this.buttonComments.Click += new System.EventHandler(this.buttonComments_Click);
             // 
+            // labelVersion
+            // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelVersion.Location = new System.Drawing.Point(15, 614);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(42, 13);
+            this.labelVersion.TabIndex = 118;
+            this.labelVersion.Text = "Version";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // labelCopyright
+            // 
+            this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCopyright.Location = new System.Drawing.Point(15, 631);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
+            this.labelCopyright.TabIndex = 117;
+            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            // 
             // Resumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 640);
+            this.ClientSize = new System.Drawing.Size(1058, 676);
+            this.Controls.Add(this.labelVersion);
+            this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.buttonComments);
             this.Controls.Add(this.buttonNewTest);
             this.Controls.Add(this.buttonPlotExtern);
@@ -736,6 +762,8 @@
         private System.Windows.Forms.Label labelCalibration;
         private System.Windows.Forms.Button buttonNewTest;
         private System.Windows.Forms.Button buttonComments;
+        private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Label labelCopyright;
 
 
 

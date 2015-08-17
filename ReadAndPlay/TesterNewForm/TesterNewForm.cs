@@ -26,6 +26,7 @@ namespace LookAndPlayForm.TesterNewForm
         public TesterNewForm(int testerID)
         {
             InitializeComponent();
+            labelVersion.Text =  "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();            
             newUser = false;
             this.testerID = testerID;
         }

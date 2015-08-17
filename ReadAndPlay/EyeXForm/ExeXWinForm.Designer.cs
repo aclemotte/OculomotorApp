@@ -37,12 +37,14 @@ namespace LookAndPlayForm
             this.buttonCalibrate = new System.Windows.Forms.Button();
             this.labelDistance = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this._trackStatus = new LookAndPlayForm.TrackStatusControl();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCalibration = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonGame1 = new System.Windows.Forms.Button();
-            this._trackStatus = new LookAndPlayForm.TrackStatusControl();
+            this.labelCopyright = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +91,15 @@ namespace LookAndPlayForm
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             // 
+            // _trackStatus
+            // 
+            this._trackStatus.BackColor = System.Drawing.Color.Black;
+            this._trackStatus.Location = new System.Drawing.Point(13, 43);
+            this._trackStatus.Margin = new System.Windows.Forms.Padding(6);
+            this._trackStatus.Name = "_trackStatus";
+            this._trackStatus.Size = new System.Drawing.Size(354, 254);
+            this._trackStatus.TabIndex = 3;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -103,7 +114,7 @@ namespace LookAndPlayForm
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelCalibration});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 583);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 613);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(580, 22);
             this.statusStrip1.TabIndex = 28;
@@ -137,20 +148,36 @@ namespace LookAndPlayForm
             this.buttonGame1.UseVisualStyleBackColor = true;
             this.buttonGame1.Click += new System.EventHandler(this.buttonNewTest_Click);
             // 
-            // _trackStatus
+            // labelCopyright
             // 
-            this._trackStatus.BackColor = System.Drawing.Color.Black;
-            this._trackStatus.Location = new System.Drawing.Point(13, 43);
-            this._trackStatus.Margin = new System.Windows.Forms.Padding(6);
-            this._trackStatus.Name = "_trackStatus";
-            this._trackStatus.Size = new System.Drawing.Size(354, 254);
-            this._trackStatus.TabIndex = 3;
+            this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCopyright.Location = new System.Drawing.Point(9, 593);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
+            this.labelCopyright.TabIndex = 49;
+            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelVersion.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.labelVersion.Location = new System.Drawing.Point(9, 579);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(42, 13);
+            this.labelVersion.TabIndex = 50;
+            this.labelVersion.Text = "Version";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // EyeXWinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 605);
+            this.ClientSize = new System.Drawing.Size(580, 635);
+            this.Controls.Add(this.labelVersion);
+            this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.buttonCalibrate);
             this.Controls.Add(this.buttonGame1);
             this.Controls.Add(this.textBox1);
@@ -185,6 +212,8 @@ namespace LookAndPlayForm
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonGame1;
+        private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.Label labelVersion;
     }
 }
 

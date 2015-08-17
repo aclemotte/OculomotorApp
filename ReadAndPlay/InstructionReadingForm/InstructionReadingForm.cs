@@ -16,6 +16,7 @@ namespace LookAndPlayForm.InstructionReadingForm
         public InstructionReadingForm()
         {
             InitializeComponent();
+            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(); 
             closeApp = true;
         }
 

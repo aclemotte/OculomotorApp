@@ -34,6 +34,7 @@
             this.labelOptions = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
+            this.labelCopyright = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonNewTest
@@ -96,18 +97,29 @@
             this.labelVersion.AutoSize = true;
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelVersion.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelVersion.Location = new System.Drawing.Point(12, 236);
+            this.labelVersion.Location = new System.Drawing.Point(12, 221);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(42, 13);
             this.labelVersion.TabIndex = 10;
             this.labelVersion.Text = "Version";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // labelCopyright
+            // 
+            this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCopyright.Location = new System.Drawing.Point(12, 236);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
+            this.labelCopyright.TabIndex = 11;
+            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 258);
+            this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelOptions);
@@ -131,5 +143,6 @@
         private System.Windows.Forms.Label labelOptions;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Label labelCopyright;
     }
 }

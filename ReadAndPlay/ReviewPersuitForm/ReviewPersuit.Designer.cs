@@ -46,6 +46,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonPlot = new System.Windows.Forms.Button();
             this.buttonComment = new System.Windows.Forms.Button();
+            this.labelCopyright = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chartHorizontalGaze)).BeginInit();
             this.statusStripResumen.SuspendLayout();
             this.SuspendLayout();
@@ -104,7 +106,7 @@
             this.labelZoomGuide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelZoomGuide.AutoSize = true;
             this.labelZoomGuide.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelZoomGuide.Location = new System.Drawing.Point(18, 585);
+            this.labelZoomGuide.Location = new System.Drawing.Point(18, 580);
             this.labelZoomGuide.Name = "labelZoomGuide";
             this.labelZoomGuide.Size = new System.Drawing.Size(426, 24);
             this.labelZoomGuide.TabIndex = 2;
@@ -126,7 +128,7 @@
             // 
             this.statusStripResumen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelFileName});
-            this.statusStripResumen.Location = new System.Drawing.Point(0, 631);
+            this.statusStripResumen.Location = new System.Drawing.Point(0, 651);
             this.statusStripResumen.Name = "statusStripResumen";
             this.statusStripResumen.Size = new System.Drawing.Size(1034, 26);
             this.statusStripResumen.TabIndex = 4;
@@ -204,11 +206,36 @@
             this.buttonComment.UseVisualStyleBackColor = true;
             this.buttonComment.Click += new System.EventHandler(this.buttonComment_Click);
             // 
+            // labelCopyright
+            // 
+            this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCopyright.Location = new System.Drawing.Point(19, 627);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
+            this.labelCopyright.TabIndex = 52;
+            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelVersion.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.labelVersion.Location = new System.Drawing.Point(19, 611);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(42, 13);
+            this.labelVersion.TabIndex = 51;
+            this.labelVersion.Text = "Version";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // ReviewPersuit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 657);
+            this.ClientSize = new System.Drawing.Size(1034, 677);
+            this.Controls.Add(this.labelCopyright);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.buttonComment);
             this.Controls.Add(this.buttonPlot);
             this.Controls.Add(this.checkBoxR);
@@ -243,6 +270,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonPlot;
         private System.Windows.Forms.Button buttonComment;
+        private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.Label labelVersion;
 
     }
 }
