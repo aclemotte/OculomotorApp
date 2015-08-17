@@ -235,7 +235,6 @@ namespace LookAndPlayForm.InitialForm
                     }
                 }
 
-                patientLoginForm.updateCsv();//almacena los datos del usuario al pasar el formulario
                 aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
                 data2Log.Patient = patientLoginForm.patientDataSelected.user_name;
                 Program.datosCompartidos.activeUser = patientLoginForm.patientDataSelected.user_id;

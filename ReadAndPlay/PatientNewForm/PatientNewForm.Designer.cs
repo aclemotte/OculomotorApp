@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPatientID));
-            this.labelUser = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
-            this.numericUpDownUserID = new System.Windows.Forms.NumericUpDown();
             this.labelVersion = new System.Windows.Forms.Label();
             this.textBoxAge = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
@@ -60,25 +58,14 @@
             this.comboBoxCountry = new System.Windows.Forms.ComboBox();
             this.labelRequiredFields = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).BeginInit();
             this.groupBoxDiagnosedConditions.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // labelUser
-            // 
-            this.labelUser.AutoSize = true;
-            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUser.Location = new System.Drawing.Point(58, 45);
-            this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(88, 24);
-            this.labelUser.TabIndex = 1;
-            this.labelUser.Text = "Patient ID";
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(79, 99);
+            this.labelName.Location = new System.Drawing.Point(79, 53);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(73, 24);
             this.labelName.TabIndex = 3;
@@ -100,34 +87,10 @@
             // textBoxUserName
             // 
             this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserName.Location = new System.Drawing.Point(159, 99);
+            this.textBoxUserName.Location = new System.Drawing.Point(159, 48);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(207, 29);
             this.textBoxUserName.TabIndex = 3;
-            // 
-            // numericUpDownUserID
-            // 
-            this.numericUpDownUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownUserID.Location = new System.Drawing.Point(159, 45);
-            this.numericUpDownUserID.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownUserID.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownUserID.Name = "numericUpDownUserID";
-            this.numericUpDownUserID.ReadOnly = true;
-            this.numericUpDownUserID.Size = new System.Drawing.Size(207, 29);
-            this.numericUpDownUserID.TabIndex = 2;
-            this.numericUpDownUserID.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // labelVersion
             // 
@@ -145,7 +108,7 @@
             // textBoxAge
             // 
             this.textBoxAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAge.Location = new System.Drawing.Point(159, 207);
+            this.textBoxAge.Location = new System.Drawing.Point(159, 178);
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(207, 29);
             this.textBoxAge.TabIndex = 5;
@@ -153,7 +116,7 @@
             // textBoxEmail
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(159, 153);
+            this.textBoxEmail.Location = new System.Drawing.Point(159, 113);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(207, 29);
             this.textBoxEmail.TabIndex = 4;
@@ -162,7 +125,7 @@
             // 
             this.labelAge.AutoSize = true;
             this.labelAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAge.Location = new System.Drawing.Point(94, 207);
+            this.labelAge.Location = new System.Drawing.Point(94, 183);
             this.labelAge.Name = "labelAge";
             this.labelAge.Size = new System.Drawing.Size(57, 24);
             this.labelAge.TabIndex = 15;
@@ -172,7 +135,7 @@
             // 
             this.labelGender.AutoSize = true;
             this.labelGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGender.Location = new System.Drawing.Point(78, 315);
+            this.labelGender.Location = new System.Drawing.Point(78, 313);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(74, 24);
             this.labelGender.TabIndex = 16;
@@ -182,7 +145,7 @@
             // 
             this.labelCountry.AutoSize = true;
             this.labelCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCountry.Location = new System.Drawing.Point(77, 261);
+            this.labelCountry.Location = new System.Drawing.Point(77, 248);
             this.labelCountry.Name = "labelCountry";
             this.labelCountry.Size = new System.Drawing.Size(75, 24);
             this.labelCountry.TabIndex = 17;
@@ -192,7 +155,7 @@
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.Location = new System.Drawing.Point(79, 153);
+            this.labelEmail.Location = new System.Drawing.Point(79, 118);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(73, 24);
             this.labelEmail.TabIndex = 18;
@@ -203,7 +166,7 @@
             this.radioButtonMale.AutoSize = true;
             this.radioButtonMale.Checked = true;
             this.radioButtonMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonMale.Location = new System.Drawing.Point(165, 315);
+            this.radioButtonMale.Location = new System.Drawing.Point(165, 309);
             this.radioButtonMale.Name = "radioButtonMale";
             this.radioButtonMale.Size = new System.Drawing.Size(69, 28);
             this.radioButtonMale.TabIndex = 19;
@@ -215,7 +178,7 @@
             // 
             this.radioButtonFemale.AutoSize = true;
             this.radioButtonFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonFemale.Location = new System.Drawing.Point(269, 315);
+            this.radioButtonFemale.Location = new System.Drawing.Point(269, 309);
             this.radioButtonFemale.Name = "radioButtonFemale";
             this.radioButtonFemale.Size = new System.Drawing.Size(92, 28);
             this.radioButtonFemale.TabIndex = 20;
@@ -378,7 +341,7 @@
             // 
             // groupBoxGender
             // 
-            this.groupBoxGender.Location = new System.Drawing.Point(159, 307);
+            this.groupBoxGender.Location = new System.Drawing.Point(159, 300);
             this.groupBoxGender.Name = "groupBoxGender";
             this.groupBoxGender.Size = new System.Drawing.Size(207, 41);
             this.groupBoxGender.TabIndex = 34;
@@ -628,7 +591,7 @@
             "Yemen",
             "Zambia",
             "Zimbabwe"});
-            this.comboBoxCountry.Location = new System.Drawing.Point(159, 261);
+            this.comboBoxCountry.Location = new System.Drawing.Point(159, 240);
             this.comboBoxCountry.Name = "comboBoxCountry";
             this.comboBoxCountry.Size = new System.Drawing.Size(207, 32);
             this.comboBoxCountry.TabIndex = 6;
@@ -673,11 +636,9 @@
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxAge);
             this.Controls.Add(this.labelVersion);
-            this.Controls.Add(this.numericUpDownUserID);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.labelName);
-            this.Controls.Add(this.labelUser);
             this.Controls.Add(this.groupBoxDiagnosedConditions);
             this.Controls.Add(this.groupBoxGender);
             this.DoubleBuffered = true;
@@ -686,7 +647,6 @@
             this.Name = "FormPatientID";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New patient";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUserID)).EndInit();
             this.groupBoxDiagnosedConditions.ResumeLayout(false);
             this.groupBoxDiagnosedConditions.PerformLayout();
             this.ResumeLayout(false);
@@ -696,11 +656,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.TextBox textBoxUserName;
-        private System.Windows.Forms.NumericUpDown numericUpDownUserID;
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.TextBox textBoxAge;
         private System.Windows.Forms.TextBox textBoxEmail;

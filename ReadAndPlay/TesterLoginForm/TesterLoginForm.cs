@@ -30,8 +30,8 @@ namespace LookAndPlayForm.TesterID
 
 
         private string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
-
         private bool userFile;
+
 
         public bool newUser { get; set; }
         public TesterLoginEngineData testerDataSelected { get; set; }
@@ -112,24 +112,12 @@ namespace LookAndPlayForm.TesterID
         {
             if(testersList != null)
             {
-
                 int indexTester = 0;
                 for (indexTester = 0; indexTester < testersList.Count; indexTester++ )
                 {
                     comboBoxTesters.Items.Add(testersList[indexTester].tester_name);
                 }
-
-
-
-                //numericUpDownTesterID.Maximum = Convert.ToDecimal(testersList.Last().tester_id);
-                //numericUpDownTesterID.Value = Convert.ToDecimal(testersList.Last().tester_id);
-
-                //if(numericUpDownTesterID.Value == 1)//como por defecto esta en 1 no se cargara el dato del user
-                //{
-                //    textBoxTesterName.Text = testersList[0].tester_name;
-                //}
             }
-            //sino se queda en cero que es lo que esta por defecto
             return true;
         }
 
@@ -206,7 +194,7 @@ namespace LookAndPlayForm.TesterID
 
         private void TesterLoginForm_Shown(object sender, EventArgs e)
         {
-            if(!buttonOk.Enabled && !comboBoxTesters.Enabled)
+            if (!userFile)
             {
                 MessageBox.Show("To continue, register a new tester with the New tester button.", "Empty list of testers.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

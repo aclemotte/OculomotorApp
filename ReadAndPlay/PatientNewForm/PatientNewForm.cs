@@ -17,17 +17,19 @@ namespace LookAndPlayForm
     {
         public patient_class_datav3 patientDataSelected { get; set; }
         public bool newUser { get; set; }
+
+
+
+        private int patientID;
+
+
         
-
-
-
-        
-        public FormPatientID(decimal patientID)
+        public FormPatientID(int patientID)
         {
             InitializeComponent();
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             newUser = false;
-            numericUpDownUserID.Value = patientID;
+            this.patientID = patientID;
         }
 
         
@@ -42,7 +44,7 @@ namespace LookAndPlayForm
             if (camposCorrectamenteCompletados())
             {
                 patientDataSelected = new patient_class_datav3();
-                patientDataSelected.user_id = numericUpDownUserID.Value.ToString();
+                patientDataSelected.user_id = patientID.ToString();
                 patientDataSelected.user_name = textBoxUserName.Text;
                 patientDataSelected.user_institution = Program.datosCompartidos.institutionName;
                 patientDataSelected.user_age = textBoxAge.Text;

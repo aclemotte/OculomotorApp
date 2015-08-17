@@ -15,33 +15,23 @@ namespace LookAndPlayForm
 {
     public partial class PatientLoginForm : Form
     {
-        /*
-            busca la carpeta root, retorno en bool, sino existe lo crea
-            busca y lee users.cvs, retorno en bool, sino existe lo crea
-            
-            espera boton ok
-                
-            al darle al boton ok pregunta por id usuario
-
-            si id usuario es nuevo (mayor a id last_session)
-            {
-                pregunta por el resto de la info
-                - name
-                - institution
-            }
-            
-            Se inicia la prueba
-
-            Al final de la prueba actualiza users.cvs con updateCsV();
-            Al final de la prueba se genera una carpeta:
-            user-date
-        */
-
-        //user id del primer user es 1, no cero
+        /* Casos:
+         * 1. Sin el archivo testers. 
+         *      Deshabilitar: boton Ok, comboBox y avisar que no hay ningun tester al inicio (solo es posible meter un nuevo usuario)
+         * 2. Sin el archivo testers, darle a new tester y darle a cancel
+         *      Volver a la ventana de login y listo
+         * 3. Boton ok sin tester seleccionado
+         *      Avisar
+         * 4. Nuevo usuario. 
+         *      Actualizar archivo de testers
+         *      Pasar automaticamente de ventana
+         * El ID del primer usuario es 1
+         * La lista del ComboBox comienza con 0
+         */
 
         string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
-        bool datosMigrados2NewFromClassv1 = false;
-        bool datosMigrados2NewFromClassv2 = false;
+        private bool userFile;
+
 
         public bool newUser { get; set; }                        
         public patient_class_datav3 patientDataSelected { get; set; }
@@ -59,46 +49,16 @@ namespace LookAndPlayForm
 
 
             bool rootFolder = rootFolderExist();
-            bool userFile = usersFileExist(rootFolder);
-            patients2Form();                 
-        }
-
-        public void updateCsv()
-        {
-            if (patientsList != null)
-            {
-
-                //caso que se haya introducido un nuevo usuario, 
-                //se almacena en la lista el nuevo usuario y 
-                //se guarda la lista en un archivo csv
-                if (numericUpDownUserID.Value > Convert.ToDecimal(patientsList.Last().user_id))
-                {
-                    patientsList.Add(patientDataSelected);
-
-                    if (datosMigrados2NewFromClassv1 || datosMigrados2NewFromClassv2)
-                        BackUpOldUserFile();
-
-                    reWriteCsv();
-                }
-                else 
-                {                
-                    //caso que no se haya introducido un nuevo usuario, pero de que se haya migrado
-                    if (datosMigrados2NewFromClassv1 || datosMigrados2NewFromClassv2)
-                    {
-                        BackUpOldUserFile();
-                        reWriteCsv();
-                    }
-                }
-                
-            }
+            userFile = usersFileExist(rootFolder);
+            if(userFile)
+                patientsFile2Form();                 
             else
             {
-                patientsList = new List<patient_class_datav3>();
-                patientsList.Add(patientDataSelected);
-                reWriteCsv();
+                comboBoxPatients.Enabled = false;
+                buttonOk.Enabled = false;
             }
-
         }
+
 
         private void reWriteCsv()
         {
@@ -110,14 +70,23 @@ namespace LookAndPlayForm
             }
         }
 
-        private void BackUpOldUserFile()
+        private void BackUpOldUser1File()
         {
             try
             {
-                if(datosMigrados2NewFromClassv1)
-                    File.Copy(rootPath + @"users.csv", rootPath + @"users_classv1.csv");
-                else if(datosMigrados2NewFromClassv2)
-                    File.Copy(rootPath + @"users.csv", rootPath + @"users_classv2.csv");
+                File.Copy(rootPath + @"users.csv", rootPath + @"users_classv1.csv");
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+            }
+        }
+
+        private void BackUpOldUser2File()
+        {
+            try
+            {
+                File.Copy(rootPath + @"users.csv", rootPath + @"users_classv2.csv");
             }
             catch (Exception ex)
             {
@@ -160,8 +129,6 @@ namespace LookAndPlayForm
                     var reader3 = new CsvReader(sr3);
                     try
                     {
-                        datosMigrados2NewFromClassv1 = false;
-                        datosMigrados2NewFromClassv2 = false;
                         patientsList = reader3.GetRecords<patient_class_datav3>().ToList();
                         return true;
                     }
@@ -176,7 +143,7 @@ namespace LookAndPlayForm
                             try
                             {
                                 patientClassv2ToClassv3(reader2);
-                                datosMigrados2NewFromClassv2 = true;
+                                BackUpOldUser2File();
                                 return true;
                             }
                             catch (Exception e2)
@@ -190,7 +157,7 @@ namespace LookAndPlayForm
                                     try
                                     {
                                         patientClassv1ToClassv3(reader1);
-                                        datosMigrados2NewFromClassv1 = true;
+                                        BackUpOldUser1File();
                                         return true;
                                     }
                                     catch (Exception e1)
@@ -260,61 +227,43 @@ namespace LookAndPlayForm
             }
         }
 
-        private bool patients2Form()
+        private bool patientsFile2Form()
         {
             if (patientsList != null)
             {
-                numericUpDownUserID.Maximum = Convert.ToDecimal(patientsList.Last().user_id);
-                numericUpDownUserID.Value = Convert.ToDecimal(patientsList.Last().user_id);
-
-                if (numericUpDownUserID.Value == 1)//como por defecto esta en 1 no se cargara el dato del user
+                int indexPatient = 0;
+                for(indexPatient = 0; indexPatient<patientsList.Count; indexPatient++)
                 {
-                    textBoxUserName.Text = patientsList[0].user_name;
+                    comboBoxPatients.Items.Add(patientsList[indexPatient].user_name);
                 }
             }
-            //sino se queda en cero que es lo que esta por defecto
             return true;
-        }
-
-
-
-        private void numericUpDownUserID_ValueChanged(object sender, EventArgs e)
-        {
-            if (patientsList != null)
-            {
-                if (numericUpDownUserID.Value <= Convert.ToDecimal(patientsList.Last().user_id))
-                {
-                    //2. para cuando se llega al numero de un usuario conocido se rellena con texto del usuario
-                    int userIndex = Convert.ToInt32(numericUpDownUserID.Value) - 1;
-                    textBoxUserName.Text = patientsList[userIndex].user_name;
-                }
-            }
         }
         
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if (patientsList != null || (patientsList == null && newUser))
+            if (comboBoxPatients.SelectedItem != null)
             {
                 patientDataSelected = new patient_class_datav3();
-                patientDataSelected.user_id = numericUpDownUserID.Value.ToString();
-                patientDataSelected.user_name = textBoxUserName.Text;
+                patientDataSelected.user_id = (comboBoxPatients.Items.IndexOf(comboBoxPatients.SelectedItem.ToString()) + 1).ToString();
+                patientDataSelected.user_name = comboBoxPatients.SelectedItem.ToString();
                 patientDataSelected.user_institution = Program.datosCompartidos.institutionName;
                 closeApp = false;
             }
             else
             {
-                MessageBox.Show("To continue, enter a new patient.", "Empty list of patients.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("To continue, select a registered patient or register a new patient with the New patient button.", "Patient not found.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.DialogResult = System.Windows.Forms.DialogResult.None;
             }
         }
 
         private void buttonNewPatient_Click(object sender, EventArgs e)
         {
-            decimal newUserID;
+            int newUserID;
 
             if (patientsList != null)
             {
-                newUserID = Convert.ToDecimal(patientsList.Last().user_id) + 1;
+                newUserID = Convert.ToInt32(patientsList.Last().user_id) + 1;
             }
             else
             {
@@ -328,18 +277,44 @@ namespace LookAndPlayForm
             if (newUser)
             {
                 patientDataSelected = patientNewForm.patientDataSelected;
-                newUser2Form();//cargar datos del nuevo usuario al form
+                patientNewForm.Dispose();
+                patientNewForm = null;
+                patientsList = new List<patient_class_datav3>();
+                patientsList.Add(patientDataSelected);
+                updatePatientFile();
+                pasarDeForm();
             }
-
-            patientNewForm.Dispose();
-            patientNewForm = null;
+            else 
+            {
+                patientNewForm.Dispose();
+                patientNewForm = null;
+            }
         }
 
-        private void newUser2Form()
+        private void updatePatientFile()
         {
-            numericUpDownUserID.Maximum = Convert.ToDecimal(patientDataSelected.user_id);
-            numericUpDownUserID.Value = Convert.ToDecimal(patientDataSelected.user_id);
-            textBoxUserName.Text = patientDataSelected.user_name;
+            using (var sw = new StreamWriter(rootPath + @"users.csv"))
+            {
+                var writer = new CsvWriter(sw);
+                //Write the entire contents of the CSV file into another
+                writer.WriteRecords(patientsList);
+            }
         }
+
+        private void pasarDeForm()
+        {
+            closeApp = false;
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
+        private void PatientLoginForm_Shown(object sender, EventArgs e)
+        {
+            if (!userFile)
+            {
+                MessageBox.Show("To continue, register a new patient with the New patient button.", "Empty list of patients.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+
     }
 }
