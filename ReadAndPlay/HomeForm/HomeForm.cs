@@ -17,23 +17,24 @@ namespace LookAndPlayForm.InitialForm
 {
     public partial class HomeForm : Form
     {
-        HomeFormEngine initial_engine;
-
+        HomeFormEngine homeFormEngine;
         ClassLogData data2Log;
+        bool loginForms;
 
 
 
-            
-        public HomeForm(HomeFormEngine initial_engine)
+
+        public HomeForm(HomeFormEngine homeFormEngine)
         {
             InitializeComponent();
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-            this.initial_engine = initial_engine;
+            this.homeFormEngine = homeFormEngine;
 
             data2Log = new ClassLogData();
             data2Log.Date = DateTime.Now.ToString("dd/MM/yyyy");
             data2Log.Time_start = DateTime.Now.ToString("HH:mm:ss");
+            loginForms = true;
         }
 
 
@@ -183,64 +184,72 @@ namespace LookAndPlayForm.InitialForm
             {
                 this.Hide();
 
-
-                //tester search
-                TesterLoginForm fTester = new TesterLoginForm();
-                fTester.ShowDialog();
-
-                if (fTester.closeApp)
+                if (loginForms)
                 {
+                    //tester search
+                    TesterLoginForm fTester = new TesterLoginForm();
+                    fTester.ShowDialog();
+
+                    if (fTester.closeApp)
+                    {
+                        fTester.Dispose();
+                        fTester = null;
+                        this.Close();
+                        return;
+                    }
+
+                    aws_class_engine.UpdateTestersFile(Program.datosCompartidos.institutionName);
+                    data2Log.Tester = fTester.testerDataSelected.tester_name;
                     fTester.Dispose();
                     fTester = null;
-                    this.Close();
-                    return;
-                }
 
-                aws_class_engine.UpdateTestersFile(Program.datosCompartidos.institutionName);
-                data2Log.Tester = fTester.testerDataSelected.tester_name;
-                fTester.Dispose();
-                fTester = null;
+                    //patient search
+                    PatientLoginForm patientLoginForm = new PatientLoginForm();
+                    patientLoginForm.ShowDialog();
 
-                //patient search
-                PatientLoginForm patientLoginForm = new PatientLoginForm();
-                patientLoginForm.ShowDialog();
-
-                if (patientLoginForm.closeApp)
-                {
-                    patientLoginForm.Dispose();
-                    patientLoginForm = null;
-                    this.Close();
-                    return;
-                }
-
-                if (patientLoginForm.newUser)
-                {
-                    //nuevo patient
-                    ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
-                    formularioConsentimiento.ShowDialog();
-
-                    if (formularioConsentimiento.closeApp)
+                    if (patientLoginForm.closeApp)
                     {
                         patientLoginForm.Dispose();
                         patientLoginForm = null;
-                        formularioConsentimiento.Dispose();
-                        formularioConsentimiento = null;
-                        this.Close();//no acepto las condiciones
+                        this.Close();
                         return;
                     }
-                    else
-                    {                //si acepto las condiciones
-                        formularioConsentimiento.Dispose();
-                        formularioConsentimiento = null;
+
+                    if (patientLoginForm.newUser)
+                    {
+                        //nuevo patient
+                        ConsentForm.consentForm formularioConsentimiento = new ConsentForm.consentForm();
+                        formularioConsentimiento.ShowDialog();
+
+                        if (formularioConsentimiento.closeApp)
+                        {
+                            patientLoginForm.Dispose();
+                            patientLoginForm = null;
+                            formularioConsentimiento.Dispose();
+                            formularioConsentimiento = null;
+                            this.Close();//no acepto las condiciones
+                            return;
+                        }
+                        else
+                        {                //si acepto las condiciones
+                            formularioConsentimiento.Dispose();
+                            formularioConsentimiento = null;
+                        }
                     }
+
+                    aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
+                    data2Log.Patient = patientLoginForm.patientDataSelected.user_name;
+                    Program.datosCompartidos.activeUser = patientLoginForm.patientDataSelected.user_id;
+
+                    patientLoginForm.Dispose();
+                    patientLoginForm = null;
                 }
 
-                aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
-                data2Log.Patient = patientLoginForm.patientDataSelected.user_name;
-                Program.datosCompartidos.activeUser = patientLoginForm.patientDataSelected.user_id;
 
-                patientLoginForm.Dispose();
-                patientLoginForm = null;
+
+
+
+
 
                 //user position
                 Program.eyeTrackingEngine = new EyeTrackingEngine();
@@ -344,9 +353,20 @@ namespace LookAndPlayForm.InitialForm
                             }
                             else
                             {
-                                resumenGame1.Dispose();
-                                resumenGame1 = null;
-                                this.Show();
+                                if (resumenGame1.toHome)
+                                {
+                                    loginForms = true;
+                                    resumenGame1.Dispose();
+                                    resumenGame1 = null;
+                                    this.Show();
+                                }
+                                else
+                                {
+                                    loginForms = false;
+                                    resumenGame1.Dispose();
+                                    resumenGame1 = null;
+                                    buttonNewTest_Click(this, EventArgs.Empty);
+                                }
                             }
                         }
                         else
@@ -406,9 +426,20 @@ namespace LookAndPlayForm.InitialForm
                             }
                             else
                             {
-                                reviewPersuit.Dispose();
-                                reviewPersuit = null;
-                                this.Show();
+                                if (reviewPersuit.toHome)
+                                {
+                                    loginForms = true;
+                                    reviewPersuit.Dispose();
+                                    reviewPersuit = null;
+                                    this.Show();
+                                }
+                                else
+                                {
+                                    loginForms = false;
+                                    reviewPersuit.Dispose();
+                                    reviewPersuit = null;
+                                    buttonNewTest_Click(this, EventArgs.Empty);
+                                }
                             }
                         }
                         else
@@ -430,6 +461,7 @@ namespace LookAndPlayForm.InitialForm
                 this.Close();
             }
         }
+
 
         #region new test methods
 

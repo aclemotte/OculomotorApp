@@ -76,10 +76,11 @@
             this.labelReadingTime = new System.Windows.Forms.Label();
             this.textBoxReadingTime = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.buttonNewTest = new System.Windows.Forms.Button();
+            this.buttonHome = new System.Windows.Forms.Button();
             this.buttonComments = new System.Windows.Forms.Button();
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelCopyright = new System.Windows.Forms.Label();
+            this.buttonNewTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -117,7 +118,7 @@
             // 
             this.labelWordsPerMinute.AutoSize = true;
             this.labelWordsPerMinute.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWordsPerMinute.Location = new System.Drawing.Point(598, 28);
+            this.labelWordsPerMinute.Location = new System.Drawing.Point(598, 36);
             this.labelWordsPerMinute.Name = "labelWordsPerMinute";
             this.labelWordsPerMinute.Size = new System.Drawing.Size(160, 24);
             this.labelWordsPerMinute.TabIndex = 9;
@@ -406,7 +407,7 @@
             // 
             this.textBoxWordsMin.BackColor = System.Drawing.Color.White;
             this.textBoxWordsMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxWordsMin.Location = new System.Drawing.Point(761, 26);
+            this.textBoxWordsMin.Location = new System.Drawing.Point(761, 34);
             this.textBoxWordsMin.Name = "textBoxWordsMin";
             this.textBoxWordsMin.ReadOnly = true;
             this.textBoxWordsMin.Size = new System.Drawing.Size(70, 29);
@@ -526,7 +527,7 @@
             this.statusStripResumen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelString,
             this.toolStripStatusLabelFileName});
-            this.statusStripResumen.Location = new System.Drawing.Point(0, 650);
+            this.statusStripResumen.Location = new System.Drawing.Point(0, 670);
             this.statusStripResumen.Name = "statusStripResumen";
             this.statusStripResumen.Size = new System.Drawing.Size(1058, 26);
             this.statusStripResumen.TabIndex = 101;
@@ -561,7 +562,7 @@
             // 
             this.textBoxNumberOfWords.BackColor = System.Drawing.Color.White;
             this.textBoxNumberOfWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumberOfWords.Location = new System.Drawing.Point(487, 26);
+            this.textBoxNumberOfWords.Location = new System.Drawing.Point(487, 34);
             this.textBoxNumberOfWords.Name = "textBoxNumberOfWords";
             this.textBoxNumberOfWords.ReadOnly = true;
             this.textBoxNumberOfWords.Size = new System.Drawing.Size(70, 29);
@@ -571,7 +572,7 @@
             // 
             this.labelNumberOfWords.AutoSize = true;
             this.labelNumberOfWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNumberOfWords.Location = new System.Drawing.Point(329, 28);
+            this.labelNumberOfWords.Location = new System.Drawing.Point(329, 36);
             this.labelNumberOfWords.Name = "labelNumberOfWords";
             this.labelNumberOfWords.Size = new System.Drawing.Size(155, 24);
             this.labelNumberOfWords.TabIndex = 111;
@@ -582,7 +583,7 @@
             // 
             this.labelReadingTime.AutoSize = true;
             this.labelReadingTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelReadingTime.Location = new System.Drawing.Point(38, 28);
+            this.labelReadingTime.Location = new System.Drawing.Point(38, 36);
             this.labelReadingTime.Name = "labelReadingTime";
             this.labelReadingTime.Size = new System.Drawing.Size(168, 24);
             this.labelReadingTime.TabIndex = 113;
@@ -592,7 +593,7 @@
             // 
             this.textBoxReadingTime.BackColor = System.Drawing.Color.White;
             this.textBoxReadingTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxReadingTime.Location = new System.Drawing.Point(209, 26);
+            this.textBoxReadingTime.Location = new System.Drawing.Point(209, 34);
             this.textBoxReadingTime.Name = "textBoxReadingTime";
             this.textBoxReadingTime.ReadOnly = true;
             this.textBoxReadingTime.Size = new System.Drawing.Size(70, 29);
@@ -610,22 +611,22 @@
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(12, 540);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(848, 68);
+            this.groupBox5.Size = new System.Drawing.Size(848, 87);
             this.groupBox5.TabIndex = 114;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Sample text analysis";
             // 
-            // buttonNewTest
+            // buttonHome
             // 
-            this.buttonNewTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewTest.Location = new System.Drawing.Point(890, 549);
-            this.buttonNewTest.Name = "buttonNewTest";
-            this.buttonNewTest.Size = new System.Drawing.Size(146, 55);
-            this.buttonNewTest.TabIndex = 115;
-            this.buttonNewTest.Text = "Home";
-            this.buttonNewTest.UseVisualStyleBackColor = true;
-            this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
+            this.buttonHome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHome.Location = new System.Drawing.Point(891, 593);
+            this.buttonHome.Name = "buttonHome";
+            this.buttonHome.Size = new System.Drawing.Size(146, 34);
+            this.buttonHome.TabIndex = 115;
+            this.buttonHome.Text = "Home";
+            this.buttonHome.UseVisualStyleBackColor = true;
+            this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // buttonComments
             // 
@@ -644,7 +645,7 @@
             this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelVersion.AutoSize = true;
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelVersion.Location = new System.Drawing.Point(15, 614);
+            this.labelVersion.Location = new System.Drawing.Point(15, 634);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(42, 13);
             this.labelVersion.TabIndex = 118;
@@ -653,23 +654,37 @@
             // 
             // labelCopyright
             // 
+            this.labelCopyright.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelCopyright.AutoSize = true;
             this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCopyright.Location = new System.Drawing.Point(15, 631);
+            this.labelCopyright.Location = new System.Drawing.Point(15, 651);
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(178, 13);
             this.labelCopyright.TabIndex = 117;
             this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
             // 
+            // buttonNewTest
+            // 
+            this.buttonNewTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNewTest.Location = new System.Drawing.Point(891, 553);
+            this.buttonNewTest.Name = "buttonNewTest";
+            this.buttonNewTest.Size = new System.Drawing.Size(146, 34);
+            this.buttonNewTest.TabIndex = 119;
+            this.buttonNewTest.Text = "New test";
+            this.buttonNewTest.UseVisualStyleBackColor = true;
+            this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
+            // 
             // Resumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 676);
+            this.ClientSize = new System.Drawing.Size(1058, 696);
+            this.Controls.Add(this.buttonNewTest);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.buttonComments);
-            this.Controls.Add(this.buttonNewTest);
+            this.Controls.Add(this.buttonHome);
             this.Controls.Add(this.buttonPlotExtern);
             this.Controls.Add(this.statusStripResumen);
             this.Controls.Add(this.label8);
@@ -696,7 +711,6 @@
             this.Name = "Resumen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Review reading test";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Resumen_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -760,10 +774,11 @@
         private System.Windows.Forms.Label labelDuration;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label labelCalibration;
-        private System.Windows.Forms.Button buttonNewTest;
+        private System.Windows.Forms.Button buttonHome;
         private System.Windows.Forms.Button buttonComments;
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.Button buttonNewTest;
 
 
 

@@ -196,7 +196,7 @@
     <Compile Include="HomeForm\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomeForm\initial_class_engine.cs" />
+    <Compile Include="HomeForm\HomeFormEngine.cs" />
     <Compile Include="InstitutionForm\institution_class_engine.cs" />
     <Compile Include="InstitutionForm\intitution_class_data.cs" />
     <Compile Include="InstitutionForm\FormInstitutionID.cs">

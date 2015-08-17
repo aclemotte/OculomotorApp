@@ -19,13 +19,20 @@ namespace ReviewPersuit
     public partial class ReviewPersuit : Form
     {
         public bool everythingOk { get; set; }
-        bool newTest;
-        eyetrackerDataEyeX eyetrackerDataL;
-        TestData1 testData;
-        StimuloPersuitSetup stimuloPersuitSetup;
-        string selectedPath;
-
         public bool closeApp { get; set; }
+        public bool toHome { get; set; }
+
+
+        private eyetrackerDataEyeX eyetrackerDataL;
+        private TestData1 testData;
+        private StimuloPersuitSetup stimuloPersuitSetup;
+        private string selectedPath;
+
+
+
+
+
+
 
         public ReviewPersuit(bool showLastTest, bool newTestAvailable, string selectedPath)
         {
@@ -41,7 +48,7 @@ namespace ReviewPersuit
             }
 
             this.selectedPath = selectedPath;
-            buttonNewTest.Enabled = newTestAvailable;//era para cuando se le llamaba desde el form de paciente. ahora siempre es true;
+            buttonHome.Enabled = newTestAvailable;//era para cuando se le llamaba desde el form de paciente. ahora siempre es true;
 
             Console.WriteLine("selectedPath: " + selectedPath);
 
@@ -129,30 +136,24 @@ namespace ReviewPersuit
             chartHorizontalGaze.Invalidate();
         }
 
-        private void buttonNewTest_Click(object sender, EventArgs e)
+        private void buttonHome_Click(object sender, EventArgs e)
         {
-            //newTest = true;
+            toHome = true;
             closeApp = false;
             this.Close();
-        }
-
-        //public delegate void ReviewClosedDelegate(bool newTest);
-        //public event ReviewClosedDelegate ReviewClosed;
-
-        private void ReviewPersuit_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //avisar a la app que le llamo que se cerro la app, avisando tb si 
-            // se cerro la ventana para hacer un nuevo test
-            // se cerro para cerrar toda la app
-            //if (ReviewClosed != null)
-            //    ReviewClosed(newTest);
-
         }
 
         private void buttonComment_Click(object sender, EventArgs e)
         {
             CommentsForm commentsF = new CommentsForm(selectedPath);
             commentsF.Show();
+        }
+
+        private void buttonNewTest_Click(object sender, EventArgs e)
+        {
+            toHome = false;
+            closeApp = false;
+            this.Close();
         }
     }
 }

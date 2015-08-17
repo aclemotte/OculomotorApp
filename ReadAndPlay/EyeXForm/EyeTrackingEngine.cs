@@ -50,8 +50,6 @@ namespace LookAndPlayForm
         private IEyeTracker _eyeTracker;
         private Thread _thread;
         private bool saveEyeTrackerData = false;
-
-        //private eyesDetector detectorDeOjos;
         
         /// <summary>
         /// Create eye tracking engine 
@@ -59,7 +57,6 @@ namespace LookAndPlayForm
         /// </summary>
         public EyeTrackingEngine()
         {
-            //detectorDeOjos = new eyesDetector();            
         }
 
         public EyeTrackingState State

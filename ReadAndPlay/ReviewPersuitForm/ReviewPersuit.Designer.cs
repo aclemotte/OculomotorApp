@@ -38,7 +38,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReviewPersuit));
             this.chartHorizontalGaze = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelZoomGuide = new System.Windows.Forms.Label();
-            this.buttonNewTest = new System.Windows.Forms.Button();
+            this.buttonHome = new System.Windows.Forms.Button();
             this.statusStripResumen = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelFileName = new System.Windows.Forms.ToolStripStatusLabel();
             this.checkBoxR = new System.Windows.Forms.CheckBox();
@@ -48,6 +48,7 @@
             this.buttonComment = new System.Windows.Forms.Button();
             this.labelCopyright = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
+            this.buttonNewTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartHorizontalGaze)).BeginInit();
             this.statusStripResumen.SuspendLayout();
             this.SuspendLayout();
@@ -112,17 +113,17 @@
             this.labelZoomGuide.TabIndex = 2;
             this.labelZoomGuide.Text = "You can select an horizontal area to make a zoom";
             // 
-            // buttonNewTest
+            // buttonHome
             // 
-            this.buttonNewTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewTest.Location = new System.Drawing.Point(881, 540);
-            this.buttonNewTest.Name = "buttonNewTest";
-            this.buttonNewTest.Size = new System.Drawing.Size(141, 34);
-            this.buttonNewTest.TabIndex = 3;
-            this.buttonNewTest.Text = "Home";
-            this.buttonNewTest.UseVisualStyleBackColor = true;
-            this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
+            this.buttonHome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHome.Location = new System.Drawing.Point(881, 540);
+            this.buttonHome.Name = "buttonHome";
+            this.buttonHome.Size = new System.Drawing.Size(141, 34);
+            this.buttonHome.TabIndex = 3;
+            this.buttonHome.Text = "Home";
+            this.buttonHome.UseVisualStyleBackColor = true;
+            this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // statusStripResumen
             // 
@@ -229,11 +230,24 @@
             this.labelVersion.Text = "Version";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // buttonNewTest
+            // 
+            this.buttonNewTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNewTest.Location = new System.Drawing.Point(881, 487);
+            this.buttonNewTest.Name = "buttonNewTest";
+            this.buttonNewTest.Size = new System.Drawing.Size(141, 34);
+            this.buttonNewTest.TabIndex = 53;
+            this.buttonNewTest.Text = "New test";
+            this.buttonNewTest.UseVisualStyleBackColor = true;
+            this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
+            // 
             // ReviewPersuit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 677);
+            this.Controls.Add(this.buttonNewTest);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.buttonComment);
@@ -242,14 +256,13 @@
             this.Controls.Add(this.checkBoxL);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.statusStripResumen);
-            this.Controls.Add(this.buttonNewTest);
+            this.Controls.Add(this.buttonHome);
             this.Controls.Add(this.labelZoomGuide);
             this.Controls.Add(this.chartHorizontalGaze);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReviewPersuit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Review Pursuit Test";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReviewPersuit_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.chartHorizontalGaze)).EndInit();
             this.statusStripResumen.ResumeLayout(false);
             this.statusStripResumen.PerformLayout();
@@ -262,7 +275,7 @@
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chartHorizontalGaze;
         private System.Windows.Forms.Label labelZoomGuide;
-        private System.Windows.Forms.Button buttonNewTest;
+        private System.Windows.Forms.Button buttonHome;
         private System.Windows.Forms.StatusStrip statusStripResumen;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelFileName;
         private System.Windows.Forms.CheckBox checkBoxR;
@@ -272,6 +285,7 @@
         private System.Windows.Forms.Button buttonComment;
         private System.Windows.Forms.Label labelCopyright;
         private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Button buttonNewTest;
 
     }
 }
