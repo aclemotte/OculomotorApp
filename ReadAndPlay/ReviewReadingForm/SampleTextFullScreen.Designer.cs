@@ -1,6 +1,6 @@
 ﻿namespace LookAndPlayForm.Resumen
 {
-    partial class Graph1
+    partial class SampleTextFullScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -45,9 +45,10 @@
             // 
             // buttonExit
             // 
+            this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.Location = new System.Drawing.Point(13, 13);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(75, 23);
+            this.buttonExit.Size = new System.Drawing.Size(75, 32);
             this.buttonExit.TabIndex = 1;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -55,9 +56,10 @@
             // 
             // buttonPlot
             // 
+            this.buttonPlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPlot.Location = new System.Drawing.Point(103, 13);
             this.buttonPlot.Name = "buttonPlot";
-            this.buttonPlot.Size = new System.Drawing.Size(75, 23);
+            this.buttonPlot.Size = new System.Drawing.Size(75, 32);
             this.buttonPlot.TabIndex = 2;
             this.buttonPlot.Text = "Plot";
             this.buttonPlot.UseVisualStyleBackColor = true;

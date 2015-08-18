@@ -457,8 +457,8 @@ namespace LookAndPlayForm.Resumen
 
         private void buttonPlotExtern_Click(object sender, EventArgs e)
         {
-            Graph1 newGraph1 = new Graph1(testData, stimulusSize, stimulusLocation, fixData, eyetrackerDataL, checkBoxGaze, checkBoxFixations, checkBoxL, checkBoxR);
-            newGraph1.Show();
+            SampleTextFullScreen sampleTextFullScreen = new SampleTextFullScreen(testData, stimulusSize, stimulusLocation, fixData, eyetrackerDataL, checkBoxGaze, checkBoxFixations, checkBoxL, checkBoxR);
+            sampleTextFullScreen.ShowDialog();
         }
 
         private void buttonHome_Click(object sender, EventArgs e)

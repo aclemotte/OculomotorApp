@@ -270,11 +270,11 @@
     </Compile>
     <Compile Include="RegressionDetector\RegressionDetector.cs" />
     <Compile Include="ReviewReadingForm\class4Graphic.cs" />
-    <Compile Include="ReviewReadingForm\Graph1.cs">
+    <Compile Include="ReviewReadingForm\SampleTextFullScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReviewReadingForm\Graph1.Designer.cs">
-      <DependentUpon>Graph1.cs</DependentUpon>
+    <Compile Include="ReviewReadingForm\SampleTextFullScreen.Designer.cs">
+      <DependentUpon>SampleTextFullScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="ReviewReadingForm\ReviewReading.cs">
       <SubType>Form</SubType>
@@ -374,8 +374,8 @@
     <EmbeddedResource Include="ReviewPersuitForm\ReviewPersuit.resx">
       <DependentUpon>ReviewPersuit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReviewReadingForm\Graph1.resx">
-      <DependentUpon>Graph1.cs</DependentUpon>
+    <EmbeddedResource Include="ReviewReadingForm\SampleTextFullScreen.resx">
+      <DependentUpon>SampleTextFullScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReviewReadingForm\ReviewReading.resx">
       <DependentUpon>ReviewReading.cs</DependentUpon>

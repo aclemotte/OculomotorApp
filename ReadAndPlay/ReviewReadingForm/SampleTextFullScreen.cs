@@ -11,7 +11,7 @@ using LookAndPlayForm.LogEyeTracker;
 
 namespace LookAndPlayForm.Resumen
 {
-    public partial class Graph1 : Form
+    public partial class SampleTextFullScreen : Form
     {
 
         TestData1 testData;
@@ -29,7 +29,7 @@ namespace LookAndPlayForm.Resumen
         int gazeDotRadius = 2;
 
 
-        public Graph1(TestData1 testData, Size stimulusSize, Point stimulusLocation, fixationData fixData, eyetrackerDataEyeX eyetrackerDataL, CheckBox checkBoxGaze, CheckBox checkBoxFixations, CheckBox checkBoxL, CheckBox checkBoxR)
+        public SampleTextFullScreen(TestData1 testData, Size stimulusSize, Point stimulusLocation, fixationData fixData, eyetrackerDataEyeX eyetrackerDataL, CheckBox checkBoxGaze, CheckBox checkBoxFixations, CheckBox checkBoxL, CheckBox checkBoxR)
         {
             InitializeComponent();
 
