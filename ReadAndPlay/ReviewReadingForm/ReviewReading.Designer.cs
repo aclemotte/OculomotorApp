@@ -81,6 +81,7 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelCopyright = new System.Windows.Forms.Label();
             this.buttonNewTest = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStimulus)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -232,7 +233,7 @@
             this.checkBoxL.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxL.ForeColor = System.Drawing.Color.Green;
-            this.checkBoxL.Location = new System.Drawing.Point(911, 180);
+            this.checkBoxL.Location = new System.Drawing.Point(911, 216);
             this.checkBoxL.Name = "checkBoxL";
             this.checkBoxL.Size = new System.Drawing.Size(58, 28);
             this.checkBoxL.TabIndex = 22;
@@ -247,7 +248,7 @@
             this.checkBoxR.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxR.ForeColor = System.Drawing.Color.Blue;
-            this.checkBoxR.Location = new System.Drawing.Point(911, 219);
+            this.checkBoxR.Location = new System.Drawing.Point(911, 245);
             this.checkBoxR.Name = "checkBoxR";
             this.checkBoxR.Size = new System.Drawing.Size(72, 28);
             this.checkBoxR.TabIndex = 23;
@@ -416,9 +417,9 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Location = new System.Drawing.Point(889, 171);
+            this.groupBox2.Location = new System.Drawing.Point(889, 205);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(147, 86);
+            this.groupBox2.Size = new System.Drawing.Size(147, 74);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             // 
@@ -429,7 +430,7 @@
             this.checkBoxFixations.Checked = true;
             this.checkBoxFixations.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxFixations.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxFixations.Location = new System.Drawing.Point(908, 282);
+            this.checkBoxFixations.Location = new System.Drawing.Point(908, 299);
             this.checkBoxFixations.Name = "checkBoxFixations";
             this.checkBoxFixations.Size = new System.Drawing.Size(104, 28);
             this.checkBoxFixations.TabIndex = 27;
@@ -441,7 +442,7 @@
             this.checkBoxGaze.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxGaze.AutoSize = true;
             this.checkBoxGaze.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxGaze.Location = new System.Drawing.Point(908, 317);
+            this.checkBoxGaze.Location = new System.Drawing.Point(908, 327);
             this.checkBoxGaze.Name = "checkBoxGaze";
             this.checkBoxGaze.Size = new System.Drawing.Size(73, 28);
             this.checkBoxGaze.TabIndex = 28;
@@ -451,9 +452,9 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Location = new System.Drawing.Point(889, 263);
+            this.groupBox3.Location = new System.Drawing.Point(889, 287);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(147, 98);
+            this.groupBox3.Size = new System.Drawing.Size(147, 74);
             this.groupBox3.TabIndex = 27;
             this.groupBox3.TabStop = false;
             // 
@@ -550,7 +551,7 @@
             // 
             this.buttonPlotExtern.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPlotExtern.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPlotExtern.Location = new System.Drawing.Point(889, 68);
+            this.buttonPlotExtern.Location = new System.Drawing.Point(889, 66);
             this.buttonPlotExtern.Name = "buttonPlotExtern";
             this.buttonPlotExtern.Size = new System.Drawing.Size(147, 38);
             this.buttonPlotExtern.TabIndex = 102;
@@ -632,7 +633,7 @@
             // 
             this.buttonComments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonComments.Location = new System.Drawing.Point(890, 122);
+            this.buttonComments.Location = new System.Drawing.Point(890, 116);
             this.buttonComments.Name = "buttonComments";
             this.buttonComments.Size = new System.Drawing.Size(147, 38);
             this.buttonComments.TabIndex = 116;
@@ -675,11 +676,24 @@
             this.buttonNewTest.UseVisualStyleBackColor = true;
             this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(891, 166);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(146, 34);
+            this.buttonSave.TabIndex = 120;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // Resumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 696);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonNewTest);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.labelCopyright);
@@ -779,6 +793,7 @@
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Label labelCopyright;
         private System.Windows.Forms.Button buttonNewTest;
+        private System.Windows.Forms.Button buttonSave;
 
 
 
