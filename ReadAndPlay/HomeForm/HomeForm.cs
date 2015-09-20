@@ -342,29 +342,29 @@ namespace LookAndPlayForm.InitialForm
                             saveData();
 
                             //review reading test
-                            Resumen.Resumen resumenGame1 = new Resumen.Resumen(true, true, null);
-                            resumenGame1.ShowDialog();
+                            Resumen.Resumen reviewReading = new Resumen.Resumen(true, true, null);
+                            reviewReading.ShowDialog();
 
-                            if (resumenGame1.closeApp)
+                            if (reviewReading.closeApp)
                             {
-                                resumenGame1.Dispose();
-                                resumenGame1 = null;
+                                reviewReading.Dispose();
+                                reviewReading = null;
                                 this.Close();
                             }
                             else
                             {
-                                if (resumenGame1.toHome)
+                                if (reviewReading.toHome)
                                 {
                                     loginForms = true;
-                                    resumenGame1.Dispose();
-                                    resumenGame1 = null;
+                                    reviewReading.Dispose();
+                                    reviewReading = null;
                                     this.Show();
                                 }
                                 else
                                 {
                                     loginForms = false;
-                                    resumenGame1.Dispose();
-                                    resumenGame1 = null;
+                                    reviewReading.Dispose();
+                                    reviewReading = null;
                                     buttonNewTest_Click(this, EventArgs.Empty);
                                 }
                             }
