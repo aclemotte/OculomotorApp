@@ -344,6 +344,12 @@
     <EmbeddedResource Include="EyeTracking\TrackStatusControl.resx">
       <DependentUpon>TrackStatusControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HomeForm\HomeForm.af.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeForm\HomeForm.es-AR.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomeForm\HomeForm.es.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>

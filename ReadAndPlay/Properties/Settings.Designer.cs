@@ -25,13 +25,13 @@ namespace LookAndPlayForm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string userName {
+        [global::System.Configuration.DefaultSettingValueAttribute("es")]
+        public string languageSelected {
             get {
-                return ((string)(this["userName"]));
+                return ((string)(this["languageSelected"]));
             }
             set {
-                this["userName"] = value;
+                this["languageSelected"] = value;
             }
         }
     }

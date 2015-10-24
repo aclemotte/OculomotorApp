@@ -28,6 +28,7 @@ namespace LookAndPlayForm.InitialForm
 
         public HomeForm(HomeFormEngine homeFormEngine)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default.languageSelected);
             InitializeComponent();
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
@@ -539,6 +540,9 @@ namespace LookAndPlayForm.InitialForm
 
         private void ChangeLanguage(string lang, Form form)
         {
+            Properties.Settings.Default.languageSelected = lang;
+            Properties.Settings.Default.Save();
+
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
             System.Resources.ResourceManager resourcesMan = new System.Resources.ResourceManager(form.GetType());
             form.Text = resourcesMan.GetString("$this.Text", new CultureInfo(lang));
