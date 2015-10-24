@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using LookAndPlayForm.BackupClass;
 using LookAndPlayForm.LogData;
@@ -513,6 +515,42 @@ namespace LookAndPlayForm.InitialForm
             ClassLogEngine.Log(data2Log);
 
             aws_class_engine.UpdateLogFile(Program.datosCompartidos.institutionName);
+        }
+
+
+
+
+
+
+        private void pictureBoxIngles_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("en", this);
+        }
+
+        private void pictureBoxEspanhol_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("es", this);
+        }
+
+        private void pictureBoxAleman_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChangeLanguage(string lang, Form form)
+        {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
+            System.Resources.ResourceManager resourcesMan = new System.Resources.ResourceManager(form.GetType());
+            form.Text = resourcesMan.GetString("$this.Text", new CultureInfo(lang));
+
+            foreach (Control c in this.Controls)
+            {
+                if (c.Name != "labelVersion")
+                {
+                    ComponentResourceManager compResourcesMan = new ComponentResourceManager(this.GetType());
+                    compResourcesMan.ApplyResources(c, c.Name, new CultureInfo(lang));
+                }
+            }
         }
     }
 }

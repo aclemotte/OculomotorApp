@@ -317,6 +317,9 @@
     <EmbeddedResource Include="CommentsForm\CommentsForm.resx">
       <DependentUpon>CommentsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConfigurationReadingForm\ConfigurationReadingForm.es.resx">
+      <DependentUpon>ConfigurationReadingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfigurationReadingForm\ConfigurationReadingForm.resx">
       <DependentUpon>ConfigurationReadingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -340,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EyeTracking\TrackStatusControl.resx">
       <DependentUpon>TrackStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeForm\HomeForm.es.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -414,6 +420,9 @@
     <Content Include="Resources\Animales\salchicha.gif" />
     <None Include="Resources\MrPatch.png" />
     <None Include="Resources\MrPatch-logo-horizontal.png" />
+    <Content Include="Resources\Banderas\banderaAlemania.png" />
+    <Content Include="Resources\Banderas\banderaEspanha.jpg" />
+    <Content Include="Resources\Banderas\banderaInglaterra.png" />
     <Content Include="Resources\MrPatch32.ico" />
     <None Include="Resources\Persuit\dotGrey.png" />
     <Content Include="Resources\Textos\TextoEs1.png" />

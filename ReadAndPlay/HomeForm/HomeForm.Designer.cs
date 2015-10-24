@@ -35,102 +35,92 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelCopyright = new System.Windows.Forms.Label();
+            this.pictureBoxIngles = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEspanhol = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAleman = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIngles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEspanhol)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAleman)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonNewTest
             // 
-            this.buttonNewTest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewTest.Location = new System.Drawing.Point(96, 116);
+            resources.ApplyResources(this.buttonNewTest, "buttonNewTest");
             this.buttonNewTest.Name = "buttonNewTest";
-            this.buttonNewTest.Size = new System.Drawing.Size(213, 35);
-            this.buttonNewTest.TabIndex = 0;
-            this.buttonNewTest.Text = "Start a new test";
             this.buttonNewTest.UseVisualStyleBackColor = true;
             this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
             // 
             // buttonReviewTest
             // 
-            this.buttonReviewTest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonReviewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReviewTest.Location = new System.Drawing.Point(96, 166);
+            resources.ApplyResources(this.buttonReviewTest, "buttonReviewTest");
             this.buttonReviewTest.Name = "buttonReviewTest";
-            this.buttonReviewTest.Size = new System.Drawing.Size(213, 35);
-            this.buttonReviewTest.TabIndex = 1;
-            this.buttonReviewTest.Text = "Review a test done";
             this.buttonReviewTest.UseVisualStyleBackColor = true;
             this.buttonReviewTest.Click += new System.EventHandler(this.buttonReviewTest_Click);
             // 
             // labelOptions
             // 
-            this.labelOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelOptions.AutoSize = true;
-            this.labelOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOptions.Location = new System.Drawing.Point(92, 55);
+            resources.ApplyResources(this.labelOptions, "labelOptions");
             this.labelOptions.Name = "labelOptions";
-            this.labelOptions.Size = new System.Drawing.Size(217, 24);
-            this.labelOptions.TabIndex = 2;
-            this.labelOptions.Text = "What do you want to do?";
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(70, 20);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 24);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Welcome to Oculomotor App!";
             // 
             // labelVersion
             // 
-            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelVersion.AutoSize = true;
+            resources.ApplyResources(this.labelVersion, "labelVersion");
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelVersion.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelVersion.Location = new System.Drawing.Point(12, 221);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(42, 13);
-            this.labelVersion.TabIndex = 10;
-            this.labelVersion.Text = "Version";
-            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // labelCopyright
             // 
-            this.labelCopyright.AutoSize = true;
-            this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCopyright.Location = new System.Drawing.Point(12, 236);
+            resources.ApplyResources(this.labelCopyright, "labelCopyright");
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
-            this.labelCopyright.TabIndex = 11;
-            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            // 
+            // pictureBoxIngles
+            // 
+            resources.ApplyResources(this.pictureBoxIngles, "pictureBoxIngles");
+            this.pictureBoxIngles.Image = global::LookAndPlayForm.Properties.Resources.banderaInglaterra;
+            this.pictureBoxIngles.Name = "pictureBoxIngles";
+            this.pictureBoxIngles.TabStop = false;
+            this.pictureBoxIngles.Click += new System.EventHandler(this.pictureBoxIngles_Click);
+            // 
+            // pictureBoxEspanhol
+            // 
+            resources.ApplyResources(this.pictureBoxEspanhol, "pictureBoxEspanhol");
+            this.pictureBoxEspanhol.Image = global::LookAndPlayForm.Properties.Resources.banderaEspanha;
+            this.pictureBoxEspanhol.Name = "pictureBoxEspanhol";
+            this.pictureBoxEspanhol.TabStop = false;
+            this.pictureBoxEspanhol.Click += new System.EventHandler(this.pictureBoxEspanhol_Click);
+            // 
+            // pictureBoxAleman
+            // 
+            resources.ApplyResources(this.pictureBoxAleman, "pictureBoxAleman");
+            this.pictureBoxAleman.Image = global::LookAndPlayForm.Properties.Resources.banderaAlemania;
+            this.pictureBoxAleman.Name = "pictureBoxAleman";
+            this.pictureBoxAleman.TabStop = false;
+            this.pictureBoxAleman.Click += new System.EventHandler(this.pictureBoxAleman_Click);
             // 
             // HomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 258);
+            this.Controls.Add(this.pictureBoxAleman);
+            this.Controls.Add(this.pictureBoxEspanhol);
+            this.Controls.Add(this.pictureBoxIngles);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelOptions);
             this.Controls.Add(this.buttonReviewTest);
             this.Controls.Add(this.buttonNewTest);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "HomeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Home";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HomeForm_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIngles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEspanhol)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAleman)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,5 +134,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.PictureBox pictureBoxIngles;
+        private System.Windows.Forms.PictureBox pictureBoxEspanhol;
+        private System.Windows.Forms.PictureBox pictureBoxAleman;
     }
 }

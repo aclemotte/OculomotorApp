@@ -63,6 +63,36 @@ namespace LookAndPlayForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap banderaAlemania {
+            get {
+                object obj = ResourceManager.GetObject("banderaAlemania", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap banderaEspanha {
+            get {
+                object obj = ResourceManager.GetObject("banderaEspanha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap banderaInglaterra {
+            get {
+                object obj = ResourceManager.GetObject("banderaInglaterra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boxer {
             get {
                 object obj = ResourceManager.GetObject("boxer", resourceCulture);
