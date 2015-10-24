@@ -25,7 +25,7 @@ namespace LookAndPlayForm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("es")]
+        [global::System.Configuration.DefaultSettingValueAttribute("en")]
         public string languageSelected {
             get {
                 return ((string)(this["languageSelected"]));
