@@ -243,6 +243,16 @@ namespace LookAndPlayForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap visagraphText10Esp {
+            get {
+                object obj = ResourceManager.GetObject("visagraphText10Esp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap visagraphText15 {
             get {
                 object obj = ResourceManager.GetObject("visagraphText15", resourceCulture);
@@ -273,6 +283,16 @@ namespace LookAndPlayForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap visagraphText1Esp {
+            get {
+                object obj = ResourceManager.GetObject("visagraphText1Esp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap visagraphText2 {
             get {
                 object obj = ResourceManager.GetObject("visagraphText2", resourceCulture);
@@ -286,6 +306,16 @@ namespace LookAndPlayForm.Properties {
         internal static System.Drawing.Bitmap visagraphText29 {
             get {
                 object obj = ResourceManager.GetObject("visagraphText29", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visagraphText2Esp {
+            get {
+                object obj = ResourceManager.GetObject("visagraphText2Esp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,6 +353,56 @@ namespace LookAndPlayForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap visagraphText3Esp {
+            get {
+                object obj = ResourceManager.GetObject("visagraphText3Esp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visagraphText4Esp {
+            get {
+                object obj = ResourceManager.GetObject("visagraphText4Esp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visagraphText5Esp {
+            get {
+                object obj = ResourceManager.GetObject("visagraphText5Esp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visagraphText6Esp {
+            get {
+                object obj = ResourceManager.GetObject("visagraphText6Esp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visagraphText7Esp {
+            get {
+                object obj = ResourceManager.GetObject("visagraphText7Esp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap visagraphText87 {
             get {
                 object obj = ResourceManager.GetObject("visagraphText87", resourceCulture);
@@ -346,6 +426,26 @@ namespace LookAndPlayForm.Properties {
         internal static System.Drawing.Bitmap visagraphText89 {
             get {
                 object obj = ResourceManager.GetObject("visagraphText89", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visagraphText8Esp {
+            get {
+                object obj = ResourceManager.GetObject("visagraphText8Esp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visagraphText9Esp {
+            get {
+                object obj = ResourceManager.GetObject("visagraphText9Esp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

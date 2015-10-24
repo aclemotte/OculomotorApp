@@ -34,6 +34,18 @@ namespace LookAndPlayForm.Varios
             { "Level 7. Text 87",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText87, 100)},            
             { "Level 7. Text 88",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText88, 109)},            
             { "Level 7. Text 89",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText89, 116)},     
+            //español
+            { "Level 1. Text 1",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText1Esp, 64)},
+            { "Level 1. Text 2",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText2Esp, 62)},            
+            { "Level 1. Text 3",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText3Esp, 60)},            
+            { "Level 1. Text 4",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText4Esp, 60)},            
+            { "Level 2. Text 5",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText5Esp, 61)},            
+            { "Level 2. Text 6",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText6Esp, 61)},            
+            { "Level 3. Text 7",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText7Esp, 61)},            
+            { "Level 3. Text 8",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText8Esp, 60)},            
+            { "Level 4. Text 9",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText9Esp, 121)},            
+            { "Level 4. Text 10",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText10Esp, 122)}
+
         };
 
         public struct imageProperties
