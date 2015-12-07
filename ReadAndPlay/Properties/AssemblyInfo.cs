@@ -24,5 +24,5 @@ using System.Resources;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("9984e160-843c-41dd-a824-369991d8926b")]
 [assembly: AssemblyCompanyAttribute("MrPatch")]
-[assembly: AssemblyVersionAttribute("2.5.1")]
+[assembly: AssemblyVersionAttribute("2.5.2")]
 [assembly: NeutralResourcesLanguageAttribute("en")]
