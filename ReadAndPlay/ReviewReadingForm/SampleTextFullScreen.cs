@@ -69,13 +69,13 @@ namespace LookAndPlayForm.Resumen
                 {
                     
                     gazeDataDoubleList = class4Graphic.getGazeData2List(eyetrackerDataL, testData, eye.left);
-                    class4Graphic.plotGazeDataList(gazeDataDoubleList, settings.leftEyeColor, gazeDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
+                    class4Graphic.plotGazeDataList(gazeDataDoubleList, EyeOption.Left, settings.leftEyeColor, gazeDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                 }
 
                 if (checkBoxR.Checked)
                 {
                     gazeDataDoubleList = class4Graphic.getGazeData2List(eyetrackerDataL, testData, eye.right);
-                    class4Graphic.plotGazeDataList(gazeDataDoubleList, settings.rightEyeColor, gazeDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
+                    class4Graphic.plotGazeDataList(gazeDataDoubleList, EyeOption.Right, settings.rightEyeColor, gazeDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                 }
             }
         }
@@ -90,14 +90,14 @@ namespace LookAndPlayForm.Resumen
                 {
 
                     fixDataList = class4Graphic.fixData2List(fixData, eye.left);
-                    class4Graphic.plotFixDataList(fixDataList, settings.leftEyeColor, fixDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
+                    class4Graphic.plotFixDataList(fixDataList, EyeOption.Left, settings.leftEyeColor, fixDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                     class4Graphic.plotLinesBetweenFixs(fixDataList, settings.leftEyeColor, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                 }
 
                 if (checkBoxR.Checked)
                 {
                     fixDataList = class4Graphic.fixData2List(fixData, eye.right);
-                    class4Graphic.plotFixDataList(fixDataList, settings.rightEyeColor, fixDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
+                    class4Graphic.plotFixDataList(fixDataList, EyeOption.Right, settings.rightEyeColor, fixDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                     class4Graphic.plotLinesBetweenFixs(fixDataList, settings.rightEyeColor, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                 }
             }

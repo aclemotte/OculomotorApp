@@ -57,12 +57,12 @@ namespace LookAndPlayForm.Resumen
             return gazeDataDoubleList;
         }
 
-        public static void plotGazeDataList(List<Point> gazeDataDoubleList, Color gazeColor, int gazeDotRadius, Form formulario, PictureBox pictureBoxStimulus, Size stimulusSize, Point stimulusLocation)
+        public static void plotGazeDataList(List<Point> gazeDataDoubleList, EyeOption eyeSelected, Color gazeColor, int gazeDotRadius, Form formulario, PictureBox pictureBoxStimulus, Size stimulusSize, Point stimulusLocation)
         {
 
             for (var indiceSample = 0; indiceSample < gazeDataDoubleList.Count; indiceSample++)
             {
-                plotDot(gazeDataDoubleList[indiceSample].X, gazeDataDoubleList[indiceSample].Y, gazeColor, gazeDotRadius, formulario, pictureBoxStimulus, stimulusSize, stimulusLocation);
+                plotDot(gazeDataDoubleList[indiceSample].X, gazeDataDoubleList[indiceSample].Y, eyeSelected, gazeColor, gazeDotRadius, formulario, pictureBoxStimulus, stimulusSize, stimulusLocation);
             }
         }
 
@@ -103,17 +103,17 @@ namespace LookAndPlayForm.Resumen
             return fixDataList;
         }
 
-        public static void plotFixDataList(List<Point> fixDataList, Color fixColor, int fixDotRadius, Form formulario, PictureBox pictureBoxStimulus, Size stimulusSize, Point stimulusLocation)
+        public static void plotFixDataList(List<Point> fixDataList, EyeOption eyeSelected, Color fixColor, int fixDotRadius, Form formulario, PictureBox pictureBoxStimulus, Size stimulusSize, Point stimulusLocation)
         {
             for (var indiceSample = 0; indiceSample < fixDataList.Count; indiceSample++)
             {
-                plotDot(fixDataList[indiceSample].X, fixDataList[indiceSample].Y, fixColor, fixDotRadius, formulario, pictureBoxStimulus, stimulusSize, stimulusLocation);
+                plotDot(fixDataList[indiceSample].X, fixDataList[indiceSample].Y, eyeSelected, fixColor, fixDotRadius, formulario, pictureBoxStimulus, stimulusSize, stimulusLocation);
             }
         }
 
 
 
-        public static void plotDot(int dotX, int dotY, Color dotColor, int dotRadius, Form formulario, PictureBox pictureBoxStimulus, Size stimulusSize, Point stimulusLocation)
+        public static void plotDot(int dotX, int dotY, EyeOption eyeSelected, Color dotColor, int dotRadius, Form formulario, PictureBox pictureBoxStimulus, Size stimulusSize, Point stimulusLocation)
         {
             //posicion relativa a la esquina superior izquierda del pictureBoxStimulus
             int dotXrelative = (int)((double)(dotX - stimulusLocation.X) * (double)pictureBoxStimulus.Size.Width / (double)stimulusSize.Width);
@@ -138,7 +138,11 @@ namespace LookAndPlayForm.Resumen
                 newGraphics = Graphics.FromHwnd(pictureBoxStimulus.Handle);
                 dPoint = new Point(dotXrelative - dotRadius, dotYrelative - dotRadius);
                 rect = new Rectangle(dPoint, new Size(2 * dotRadius, 2 * dotRadius));
-                newGraphics.FillEllipse(brush, rect);
+                if(eyeSelected == EyeOption.Left)
+                    newGraphics.FillRectangle(brush, rect);
+                else
+                    newGraphics.FillEllipse(brush, rect);
+
                 newGraphics.Dispose();
             }
             //else
@@ -153,7 +157,11 @@ namespace LookAndPlayForm.Resumen
                 newGraphics = formulario.CreateGraphics();
                 dPoint = new Point(dotXrelative + pictureBoxStimulus.Location.X - dotRadius, dotYrelative + pictureBoxStimulus.Location.Y - dotRadius);
                 rect = new Rectangle(dPoint, new Size(2 * dotRadius, 2 * dotRadius));
-                newGraphics.FillEllipse(brush, rect);
+                if (eyeSelected == EyeOption.Left) 
+                    newGraphics.FillRectangle(brush, rect);
+                else
+                    newGraphics.FillEllipse(brush, rect);
+
                 newGraphics.Dispose();
             }
 
