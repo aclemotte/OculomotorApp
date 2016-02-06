@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using LookAndPlayForm.DataBase;
 
 namespace LookAndPlayForm.TestPersuit
 {
@@ -76,16 +77,7 @@ namespace LookAndPlayForm.TestPersuit
 
         public void SavePersuitData()
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                            LookAndPlayForm.Program.datosCompartidos.startTimeTest +
-                            @"-us" + Program.datosCompartidos.activeUser + @"\";
-
-            bool exists = System.IO.Directory.Exists(path);
-
-            if (!exists)
-                System.IO.Directory.CreateDirectory(path);
-
-            File.WriteAllText(path + @"persuitData.json", JsonConvert.SerializeObject(this));
+            DataBaseWorker.SavePursuitData(JsonConvert.SerializeObject(this), Program.datosCompartidos.activeUser, LookAndPlayForm.Program.datosCompartidos.startTimeTest);
         }
     }
 

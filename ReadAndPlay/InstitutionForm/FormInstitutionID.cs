@@ -12,7 +12,7 @@ namespace LookAndPlayForm.InstitutionID
     public partial class FormInstitutionID : Form
     {
 
-        public intitution_class_data institutionDataSelected { get; set; }
+        public institution_class_data institutionDataSelected { get; set; }
 
         private institution_class_engine institution_engine;
 
@@ -32,14 +32,20 @@ namespace LookAndPlayForm.InstitutionID
             //institutions2Form();
         }
 
+        public void updateDB()
+        {
+            institution_engine.updateDataBase(new NumericUpDown(), institutionDataSelected);
+        }
+
         public void updateCsv()
         {
             //institution_engine.updateCsv(numericUpDownInstitutionID, institutionDataSelected);
-            institution_engine.updateCsv(new NumericUpDown(), institutionDataSelected);
+            //institution_engine.updateCsv(new NumericUpDown(), institutionDataSelected);
+
         }
 
-        
 
+        /*
         //caso de que existan ya instituciones almacenadas. Se cargan los datos almacenados en sesiones previas
         private bool institutions2Form()
         {
@@ -62,7 +68,7 @@ namespace LookAndPlayForm.InstitutionID
             }
 
             return true;
-        }
+        }*/
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -72,7 +78,7 @@ namespace LookAndPlayForm.InstitutionID
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    institutionDataSelected = new intitution_class_data();
+                    institutionDataSelected = new institution_class_data();
                     institutionDataSelected.institution_id = "1"; //numericUpDownInstitutionID.Value.ToString();
                     institutionDataSelected.institution_name = textBoxInstitutionName.Text;
                 }
@@ -106,8 +112,5 @@ namespace LookAndPlayForm.InstitutionID
         {
 
         }
-
-
-        
     }
 }

@@ -23,12 +23,12 @@ namespace LookAndPlayForm.ConfigurationReadingForm
         {
             if (radioButtonOutloudReading.Checked && camposCorrectamenteCompletados())
             {
-                Program.datosCompartidos.readingTestTypeSelected = readingTestType.readingOutloud;
+                Program.datosCompartidos.readingTestTypeSelected = ReadingTestType.readingOutloud;
                 closeApp = false;
             }
             else if (radioButtonSilentReading.Checked && camposCorrectamenteCompletados())
             {
-                Program.datosCompartidos.readingTestTypeSelected = readingTestType.readingSilent;
+                Program.datosCompartidos.readingTestTypeSelected = ReadingTestType.readingSilent;
                 closeApp = false;
             }
             else

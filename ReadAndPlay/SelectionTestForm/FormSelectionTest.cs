@@ -25,12 +25,12 @@ namespace LookAndPlayForm.SelectTest
         {
             if (radioButtonPersuit.Checked)
             {
-               Program.datosCompartidos.testSelected = testType.persuit;
+               Program.datosCompartidos.testSelected = TestType.persuit;
                closeApp = false;
             }
             else if (radioButtonReading.Checked )
             {
-                Program.datosCompartidos.testSelected = testType.reading;
+                Program.datosCompartidos.testSelected = TestType.reading;
                 closeApp = false;
             }
             else

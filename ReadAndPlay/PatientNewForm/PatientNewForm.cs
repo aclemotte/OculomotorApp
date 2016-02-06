@@ -18,11 +18,7 @@ namespace LookAndPlayForm
         public patient_class_datav3 patientDataSelected { get; set; }
         public bool newUser { get; set; }
 
-
-
         private int patientID;
-
-
         
         public FormPatientID(int patientID)
         {
@@ -32,13 +28,6 @@ namespace LookAndPlayForm
             this.patientID = patientID;
             newUser = false;
         }
-
-        
-
-
-        
-        
-        
         
         private void buttonOk_Click(object sender, EventArgs e)
         {

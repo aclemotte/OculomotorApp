@@ -5,16 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using LookAndPlayForm.Utility;
+using LookAndPlayForm.DataBase;
+using System.Globalization;
 
 namespace LookAndPlayForm
 {
     public class LogTest
     {
-        public TestData2 testData { get; set; }
+        public OutputTestData2 testData { get; set; }
 
         public LogTest()
         {
-            testData = new TestData2();
+            testData = new OutputTestData2();
         }
 
         public void saveData2File()
@@ -22,8 +25,15 @@ namespace LookAndPlayForm
 
             testData.screen_Height = Screen.PrimaryScreen.Bounds.Height;
             testData.screen_Width = Screen.PrimaryScreen.Bounds.Width;
-            testData.date = String.Format("{0:u}", DateTime.Now);//yyyy'-'MM'-'dd HH':'mm':'ss'Z'
+            testData.date = Program.datosCompartidos.startTimeTest;
+            testData.date_loc = DateTime.Parse(Program.datosCompartidos.startTimeTest).ToLocalTime().ToString();
+            //testData.utcdate = String.Format("{0:u}", DateTime.ParseExact(Program.datosCompartidos.startTimeTest, "yyyy-MM-dd-HH-mm-ss", CultureInfo.InvariantCulture).ToUniversalTime());//yyyy'-'MM'-'dd HH':'mm':'ss'Z'
+            //testData.date = String.Format("{0:u}", DateTime.ParseExact(Program.datosCompartidos.startTimeTest, "yyyy-MM-dd-HH-mm-ss", CultureInfo.InvariantCulture).ToUniversalTime());//yyyy'-'MM'-'dd HH':'mm':'ss'Z'
+            //testData.date = String.Format("{0:u}", DateTime.Now);//yyyy'-'MM'-'dd HH':'mm':'ss'Z'
             testData.eyetracker = Program.datosCompartidos.EyeTrackerInfo;
+            testData.user_id = Program.datosCompartidos.activeUser;
+            testData.tester_id = Program.datosCompartidos.activeTester;
+            testData.windows_username = Environment.UserName;
             //testData.pointer_type = "eyetracker"; // settings.pointercontroltypeSelected.ToString();
             //testData.blink_time_min = 0;
             //testData.blink_time_max = 0;
@@ -38,16 +48,7 @@ namespace LookAndPlayForm
             testData.image2read = Program.datosCompartidos.image2read;
             testData.assemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                            LookAndPlayForm.Program.datosCompartidos.startTimeTest + 
-                            @"-us" + Program.datosCompartidos.activeUser + @"\";
-
-            bool exists = System.IO.Directory.Exists(path);
-
-            if (!exists)
-                System.IO.Directory.CreateDirectory(path);
-
-            File.WriteAllText(path + @"testData.json", JsonConvert.SerializeObject(testData));
+            DataBaseWorker.SaveTestData(testData, Program.datosCompartidos.activeUser, "");
         }
     }
 }

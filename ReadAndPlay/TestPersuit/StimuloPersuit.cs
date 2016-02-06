@@ -38,14 +38,6 @@ namespace StimuloPersuitHorizontal
             dotSizeOk = setPictureBoxsize();
         }
 
-
-
-
-
-
-
-
-
         private bool setPictureBoxsize()
         {
             if (stimuloPersuitSetup.dotDiameterPixelsX > 1 && stimuloPersuitSetup.dotDiameterPixelsY > 1)
@@ -70,18 +62,6 @@ namespace StimuloPersuitHorizontal
             else
                 return false;
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
         private void StimuloPersuit_Shown(object sender, EventArgs e)
         {
@@ -121,17 +101,6 @@ namespace StimuloPersuitHorizontal
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
         private void timerPausaInicial_Tick(object sender, EventArgs e)
         {
             timerPausaInicial.Enabled = false;
@@ -159,34 +128,12 @@ namespace StimuloPersuitHorizontal
                 timerMoveDot.Enabled = false;
                 end_protocol();
             }
-
         }
 
         private double rad2Deg(double deg)
         {
             return (Math.PI / 180 * deg);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
-                
-
-
-
-
 
         private void pictureBoxDotStimulus_Paint(object sender, PaintEventArgs e)
         {
@@ -212,7 +159,5 @@ namespace StimuloPersuitHorizontal
         {
             end_protocol();
         }
-
-        
     }
 }

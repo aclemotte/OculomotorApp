@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LookAndPlayForm.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using Tobii.Gaze.Core;
 
 namespace LookAndPlayForm
 {
-    public class sharedData
+    public class SharedData
     {
         public int meanCalibrationErrorLeftPx { get; set; }
         public int meanCalibrationErrorRightPx { get; set; }
@@ -17,30 +18,31 @@ namespace LookAndPlayForm
         public LogTest logTestData { get; set; }
         public bool eyeNotFound { get; set; }
         public string activeUser { get; set; }
+        public string activeTester { get; set; }
         public string image2read { get; set; }
         public string startTimeTest { get; set; }//ojo que se pueden correr varios test sin cerrar la app
         public int number_of_screening_done { get; set; }
-        public testType testSelected { get; set; }
-        public readingTestType readingTestTypeSelected { get; set; }
+        public TestType testSelected { get; set; }
+        public ReadingTestType readingTestTypeSelected { get; set; }
         public string institutionName { get; set; }
 
         public bool no_se_cancelo_el_test { get; set; }
 
 
-        public sharedData()
+        public SharedData()
         {
             eyeNotFound = true;
             image2read = "";
-            startTimeTest = Varios.functions.getCurrentTime();
+            startTimeTest = DataConverter.GetCurrentTime();
             number_of_screening_done = 0;
         }
-        
+
         /// <summary>
         /// Cada vez que se inicia un nuevo test antes de comenzar el test se llama a este metodo para que genere un nuevo valor para startTime
         /// </summary>
         public void getNewTime()
         {
-            startTimeTest = Varios.functions.getCurrentTime();
+            startTimeTest = DataConverter.GetCurrentTime();
         }
     }
 }

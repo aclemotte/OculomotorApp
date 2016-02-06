@@ -4,6 +4,8 @@ using System.Text;
 using System.Drawing;
 using Newtonsoft.Json;
 using System.IO;
+using LookAndPlayForm.Utility;
+using LookAndPlayForm.DataBase;
 
 
 namespace LookAndPlayForm.LogEyeTracker
@@ -21,7 +23,7 @@ namespace LookAndPlayForm.LogEyeTracker
             public List<PointD> gazeFilteredL;
             public TargetPosSize.Target targetPositionSize;
             public bool clickInsideTarget;
-        }     
+        }
 
         //Referencias que luego se agregaran a la lista TargetTraceL y que a lo largo de la app iran apuntando a lugares diferentes
         public List<Tobii.Gaze.Core.GazeData> GazeDataItemEyeXL { get; set; }
@@ -119,32 +121,19 @@ namespace LookAndPlayForm.LogEyeTracker
             GazeWeigthedL = new List<PointD>();
             GazeFilteredL = new List<PointD>();
         }
-       
-
-
-
-
 
         public void saveData2File()
         {
             generalDataEyeX.targetTraceL = TargetTraceEyeXL;
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                            LookAndPlayForm.Program.datosCompartidos.startTimeTest + 
-                            @"-us" + Program.datosCompartidos.activeUser + @"\";
 
-            bool exists = System.IO.Directory.Exists(path);
-
-            if (!exists)
-                System.IO.Directory.CreateDirectory(path);
-
-            File.WriteAllText(path + @"eyetrackerData.json", JsonConvert.SerializeObject(generalDataEyeX));
-
+            DataBaseWorker.SaveEyeTrackerData(JsonConvert.SerializeObject(generalDataEyeX), Program.datosCompartidos.activeUser, LookAndPlayForm.Program.datosCompartidos.startTimeTest);
+            
             ClearList();
         }
 
         //Esto hay que separar de saveData2File(). Ahora mismo si se guardan gatos se graban. Pero existe la posibilidad de guardar datos pero que no quieran grabarse esos datos. Debe crearse una nueva variable que sea se_quieren_guardar_los_datos
         private void ClearList()
-        {           
+        {
             GazeDataItemEyeXL.Clear();
             GazeWeigthedL.Clear();
             GazeFilteredL.Clear();

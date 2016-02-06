@@ -14,25 +14,21 @@ using LookAndPlayForm.LogData;
 using LookAndPlayForm.SelectTest;
 using LookAndPlayForm.TesterID;
 using Newtonsoft.Json;
+using LookAndPlayForm.Utility;
 
 namespace LookAndPlayForm.InitialForm
 {
     public partial class HomeForm : Form
     {
-        HomeFormEngine homeFormEngine;
         ClassLogData data2Log;
         bool loginForms;
 
 
-
-
-        public HomeForm(HomeFormEngine homeFormEngine)
+        public HomeForm()
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default.languageSelected);
             InitializeComponent();
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-            this.homeFormEngine = homeFormEngine;
 
             data2Log = new ClassLogData();
             data2Log.Date = DateTime.Now.ToString("dd/MM/yyyy");
@@ -40,15 +36,22 @@ namespace LookAndPlayForm.InitialForm
             loginForms = true;
         }
 
+        private void buttonReviewTest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                throw new NotImplementedException();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show((ex.GetBaseException().ToString()), "Sprint 1");
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                //this.Close();
+            }
+        }
 
-
-
-
-
-
-
-
-
+        /*
         //review test
         private void buttonReviewTest_Click(object sender, EventArgs e)
         {
@@ -70,11 +73,11 @@ namespace LookAndPlayForm.InitialForm
                     return;
                 }
                    
-                testType testType = checkTipoTest(selectedPath);
+                TestType testType = checkTipoTest(selectedPath);
 
                 switch (testType)
                 {
-                    case LookAndPlayForm.testType.reading:
+                    case LookAndPlayForm.TestType.reading:
 
                         Resumen.Resumen resumenGame1 = new Resumen.Resumen(false, true, selectedPath);
                         resumenGame1.ShowDialog();
@@ -84,7 +87,7 @@ namespace LookAndPlayForm.InitialForm
                         else
                             this.Show();
                         break;
-                    case LookAndPlayForm.testType.persuit:
+                    case LookAndPlayForm.TestType.persuit:
 
                         ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(false, true, selectedPath);
                         reviewPersuit.ShowDialog();
@@ -105,10 +108,8 @@ namespace LookAndPlayForm.InitialForm
                 ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                 this.Close();
             }
-        }
-
-        #region review test methods
-
+        }  
+        
         private string selectionOfFolder()
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
@@ -140,14 +141,14 @@ namespace LookAndPlayForm.InitialForm
         }
 
         
-        private testType checkTipoTest(string selectedPath)
+        private TestType checkTipoTest(string selectedPath)
         {
             string image2read = openTestDatajsonAndGetField(selectedPath);
 
             if (string.IsNullOrEmpty(image2read))
-                return testType.persuit;
+                return TestType.persuit;
             else
-                return testType.reading;//aca se puede ir mas y buscar la forma de saber si es silent o outloud
+                return TestType.reading;//aca se puede ir mas y buscar la forma de saber si es silent o outloud
         }
 
         private string openTestDatajsonAndGetField(string path)
@@ -166,20 +167,10 @@ namespace LookAndPlayForm.InitialForm
                 MessageBox.Show("Missing testData.json data files in the selected directory", "Invalid directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
-        }
+        }*/
 
-        #endregion
-
-
-
-
-
-
-
-
-
-
-
+        
+        
         //new test
         private void buttonNewTest_Click(object sender, EventArgs e)
         {
@@ -201,8 +192,9 @@ namespace LookAndPlayForm.InitialForm
                         return;
                     }
 
-                    aws_class_engine.UpdateTestersFile(Program.datosCompartidos.institutionName);
+                    //aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
                     data2Log.Tester = fTester.testerDataSelected.tester_name;
+                    Program.datosCompartidos.activeTester = fTester.testerDataSelected.tester_id;
                     fTester.Dispose();
                     fTester = null;
 
@@ -240,19 +232,13 @@ namespace LookAndPlayForm.InitialForm
                         }
                     }
 
-                    aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
+                    //aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
                     data2Log.Patient = patientLoginForm.patientDataSelected.user_name;
                     Program.datosCompartidos.activeUser = patientLoginForm.patientDataSelected.user_id;
 
                     patientLoginForm.Dispose();
                     patientLoginForm = null;
                 }
-
-
-
-
-
-
 
                 //user position
                 Program.eyeTrackingEngine = new EyeTrackingEngine();
@@ -289,7 +275,7 @@ namespace LookAndPlayForm.InitialForm
 
                 switch (Program.datosCompartidos.testSelected)
                 {
-                    case testType.reading:
+                    case TestType.reading:
 
                         //configuration reading test
                         ConfigurationReadingForm.ConfigurationReadingForm configurationReadingForm = new ConfigurationReadingForm.ConfigurationReadingForm();
@@ -345,7 +331,7 @@ namespace LookAndPlayForm.InitialForm
                             saveData();
 
                             //review reading test
-                            Resumen.Resumen reviewReading = new Resumen.Resumen(true, true, null);
+                            Resumen.Resumen reviewReading = new Resumen.Resumen(true, true, null, null, null);
                             reviewReading.ShowDialog();
 
                             if (reviewReading.closeApp)
@@ -378,7 +364,7 @@ namespace LookAndPlayForm.InitialForm
                         }
                         break;
 
-                    case testType.persuit:
+                    case TestType.persuit:
 
                         //instruction pursuit test
                         InstructionPursuitForm.InstructionPursuit instructionPursuit = new InstructionPursuitForm.InstructionPursuit();
@@ -418,7 +404,7 @@ namespace LookAndPlayForm.InitialForm
                             saveData();
 
                             //review pursuit test
-                            ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null);
+                            ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null, null, null);
                             reviewPersuit.ShowDialog();
 
                             if (reviewPersuit.closeApp)
@@ -486,9 +472,8 @@ namespace LookAndPlayForm.InitialForm
             //subir los datos a la nube
             aws_class_data aws_data = new aws_class_data();
             aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
-            aws_data.FileToUpload = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                                        Program.datosCompartidos.startTimeTest +
-                                        @"-us" + Program.datosCompartidos.activeUser;
+            aws_data.FileToUpload = CData.DataBasePath;
+
 
             aws_class_engine.BackupTest(aws_data);
 
@@ -504,6 +489,7 @@ namespace LookAndPlayForm.InitialForm
         {
             updateLogFile();
             aws_class_engine.UpdateErrorFile(Program.datosCompartidos.institutionName);
+            aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
         }
 
         private void updateLogFile()
@@ -517,11 +503,6 @@ namespace LookAndPlayForm.InitialForm
 
             aws_class_engine.UpdateLogFile(Program.datosCompartidos.institutionName);
         }
-
-
-
-
-
 
         private void pictureBoxIngles_Click(object sender, EventArgs e)
         {

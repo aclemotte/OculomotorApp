@@ -4,26 +4,55 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using CsvHelper;
+using LookAndPlayForm.Utility;
+using LookAndPlayForm.DataBase;
 
 namespace LookAndPlayForm.InstitutionID
 {
     public class institution_class_engine
     {
-        private string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
+        private string rootPath = CData.DataFolder + @"\";
 
-        public List<intitution_class_data> institutionsList { get; set; }
-
-
-
-
+        public List<institution_class_data> institutionsList { get; set; }
 
         public institution_class_engine()
         {
-            bool rootFolder = rootFolderExist();
-            bool userFile = institutionsFileExist(rootFolder);
+            //bool rootFolder = rootFolderExist();
+            //bool userFile = institutionsFileExist(rootFolder);
+            load();
         }
 
-        public void updateCsv(System.Windows.Forms.NumericUpDown numericUpDownInstitutionID, intitution_class_data institutionDataSelected)
+        private void load()
+        {
+            institutionsList = DataBaseWorker.LoadInstitutions();
+        }
+
+        public void updateDataBase(System.Windows.Forms.NumericUpDown numericUpDownInstitutionID, institution_class_data institutionDataSelected)
+        {
+            try
+            {
+                if (institutionsList != null && institutionsList.Count > 0)
+                {
+                    if (numericUpDownInstitutionID.Value > Convert.ToDecimal(institutionsList.Last().institution_id))
+                    {
+                        DataBaseWorker.AddInstitution(institutionDataSelected);
+                    }
+                }
+                else
+                {
+                    institutionsList = new List<institution_class_data>();
+                    institutionsList.Add(institutionDataSelected);
+                    DataBaseWorker.AddInstitution(institutionDataSelected);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+            }
+        }
+
+        /*
+        public void updateCsv(System.Windows.Forms.NumericUpDown numericUpDownInstitutionID, institution_class_data institutionDataSelected)
         {
             if (institutionsList != null)
             {
@@ -43,7 +72,7 @@ namespace LookAndPlayForm.InstitutionID
             }
             else//caso de que no haya ninguna institucion aun
             {
-                institutionsList = new List<intitution_class_data>();
+                institutionsList = new List<institution_class_data>();
                 institutionsList.Add(institutionDataSelected);
 
                 using (var sw = new StreamWriter(rootPath + @"institutions.csv"))
@@ -56,8 +85,6 @@ namespace LookAndPlayForm.InstitutionID
         }
 
 
-
-
         private bool institutionsFileExist(bool rootFolder)
         {
             if (File.Exists(rootPath + @"institutions.csv"))
@@ -67,7 +94,7 @@ namespace LookAndPlayForm.InstitutionID
                     var reader1 = new CsvReader(sr1);
                     try
                     {
-                        institutionsList = reader1.GetRecords<intitution_class_data>().ToList();
+                        institutionsList = reader1.GetRecords<institution_class_data>().ToList();
                         return true;
                     }
                     catch (Exception ex)
@@ -98,7 +125,7 @@ namespace LookAndPlayForm.InstitutionID
                 Directory.CreateDirectory(rootPath);
                 return false;
             }
-        }
+        }*/
 
     }
 }

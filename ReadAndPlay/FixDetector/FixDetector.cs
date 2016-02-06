@@ -6,6 +6,7 @@ using System.Text;
 using FixDet;
 using LookAndPlayForm.LogEyeTracker;
 using Newtonsoft.Json;
+using LookAndPlayForm.DataBase;
 
 namespace LookAndPlayForm.FixDetector
 {
@@ -18,11 +19,12 @@ namespace LookAndPlayForm.FixDetector
         fixationData fixData;
 
         eyetrackerDataEyeX eyetrackerDatajson;
-        TestData1 testDatajson;
+        TestData1 _testData;
 
-        string path;
         string eyetrackerData = string.Empty;
-        string testData = string.Empty; 
+        string user_id = string.Empty;
+        string date = string.Empty;
+
 
         enum processingEyeOptions
         {
@@ -30,12 +32,15 @@ namespace LookAndPlayForm.FixDetector
         }
 
         processingEyeOptions processingEye;
-        
-        
-        public FixDetector(string path)
-        {
 
-            this.path = path;
+
+        public FixDetector(string eyetrackerData, TestData1 testData, string date, string user_id)
+        {
+            this.eyetrackerData = eyetrackerData;
+            this._testData = testData;
+            this.date = date;
+            this.user_id = user_id;
+
             fixData = new fixationData();
 
             fixationDetector = new FixDetectorClass();
@@ -76,12 +81,12 @@ namespace LookAndPlayForm.FixDetector
             fixationDetector.SpeedThreshold = 100;//100-1000
             fixationDetector.AccelerationThreshold = 2000;//1000-10000
             fixationDetector.SpeedBufferSize = 10;//3-10
-            
+
             //EFDAnalyzer.fdaDispersion
             fixationDetector.MaxDispersion = 20;//15-100
             fixationDetector.WindowSize = 5;//2-50
 
-            if (file2String())
+            //if (file2String())
             {
                 string2Json();
                 processData();
@@ -91,16 +96,19 @@ namespace LookAndPlayForm.FixDetector
             }
         }
 
-        
-        
-        
-        
-        
+
+
+
+
+
         void saveData2File()
         {
-            File.WriteAllText(path + @"\fixData.json", JsonConvert.SerializeObject(fixData));
+            DataBaseWorker.SaveFixData(JsonConvert.SerializeObject(fixData), date, user_id);
+
+            //File.WriteAllText(path + @"\fixData.json", JsonConvert.SerializeObject(fixData));
         }
-        
+
+        /*
         bool file2String()
         {
             Console.WriteLine("FixDetector. Path: " + path);
@@ -122,14 +130,13 @@ namespace LookAndPlayForm.FixDetector
 
             Console.WriteLine("FixDetector. Files 2 string: done");
             return true;
-        }
+        }*/
 
         void string2Json()
         {
             try
             {
                 eyetrackerDatajson = JsonConvert.DeserializeObject<eyetrackerDataEyeX>(eyetrackerData);
-                testDatajson = JsonConvert.DeserializeObject<TestData1>(testData);
             }
             catch (Exception ex)
             {
@@ -160,8 +167,8 @@ namespace LookAndPlayForm.FixDetector
                 {
                     fixationDetector.addPoint(
                        convertirTimeStampMicro2Milli(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Timestamp),
-                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].X * (double)testDatajson.screen_Width),
-                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].Y * (double)testDatajson.screen_Height)
+                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].X * (double)_testData.screen_Width),
+                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeWeigthedL[indiceSample].Y * (double)_testData.screen_Height)
                         );
                 }
             }
@@ -169,8 +176,8 @@ namespace LookAndPlayForm.FixDetector
             fixationDetector.finalize();
             Console.WriteLine("FixDetector. Process data gazeWeigthedL: done");
 
-            
-            
+
+
             //Left
             processingEye = processingEyeOptions.leftOnly;
             fixationDetector.init();
@@ -186,17 +193,17 @@ namespace LookAndPlayForm.FixDetector
                 {
                     fixationDetector.addPoint(
                        convertirTimeStampMicro2Milli(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Timestamp),
-                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.X * (double)testDatajson.screen_Width),
-                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.Y * (double)testDatajson.screen_Height)
+                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.X * (double)_testData.screen_Width),
+                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Left.GazePointOnDisplayNormalized.Y * (double)_testData.screen_Height)
                         );
                 }
             }
 
             fixationDetector.finalize();
             Console.WriteLine("FixDetector. Process data Left: done");
-            
-            
-            
+
+
+
             //Right
             processingEye = processingEyeOptions.rightOnly;
             fixationDetector.init();
@@ -212,8 +219,8 @@ namespace LookAndPlayForm.FixDetector
                 {
                     fixationDetector.addPoint(
                        convertirTimeStampMicro2Milli(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Timestamp),
-                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.X * (double)testDatajson.screen_Width),
-                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.Y * (double)testDatajson.screen_Height)
+                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.X * (double)_testData.screen_Width),
+                       (int)(eyetrackerDatajson.targetTraceL[indiceTrial].gazeDataItemL[indiceSample].Right.GazePointOnDisplayNormalized.Y * (double)_testData.screen_Height)
                         );
                 }
             }
@@ -221,11 +228,11 @@ namespace LookAndPlayForm.FixDetector
             fixationDetector.finalize();
             Console.WriteLine("FixDetector. Process data Right: done");
         }
-        
+
         int convertirTimeStampMicro2Milli(long timeStampMicro)
         {
             int timeStampMili = Convert.ToInt32(timeStampMicro / (long)1000);
-            
+
             //try
             //{
             //    timeStampMiliInt = Convert.ToInt32(timeStampMiliLong);
@@ -244,17 +251,17 @@ namespace LookAndPlayForm.FixDetector
             else
                 return false;
         }
-        
-        
-        
-        
+
+
+
+
         //Eventos fix detector spakov
         void fixationDetector_FixationEnd(int aTime, int aDuration, int aX, int aY)
         {
             fixationDataPoint fix = new fixationDataPoint();
             fix.fixationData = fixationDetector.LastFixation;
             fix.fixationState = stateFixationData.end;
-            
+
             switch (processingEye)
             {
                 case processingEyeOptions.leftAndRight:
@@ -275,7 +282,7 @@ namespace LookAndPlayForm.FixDetector
             fix.fixationData = fixationDetector.LastFixation;
             fix.fixationState = stateFixationData.start;
 
-            switch(processingEye)
+            switch (processingEye)
             {
                 case processingEyeOptions.leftAndRight:
                     fixData.fixationDataPointLandR.Add(fix);
@@ -287,7 +294,7 @@ namespace LookAndPlayForm.FixDetector
                     fixData.fixationDataPointRight.Add(fix);
                     break;
             }
-            
+
         }
     }
 }

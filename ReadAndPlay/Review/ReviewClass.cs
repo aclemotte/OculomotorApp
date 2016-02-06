@@ -23,13 +23,13 @@ namespace LookAndPlayForm.Review
             }
         }
 
-        public static List<GazePositionAndTimeClass> getGazePositionAndTimeList(eyetrackerDataEyeX eyetrackerDataL, TestData1 testData, eye fromEye)
+        public static List<GazePositionAndTimeClass> getGazePositionAndTimeList(eyetrackerDataEyeX eyetrackerDataL, TestData1 testData, Eye fromEye)
         {
             List<GazePositionAndTimeClass> gazePositionAndTime = new List<GazePositionAndTimeClass>();
             double timeSegundosInicial = 0;
             double timeSegundos = 0;
 
-            if (fromEye == eye.left)
+            if (fromEye == Eye.left)
             {
                 for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL.Count; indiceSample++)
                 {
@@ -56,7 +56,7 @@ namespace LookAndPlayForm.Review
                 }
             }
 
-            if (fromEye == eye.right)
+            if (fromEye == Eye.right)
             {
                 for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL.Count; indiceSample++)
                 {
@@ -86,6 +86,15 @@ namespace LookAndPlayForm.Review
             return gazePositionAndTime;
         }
 
+        public static eyetrackerDataEyeX loadEyetrackerDataFromJson(string json)
+        {
+            eyetrackerDataEyeX eyetrackerDataL;
+            eyetrackerDataL.targetTraceL = null;
+            eyetrackerDataL = JsonConvert.DeserializeObject<eyetrackerDataEyeX>(json);
+            return eyetrackerDataL;
+        }
+
+        /*
         public static eyetrackerDataEyeX loadEyetrackerDataFromJson(string path)
         {
             eyetrackerDataEyeX eyetrackerDataL;
@@ -111,6 +120,13 @@ namespace LookAndPlayForm.Review
                 testData = JsonConvert.DeserializeObject<TestData1>(json);
             }
             return testData;
+        }*/
+
+        public static TestData1 loadTestDataFromJson(string json)
+        {
+            TestData1 testData = null;
+            testData = JsonConvert.DeserializeObject<TestData1>(json);
+            return testData;
         }
 
         public static bool testDataFound(TestData1 testData)
@@ -129,6 +145,14 @@ namespace LookAndPlayForm.Review
                 return true;
         }
 
+        public static TestPersuit.StimuloPersuitSetup loadPersuitDataFromJson(string json)
+        {
+            TestPersuit.StimuloPersuitSetup stimuloPersuitSetup = null;
+            stimuloPersuitSetup = JsonConvert.DeserializeObject<TestPersuit.StimuloPersuitSetup>(json);
+            return stimuloPersuitSetup;
+        }
+
+        /*
         public static TestPersuit.StimuloPersuitSetup loadPersuitDataFromJson(string path)
         {
             TestPersuit.StimuloPersuitSetup stimuloPersuitSetup = null;
@@ -140,7 +164,7 @@ namespace LookAndPlayForm.Review
                 stimuloPersuitSetup = JsonConvert.DeserializeObject<TestPersuit.StimuloPersuitSetup>(json);
             }
             return stimuloPersuitSetup;
-        }
+        }*/
 
         public static bool persuitDataFound(TestPersuit.StimuloPersuitSetup stimuloPersuitSetup)
         {

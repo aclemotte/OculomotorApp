@@ -7,7 +7,7 @@ namespace LookAndPlayForm.TestReading
 {
     public class StimuloReadingSetup
     {
-        public readingTestType readingTestTypeDone;
+        public ReadingTestType readingTestTypeDone;
         public string image2read;
     }
 }

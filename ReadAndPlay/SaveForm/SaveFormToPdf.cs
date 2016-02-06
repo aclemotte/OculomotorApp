@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using LookAndPlayForm.Utility;
 
 namespace LookAndPlayForm.SaveForm
 {
@@ -14,13 +15,13 @@ namespace LookAndPlayForm.SaveForm
             using (var bmp = new System.Drawing.Bitmap(form2Save.Width, form2Save.Height))
             {
                 form2Save.DrawToBitmap(bmp, new System.Drawing.Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(@"C:\Users\Alejandro\Desktop\Images.png");
+                bmp.Save(CData.ImagesFolder + @"\" + CData.PNGName);
                 Document doc = new Document(PageSize.A4);
                 try
                 {
                     //doc.Add(new Paragraph("PNG"));
                     iTextSharp.text.Image imageForm = iTextSharp.text.Image.GetInstance(bmp, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    PdfWriter.GetInstance(doc, new System.IO.FileStream(@"C:\Users\Alejandro\Desktop\Images.pdf", System.IO.FileMode.Create));
+                    PdfWriter.GetInstance(doc, new System.IO.FileStream(CData.ImagesFolder + @"\" + CData.PDFName, System.IO.FileMode.Create));
                     doc.Open();
                     doc.Add(imageForm);
                 }

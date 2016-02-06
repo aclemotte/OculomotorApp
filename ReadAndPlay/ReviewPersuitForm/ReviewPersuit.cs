@@ -13,6 +13,8 @@ using LookAndPlayForm.Comments;
 using LookAndPlayForm.LogEyeTracker;
 using LookAndPlayForm.Review;
 using LookAndPlayForm.TestPersuit;
+using LookAndPlayForm.DataBase;
+using LookAndPlayForm.Utility;
 
 namespace ReviewPersuit
 {
@@ -24,17 +26,17 @@ namespace ReviewPersuit
 
 
         private eyetrackerDataEyeX eyetrackerDataL;
-        private TestData1 testData;
         private StimuloPersuitSetup stimuloPersuitSetup;
-        private string selectedPath;
+        private TestData1 _testData;
+        string date;
+        string user_id;
 
 
 
 
 
 
-
-        public ReviewPersuit(bool showLastTest, bool newTestAvailable, string selectedPath)
+        public ReviewPersuit(bool showLastTest, bool newTestAvailable, string inputData, string eyetrackerDataJson, OutputTestData2 testData)
         {
             InitializeComponent();
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -42,23 +44,22 @@ namespace ReviewPersuit
 
             if (showLastTest)
             {
-                selectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                                Program.datosCompartidos.startTimeTest +
-                                @"-us" + Program.datosCompartidos.activeUser + @"\";
+                inputData = DataBaseWorker.LoadLastPursuitData(out date, out user_id, out eyetrackerDataJson, out testData);
             }
 
-            this.selectedPath = selectedPath;
+            this.date = testData.date_loc;
+            this.user_id = testData.user_id;
             buttonHome.Enabled = newTestAvailable;//era para cuando se le llamaba desde el form de paciente. ahora siempre es true;
 
-            Console.WriteLine("selectedPath: " + selectedPath);
+            //Console.WriteLine("selectedPath: " + selectedPath);
 
-            toolStripStatusLabelFileName.Text = selectedPath;
+            toolStripStatusLabelFileName.Text = string.Format("{0}-us{1}", date, user_id);
 
-            eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(selectedPath);
-            testData = ReviewClass.loadTestDataFromJson(selectedPath);
-            stimuloPersuitSetup = ReviewClass.loadPersuitDataFromJson(selectedPath);
+            eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(eyetrackerDataJson);
+            _testData = DataConverter.TestData2ToTestData1(testData);
+            stimuloPersuitSetup = ReviewClass.loadPersuitDataFromJson(inputData);
 
-            everythingOk = ReviewClass.eyetrackerDataFound(eyetrackerDataL) & ReviewClass.testDataFound(testData) & ReviewClass.persuitDataFound(stimuloPersuitSetup);
+            everythingOk = ReviewClass.eyetrackerDataFound(eyetrackerDataL) & ReviewClass.testDataFound(_testData) & ReviewClass.persuitDataFound(stimuloPersuitSetup);
 
             if (everythingOk)
             {
@@ -87,14 +88,14 @@ namespace ReviewPersuit
 
             if (checkBoxL.Checked)
             {
-                gazeDataDoubleList = ReviewClass.getGazePositionAndTimeList(eyetrackerDataL, testData, eye.left);
-                plotGazeDataList(gazeDataDoubleList, eye.left, settings.leftEyeColor);
+                gazeDataDoubleList = ReviewClass.getGazePositionAndTimeList(eyetrackerDataL, _testData, Eye.left);
+                plotGazeDataList(gazeDataDoubleList, Eye.left, settings.leftEyeColor);
             }
 
             if (checkBoxR.Checked)
             {
-                gazeDataDoubleList = ReviewClass.getGazePositionAndTimeList(eyetrackerDataL, testData, eye.right);
-                plotGazeDataList(gazeDataDoubleList, eye.right, settings.rightEyeColor);
+                gazeDataDoubleList = ReviewClass.getGazePositionAndTimeList(eyetrackerDataL, _testData, Eye.right);
+                plotGazeDataList(gazeDataDoubleList, Eye.right, settings.rightEyeColor);
             }
         }
 
@@ -111,11 +112,11 @@ namespace ReviewPersuit
             chartHorizontalGaze.Invalidate();
         }
 
-        private void plotGazeDataList(List<ReviewClass.GazePositionAndTimeClass> gazeDataDoubleList, eye eye2Plot, Color eyeColor)
+        private void plotGazeDataList(List<ReviewClass.GazePositionAndTimeClass> gazeDataDoubleList, Eye eye2Plot, Color eyeColor)
         {
             string nombreSerieX;
             string nombreSerieY;
-            if (eye2Plot == eye.left)
+            if (eye2Plot == Eye.left)
             {
                 nombreSerieX = "Left Gaze X";
                 nombreSerieY = "Left Gaze Y";
@@ -145,7 +146,7 @@ namespace ReviewPersuit
 
         private void buttonComment_Click(object sender, EventArgs e)
         {
-            CommentsForm commentsF = new CommentsForm(selectedPath);
+            CommentsForm commentsF = new CommentsForm(date, user_id);
             commentsF.Show();
         }
 

@@ -64,7 +64,7 @@ namespace LookAndPlayForm
         }
     }
 
-    public enum filtertype
+    public enum FilterType
     {
         median, movingaverage
     };
@@ -74,17 +74,17 @@ namespace LookAndPlayForm
     //    mouse, eyetracker
     //}
 
-    public enum eye
+    public enum Eye
     {
         left, right
     }
 
-    public enum testType
+    public enum TestType
     {
         persuit, reading //Outloud, readingSilent
     }
 
-    public enum readingTestType
+    public enum ReadingTestType
     {
         readingOutloud, readingSilent
     }

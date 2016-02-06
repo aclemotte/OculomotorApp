@@ -13,12 +13,12 @@ namespace LookAndPlayForm.Resumen
     public static class class4Graphic
     {
         
-        public static List<Point> getGazeData2List(eyetrackerDataEyeX eyetrackerDataL, TestData1 testData, eye fromEye)
+        public static List<Point> getGazeData2List(eyetrackerDataEyeX eyetrackerDataL, TestData1 testData, Eye fromEye)
         {
 
             List<Point> gazeDataDoubleList = new List<Point>();
 
-            if (fromEye == eye.left)
+            if (fromEye == Eye.left)
             {
                 for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL.Count; indiceSample++)
                 {
@@ -35,7 +35,7 @@ namespace LookAndPlayForm.Resumen
                 }
             }
 
-            if (fromEye == eye.right)
+            if (fromEye == Eye.right)
             {
                 for (var indiceSample = 0; indiceSample < eyetrackerDataL.targetTraceL[settings.indiceTrial].gazeDataItemL.Count; indiceSample++)
                 {
@@ -68,11 +68,11 @@ namespace LookAndPlayForm.Resumen
 
 
 
-        public static List<Point> fixData2List(fixationData fixData, eye fromEye)
+        public static List<Point> fixData2List(fixationData fixData, Eye fromEye)
         {
             List<Point> fixDataList = new List<Point>();
 
-            if (fromEye == eye.left)
+            if (fromEye == Eye.left)
             {
                 for (var indiceSample = 0; indiceSample < fixData.fixationDataPointLeft.Count; indiceSample++)
                 {
@@ -86,7 +86,7 @@ namespace LookAndPlayForm.Resumen
                 }
             }
 
-            if (fromEye == eye.right)
+            if (fromEye == Eye.right)
             {
                 for (var indiceSample = 0; indiceSample < fixData.fixationDataPointRight.Count; indiceSample++)
                 {

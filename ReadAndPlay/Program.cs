@@ -8,6 +8,9 @@ using LookAndPlayForm.SelectTest;
 using LookAndPlayForm.TesterID;
 using LookAndPlayForm.Varios;
 using Tobii.Gaze.Core;
+using LookAndPlayForm.DataBase;
+using System.Globalization;
+using LookAndPlayForm.Utility;
 
 namespace LookAndPlayForm
 {
@@ -16,7 +19,7 @@ namespace LookAndPlayForm
     {
         public static EyeTrackingEngine eyeTrackingEngine;
 
-        public static sharedData datosCompartidos;
+        public static SharedData datosCompartidos;
 
         /// <summary>
         /// The main entry point for the application.
@@ -24,36 +27,52 @@ namespace LookAndPlayForm
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            
-            datosCompartidos = new sharedData();
-
-            SplashScreen sscreen = new SplashScreen();
-            sscreen.ShowDialog();
-
-            institution_class_engine institution_engine = new institution_class_engine();
-            FormInstitutionID fInstitution = new FormInstitutionID(institution_engine);
-
-            //try
-            //{
-            //    probarLogError();
-            //}
-            //catch (Exception ex)
-            //{
-            //    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-            //}
-            
-            if (institution_engine.institutionsList != null || fInstitution.ShowDialog() == DialogResult.OK)
+            try
             {
-                fInstitution.updateCsv();
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-                datosCompartidos.institutionName = institution_engine.institutionsList[0].institution_name;
 
-                HomeFormEngine homeFormEngine = new HomeFormEngine();
-                HomeForm homeForm = new HomeForm(homeFormEngine);
-                Application.Run(homeForm);
+                datosCompartidos = new SharedData();
+
+                SplashScreen sscreen = new SplashScreen();
+                sscreen.ShowDialog();
+
+                institution_class_engine institution_engine = new institution_class_engine();
+                FormInstitutionID fInstitution = new FormInstitutionID(institution_engine);
+
+                //try
+                //{
+                //    probarLogError();
+                //}
+                //catch (Exception ex)
+                //{
+                //    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                //}
+
+                if ((institution_engine.institutionsList != null && institution_engine.institutionsList.Count > 0) || fInstitution.ShowDialog() == DialogResult.OK)
+                {
+                    fInstitution.updateDB();
+
+                    datosCompartidos.institutionName = institution_engine.institutionsList[0].institution_name;
+                    HomeForm homeForm = new HomeForm();
+                    Application.Run(homeForm);
+                }
             }
+            catch (Exception ex)
+            {
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+            }
+            finally
+            {
+                Close();
+            }
+
+        }
+
+        private static void Close()
+        {
+            DataBaseWorker.Close();
         }
 
         //private static void probarLogError()

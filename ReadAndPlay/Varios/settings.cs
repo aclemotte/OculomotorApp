@@ -20,7 +20,7 @@ namespace LookAndPlayForm
         //public const pointercontroltype pointercontroltypeSelected = pointercontroltype.eyetracker; //podria comentarse
 
         //filtro
-        public const filtertype filtertypeSelected = filtertype.median;
+        public const FilterType filtertypeSelected = FilterType.median;
         public const int filterBufferSize = 15;//numero impar mayor a 3
         public const double thresholdFilterNormalized = 2000;//numero de pixeles
        

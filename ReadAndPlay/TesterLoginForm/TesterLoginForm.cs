@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using CsvHelper;
+using LookAndPlayForm.DataBase;
 
 namespace LookAndPlayForm.TesterID
 {
@@ -38,91 +39,40 @@ namespace LookAndPlayForm.TesterID
         public List<TesterLoginEngineData> testersList { get; set; }
         public bool closeApp { get; set; }
 
-
-
-
-
-
-
-
         public TesterLoginForm()
         {
             InitializeComponent();
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();            
             closeApp = true;
 
-            bool rootFolder = rootFolderExist();//busca el directorio. sino existe lo crea
-            userFile = testersFileExist(rootFolder);//buscar el archivo. sino existe NO lo crea. 
-            
-            if (userFile)
-                testersFileData2Form();
-            else
+            LoadTesters();
+        }
+
+        private void LoadTesters()
+        {
+            testersList = DataBaseWorker.LoadTesters();
+            if (testersList == null || testersList.Count < 1)
             {
                 comboBoxTesters.Enabled = false;
                 buttonOk.Enabled = false;
             }
-        }
-
-
-
-
-
-        private bool rootFolderExist()
-        {
-            if (Directory.Exists(rootPath))
-            {
-                return true;
-            }
             else
-            {
-                Console.WriteLine(rootPath + " folder no existe");
-                Directory.CreateDirectory(rootPath);
-                return false;
-            }
-        }
-
-        private bool testersFileExist(bool rootFolder)
-        {
-            if (File.Exists(rootPath + @"testers.csv"))
-            {
-                using (var sr1 = new StreamReader(rootPath + @"testers.csv"))
-                {
-                    var reader1 = new CsvReader(sr1);
-                    try
-                    {
-                        testersList = reader1.GetRecords<TesterLoginEngineData>().ToList();
-                        return true;
-                    }
-                    catch (Exception ex)
-                    {
-                        ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                        return false;
-                    }
-                }
-
-            }
-            else
-            {
-                Console.WriteLine("testers.csv no existe");
-                return false;
-            }
+                testersFileData2Form();
         }
 
         private bool testersFileData2Form()
         {
-            if(testersList != null)
+            if (testersList != null)
             {
                 int indexTester = 0;
-                for (indexTester = 0; indexTester < testersList.Count; indexTester++ )
+                for (indexTester = 0; indexTester < testersList.Count; indexTester++)
                 {
                     comboBoxTesters.Items.Add(testersList[indexTester].tester_name);
                 }
+                comboBoxTesters.SelectedIndex = 0;
             }
             return true;
         }
-
-
-
 
         
         private void buttonOk_Click(object sender, EventArgs e)
@@ -166,7 +116,8 @@ namespace LookAndPlayForm.TesterID
                 if(!userFile)
                     testersList = new List<TesterLoginEngineData>();
                 testersList.Add(testerDataSelected);
-                updateTestersFile();
+                AddTester(testerDataSelected);
+                //updateTestersFile();
                 pasarDeForm();
             }
             else
@@ -174,17 +125,11 @@ namespace LookAndPlayForm.TesterID
                 testerNewForm.Dispose();
                 testerNewForm = null;
             }
-
         }
 
-        private void updateTestersFile()
+        private void AddTester(TesterLoginEngineData newtester)
         {
-            using (var sw = new StreamWriter(rootPath + @"testers.csv"))
-            {
-                var writer = new CsvWriter(sw);
-                //Write the entire contents of the CSV file into another
-                writer.WriteRecords(testersList);
-            }
+            DataBaseWorker.AddTester(newtester);
         }
 
         private void pasarDeForm()
@@ -195,7 +140,7 @@ namespace LookAndPlayForm.TesterID
 
         private void TesterLoginForm_Shown(object sender, EventArgs e)
         {
-            if (!userFile)
+            if (testersList == null || testersList.Count < 1)
             {
                 MessageBox.Show("To continue, register a new tester with the New tester button.", "Empty list of testers.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

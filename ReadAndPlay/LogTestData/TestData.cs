@@ -23,17 +23,24 @@ namespace LookAndPlayForm
         public string image2read { get; set; }
     }
 
-    public class TestData2
+    public class OutputTestData2
     {
         public int screen_Height { get; set; }
         public int screen_Width { get; set; }
         public string date { get; set; }
+
+        public string date_loc { get; set; }
+        public string user_id { get; set; }
+        public string tester_id { get; set; }
+
+        public string windows_username { get; set; }
         public string eyetracker { get; set; }
         public int calibration_error_left_px { get; set; }
         public int calibration_error_right_px { get; set; }
         public string filter_type { get; set; }
-        public testType typeTestDone { get; set; }
-        public readingTestType readingTestTypeDone { get; set; }
+        public TestType typeTestDone { get; set; }
+        public ReadingTestType readingTestTypeDone { get; set; }
+        public string comments { get; set; }
         public string image2read { get; set; }
         public string assemblyVersion { get; set; }
     }

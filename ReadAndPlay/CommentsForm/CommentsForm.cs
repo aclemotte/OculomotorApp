@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LookAndPlayForm.DataBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,17 +14,21 @@ namespace LookAndPlayForm.Comments
     public partial class CommentsForm : Form
     {
         bool commentsDone;
-        string selectedPath;
+        string date;
+        string user_id;
 
-        public CommentsForm(string selectedPath)
+        public CommentsForm(string date, string user_id)
         {
             InitializeComponent();
-            labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(); 
-            this.selectedPath = selectedPath;
+
+            this.date = date;
+            this.user_id = user_id;
             commentsDone = false;
-            openCommentsFile(selectedPath);
+            loadCommentsFromDB(date, user_id);
+            //openCommentsFile(selectedPath);
         }
 
+        /*
         private void openCommentsFile(string selectedPath)
         {
             string file = @"\comments.txt";
@@ -34,7 +39,7 @@ namespace LookAndPlayForm.Comments
                 textBoxComments.SelectionStart = 0;
                 commentsDone = false;
             }
-        }
+        }*/
 
         private void CommentsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -42,14 +47,28 @@ namespace LookAndPlayForm.Comments
             {
                 DialogResult dialogResult = MessageBox.Show("Save changes?", "Comments done", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
-                    saveComments();
+                    //saveComments();
+                    saveCommentsInDB(date, user_id);
             }
         }
 
+        private void loadCommentsFromDB(string date, string user_id)
+        {
+            textBoxComments.Text = DataBaseWorker.LoadComments(date, user_id);
+            textBoxComments.SelectionStart = 0;
+            commentsDone = false;
+        }
+
+        private void saveCommentsInDB(string date, string user_id)
+        {
+            DataBaseWorker.SaveComments(textBoxComments.Text, date, user_id);
+        }
+
+        /*
         private void saveComments()
         {
             File.WriteAllText(selectedPath + @"\comments.txt", textBoxComments.Text);            
-        }
+        }*/
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -58,7 +77,8 @@ namespace LookAndPlayForm.Comments
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            saveComments();
+            saveCommentsInDB(date, user_id);
+            //saveComments();
             commentsDone = false;
             this.Close();
         }

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Amazon.S3;
 using Amazon.S3.Model;
 using Ionic.Zip;
+using LookAndPlayForm.Utility;
+using System.Windows.Forms;
 //using Newtonsoft.Json;
 
 namespace LookAndPlayForm.BackupClass
@@ -47,7 +49,7 @@ namespace LookAndPlayForm.BackupClass
         {
             using (var client = new Amazon.S3.AmazonS3Client(aws_data.AwsAccessKey, aws_data.AwsSecretKey, Amazon.RegionEndpoint.EUCentral1))
             {
-                var fs = new FileStream(aws_data.FileToUpload, FileMode.Open);
+                var fs = new FileStream(aws_data.FileToUpload, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
                 try
                 {
@@ -62,51 +64,76 @@ namespace LookAndPlayForm.BackupClass
                 {
                     ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                     Console.WriteLine("Amazon error code: {0}", string.IsNullOrEmpty(ex.ErrorCode) ? "None" : ex.ErrorCode);
-                    Console.WriteLine("Exception message: {0}", ex.Message);                    
+                    Console.WriteLine("Exception message: {0}", ex.Message);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                    Console.WriteLine("Exception message: {0}", ex.Message);    
+                    Console.WriteLine("Exception message: {0}", ex.Message);
                 }
             }
+        }
+
+        public static void UpdateDataBaseFile(string AwsS3FolderName)
+        {
+            UpdateMetaData(CData.DataBasePath, AwsS3FolderName);
         }
 
 
         public static void UpdateLogFile(string AwsS3FolderName)
         {
-            string fileName = @"log.txt";
+            string fileName = CData.DataFolder + @"\log.txt";
             UpdateMetaData(fileName, AwsS3FolderName);
         }
 
         public static void UpdateErrorFile(string AwsS3FolderName)
         {
-            string fileName = @"error.txt";
-            UpdateMetaData(fileName, AwsS3FolderName);            
-        }
-
-        public static void UpdateTestersFile(string AwsS3FolderName)
-        {
-            string fileName = @"testers.csv";
+            string fileName = CData.DataFolder + @"\error.txt";
             UpdateMetaData(fileName, AwsS3FolderName);
         }
 
-        public static void UpdateUsersFile(string AwsS3FolderName)
-        {
-            string fileName = @"users.csv";
-            UpdateMetaData(fileName, AwsS3FolderName);
-        }
-
+        /// <summary>
+        /// Updates meta data AWS; with non-bllocking update
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="AwsS3FolderName"></param>
         private static void UpdateMetaData(string fileName, string AwsS3FolderName)
         {
-            string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
-            string fullFileName = rootPath + fileName;
-            if (File.Exists(fullFileName))
+            try
             {
-                aws_class_data aws_data = new aws_class_data();
-                aws_data.FileToUpload = fullFileName;
-                aws_data.AwsS3FolderName = AwsS3FolderName;
-                UploadFile(aws_data);
+                if (File.Exists(fileName))
+                {
+                    aws_class_data aws_data = new aws_class_data();
+                    aws_data.FileToUpload = fileName;
+                    aws_data.AwsS3FolderName = AwsS3FolderName;
+                    UploadFile(aws_data);
+                }
+            }
+            catch (IOException ex)
+            {
+                try
+                {
+                    string tmpd = Path.GetDirectoryName(fileName) + @"\tmp";
+                    DirectoryInfo di = Directory.CreateDirectory(tmpd);
+                    di.Attributes = FileAttributes.Hidden | FileAttributes.Directory;
+                    string tmp = tmpd + @"\" + Path.GetFileName(fileName);
+                    File.Copy(CData.DataBasePath, tmp);
+                    aws_class_data aws_data = new aws_class_data();
+                    aws_data.FileToUpload = tmp;
+                    aws_data.AwsS3FolderName = AwsS3FolderName;
+                    UploadFile(aws_data);
+                    Directory.Delete(tmpd, true);
+                }
+                catch (Exception exx)
+                {
+                    MessageBox.Show("Can't update DB (AWS, UpdateMetaData).", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ErrorLog.ErrorLog.toErrorFile(exx.GetBaseException().ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can't update DB (AWS, UpdateMetaData).", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             }
         }
     }

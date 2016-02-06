@@ -12,6 +12,8 @@ using LookAndPlayForm.FixDetector;
 using LookAndPlayForm.LogEyeTracker;
 using LookAndPlayForm.Review;
 using Newtonsoft.Json;
+using LookAndPlayForm.Utility;
+using LookAndPlayForm.DataBase;
 //using WobbrockLib.Controls;
 
 namespace LookAndPlayForm.Resumen
@@ -24,17 +26,13 @@ namespace LookAndPlayForm.Resumen
         public bool everythingOk { get; set; }
 
         public bool closeApp { get; set; }
-        
-        
-        
-        
-        
-        
-        
+
+        string date;
+        string user_id; 
         
         fixationData fixData;
         eyetrackerDataEyeX eyetrackerDataL;
-        TestData1 testData;
+        TestData1 _testData;
         Size stimulusSize;
         Point stimulusLocation;
         bool fixDataFound;
@@ -45,15 +43,7 @@ namespace LookAndPlayForm.Resumen
         int numberOfFixR;
         string selectedPath;
 
-
-
-
-
-
-
-
-
-        public Resumen(bool showLastTest, bool newTestAvailable, string selectedPath)
+        public Resumen(bool showLastTest, bool newTestAvailable, string fixDataJson, string eyetrackerDataJson, OutputTestData2 testData)
         {
             InitializeComponent();
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(); 
@@ -62,40 +52,56 @@ namespace LookAndPlayForm.Resumen
 
             if (showLastTest)
             {
-                selectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                                Program.datosCompartidos.startTimeTest +
-                                @"-us" + Program.datosCompartidos.activeUser + @"\";
+                fixDataJson = DataBaseWorker.LoadLastReadingData(out date, out user_id, out eyetrackerDataJson, out testData);
             }
 
-            this.selectedPath = selectedPath;
+            this.date = testData.date_loc;
+            this.user_id = testData.user_id;
+            
+
             buttonHome.Enabled = newTestAvailable;//era para cuando se le llamaba desde el form de paciente. ahora siempre es true;
             
             Console.WriteLine("selectedPath: " + selectedPath);
 
             toolStripStatusLabelFileName.Text = selectedPath;
 
-            processFixData(selectedPath);//procesa los datos de los ojos y genera un archivo fixData.json
-            fixDataFound = loadFixationDataFromJson(selectedPath);//carga el archivo fixData.json
-            eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(selectedPath);
-            testData = ReviewClass.loadTestDataFromJson(selectedPath);
+            processFixData(eyetrackerDataJson, _testData, date, user_id);//procesa los datos de los ojos y genera un archivo fixData.json
+            fixDataFound = loadFixationDataFromJson(fixDataJson);//carga el archivo fixData.json
+            eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(eyetrackerDataJson);
+            _testData = DataConverter.TestData2ToTestData1(testData);
             getStimulusFeactures(ReviewClass.eyetrackerDataFound(eyetrackerDataL));
-            imageFound = class4Graphic.loadImage2Control(ReviewClass.testDataFound(testData), testData, pictureBoxStimulus);
+            imageFound = class4Graphic.loadImage2Control(ReviewClass.testDataFound(_testData), _testData, pictureBoxStimulus);
 
-            everythingOk = fixDataFound & ReviewClass.eyetrackerDataFound(eyetrackerDataL) & ReviewClass.testDataFound(testData) & imageFound;
+            everythingOk = fixDataFound & ReviewClass.eyetrackerDataFound(eyetrackerDataL) & ReviewClass.testDataFound(_testData) & imageFound;
 
             if (everythingOk)
                 processMetrics();
 
         }
 
-        private void processFixData(string path)
+        private void processFixData(string eyetrackerData, TestData1 testData, string date, string user_id)
         {
-            FixDetector.FixDetector detectorFijaciones = new FixDetector.FixDetector(path);
+            FixDetector.FixDetector detectorFijaciones = new FixDetector.FixDetector(eyetrackerData, testData, date, user_id);
         }
 
         //Load json
         #region load json files
 
+        private bool loadFixationDataFromJson(string json)
+        {
+            try
+            {
+                fixData = JsonConvert.DeserializeObject<fixationData>(json);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+
+        /*
         private bool loadFixationDataFromJson(string path)
         {
             //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -112,7 +118,7 @@ namespace LookAndPlayForm.Resumen
                 MessageBox.Show("El archivo " + file + " no existe");
                 return false;
             }
-        }        
+        } */       
 
         #endregion
 
@@ -181,7 +187,7 @@ namespace LookAndPlayForm.Resumen
              
         private void getSOR()
         {
-            int numberOfWord = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras;
+            int numberOfWord = Varios.ImageDictionary.Image2ReadDictionary[_testData.image2read].numeroPalabras;
 
             if (numberOfFixL != 0)
             {
@@ -197,15 +203,15 @@ namespace LookAndPlayForm.Resumen
 
         private void getCalibError()
         {
-            textBoxCalibErrorL.Text = testData.calibration_error_left_px.ToString();
-            textBoxCalibErrorR.Text = testData.calibration_error_right_px.ToString();
+            textBoxCalibErrorL.Text = _testData.calibration_error_left_px.ToString();
+            textBoxCalibErrorR.Text = _testData.calibration_error_right_px.ToString();
 
-            if (testData.calibration_error_left_px > settings.maxCalibracionError)
+            if (_testData.calibration_error_left_px > settings.maxCalibracionError)
             {
                 textBoxCalibErrorL.BackColor = Color.Red;
             }
 
-            if (testData.calibration_error_right_px > settings.maxCalibracionError)
+            if (_testData.calibration_error_right_px > settings.maxCalibracionError)
             {
                 textBoxCalibErrorR.BackColor = Color.Red;
             }
@@ -227,7 +233,7 @@ namespace LookAndPlayForm.Resumen
                 //aca puede que se pueda calcular hasta la ultima fijacion en vez de la ultima mirada
                 if (tiempo != 0)
                 {
-                    wordPerMin = (int)((double)Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras / tiempo);
+                    wordPerMin = (int)((double)Varios.ImageDictionary.Image2ReadDictionary[_testData.image2read].numeroPalabras / tiempo);
                     textBoxWordsMin.Text = wordPerMin.ToString();
                 }
                 else
@@ -256,13 +262,13 @@ namespace LookAndPlayForm.Resumen
         private void getNumberOfWords()
         {
             int numberOfWords = 0;
-            numberOfWords = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras;
+            numberOfWords = Varios.ImageDictionary.Image2ReadDictionary[_testData.image2read].numeroPalabras;
             textBoxNumberOfWords.Text = numberOfWords.ToString();
         }
         
         private void getFix100W()
         {
-            int numberOfWord = Varios.ImageDictionary.Image2ReadDictionary[testData.image2read].numeroPalabras;
+            int numberOfWord = Varios.ImageDictionary.Image2ReadDictionary[_testData.image2read].numeroPalabras;
             
             if(numberOfFixL != 0)
             {
@@ -391,13 +397,13 @@ namespace LookAndPlayForm.Resumen
             {               
                 if (checkBoxL.Checked)
                 {
-                    gazeDataDoubleList = class4Graphic.getGazeData2List(eyetrackerDataL, testData, eye.left);
+                    gazeDataDoubleList = class4Graphic.getGazeData2List(eyetrackerDataL, _testData, Eye.left);
                     class4Graphic.plotGazeDataList(gazeDataDoubleList, EyeOption.Left, settings.leftEyeColor, gazeDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                 }
 
                 if (checkBoxR.Checked)
                 {
-                    gazeDataDoubleList = class4Graphic.getGazeData2List(eyetrackerDataL, testData, eye.right);
+                    gazeDataDoubleList = class4Graphic.getGazeData2List(eyetrackerDataL, _testData, Eye.right);
                     class4Graphic.plotGazeDataList(gazeDataDoubleList, EyeOption.Right, settings.rightEyeColor, gazeDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                }
             }
@@ -414,14 +420,14 @@ namespace LookAndPlayForm.Resumen
                 if (checkBoxL.Checked)
                 {
 
-                    fixDataList = class4Graphic.fixData2List(fixData, eye.left);
+                    fixDataList = class4Graphic.fixData2List(fixData, Eye.left);
                     class4Graphic.plotFixDataList(fixDataList, EyeOption.Left,settings.leftEyeColor, fixDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                     class4Graphic.plotLinesBetweenFixs(fixDataList, settings.leftEyeColor, this, pictureBoxStimulus, stimulusSize, stimulusLocation);                    
                 }
 
                 if (checkBoxR.Checked)
                 {
-                    fixDataList = class4Graphic.fixData2List(fixData, eye.right);
+                    fixDataList = class4Graphic.fixData2List(fixData, Eye.right);
                     class4Graphic.plotFixDataList(fixDataList, EyeOption.Right, settings.rightEyeColor, fixDotRadius, this, pictureBoxStimulus, stimulusSize, stimulusLocation);
                     class4Graphic.plotLinesBetweenFixs(fixDataList, settings.rightEyeColor, this, pictureBoxStimulus, stimulusSize, stimulusLocation);                                       
                 }
@@ -457,7 +463,7 @@ namespace LookAndPlayForm.Resumen
 
         private void buttonPlotExtern_Click(object sender, EventArgs e)
         {
-            SampleTextFullScreen sampleTextFullScreen = new SampleTextFullScreen(testData, stimulusSize, stimulusLocation, fixData, eyetrackerDataL, checkBoxGaze, checkBoxFixations, checkBoxL, checkBoxR);
+            SampleTextFullScreen sampleTextFullScreen = new SampleTextFullScreen(_testData, stimulusSize, stimulusLocation, fixData, eyetrackerDataL, checkBoxGaze, checkBoxFixations, checkBoxL, checkBoxR);
             sampleTextFullScreen.ShowDialog();
         }
 
@@ -470,7 +476,7 @@ namespace LookAndPlayForm.Resumen
 
         private void buttonComments_Click(object sender, EventArgs e)
         {
-            CommentsForm commentsF = new CommentsForm(selectedPath);
+            CommentsForm commentsF = new CommentsForm(date, user_id);
             commentsF.Show();
         }
 
