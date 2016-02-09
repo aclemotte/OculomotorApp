@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LookAndPlayForm.Utility;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace LookAndPlayForm.ErrorLog
              agregar el mensage de error con la fecha
              */
 
-            string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
+            string rootPath = CData.DataFolder + @"\";
 
             using (StreamWriter writer = File.AppendText(rootPath + @"error.txt"))
             {

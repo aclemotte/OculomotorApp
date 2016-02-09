@@ -104,6 +104,9 @@
             this.Controls.Add(this.labelOptions);
             this.Controls.Add(this.buttonReviewTest);
             this.Controls.Add(this.buttonNewTest);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "HomeForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HomeForm_FormClosing);

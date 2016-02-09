@@ -11,6 +11,7 @@ using LookAndPlayForm.TesterID;
 using Newtonsoft.Json;
 using System.Data;
 using LookAndPlayForm.LogData;
+using System.Windows.Forms;
 
 namespace LookAndPlayForm.DataBase
 {
@@ -64,6 +65,7 @@ namespace LookAndPlayForm.DataBase
         static string table_fix = "FixData";
         static string schema_fix = String.Format("CREATE TABLE IF NOT EXISTS {0} (ID INTEGER PRIMARY KEY AUTOINCREMENT, date TIMESTAMP, user_id TEXT, data TEXT)", table_fix);
         static string insert_fix = String.Format("INSERT OR REPLACE INTO {0} (date, user_id, data) VALUES (\"{{0}}\",\"{{1}}\",\"{{2}}\")", table_fix);
+        static string insert_fix_id = String.Format("INSERT OR REPLACE INTO {0} (ID, date, user_id, data) VALUES (\"{{0}}\",\"{{1}}\",\"{{2}}\",\"{{3}}\")", table_fix);
 
         static string table_gaze = "GazeData";
         static string schema_gaze = String.Format("CREATE TABLE IF NOT EXISTS {0} (ID INTEGER PRIMARY KEY AUTOINCREMENT, date TIMESTAMP, user_id TEXT, data TEXT)", table_gaze);
@@ -102,7 +104,9 @@ namespace LookAndPlayForm.DataBase
             }
             catch(Exception ex)
             {
+                MessageBox.Show(ex.GetBaseException().ToString(), "Critical Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                Application.Exit();
             }
         }
 
@@ -430,8 +434,8 @@ namespace LookAndPlayForm.DataBase
                         entry.calibration_error_left_px,
                         entry.calibration_error_right_px,
                         entry.filter_type,
-                        entry.typeTestDone,
-                        entry.readingTestTypeDone,
+                        (int)entry.typeTestDone,
+                        (int)entry.readingTestTypeDone,
                         entry.image2read,
                         entry.assemblyVersion,
                         comments));
@@ -600,6 +604,18 @@ namespace LookAndPlayForm.DataBase
             insertUser(data);
         }
 
+        /*
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public static string GetUserIDByTestDate(string date)
+        {
+            string id = dataBase.ExecuteScalar(string.Format("SELECT user_id FROM {0} WHERE date=\"{1}\"", table_test, date));
+            return id;
+        }*/
+
         /// <summary>
         /// 
         /// </summary>
@@ -751,14 +767,106 @@ namespace LookAndPlayForm.DataBase
         /// <param name="comments"></param>
         public static void SaveTestData(OutputTestData2 data, string user_id, string comments)
         {
-            if (data == null || string.IsNullOrWhiteSpace(user_id) || string.IsNullOrWhiteSpace(comments))
+            if (data == null)
                 return;
             
             insertTestData(data, user_id, comments);
         }
 
+        /*
         public static void LoadTestData()
-        { }
+        { }*/
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="patient"></param>
+        /// <param name="tester"></param>
+        /// <param name="date"></param>
+        /// <param name="testType">0 - none; 1 - pursuit; 2 - reading</param>
+        /// <returns></returns>
+        public static DataTable SearchTest(string patient, string tester, string date, int testType = 0)
+        {
+            DataTable dt = null;
+            DataTable dt2 = null;
+
+            //TestType type = 
+
+            try
+            {
+                /*
+                dt = dataBase.GetDataTable(string.Format("SELECT u.user_name AS Patient, test.date_loc AS Date "
+                    + "FROM Test AS test "
+                    + "INNER JOIN Users AS u ON test.user_id=u.user_id "
+                    + "WHERE u.user_name=\"{0}\", test.date_loc=\"{2}\""
+                    ,patient, tester, date, "persuit"));*/
+
+                StringBuilder SB = new StringBuilder();
+                StringBuilder SB2 = new StringBuilder();
+                if (!string.IsNullOrWhiteSpace(patient))
+                {
+                    SB.Append(string.Format(" u.user_name = \"{0}\" ", patient));
+                    SB2.Append(string.Format(" u.user_name = \"{0}\" ", patient));
+                }
+
+                bool doNotUseDT2 = false;
+                if (!string.IsNullOrWhiteSpace(tester))
+                {
+                    SB.Append(string.Format(" t.name = \"{0}\" ", tester));
+                    doNotUseDT2 = true;
+                }
+
+                if (!string.IsNullOrWhiteSpace(date))
+                {
+                    SB.Append(string.Format(" test.date_loc > date(\"{0}\", '-1 day') AND test.date_loc < date(\"{0}\", '+1 day') ", DataConverter.LocalDateFormat(date)));
+                    SB2.Append(string.Format(" test.date_loc > date(\"{0}\", '-1 day') AND test.date_loc < date(\"{0}\", '+1 day') ", DataConverter.LocalDateFormat(date)));
+                }
+
+                //string strTestType = (testType < 1 || testType > 2) ? "" : (testType == 1) ? "persuit" : "reading";
+                string strTestType = (testType < 1 || testType > 2) ? "" : (testType == 1) ? "0" : "1";
+                if (!string.IsNullOrWhiteSpace(strTestType))
+                {
+                    SB.Append(string.Format(" test.typeTestDone = \"{0}\"", strTestType));
+                    SB2.Append(string.Format(" test.typeTestDone = \"{0}\"", strTestType));
+                }
+
+                string query = "";                
+                if (SB.Length > 0)
+                {
+                    query = "WHERE" + SB.Replace("  ", " AND ").ToString();
+                }
+                
+                string query2 = "";
+                if (SB2.Length > 0)
+                {
+                    query2 = "WHERE" + SB2.Replace("  ", " AND ").ToString();
+                } 
+
+                dt = dataBase.GetDataTable(string.Format("SELECT u.user_id AS PatientID, u.user_name AS Patient, t.name AS Tester, test.date_loc AS Date, test.date AS DateUTC, test.typeTestDone AS TestType "
+                    + "FROM {0} AS test "
+                    + "INNER JOIN {1} AS u ON test.user_id = u.user_id "
+                    + "INNER JOIN {2} AS t ON test.tester_id = t.ID " 
+                    + query, table_test, table_users, table_testers));
+
+                if (!doNotUseDT2)
+                {
+                    dt2 = dataBase.GetDataTable(string.Format("SELECT u.user_id AS PatientID, u.user_name AS Patient, test.date_loc AS Date, test.date AS DateUTC, test.typeTestDone AS TestType "
+                        + "FROM {0} AS test "
+                        + "INNER JOIN {1} AS u ON test.user_id = u.user_id "
+                        + query2, table_test, table_users));
+
+                    foreach (DataRow row in dt2.Rows)
+                        dt.ImportRow(row);   
+                }                             
+            }
+            catch(Exception ex)
+            {
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());;
+            }
+            //dt = dataBase.GetDataTable(string.Format("SELECT user_id, tester_id, date_loc, typeTestDone, FROM {0} WHERE user_id", table_test)
+
+            return dt;
+        }
 
         /// <summary>
         /// Loads test data (TestData2) from the specified row
@@ -772,7 +880,7 @@ namespace LookAndPlayForm.DataBase
 
             OutputTestData2 res = new OutputTestData2();
             // user_id, date, screen_Height, screen_Width, eyetracker, calibration_error_left_px, calibration_error_right_px, filter_type, typeTestDone, readingTestTypeDone, image2read, assemblyVersion
-            res.date = row["date"].ToString();
+            res.date = DataConverter.UTCDateFromLocalTime(row["date"].ToString());
             res.date_loc = row["date_loc"].ToString();
             res.user_id = row["user_id"].ToString();
             res.tester_id = row["tester_id"].ToString();
@@ -806,9 +914,9 @@ namespace LookAndPlayForm.DataBase
             {
                 DataTable dt = null;
                 if (date.Contains('Z')) // UTC time
-                    dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE date=\"{1}\" AND user_id=\"{2}\")", table_test, date, user_id));
+                    dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE date=\"{1}\" AND user_id=\"{2}\"", table_test, date, user_id));
                 else // local time
-                    dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE date_loc=\"{1}\" AND user_id=\"{2}\")", table_test, date, user_id));
+                    dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE date_loc=\"{1}\" AND user_id=\"{2}\"", table_test, date, user_id));
 
                 if (dt != null)
                 {
@@ -964,7 +1072,7 @@ namespace LookAndPlayForm.DataBase
 
             try
             {
-                DataTable dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE date=\"{1}\" AND user_id=\"{2}\")", table_gaze, date, user_id));
+                DataTable dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE date=\"{1}\" AND user_id=\"{2}\"", table_gaze, date, user_id));
                 if (dt != null)
                 {
                     res = DataConverter.FromUnescapedString(dt.Rows[0]["data"].ToString());
@@ -1046,9 +1154,9 @@ namespace LookAndPlayForm.DataBase
                 DataTable dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE ID = (SELECT MAX(ID) FROM {0})", table_pursuit));
                 if (dt != null)
                 {
-                    date = dt.Rows[0]["date"].ToString();
+                    date = DataConverter.UTCDateFromLocalTime(dt.Rows[0]["date"].ToString());
                     user_id = dt.Rows[0]["user_id"].ToString();
-                    res = DataConverter.FromUnescapedString(dt.Rows[0]["data"].ToString());
+                    res = DataConverter.FromUnescapedString(dt.Rows[0]["Data"].ToString());
 
                     if (!string.IsNullOrWhiteSpace(date))
                     {
@@ -1072,7 +1180,7 @@ namespace LookAndPlayForm.DataBase
 
             try
             {
-                DataTable dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE date=\"{1}\" AND user_id=\"{2}\")", table_pursuit, date, user_id));
+                DataTable dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE date=\"{1}\" AND user_id=\"{2}\"", table_pursuit, date, user_id));
                 if (dt != null)
                 {
                     res = DataConverter.FromUnescapedString(dt.Rows[0]["data"].ToString());
@@ -1104,7 +1212,19 @@ namespace LookAndPlayForm.DataBase
 
             try
             {
-                dataBase.ExecuteNonQuery(String.Format(insert_fix, date, user_id, DataConverter.ToUnescapedString(data)));
+                string res = LoadReadingData(date, user_id);
+                if (string.IsNullOrWhiteSpace(res))
+                {
+                    dataBase.ExecuteNonQuery(String.Format(insert_fix, date, user_id, DataConverter.ToUnescapedString(data)));
+                }
+                else
+                {
+                    if (res == data)
+                        return;
+
+                    string id = dataBase.ExecuteScalar(string.Format("SELECT ID FROM {0} WHERE date=\"{1}\" AND user_id=\"{2}\"", table_fix, date, user_id));
+                    dataBase.ExecuteNonQuery(String.Format(insert_fix_id, id, date, user_id, DataConverter.ToUnescapedString(data)));
+                }    
             }
             catch (Exception ex)
             {
@@ -1133,15 +1253,41 @@ namespace LookAndPlayForm.DataBase
                 DataTable dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE ID = (SELECT MAX(ID) FROM {0})", table_fix));
                 if (dt != null)
                 {
-                    date = dt.Rows[0]["date"].ToString();
+                    date = DataConverter.UTCDateFromLocalTime(dt.Rows[0]["date"].ToString());
                     user_id = dt.Rows[0]["user_id"].ToString();
-                    DataConverter.FromUnescapedString(dt.Rows[0]["data"].ToString());
+                    res = DataConverter.FromUnescapedString(dt.Rows[0]["Data"].ToString());
 
                     if (!string.IsNullOrWhiteSpace(date))
                     {
                         testdata = LoadTestDataByDateAndID(date, user_id);
                         eyetracker = LoadEyeTrackerData(date, user_id);
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+            }
+
+            return res;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="user_id"></param>
+        /// <returns></returns>
+        public static string LoadReadingData(string date, string user_id)
+        {
+            string res = null;
+
+            try
+            {
+                DataTable dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE date=\"{1}\" AND user_id=\"{2}\"", table_fix, date, user_id));
+                if (dt != null)
+                {
+                    res = DataConverter.FromUnescapedString(dt.Rows[0]["data"].ToString());
                 }
             }
             catch (Exception ex)

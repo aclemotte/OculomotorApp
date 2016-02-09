@@ -28,6 +28,7 @@ namespace LookAndPlayForm.Resumen
         public bool closeApp { get; set; }
 
         string date;
+        string dateloc;
         string user_id; 
         
         fixationData fixData;
@@ -55,7 +56,7 @@ namespace LookAndPlayForm.Resumen
                 fixDataJson = DataBaseWorker.LoadLastReadingData(out date, out user_id, out eyetrackerDataJson, out testData);
             }
 
-            this.date = testData.date_loc;
+            this.dateloc = testData.date_loc;
             this.user_id = testData.user_id;
             
 
@@ -65,10 +66,11 @@ namespace LookAndPlayForm.Resumen
 
             toolStripStatusLabelFileName.Text = selectedPath;
 
-            processFixData(eyetrackerDataJson, _testData, date, user_id);//procesa los datos de los ojos y genera un archivo fixData.json
-            fixDataFound = loadFixationDataFromJson(fixDataJson);//carga el archivo fixData.json
-            eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(eyetrackerDataJson);
-            _testData = DataConverter.TestData2ToTestData1(testData);
+            _testData = DataConverter.TestData2ToTestData1(testData); 
+            fixDataFound = loadFixationDataFromJson(fixDataJson); //carga el archivo fixData.json 
+            //if (!fixDataFound) 
+            processFixData(eyetrackerDataJson, _testData, testData.date, user_id);//procesa los datos de los ojos y genera un archivo fixData.json
+            eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(eyetrackerDataJson);            
             getStimulusFeactures(ReviewClass.eyetrackerDataFound(eyetrackerDataL));
             imageFound = class4Graphic.loadImage2Control(ReviewClass.testDataFound(_testData), _testData, pictureBoxStimulus);
 
