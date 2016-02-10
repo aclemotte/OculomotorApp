@@ -29,6 +29,7 @@ namespace ReviewPersuit
         private StimuloPersuitSetup stimuloPersuitSetup;
         private TestData1 _testData;
         string date;
+        string date_loc;
         string user_id;
 
 
@@ -47,13 +48,15 @@ namespace ReviewPersuit
                 inputData = DataBaseWorker.LoadLastPursuitData(out date, out user_id, out eyetrackerDataJson, out testData);
             }
 
-            this.date = testData.date_loc;
+            this.date_loc = testData.date_loc;
             this.user_id = testData.user_id;
+            date = testData.date;
+
             buttonHome.Enabled = newTestAvailable;//era para cuando se le llamaba desde el form de paciente. ahora siempre es true;
 
             //Console.WriteLine("selectedPath: " + selectedPath);
 
-            toolStripStatusLabelFileName.Text = string.Format("{0}-us{1}", date, user_id);
+            toolStripStatusLabelFileName.Text = string.Format("{0}-us{1}", date_loc, user_id);
 
             eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(eyetrackerDataJson);
             _testData = DataConverter.TestData2ToTestData1(testData);

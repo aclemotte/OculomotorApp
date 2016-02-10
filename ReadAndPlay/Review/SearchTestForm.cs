@@ -90,8 +90,6 @@ namespace LookAndPlayForm.Review
         private void Search()
         {
             //string date = DataValidation.DateValidation(tbFilter_Date.Text);
-
-
             string date = dtpFilter_Date.Checked ? dtpFilter_Date.Value.ToString() : "";
             testType = ((bFilter_Reading.Tag != null) ? 2 : 0) + ((bFilter_Pursuit.Tag != null) ? 1 : 0);
             dgvTests.Rows.Clear();
@@ -105,13 +103,11 @@ namespace LookAndPlayForm.Review
                 try
                 {
                     dgvTests.Rows.Add();
-                    dgvTests.Rows[i].Cells["Patient"].Value = row["Patient"];
-                    dgvTests.Rows[i].Cells["PatientID"].Value = row["PatientID"];
-                    dgvTests.Rows[i].Cells["Tester"].Value = row["Tester"];
-                    dgvTests.Rows[i].Cells["Date"].Value = row["Date"];
+                    dgvTests.Rows[i].Cells["Patient"].Value = row["Patient"].ToString();
+                    dgvTests.Rows[i].Cells["PatientID"].Value = row["PatientID"].ToString();
+                    dgvTests.Rows[i].Cells["Tester"].Value = row["Tester"].ToString();
+                    dgvTests.Rows[i].Cells["Date"].Value = row["Date"].ToString();
                     dgvTests.Rows[i].Cells["DateUTC"].Value = DataConverter.UTCDateFromLocalTime(row["DateUTC"].ToString());
-                    //string ttt = row["TestType"].ToString();
-                    //dgvTests.Rows[i].Cells["Test"].Value = row["TestType"];
                     int testTypex = int.Parse(row["TestType"].ToString());
                     dgvTests.Rows[i].Cells["Test"].Value = (TestType)testTypex;
                     i++;
@@ -121,9 +117,6 @@ namespace LookAndPlayForm.Review
                     ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());;
                 }
             }
-            
-            
-            //dgvTests.DataSource = dt;
         }
 
         Color buttonBackColor = Color.White;

@@ -57,19 +57,17 @@ namespace LookAndPlayForm.Resumen
 
             this.dateloc = testData.date_loc;
             this.user_id = testData.user_id;
-            
+            date = testData.date;
 
             buttonHome.Enabled = newTestAvailable;//era para cuando se le llamaba desde el form de paciente. ahora siempre es true;
             
-            //Console.WriteLine("selectedPath: " + selectedPath);
-
-            toolStripStatusLabelFileName.Text = string.Format("{0}-us{1}", date, user_id);
+            //Console.WriteLine("selectedPath: " + selectedPath);            
 
             _testData = DataConverter.TestData2ToTestData1(testData);
 
             if (string.IsNullOrWhiteSpace(fixDataJson))
                 fixDataJson = processFixData(eyetrackerDataJson, _testData, testData.date, user_id);//procesa los datos de los ojos y genera un archivo fixData.json 
-            
+            toolStripStatusLabelFileName.Text = string.Format("{0}-us{1}", dateloc, user_id);            
             fixDataFound = loadFixationDataFromJson(fixDataJson); //carga el archivo fixData.json             
             eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(eyetrackerDataJson);            
             getStimulusFeactures(ReviewClass.eyetrackerDataFound(eyetrackerDataL));
@@ -79,7 +77,6 @@ namespace LookAndPlayForm.Resumen
 
             if (everythingOk)
                 processMetrics();
-
         }
 
         private string processFixData(string eyetrackerData, TestData1 testData, string date, string user_id)

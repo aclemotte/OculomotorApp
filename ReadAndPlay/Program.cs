@@ -50,17 +50,6 @@ namespace LookAndPlayForm
 
                 SplashScreen sscreen = new SplashScreen();
                 sscreen.ShowDialog();
-
-                string date;
-                string id;
-                string eye;
-                OutputTestData2 data;
-                string pursuit = DataBaseWorker.LoadLastPursuitData(out date, out id, out eye, out data);
-
-
-                string reading = DataBaseWorker.LoadLastReadingData(out date, out id, out eye, out data);
-
-                //DataBaseWorker.SaveFixData("New", "1", DataConverter.GetCurrentTime());
                 
                 institution_class_engine institution_engine = new institution_class_engine();
                 FormInstitutionID fInstitution = new FormInstitutionID(institution_engine);

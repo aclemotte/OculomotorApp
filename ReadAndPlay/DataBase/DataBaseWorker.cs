@@ -809,8 +809,9 @@ namespace LookAndPlayForm.DataBase
 
                 if (!string.IsNullOrWhiteSpace(date))
                 {
-                    SB.Append(string.Format(" test.date_loc > date(\"{0}\", '-1 day') AND test.date_loc < date(\"{0}\", '+1 day') ", DataConverter.LocalDateFormat(date)));
-                    SB2.Append(string.Format(" test.date_loc > date(\"{0}\", '-1 day') AND test.date_loc < date(\"{0}\", '+1 day') ", DataConverter.LocalDateFormat(date)));
+                    string dd = DataConverter.LocalDateFormat(date);
+                    SB.Append(string.Format(" test.date_loc BETWEEN date(\"{0}\", '+0 day') AND date(\"{0}\", '+1 day') ", DataConverter.LocalDateFormat(date)));
+                    SB2.Append(string.Format(" test.date_loc BETWEEN date(\"{0}\", '+0 day') AND date(\"{0}\", '+1 day') ", DataConverter.LocalDateFormat(date)));
                 }
 
                 string strTestType = (testType < 1 || testType > 2) ? "" : (testType == 1) ? "0" : "1";
@@ -829,8 +830,10 @@ namespace LookAndPlayForm.DataBase
                 string query2 = "";
                 if (SB2.Length > 0)
                 {
-                    query2 = "WHERE" + SB2.Replace("  ", " AND ").ToString();
+                    query2 = "WHERE test.tester_id IS NULL OR test.tester_id = '' AND " + SB2.Replace("  ", " AND ").ToString();
                 }
+                else
+                    query2 = "WHERE test.tester_id IS NULL OR test.tester_id = ''";
 
                 dt = dataBase.GetDataTable(string.Format("SELECT u.user_id AS PatientID, u.user_name AS Patient, t.name AS Tester, test.date_loc AS Date, test.date AS DateUTC, test.typeTestDone AS TestType "
                     + "FROM {0} AS test "
@@ -846,7 +849,9 @@ namespace LookAndPlayForm.DataBase
                         + query2, table_test, table_users));
 
                     foreach (DataRow row in dt2.Rows)
+                    {
                         dt.ImportRow(row);
+                    }
                 }
             }
             catch (Exception ex)

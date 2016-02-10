@@ -415,7 +415,7 @@ namespace LookAndPlayForm.InitialForm
         {
             updateLogFile();
             aws_class_engine.UpdateErrorFile(Program.datosCompartidos.institutionName);
-            aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
+            //aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
         }
 
         private void updateLogFile()
