@@ -51,13 +51,12 @@ namespace LookAndPlayForm.InitialForm
                     if (string.IsNullOrWhiteSpace(searchTest.EyeTrackerData) || searchTest.TestData == null)
                         throw new ArgumentNullException("No eye tracker or test data was found");
 
-
                     switch (searchTest.TestType)
                     {
                         case LookAndPlayForm.TestType.reading:
 
-                            if (string.IsNullOrWhiteSpace(searchTest.FixData))
-                                throw new ArgumentNullException("No reading data was found");
+                            //if (string.IsNullOrWhiteSpace(searchTest.FixData))
+                                //throw new ArgumentNullException("No reading data was found");
 
                             Resumen.Resumen resumenGame1 = new Resumen.Resumen(false, true, searchTest.FixData, searchTest.EyeTrackerData, searchTest.TestData);
                             resumenGame1.ShowDialog();

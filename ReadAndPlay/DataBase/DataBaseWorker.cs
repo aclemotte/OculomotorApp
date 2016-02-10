@@ -1218,7 +1218,8 @@ namespace LookAndPlayForm.DataBase
                 string res = LoadReadingData(date, user_id);
                 if (string.IsNullOrWhiteSpace(res))
                 {
-                    dataBase.ExecuteNonQuery(String.Format(insert_fix, date, user_id, DataConverter.ToUnescapedString(data)));
+                    int ires = dataBase.ExecuteNonQuery(String.Format(insert_fix, date, user_id, DataConverter.ToUnescapedString(data)));
+                    ErrorLog.ErrorLog.toErrorFile(string.Format("SaveFixData\nires {0} {2} {3}\n{1}", ires, data, user_id, date));
                 }
                 else
                 {
@@ -1290,12 +1291,14 @@ namespace LookAndPlayForm.DataBase
                 DataTable dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE date=\"{1}\" AND user_id=\"{2}\"", table_fix, date, user_id));
                 if (dt != null)
                 {
-                    res = DataConverter.FromUnescapedString(dt.Rows[0]["data"].ToString());
+                    if (dt.Rows != null && dt.Rows.Count > 0)
+                        res = DataConverter.FromUnescapedString(dt.Rows[0]["data"].ToString());
                 }
             }
             catch (Exception ex)
             {
                 ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                res = null;
             }
 
             return res;

@@ -42,7 +42,6 @@ namespace LookAndPlayForm.Resumen
         int fixDotRadius = 7;
         int numberOfFixL;
         int numberOfFixR;
-        string selectedPath;
 
         public Resumen(bool showLastTest, bool newTestAvailable, string fixDataJson, string eyetrackerDataJson, OutputTestData2 testData)
         {
@@ -62,14 +61,16 @@ namespace LookAndPlayForm.Resumen
 
             buttonHome.Enabled = newTestAvailable;//era para cuando se le llamaba desde el form de paciente. ahora siempre es true;
             
-            Console.WriteLine("selectedPath: " + selectedPath);
+            //Console.WriteLine("selectedPath: " + selectedPath);
 
-            toolStripStatusLabelFileName.Text = selectedPath;
+            toolStripStatusLabelFileName.Text = string.Format("{0}-us{1}", date, user_id);
 
-            _testData = DataConverter.TestData2ToTestData1(testData); 
-            fixDataFound = loadFixationDataFromJson(fixDataJson); //carga el archivo fixData.json 
-            //if (!fixDataFound) 
-            processFixData(eyetrackerDataJson, _testData, testData.date, user_id);//procesa los datos de los ojos y genera un archivo fixData.json
+            _testData = DataConverter.TestData2ToTestData1(testData);
+
+            if (string.IsNullOrWhiteSpace(fixDataJson))
+                fixDataJson = processFixData(eyetrackerDataJson, _testData, testData.date, user_id);//procesa los datos de los ojos y genera un archivo fixData.json 
+            
+            fixDataFound = loadFixationDataFromJson(fixDataJson); //carga el archivo fixData.json             
             eyetrackerDataL = ReviewClass.loadEyetrackerDataFromJson(eyetrackerDataJson);            
             getStimulusFeactures(ReviewClass.eyetrackerDataFound(eyetrackerDataL));
             imageFound = class4Graphic.loadImage2Control(ReviewClass.testDataFound(_testData), _testData, pictureBoxStimulus);
@@ -81,9 +82,10 @@ namespace LookAndPlayForm.Resumen
 
         }
 
-        private void processFixData(string eyetrackerData, TestData1 testData, string date, string user_id)
+        private string processFixData(string eyetrackerData, TestData1 testData, string date, string user_id)
         {
             FixDetector.FixDetector detectorFijaciones = new FixDetector.FixDetector(eyetrackerData, testData, date, user_id);
+            return detectorFijaciones.FixDataJson;
         }
 
         //Load json

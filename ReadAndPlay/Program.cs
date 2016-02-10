@@ -50,6 +50,8 @@ namespace LookAndPlayForm
 
                 SplashScreen sscreen = new SplashScreen();
                 sscreen.ShowDialog();
+
+                //DataBaseWorker.SaveFixData("New", "1", DataConverter.GetCurrentTime());
                 
                 institution_class_engine institution_engine = new institution_class_engine();
                 FormInstitutionID fInstitution = new FormInstitutionID(institution_engine);

@@ -25,6 +25,10 @@ namespace LookAndPlayForm.FixDetector
         string user_id = string.Empty;
         string date = string.Empty;
 
+        public string FixDataJson { get; private set; }
+
+        //public bool FixDataFound { get; private set; }
+
 
         enum processingEyeOptions
         {
@@ -36,6 +40,7 @@ namespace LookAndPlayForm.FixDetector
 
         public FixDetector(string eyetrackerData, TestData1 testData, string date, string user_id)
         {
+            //FixDataFound = false;
             this.eyetrackerData = eyetrackerData;
             this._testData = testData;
             this.date = date;
@@ -96,40 +101,12 @@ namespace LookAndPlayForm.FixDetector
             }
         }
 
-
-
-
-
-
         void saveData2File()
-        {            
-            DataBaseWorker.SaveFixData(JsonConvert.SerializeObject(fixData), user_id, date);
-            //File.WriteAllText(path + @"\fixData.json", JsonConvert.SerializeObject(fixData));
-        }
-
-        /*
-        bool file2String()
         {
-            Console.WriteLine("FixDetector. Path: " + path);
-
-            try
-            {
-                eyetrackerData = File.ReadAllText(path + @"\eyetrackerData.json");
-                testData = File.ReadAllText(path + @"\testData.json");
-            }
-            catch (Exception ex)
-            {
-                if (ex is FileNotFoundException)
-                {
-                    Console.WriteLine("FixDetector. No se encontro el archivo eyetrackerData.json o testData.json");
-                    return false;
-                }
-                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-            }
-
-            Console.WriteLine("FixDetector. Files 2 string: done");
-            return true;
-        }*/
+            FixDataJson = JsonConvert.SerializeObject(fixData);
+            DataBaseWorker.SaveFixData(FixDataJson, user_id, date);
+            //FixDataFound = true;
+        }
 
         void string2Json()
         {
