@@ -81,19 +81,24 @@ namespace LookAndPlayForm.Review
 
         #endregion
 
+        /// Functions
         #region Functions
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void Search()
         {
             //string date = DataValidation.DateValidation(tbFilter_Date.Text);
 
 
             string date = dtpFilter_Date.Checked ? dtpFilter_Date.Value.ToString() : "";
-
             testType = ((bFilter_Reading.Tag != null) ? 2 : 0) + ((bFilter_Pursuit.Tag != null) ? 1 : 0);
-            DataTable dt = DataBaseWorker.SearchTest(tbFilter_PatientName.Text, tbFilter_TesterName.Text, date, testType);
-
             dgvTests.Rows.Clear();
+            DataTable dt = DataBaseWorker.SearchTest(tbFilter_PatientName.Text, tbFilter_TesterName.Text, date, testType);
+            if (dt == null)
+                return;
+            
             int i = 0;
             foreach (DataRow row in dt.Rows)
             {

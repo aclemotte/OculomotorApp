@@ -90,7 +90,7 @@ namespace LookAndPlayForm.DataBase
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             }
             return dt;
         }
@@ -124,12 +124,12 @@ namespace LookAndPlayForm.DataBase
                     {
                         if (ex.ErrorCode != 1)
                         {
-                            throw new Exception(ex.Message);
+                            ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                         }
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception(ex.Message);
+                        ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                     }
                 }
             }
@@ -182,13 +182,13 @@ namespace LookAndPlayForm.DataBase
                     {
                         if (ex.ErrorCode != 1)
                         {
-                            throw new Exception(ex.Message);
+                            ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                         }
                         return "";
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception(ex.Message);
+                        ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                     }
                 }
             }
@@ -230,13 +230,13 @@ namespace LookAndPlayForm.DataBase
                     {
                         if (ex.ErrorCode != 1)
                         {
-                            throw new Exception(ex.Message);
+                            ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                         }
                         return "";
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception(ex.Message);
+                        ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
                     }
                 }
             }

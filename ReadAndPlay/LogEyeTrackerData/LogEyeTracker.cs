@@ -62,10 +62,6 @@ namespace LookAndPlayForm.LogEyeTracker
             generalDataEyeX = new eyetrackerDataEyeX();
         }
 
-
-
-
-
         public void AddGazeDataItem2List(Tobii.Gaze.Core.GazeData GazeDataItemTemp, PointD GazeWeigthed, PointD GazeFiltered)
         {
             GazeDataItemEyeXL.Add(GazeDataItemTemp);

@@ -102,9 +102,8 @@ namespace LookAndPlayForm.FixDetector
 
 
         void saveData2File()
-        {
+        {            
             DataBaseWorker.SaveFixData(JsonConvert.SerializeObject(fixData), user_id, date);
-
             //File.WriteAllText(path + @"\fixData.json", JsonConvert.SerializeObject(fixData));
         }
 

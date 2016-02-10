@@ -11,25 +11,47 @@ using System.Globalization;
 
 namespace LookAndPlayForm
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class LogTest
     {
+        /// Properties
+        #region Properties
+
+        /// <summary>
+        /// 
+        /// </summary>
         public OutputTestData2 testData { get; set; }
 
+        #endregion
+
+        /// Init
+        #region Init
+
+        /// <summary>
+        /// 
+        /// </summary>
         public LogTest()
         {
             testData = new OutputTestData2();
         }
 
+        #endregion
+
+        /// Functions
+        #region Functions
+
+        /// <summary>
+        /// 
+        /// </summary>
         public void saveData2File()
         {
 
             testData.screen_Height = Screen.PrimaryScreen.Bounds.Height;
             testData.screen_Width = Screen.PrimaryScreen.Bounds.Width;
             testData.date = Program.datosCompartidos.startTimeTest;
-            testData.date_loc = DateTime.Parse(Program.datosCompartidos.startTimeTest).ToLocalTime().ToString();
-            //testData.utcdate = String.Format("{0:u}", DateTime.ParseExact(Program.datosCompartidos.startTimeTest, "yyyy-MM-dd-HH-mm-ss", CultureInfo.InvariantCulture).ToUniversalTime());//yyyy'-'MM'-'dd HH':'mm':'ss'Z'
-            //testData.date = String.Format("{0:u}", DateTime.ParseExact(Program.datosCompartidos.startTimeTest, "yyyy-MM-dd-HH-mm-ss", CultureInfo.InvariantCulture).ToUniversalTime());//yyyy'-'MM'-'dd HH':'mm':'ss'Z'
-            //testData.date = String.Format("{0:u}", DateTime.Now);//yyyy'-'MM'-'dd HH':'mm':'ss'Z'
+            testData.date_loc = DataConverter.LocalDateFromUTC(Program.datosCompartidos.startTimeTest);
             testData.eyetracker = Program.datosCompartidos.EyeTrackerInfo;
             testData.user_id = Program.datosCompartidos.activeUser;
             testData.tester_id = Program.datosCompartidos.activeTester;
@@ -50,5 +72,7 @@ namespace LookAndPlayForm
 
             DataBaseWorker.SaveTestData(testData, Program.datosCompartidos.activeUser, "");
         }
+
+        #endregion
     }
 }

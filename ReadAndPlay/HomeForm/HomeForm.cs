@@ -32,8 +32,9 @@ namespace LookAndPlayForm.InitialForm
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             data2Log = new ClassLogData();
-            data2Log.Date = DateTime.Now.ToString("dd/MM/yyyy");
-            data2Log.Time_start = DateTime.Now.ToString("HH:mm:ss");
+            DateTime now = DateTime.Now;
+            data2Log.Date = now.ToString("dd/MM/yyyy");
+            data2Log.Time_start = now.ToString("HH:mm:ss");
             loginForms = true;
         }
 
@@ -518,8 +519,8 @@ namespace LookAndPlayForm.InitialForm
             //subir los datos a la nube
             aws_class_data aws_data = new aws_class_data();
             aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
-            aws_data.FileToUpload = CData.DataBasePath;
-
+            aws_data.FileToUpload = CData.DataFolder;
+            //if ()
 
             aws_class_engine.BackupTest(aws_data);
 

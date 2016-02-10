@@ -1128,8 +1128,8 @@ namespace LookAndPlayForm.DataBase
         /// <param name="date"></param>
         public static void SavePursuitData(string data, string user_id, string date)
         {
-            if (string.IsNullOrWhiteSpace(data) || string.IsNullOrWhiteSpace(user_id) || string.IsNullOrWhiteSpace(user_id))
-                return;
+            if (string.IsNullOrWhiteSpace(data) || string.IsNullOrWhiteSpace(user_id) || string.IsNullOrWhiteSpace(date))
+                throw new ArgumentNullException(string.Format("SavePursuitData\n{0}\n{1}\n{2}", data, user_id, date));
 
             try
             {
@@ -1180,6 +1180,9 @@ namespace LookAndPlayForm.DataBase
 
             try
             {
+                if (string.IsNullOrWhiteSpace(date) || string.IsNullOrWhiteSpace(user_id))
+                    throw new ArgumentNullException(string.Format("LoadPursuitData\n{0}\n{1}", date, user_id));
+
                 DataTable dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE date=\"{1}\" AND user_id=\"{2}\"", table_pursuit, date, user_id));
                 if (dt != null)
                 {
@@ -1207,11 +1210,11 @@ namespace LookAndPlayForm.DataBase
         /// <param name="date"></param>
         public static void SaveFixData(string data, string user_id, string date)
         {
-            if (string.IsNullOrWhiteSpace(data) || string.IsNullOrWhiteSpace(user_id) || string.IsNullOrWhiteSpace(user_id))
-                return;
-
             try
             {
+                if (string.IsNullOrWhiteSpace(data) || string.IsNullOrWhiteSpace(user_id) || string.IsNullOrWhiteSpace(date))
+                    throw new ArgumentNullException(string.Format("SaveFixData\n{0}\n{1}\n{2}", data, user_id, date));
+
                 string res = LoadReadingData(date, user_id);
                 if (string.IsNullOrWhiteSpace(res))
                 {
