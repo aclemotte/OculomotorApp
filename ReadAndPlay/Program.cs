@@ -11,15 +11,29 @@ using Tobii.Gaze.Core;
 using LookAndPlayForm.DataBase;
 using System.Globalization;
 using LookAndPlayForm.Utility;
+using System.Data;
 
 namespace LookAndPlayForm
 {
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Program
     {
-        public static EyeTrackingEngine eyeTrackingEngine;
+        /// Variables
+        #region Variables
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static EyeTrackingEngine eyeTrackingEngine;       
 
         public static SharedData datosCompartidos;
+
+        #endregion
+
+        /// Main
+        #region Main
 
         /// <summary>
         /// The main entry point for the application.
@@ -30,25 +44,15 @@ namespace LookAndPlayForm
             try
             {
                 Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-
+                Application.SetCompatibleTextRenderingDefault(false);               
 
                 datosCompartidos = new SharedData();
 
                 SplashScreen sscreen = new SplashScreen();
                 sscreen.ShowDialog();
-
+                
                 institution_class_engine institution_engine = new institution_class_engine();
                 FormInstitutionID fInstitution = new FormInstitutionID(institution_engine);
-
-                //try
-                //{
-                //    probarLogError();
-                //}
-                //catch (Exception ex)
-                //{
-                //    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                //}
 
                 if ((institution_engine.institutionsList != null && institution_engine.institutionsList.Count > 0) || fInstitution.ShowDialog() == DialogResult.OK)
                 {
@@ -75,9 +79,6 @@ namespace LookAndPlayForm
             DataBaseWorker.Close();
         }
 
-        //private static void probarLogError()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        #endregion
     }
 }

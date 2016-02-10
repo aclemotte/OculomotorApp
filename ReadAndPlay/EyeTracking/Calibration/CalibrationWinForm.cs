@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using LookAndPlayForm.DataBase;
 //using TETCSharpClient;
 //using TETCSharpClient.Data;
 
@@ -325,17 +326,7 @@ namespace LookAndPlayForm
 
         private void OnGetCalibrationCompleted(object sender, CalibrationReadyEventArgs e)
         {
-
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
-                            LookAndPlayForm.Program.datosCompartidos.startTimeTest +
-                            @"-us" + Program.datosCompartidos.activeUser + @"\";
-
-            bool exists = System.IO.Directory.Exists(path);
-
-            if (!exists)
-                System.IO.Directory.CreateDirectory(path);
-
-            File.WriteAllText(path + @"calibrationData.json", JsonConvert.SerializeObject(e.CalibrationPointDataL));
+            DataBaseWorker.SaveCalibrationData(JsonConvert.SerializeObject(e.CalibrationPointDataL), Program.datosCompartidos.activeUser, LookAndPlayForm.Program.datosCompartidos.startTimeTest);
         }
 
 

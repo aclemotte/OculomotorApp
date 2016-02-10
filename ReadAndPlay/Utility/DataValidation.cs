@@ -81,5 +81,17 @@ namespace LookAndPlayForm.Utility
         }
 
         #endregion
+
+        public static string DateValidation(string date)
+        {
+            if (string.IsNullOrWhiteSpace(date))
+                return "";
+
+            DateTime dt;
+            if (!DateTime.TryParse(date, out dt))
+                return "";
+
+            return date;
+        }
     }
 }

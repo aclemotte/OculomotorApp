@@ -15,6 +15,7 @@ using LookAndPlayForm.SelectTest;
 using LookAndPlayForm.TesterID;
 using Newtonsoft.Json;
 using LookAndPlayForm.Utility;
+using LookAndPlayForm.Review;
 
 namespace LookAndPlayForm.InitialForm
 {
@@ -40,13 +41,58 @@ namespace LookAndPlayForm.InitialForm
         {
             try
             {
-                throw new NotImplementedException();
+                //throw new NotImplementedException();
                 this.Hide();
+
+                SearchTestForm searchTest = new SearchTestForm();
+                if (searchTest.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    if (string.IsNullOrWhiteSpace(searchTest.EyeTrackerData) || searchTest.TestData == null)
+                        throw new ArgumentNullException("No eye tracker or test data was found");
+
+
+                    switch (searchTest.TestType)
+                    {
+                        case LookAndPlayForm.TestType.reading:
+
+                            if (string.IsNullOrWhiteSpace(searchTest.FixData))
+                                throw new ArgumentNullException("No reading data was found");
+
+                            Resumen.Resumen resumenGame1 = new Resumen.Resumen(false, true, searchTest.FixData, searchTest.EyeTrackerData, searchTest.TestData);
+                            resumenGame1.ShowDialog();
+
+                            if (resumenGame1.closeApp)
+                                this.Close();
+                            else
+                                this.Show();
+                            break;
+                        case LookAndPlayForm.TestType.persuit:
+
+                            if (string.IsNullOrWhiteSpace(searchTest.PursuitData))
+                                throw new ArgumentNullException("No pursuit data was found");
+
+                            ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(false, true, searchTest.PursuitData, searchTest.EyeTrackerData, searchTest.TestData);
+                            reviewPersuit.ShowDialog();
+
+                            if (reviewPersuit.closeApp)
+                                this.Close();
+                            else
+                                this.Show();
+                            break;
+                        default:
+                            MessageBox.Show("Error. Test type not identified.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+
+                    }
+                }
+                else
+                    this.Show();
             }
             catch (Exception ex)
             {
-                MessageBox.Show((ex.GetBaseException().ToString()), "Sprint 1");
+                MessageBox.Show((ex.GetBaseException().ToString()), "Review Test Error");
                 ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                this.Show();
                 //this.Close();
             }
         }

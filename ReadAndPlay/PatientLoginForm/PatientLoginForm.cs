@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CsvHelper;
 using LookAndPlayForm.DataBase;
+using LookAndPlayForm.Utility;
 
 namespace LookAndPlayForm
 {
@@ -30,7 +31,7 @@ namespace LookAndPlayForm
          * La lista del ComboBox comienza con 0
          */
 
-        string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
+        string rootPath = CData.DataFolder + @"\";
 
         public bool newUser { get; set; }                        
         public patient_class_datav3 patientDataSelected { get; set; }

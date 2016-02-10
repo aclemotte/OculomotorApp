@@ -55,6 +55,25 @@ namespace LookAndPlayForm.Utility
             return res;
         }
 
+        public static string UTCDateFromLocalTime(string local)
+        {
+            string res = string.Format("{0:u}", DateTime.Parse(local).ToUniversalTime());
+            return res;
+        }
+
+        public static string LocalDateFormat(string time)
+        {
+            string res = string.Format("{0:s}", DateTime.Parse(time));
+            return res;
+        }
+
+        /*
+        public static string UTCDateFormat(string utc)
+        {
+            string res = string.Format("{0:u}", DateTime.Parse(utc));
+            return res;
+        }*/
+
         /// <summary>
         /// 
         /// </summary>

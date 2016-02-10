@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using CsvHelper;
 using LookAndPlayForm.DataBase;
+using LookAndPlayForm.Utility;
 
 namespace LookAndPlayForm.TesterID
 {
@@ -30,7 +31,7 @@ namespace LookAndPlayForm.TesterID
          */
 
 
-        private string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\";
+        private string rootPath = CData.DataFolder + @"\";
         private bool userFile;
 
 
