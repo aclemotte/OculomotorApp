@@ -790,29 +790,20 @@ namespace LookAndPlayForm.DataBase
             DataTable dt = null;
             DataTable dt2 = null;
 
-            //TestType type = 
-
             try
             {
-                /*
-                dt = dataBase.GetDataTable(string.Format("SELECT u.user_name AS Patient, test.date_loc AS Date "
-                    + "FROM Test AS test "
-                    + "INNER JOIN Users AS u ON test.user_id=u.user_id "
-                    + "WHERE u.user_name=\"{0}\", test.date_loc=\"{2}\""
-                    ,patient, tester, date, "persuit"));*/
-
                 StringBuilder SB = new StringBuilder();
                 StringBuilder SB2 = new StringBuilder();
                 if (!string.IsNullOrWhiteSpace(patient))
                 {
-                    SB.Append(string.Format(" u.user_name = \"{0}\" ", patient));
-                    SB2.Append(string.Format(" u.user_name = \"{0}\" ", patient));
+                    SB.Append(string.Format(" u.user_name LIKE \"{0}%\" ", patient));
+                    SB2.Append(string.Format(" u.user_name LIKE \"{0}%\" ", patient));
                 }
 
                 bool doNotUseDT2 = false;
                 if (!string.IsNullOrWhiteSpace(tester))
                 {
-                    SB.Append(string.Format(" t.name = \"{0}\" ", tester));
+                    SB.Append(string.Format(" t.name LIKE \"{0}%\" ", tester));
                     doNotUseDT2 = true;
                 }
 
@@ -822,7 +813,6 @@ namespace LookAndPlayForm.DataBase
                     SB2.Append(string.Format(" test.date_loc > date(\"{0}\", '-1 day') AND test.date_loc < date(\"{0}\", '+1 day') ", DataConverter.LocalDateFormat(date)));
                 }
 
-                //string strTestType = (testType < 1 || testType > 2) ? "" : (testType == 1) ? "persuit" : "reading";
                 string strTestType = (testType < 1 || testType > 2) ? "" : (testType == 1) ? "0" : "1";
                 if (!string.IsNullOrWhiteSpace(strTestType))
                 {
@@ -830,22 +820,22 @@ namespace LookAndPlayForm.DataBase
                     SB2.Append(string.Format(" test.typeTestDone = \"{0}\"", strTestType));
                 }
 
-                string query = "";                
+                string query = "";
                 if (SB.Length > 0)
                 {
                     query = "WHERE" + SB.Replace("  ", " AND ").ToString();
                 }
-                
+
                 string query2 = "";
                 if (SB2.Length > 0)
                 {
                     query2 = "WHERE" + SB2.Replace("  ", " AND ").ToString();
-                } 
+                }
 
                 dt = dataBase.GetDataTable(string.Format("SELECT u.user_id AS PatientID, u.user_name AS Patient, t.name AS Tester, test.date_loc AS Date, test.date AS DateUTC, test.typeTestDone AS TestType "
                     + "FROM {0} AS test "
                     + "INNER JOIN {1} AS u ON test.user_id = u.user_id "
-                    + "INNER JOIN {2} AS t ON test.tester_id = t.ID " 
+                    + "INNER JOIN {2} AS t ON test.tester_id = t.ID "
                     + query, table_test, table_users, table_testers));
 
                 if (!doNotUseDT2)
@@ -856,14 +846,13 @@ namespace LookAndPlayForm.DataBase
                         + query2, table_test, table_users));
 
                     foreach (DataRow row in dt2.Rows)
-                        dt.ImportRow(row);   
-                }                             
+                        dt.ImportRow(row);
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());;
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             }
-            //dt = dataBase.GetDataTable(string.Format("SELECT user_id, tester_id, date_loc, typeTestDone, FROM {0} WHERE user_id", table_test)
 
             return dt;
         }
@@ -1254,19 +1243,19 @@ namespace LookAndPlayForm.DataBase
 
             try
             {
-                DataTable dt = dataBase.GetDataTable(string.Format("SELECT * FROM {0} WHERE ID = (SELECT MAX(ID) FROM {0})", table_fix));
-                if (dt != null)
-                {
-                    date = DataConverter.UTCDateFromLocalTime(dt.Rows[0]["date"].ToString());
-                    user_id = dt.Rows[0]["user_id"].ToString();
-                    res = DataConverter.FromUnescapedString(dt.Rows[0]["Data"].ToString());
+                DataTable dt = dataBase.GetDataTable(string.Format("SELECT date, user_id FROM {0} WHERE ID = (SELECT MAX(ID) FROM {0}) AND typeTestDone='1'", table_test));
+                if (dt == null || dt.Rows == null || dt.Rows.Count == 0)
+                    return null;
 
-                    if (!string.IsNullOrWhiteSpace(date))
-                    {
-                        testdata = LoadTestDataByDateAndID(date, user_id);
-                        eyetracker = LoadEyeTrackerData(date, user_id);
-                    }
-                }
+                date = DataConverter.UTCDateFromLocalTime(dt.Rows[0]["date"].ToString());
+                user_id = dt.Rows[0]["user_id"].ToString();
+
+                if (!string.IsNullOrWhiteSpace(date) && !string.IsNullOrWhiteSpace(user_id))
+                {
+                    testdata = LoadTestDataByDateAndID(date, user_id);
+                    eyetracker = LoadEyeTrackerData(date, user_id);
+                    res = DataConverter.FromUnescapedString(LoadReadingData(date, user_id));
+                }  
             }
             catch (Exception ex)
             {
