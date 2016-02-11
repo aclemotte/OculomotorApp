@@ -396,12 +396,7 @@ namespace LookAndPlayForm.InitialForm
 
 
             //subir los datos a la nube
-            aws_class_data aws_data = new aws_class_data();
-            aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
-            aws_data.FileToUpload = CData.DataFolder;
-            //if ()
-
-            aws_class_engine.BackupTest(aws_data);
+            //backupDB();
 
             Program.datosCompartidos.number_of_screening_done++;
         }
@@ -416,6 +411,20 @@ namespace LookAndPlayForm.InitialForm
             updateLogFile();
             aws_class_engine.UpdateErrorFile(Program.datosCompartidos.institutionName);
             //aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
+            backupDB();
+        }
+
+        /// <summary>
+        /// sube los datos a la nube
+        /// </summary>
+        private void backupDB()
+        {
+            //subir los datos a la nube
+            aws_class_data aws_data = new aws_class_data();
+            aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
+            aws_data.FileToUpload = CData.DataFolder;
+
+            aws_class_engine.BackupTest(aws_data);
         }
 
         private void updateLogFile()
