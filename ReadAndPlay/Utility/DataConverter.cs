@@ -21,16 +21,23 @@ namespace LookAndPlayForm.Utility
         /// <returns></returns>
         public static string ToUnescapedString(string input)
         {
+            if (string.IsNullOrWhiteSpace(input))
+                return null;
+
             return input.Replace("'", "''").Replace("\"", "\"\"");
         }
 
         public static string FromUnescapedString(string input)
         {
+            if (string.IsNullOrWhiteSpace(input))
+                return null;
+
             return input.Replace("''","'").Replace("\"\"", "\"");
         }
 
         #endregion
 
+        /// DateTime
         #region DateTime
 
         /// <summary>
@@ -40,6 +47,9 @@ namespace LookAndPlayForm.Utility
         /// <returns></returns>
         public static string RemoveZ(string utc)
         {
+            if (string.IsNullOrWhiteSpace(utc))
+                return null;
+
             string res = utc.Substring(0, utc.LastIndexOf('Z')).Replace(" ", "T");
             return res;
         }
@@ -51,18 +61,27 @@ namespace LookAndPlayForm.Utility
         /// <returns></returns>
         public static string LocalDateFromUTC(string utc)
         {
+            if (string.IsNullOrWhiteSpace(utc))
+                return null;
+
             string res = string.Format("{0:s}", DateTime.Parse(utc).ToLocalTime());
             return res;
         }
 
         public static string UTCDateFromLocalTime(string local)
         {
+            if (string.IsNullOrWhiteSpace(local))
+                return null;
+
             string res = string.Format("{0:u}", DateTime.Parse(local).ToUniversalTime());
             return res;
         }
 
         public static string LocalDateFormat(string time)
         {
+            if (string.IsNullOrWhiteSpace(time))
+                return null;
+
             string res = string.Format("{0:s}", DateTime.Parse(time));
             return res;
         }

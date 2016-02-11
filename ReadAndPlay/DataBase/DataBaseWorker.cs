@@ -1213,7 +1213,7 @@ namespace LookAndPlayForm.DataBase
                 if (string.IsNullOrWhiteSpace(res))
                 {
                     int ires = dataBase.ExecuteNonQuery(String.Format(insert_fix, date, user_id, DataConverter.ToUnescapedString(data)));
-                    ErrorLog.ErrorLog.toErrorFile(string.Format("SaveFixData\nires {0} {2} {3}\n{1}", ires, data, user_id, date));
+                    //ErrorLog.ErrorLog.toErrorFile(string.Format("SaveFixData\nires {0} {2} {3}\n{1}", ires, data, user_id, date));
                 }
                 else
                 {
