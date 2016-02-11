@@ -94,37 +94,43 @@ namespace LookAndPlayForm.TesterID
         
         private void buttonNewTester_Click(object sender, EventArgs e)
         {
-            int newUserID;
+            try
+            {
+                int newUserID;
+                if (testersList != null && testersList.Count > 0)
+                {
+                    newUserID = Convert.ToInt32(testersList.Last().tester_id) + 1;
+                }
+                else
+                {
+                    newUserID = 1;
+                }
 
-            if (testersList != null)
-            {
-                newUserID = Convert.ToInt32(testersList.Last().tester_id) + 1;
-            }
-            else
-            {
-                newUserID = 1;
-            }
+                TesterNewForm.TesterNewForm testerNewForm = new TesterNewForm.TesterNewForm(newUserID);
+                testerNewForm.ShowDialog();
+                newUser = testerNewForm.newUser;
 
-            TesterNewForm.TesterNewForm testerNewForm = new TesterNewForm.TesterNewForm(newUserID);
-            testerNewForm.ShowDialog();
-            newUser = testerNewForm.newUser;
-
-            if (newUser)
-            {
-                testerDataSelected = testerNewForm.testerDataSelected;
-                testerNewForm.Dispose();
-                testerNewForm = null;
-                if(!userFile)
-                    testersList = new List<TesterLoginEngineData>();
-                testersList.Add(testerDataSelected);
-                AddTester(testerDataSelected);
-                //updateTestersFile();
-                pasarDeForm();
+                if (newUser)
+                {
+                    testerDataSelected = testerNewForm.testerDataSelected;
+                    testerNewForm.Dispose();
+                    testerNewForm = null;
+                    if (!userFile)
+                        testersList = new List<TesterLoginEngineData>();
+                    testersList.Add(testerDataSelected);
+                    AddTester(testerDataSelected);
+                    //updateTestersFile();
+                    pasarDeForm();
+                }
+                else
+                {
+                    testerNewForm.Dispose();
+                    testerNewForm = null;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                testerNewForm.Dispose();
-                testerNewForm = null;
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             }
         }
 

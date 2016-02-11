@@ -102,37 +102,43 @@ namespace LookAndPlayForm
 
         private void buttonNewPatient_Click(object sender, EventArgs e)
         {
-            int newUserID;
+            try
+            {
+                int newUserID;
+                if (patientsList != null && patientsList.Count > 0)
+                {
+                    newUserID = Convert.ToInt32(patientsList.Last().user_id) + 1;
+                }
+                else
+                {
+                    newUserID = 1;
+                }
 
-            if (patientsList != null)
-            {
-                newUserID = Convert.ToInt32(patientsList.Last().user_id) + 1;
-            }
-            else
-            {
-                newUserID = 1;
-            }
+                FormPatientID patientNewForm = new FormPatientID(newUserID);
+                patientNewForm.ShowDialog();
+                newUser = patientNewForm.newUser;
 
-            FormPatientID patientNewForm = new FormPatientID(newUserID);
-            patientNewForm.ShowDialog();
-            newUser = patientNewForm.newUser;
-
-            if (newUser)
-            {
-                patientDataSelected = patientNewForm.patientDataSelected;
-                patientNewForm.Dispose();
-                patientNewForm = null;
-                if (patientsList == null)
-                    patientsList = new List<patient_class_datav3>();
-                patientsList.Add(patientDataSelected);
-                AddPatient(patientDataSelected);
-                //updatePatientFile();
-                pasarDeForm();
+                if (newUser)
+                {
+                    patientDataSelected = patientNewForm.patientDataSelected;
+                    patientNewForm.Dispose();
+                    patientNewForm = null;
+                    if (patientsList == null)
+                        patientsList = new List<patient_class_datav3>();
+                    patientsList.Add(patientDataSelected);
+                    AddPatient(patientDataSelected);
+                    //updatePatientFile();
+                    pasarDeForm();
+                }
+                else
+                {
+                    patientNewForm.Dispose();
+                    patientNewForm = null;
+                }
             }
-            else 
+            catch(Exception ex)
             {
-                patientNewForm.Dispose();
-                patientNewForm = null;
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             }
         }
 

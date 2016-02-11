@@ -54,6 +54,11 @@ namespace LookAndPlayForm.Review
         /// </summary>
         public string PursuitData { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsTestSelected { get; private set; }
+
         #endregion
 
         /// Init
@@ -171,9 +176,11 @@ namespace LookAndPlayForm.Review
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
+            IsTestSelected = false;
+
             try
             {
-                if (dgvTests.SelectedRows.Count > 0)
+                if (dgvTests.SelectedRows != null && dgvTests.SelectedRows.Count > 0)
                 {
                     DataGridViewRow row = dgvTests.SelectedRows[0];
                     //string date = DataConverter.UTCDateFormat(row.Cells["DateUTC"].Value.ToString());
@@ -188,7 +195,10 @@ namespace LookAndPlayForm.Review
                         FixData = DataBaseWorker.LoadReadingData(date, user_id);
                     else
                         PursuitData = DataBaseWorker.LoadPursuitData(date, user_id);
+                    IsTestSelected = true;
                 }
+                else
+                    IsTestSelected = false;
             }
             catch(Exception ex)
             {

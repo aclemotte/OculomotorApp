@@ -46,7 +46,7 @@ namespace LookAndPlayForm.InitialForm
                 this.Hide();
 
                 SearchTestForm searchTest = new SearchTestForm();
-                if (searchTest.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (searchTest.ShowDialog() == System.Windows.Forms.DialogResult.OK && searchTest.IsTestSelected)
                 {
                     if (string.IsNullOrWhiteSpace(searchTest.EyeTrackerData) || searchTest.TestData == null)
                         throw new ArgumentNullException("No eye tracker or test data was found");

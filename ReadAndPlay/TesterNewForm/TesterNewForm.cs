@@ -13,15 +13,10 @@ namespace LookAndPlayForm.TesterNewForm
     public partial class TesterNewForm : Form
     {
         public TesterLoginEngineData testerDataSelected { get; set; } 
-        public bool newUser { get; set; }
-
-        
+        public bool newUser { get; set; }      
         
         
         private int testerID;
-
-
-
 
         public TesterNewForm(int testerID)
         {
@@ -31,7 +26,6 @@ namespace LookAndPlayForm.TesterNewForm
             this.testerID = testerID;
             newUser = false;
         }
-
         
         private void buttonOk_Click(object sender, EventArgs e)
         {
