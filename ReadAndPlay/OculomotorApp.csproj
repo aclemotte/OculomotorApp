@@ -158,6 +158,12 @@
     </Compile>
     <Compile Include="DataBase\DataBaseWorker.cs" />
     <Compile Include="DataBase\SQLiteDataBase.cs" />
+    <Compile Include="HomeForm\UpdatingDBForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeForm\UpdatingDBForm.Designer.cs">
+      <DependentUpon>UpdatingDBForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InstructionPursuitForm\InstructionPursuit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeForm\UpdatingDBForm.resx">
+      <DependentUpon>UpdatingDBForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InstitutionForm\FormInstitutionID.resx">
       <DependentUpon>FormInstitutionID.cs</DependentUpon>

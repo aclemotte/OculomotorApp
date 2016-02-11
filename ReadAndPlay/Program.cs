@@ -59,7 +59,7 @@ namespace LookAndPlayForm
                     fInstitution.updateDB();
 
                     datosCompartidos.institutionName = institution_engine.institutionsList[0].institution_name;
-                    HomeForm homeForm = new HomeForm();
+                    LookAndPlayForm.InitialForm.HomeForm homeForm = new LookAndPlayForm.InitialForm.HomeForm();
                     Application.Run(homeForm);
                 }
             }

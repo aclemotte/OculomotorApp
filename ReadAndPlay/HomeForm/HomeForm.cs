@@ -408,10 +408,14 @@ namespace LookAndPlayForm.InitialForm
         //cerrando app      
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            LookAndPlayForm.HomeForm.UpdatingDBForm updatingDBForm = new LookAndPlayForm.HomeForm.UpdatingDBForm();
+            updatingDBForm.Show();
+
             updateLogFile();
             aws_class_engine.UpdateErrorFile(Program.datosCompartidos.institutionName);
             //aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
             backupDB();
+            updatingDBForm.Close();            
         }
 
         /// <summary>
