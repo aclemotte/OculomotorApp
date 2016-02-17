@@ -18,13 +18,29 @@ using LookAndPlayForm.Utility;
 
 namespace ReviewPersuit
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class ReviewPersuit : Form
     {
+        /// Properties
+        #region Properties
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool everythingOk { get; set; }
         public bool closeApp { get; set; }
         public bool toHome { get; set; }
 
+        #endregion
 
+        ///
+        #region Private Variables
+
+        /// <summary>
+        /// 
+        /// </summary>
         private eyetrackerDataEyeX eyetrackerDataL;
         private StimuloPersuitSetup stimuloPersuitSetup;
         private TestData1 _testData;
@@ -32,14 +48,46 @@ namespace ReviewPersuit
         string date_loc;
         string user_id;
 
+        #endregion
 
+        /// Init
+        #region Init
 
-
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="showLastTest"></param>
+        /// <param name="newTestAvailable"></param>
+        /// <param name="inputData"></param>
+        /// <param name="eyetrackerDataJson"></param>
+        /// <param name="testData"></param>
         public ReviewPersuit(bool showLastTest, bool newTestAvailable, string inputData, string eyetrackerDataJson, OutputTestData2 testData)
         {
-            InitializeComponent();
+            InitializeComponentBlock();
+            Init(showLastTest, newTestAvailable, inputData, eyetrackerDataJson, testData);            
+        }
+
+        private void InitializeComponentBlock()
+        {
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    InitializeComponent();
+                }
+                catch (Exception ex)
+                {
+                    LookAndPlayForm.ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                }
+            }
+        }
+
+        private void Init(bool showLastTest, bool newTestAvailable, string inputData, string eyetrackerDataJson, OutputTestData2 testData)
+        {
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             closeApp = true;
 
@@ -69,6 +117,8 @@ namespace ReviewPersuit
                 plotGazeData2Control();
             }
         }
+
+        #endregion
 
         private void buttonPlot_Click(object sender, EventArgs e)
         {
