@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using System.Data;
 using LookAndPlayForm.LogData;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace LookAndPlayForm.DataBase
 {
@@ -101,6 +102,7 @@ namespace LookAndPlayForm.DataBase
                 dataBase.CreateTable(schema_pursuit);
                 dataBase.CreateTable(schema_fix);
                 dataBase.CreateTable(schema_gaze);
+                dataBase.CreateTable(schema_calibration);
             }
             catch(Exception ex)
             {
@@ -178,10 +180,16 @@ namespace LookAndPlayForm.DataBase
         /// <param name="path">directory which contains old data</param>
         private static void ConvertExistingTestDataFrom(string path)
         {
-            ConvertTest(path);            
+            ConvertTest(path);
 
             if (!DataValidation.DirectoryHasFiles(path))
-                Directory.Delete(path);            
+            {
+                try
+                {
+                    Directory.Delete(path);
+                }
+                catch (Exception) { }
+            }
         }
 
         #endregion
@@ -358,13 +366,24 @@ namespace LookAndPlayForm.DataBase
         /// <param name="path">directory which contains old data</param>
         private static void ConvertTest(string path)
         {
-            string fpath = path + @"\testData.json";  
-            if (!File.Exists(fpath))
+            string fpath = path + @"\testData.json";
+
+            string time = GetTime(path);
+            if (string.IsNullOrWhiteSpace(time))
                 return;
 
             string user_id = GetUserID(path);
             if (string.IsNullOrWhiteSpace(user_id))
                 return;
+
+            if (!File.Exists(fpath))
+            {
+                ConvertEyeTracker(path, time, user_id);
+                ConvertFix(path, time, user_id);
+                ConvertPursuit(path, time, user_id);
+                ConvertCalibration(path, time, user_id);
+                return;
+            }            
 
             string data = FileWorker.ReadTextFile(fpath);
             if (string.IsNullOrWhiteSpace(data))
@@ -373,22 +392,33 @@ namespace LookAndPlayForm.DataBase
             string fpath2 = path + @"\comments.txt"; 
             string comments = "";
             if (File.Exists(fpath2))
-                comments = FileWorker.ReadTextFile(fpath2);
+            {
+                try
+                {
+                    comments = FileWorker.ReadTextFile(fpath2);
+                    File.Delete(fpath2);
+                }
+                catch (Exception ex)
+                {
+                    ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                }
+            }
 
             try
             {
-                OutputTestData2 entry = JsonConvert.DeserializeObject<OutputTestData2>(data); 
+
+                OutputTestData2 entry = JsonConvert.DeserializeObject<OutputTestData2>(data);
                 if (entry != null)
                 {
                     insertTestData(entry, user_id, comments);
-
-                    ConvertEyeTracker(path, entry.date, user_id);
-                    ConvertFix(path, entry.date, user_id);
-                    ConvertPursuit(path, entry.date, user_id);
-                    ConvertCalibration(path, entry.date, user_id);
-
+                    time = entry.date;
                     File.Delete(fpath);
                 }
+
+                ConvertEyeTracker(path, time, user_id);
+                ConvertFix(path, time, user_id);
+                ConvertPursuit(path, time, user_id);
+                ConvertCalibration(path, time, user_id);
             }
             catch (Exception ex)
             {
@@ -459,6 +489,32 @@ namespace LookAndPlayForm.DataBase
             if (pos >= 0)
                 id = path.Substring(pos);
             return id;
+        }
+
+        private static string GetTime(string path)
+        {
+            // 2015-04-27 21:18:08Z
+            string time = "";
+            try
+            {                
+                time = Path.GetFileName(path);
+                int pos = time.LastIndexOf("-us");
+                time = time.Substring(0, pos);
+                DateTime dt = DateTime.ParseExact(time, "yyyy-MM-dd-HH-mm-ss", CultureInfo.InvariantCulture);
+                return dt.ToString("yyyy-MM-dd HH:mm:ss") + 'Z';
+            }
+            catch(Exception ex)
+            {
+                try
+                {
+                    DateTime dt = DateTime.ParseExact(time, "yyyy-MM-dd-HH-mm", CultureInfo.InvariantCulture);
+                    return dt.ToString("yyyy-MM-dd HH:mm:ss") + 'Z';
+                }
+                catch (Exception exx)
+                {
+                    return "";
+                }                
+            }
         }
 
         /// <summary>

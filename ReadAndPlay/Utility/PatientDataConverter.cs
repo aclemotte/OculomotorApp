@@ -24,7 +24,7 @@ namespace LookAndPlayForm.Utility
                     }
                     catch (Exception e3)
                     {
-                        ErrorLog.ErrorLog.toErrorFile(e3.GetBaseException().ToString());
+                        //ErrorLog.ErrorLog.toErrorFile(e3.GetBaseException().ToString());
 
                         //leer patient_class_datav2
                         using (var sr2 = new StreamReader(fileName))
@@ -36,7 +36,7 @@ namespace LookAndPlayForm.Utility
                             }
                             catch (Exception e2)
                             {
-                                ErrorLog.ErrorLog.toErrorFile(e2.GetBaseException().ToString());
+                                //ErrorLog.ErrorLog.toErrorFile(e2.GetBaseException().ToString());
 
                                 //leer patient_class_datav1
                                 using (var sr1 = new StreamReader(fileName))

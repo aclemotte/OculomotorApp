@@ -20,7 +20,7 @@ namespace LookAndPlayForm.Utility
         /// <param name="path"></param>
         /// <param name="option"></param>
         /// <returns></returns>
-        public static bool DirectoryHasFiles(string path, SearchOption option = SearchOption.TopDirectoryOnly)
+        public static bool DirectoryHasFiles(string path, SearchOption option = SearchOption.AllDirectories)
         {
             if (string.IsNullOrWhiteSpace(path))
                 return false;
@@ -37,7 +37,7 @@ namespace LookAndPlayForm.Utility
             catch(Exception ex)
             {
                 ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                return false;
+                return true;
             }
 
             return true;
