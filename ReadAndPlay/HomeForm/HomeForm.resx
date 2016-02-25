@@ -238,6 +238,9 @@
   <data name="labelCopyright.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 13</value>
   </data>
+  <data name="&gt;&gt;buttonReviewTest.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="&gt;&gt;pictureBoxIngles.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -255,6 +258,9 @@
   </data>
   <data name="&gt;&gt;labelOptions.Name" xml:space="preserve">
     <value>labelOptions</value>
+  </data>
+  <data name="labelCopyright.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 236</value>
   </data>
   <data name="labelVersion.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>BottomLeft</value>
@@ -301,23 +307,17 @@
   <data name="buttonReviewTest.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 35</value>
   </data>
-  <data name="labelOptions.Text" xml:space="preserve">
-    <value>What do you want to do?</value>
-  </data>
   <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="labelVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 221</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="labelOptions.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;pictureBoxEspanhol.Name" xml:space="preserve">
     <value>pictureBoxEspanhol</value>
+  </data>
+  <data name="&gt;&gt;labelCopyright.Name" xml:space="preserve">
+    <value>labelCopyright</value>
   </data>
   <data name="pictureBoxEspanhol.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -333,9 +333,6 @@
   </data>
   <data name="pictureBoxIngles.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 20</value>
-  </data>
-  <data name="buttonNewTest.Text" xml:space="preserve">
-    <value>Start a new test</value>
   </data>
   <data name="&gt;&gt;pictureBoxIngles.Name" xml:space="preserve">
     <value>pictureBoxIngles</value>
@@ -370,6 +367,9 @@
   <data name="pictureBoxEspanhol.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
+  <data name="&gt;&gt;buttonNewTest.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="pictureBoxIngles.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
@@ -382,20 +382,17 @@
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>70, 20</value>
   </data>
-  <data name="labelCopyright.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 236</value>
+  <data name="labelVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 221</value>
   </data>
-  <data name="labelVersion.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="labelOptions.Text" xml:space="preserve">
+    <value>What do you want to do?</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
   <data name="labelCopyright.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="&gt;&gt;buttonNewTest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="labelCopyright.Text" xml:space="preserve">
     <value>© All rights reserved. Mr Patch 2015</value>
@@ -409,14 +406,17 @@
   <data name="labelVersion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
+  <data name="labelVersion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="buttonNewTest.Location" type="System.Drawing.Point, System.Drawing">
     <value>96, 116</value>
   </data>
   <data name="labelOptions.Location" type="System.Drawing.Point, System.Drawing">
     <value>92, 55</value>
   </data>
-  <data name="&gt;&gt;buttonReviewTest.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="buttonNewTest.Text" xml:space="preserve">
+    <value>Start a new test</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Home</value>
@@ -436,14 +436,14 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>428, 258</value>
   </data>
-  <data name="&gt;&gt;labelCopyright.Name" xml:space="preserve">
-    <value>labelCopyright</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="buttonNewTest.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 35</value>
   </data>
-  <data name="&gt;&gt;buttonNewTest.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;buttonNewTest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="pictureBoxIngles.Location" type="System.Drawing.Point, System.Drawing">
     <value>323, 224</value>

@@ -78,7 +78,7 @@
             this.lbCopyright.Name = "lbCopyright";
             this.lbCopyright.Size = new System.Drawing.Size(178, 13);
             this.lbCopyright.TabIndex = 16;
-            this.lbCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            this.lbCopyright.Text = "© All rights reserved. Mr Patch 2016";
             // 
             // lbVersion
             // 

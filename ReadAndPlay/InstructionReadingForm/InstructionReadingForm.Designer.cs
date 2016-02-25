@@ -112,7 +112,7 @@
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(178, 13);
             this.labelCopyright.TabIndex = 50;
-            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2015";
+            this.labelCopyright.Text = "© All rights reserved. Mr Patch 2016";
             // 
             // labelVersion
             // 

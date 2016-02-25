@@ -117,39 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="comboBoxSampleText.Items" xml:space="preserve">
-    <value>Nivel 1. Texto 1</value>
-  </data>
-  <data name="comboBoxSampleText.Items1" xml:space="preserve">
-    <value>Nivel 1. Texto 2</value>
-  </data>
-  <data name="comboBoxSampleText.Items2" xml:space="preserve">
-    <value>Nivel 1. Texto 3</value>
-  </data>
-  <data name="comboBoxSampleText.Items3" xml:space="preserve">
-    <value>Nivel 1. Texto 4</value>
-  </data>
-  <data name="comboBoxSampleText.Items4" xml:space="preserve">
-    <value>Nivel 2. Texto 5</value>
-  </data>
-  <data name="comboBoxSampleText.Items5" xml:space="preserve">
-    <value>Nivel 2. Texto 6</value>
-  </data>
-  <data name="comboBoxSampleText.Items6" xml:space="preserve">
-    <value>Nivel 3. Texto 7</value>
-  </data>
-  <data name="comboBoxSampleText.Items7" xml:space="preserve">
-    <value>Nivel 3. Texto 8</value>
-  </data>
-  <data name="comboBoxSampleText.Items8" xml:space="preserve">
-    <value>Nivel 4. Texto 9</value>
-  </data>
-  <data name="comboBoxSampleText.Items9" xml:space="preserve">
-    <value>Nivel 4. Texto 10</value>
-  </data>
-  <data name="comboBoxSampleText.Text" xml:space="preserve">
-    <value>Textos</value>
-  </data>
   <data name="labelCopyright.Text" xml:space="preserve">
     <value>© All rights reserved. Mr Patch 2016</value>
   </data>
