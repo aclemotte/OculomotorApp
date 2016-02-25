@@ -58,7 +58,7 @@ namespace LookAndPlayForm.InitialForm
                             //if (string.IsNullOrWhiteSpace(searchTest.FixData))
                                 //throw new ArgumentNullException("No reading data was found");
 
-                            Resumen.Resumen resumenGame1 = new Resumen.Resumen(false, true, searchTest.FixData, searchTest.EyeTrackerData, searchTest.TestData);
+                            Resumen.Resumen resumenGame1 = new Resumen.Resumen(false, false, searchTest.FixData, searchTest.EyeTrackerData, searchTest.TestData);
                             resumenGame1.ShowDialog();
 
                             if (resumenGame1.closeApp)
@@ -71,7 +71,7 @@ namespace LookAndPlayForm.InitialForm
                             if (string.IsNullOrWhiteSpace(searchTest.PursuitData))
                                 throw new ArgumentNullException("No pursuit data was found");
 
-                            ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(false, true, searchTest.PursuitData, searchTest.EyeTrackerData, searchTest.TestData);
+                            ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(false, false, searchTest.PursuitData, searchTest.EyeTrackerData, searchTest.TestData);
                             reviewPersuit.ShowDialog();
 
                             if (reviewPersuit.closeApp)

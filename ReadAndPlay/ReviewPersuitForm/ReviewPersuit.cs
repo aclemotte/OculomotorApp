@@ -100,7 +100,7 @@ namespace ReviewPersuit
             this.user_id = testData.user_id;
             date = testData.date;
 
-            buttonHome.Enabled = newTestAvailable;//era para cuando se le llamaba desde el form de paciente. ahora siempre es true;
+            buttonNewTest.Enabled = newTestAvailable;
 
             //Console.WriteLine("selectedPath: " + selectedPath);
 
