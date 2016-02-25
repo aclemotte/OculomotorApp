@@ -53,6 +53,7 @@
             this.bFilter_Pursuit = new System.Windows.Forms.Button();
             this.bSearch = new System.Windows.Forms.Button();
             this.dtpFilter_Date = new System.Windows.Forms.DateTimePicker();
+            this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTests)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,7 +103,7 @@
             // 
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOk.Location = new System.Drawing.Point(591, 423);
+            this.buttonOk.Location = new System.Drawing.Point(501, 423);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(159, 38);
             this.buttonOk.TabIndex = 7;
@@ -311,11 +312,23 @@
             this.dtpFilter_Date.TabIndex = 2;
             this.dtpFilter_Date.ValueChanged += new System.EventHandler(this.dtpFilter_Date_ValueChanged);
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.Location = new System.Drawing.Point(680, 423);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(159, 38);
+            this.buttonCancel.TabIndex = 25;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
             // SearchTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(985, 465);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.dtpFilter_Date);
             this.Controls.Add(this.bSearch);
             this.Controls.Add(this.bFilter_Pursuit);
@@ -366,5 +379,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateUTC;
         private System.Windows.Forms.DateTimePicker dtpFilter_Date;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }
