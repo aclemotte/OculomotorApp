@@ -16,5 +16,12 @@ namespace LookAndPlayForm.Utility
         public static string PDFName = "Images.pdf";
         public static string PNGName = "Images.png";
         public static string ImagesFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+
+        public static string FileName_FixData = "fixData.json";
+        public static string FileName_CalibrationData = "calibrationData.json";
+        public static string FileName_PursuitData = "persuitData.json";
+        public static string FileName_Comments = "fixData.json";
+        public static string FileName_EyeTrackerData = "eyetrackerData.json";
     }
 }

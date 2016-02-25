@@ -32,7 +32,7 @@ namespace LookAndPlayForm.TesterID
 
 
         private string rootPath = CData.DataFolder + @"\";
-        private bool userFile;
+        //private bool userFile;
 
 
         public bool newUser { get; set; }
@@ -115,7 +115,8 @@ namespace LookAndPlayForm.TesterID
                     testerDataSelected = testerNewForm.testerDataSelected;
                     testerNewForm.Dispose();
                     testerNewForm = null;
-                    if (!userFile)
+                    //if (!userFile)
+                    if (testersList == null || testersList.Count < 1)
                         testersList = new List<TesterLoginEngineData>();
                     testersList.Add(testerDataSelected);
                     AddTester(testerDataSelected);

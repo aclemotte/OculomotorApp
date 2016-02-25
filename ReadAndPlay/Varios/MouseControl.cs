@@ -58,7 +58,7 @@ namespace LookAndPlayForm
                 gazeDataFiltered = new PointD(Double.NaN, Double.NaN);
             else
             {
-                if(settings.filtertypeSelected == FilterType.movingaverage)
+                if (settings.filtertypeSelected == FilterType.movingaverage)
                     gazeDataFiltered = new PointD(cursorFilter.getMovingAverageGaze(gazeData));
                 if (settings.filtertypeSelected == FilterType.median)
                     gazeDataFiltered = new PointD(cursorFilter.getMedianGazeFiltered(gazeData));

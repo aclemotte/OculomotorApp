@@ -405,13 +405,17 @@ namespace LookAndPlayForm.DataBase
             }
 
             try
-            {
-
+            {                
                 OutputTestData2 entry = JsonConvert.DeserializeObject<OutputTestData2>(data);
                 if (entry != null)
                 {
+                    TestType testType = GetTestType(path); 
+                    if (entry.typeTestDone != testType)
+                        entry.typeTestDone = testType;
+
                     insertTestData(entry, user_id, comments);
-                    time = entry.date;
+                    time = entry.date;    
+                        
                     File.Delete(fpath);
                 }
 
@@ -491,6 +495,14 @@ namespace LookAndPlayForm.DataBase
             return id;
         }
 
+        private static TestType GetTestType(string path)
+        {
+            if (File.Exists(path + @"\" + CData.FileName_PursuitData))
+                return TestType.persuit;
+            else
+                return TestType.reading;
+        }
+
         private static string GetTime(string path)
         {
             // 2015-04-27 21:18:08Z
@@ -525,7 +537,7 @@ namespace LookAndPlayForm.DataBase
         /// <param name="user_id"></param>
         private static void ConvertEyeTracker(string path, string date, string user_id)
         {
-            string fpath = path + @"\eyetrackerData.json";
+            string fpath = path + @"\" + CData.FileName_EyeTrackerData;
             if (!File.Exists(fpath))
                 return;
 
@@ -554,7 +566,7 @@ namespace LookAndPlayForm.DataBase
         /// <param name="user_id"></param>
         private static void ConvertPursuit(string path, string date, string user_id)
         {
-            string fpath = path + @"\persuitData.json";
+            string fpath = path + @"\" + CData.FileName_PursuitData;
             if (!File.Exists(fpath))
                 return;
 
@@ -582,7 +594,7 @@ namespace LookAndPlayForm.DataBase
         /// <param name="user_id"></param>
         private static void ConvertCalibration(string path, string date, string user_id)
         {
-            string fpath = path + @"\calibrationData.json";
+            string fpath = path + @"\" + CData.FileName_CalibrationData;
             if (!File.Exists(fpath))
                 return;
 
@@ -610,7 +622,7 @@ namespace LookAndPlayForm.DataBase
         /// <param name="user_id"></param>
         private static void ConvertFix(string path, string date, string user_id)
         {
-            string fpath = path + @"\fixData.json";
+            string fpath = path + @"\" + CData.FileName_FixData;
             if (!File.Exists(fpath))
                 return;
 
