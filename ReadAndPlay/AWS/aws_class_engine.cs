@@ -63,13 +63,18 @@ namespace LookAndPlayForm.BackupClass
                 catch (AmazonS3Exception ex)
                 {
                     ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                    Console.WriteLine("Amazon error code: {0}", string.IsNullOrEmpty(ex.ErrorCode) ? "None" : ex.ErrorCode);
-                    Console.WriteLine("Exception message: {0}", ex.Message);
+                    if (string.IsNullOrEmpty(ex.ErrorCode))
+                        ErrorLog.ErrorLog.toErrorFile("Amazon error code: {0}" + "None" );
+                    else
+                        ErrorLog.ErrorLog.toErrorFile("Amazon error code: {0}" + ex.ErrorCode);
+
+                    //Console.WriteLine("Amazon error code: {0}", string.IsNullOrEmpty(ex.ErrorCode) ? "None" : ex.ErrorCode);
+                    ErrorLog.ErrorLog.toErrorFile("Exception message: {0}" + ex.Message);
                 }
                 catch (Exception ex)
                 {
                     ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-                    Console.WriteLine("Exception message: {0}", ex.Message);
+                    ErrorLog.ErrorLog.toErrorFile("Exception message: {0}" + ex.Message);
                 }
             }
         }
