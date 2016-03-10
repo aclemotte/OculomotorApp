@@ -1,7 +1,1 @@
-# README #
-
-### What is this repository for? ###
-
-* Quick summary
-
-* Version
+# Version 3.0.0 #
