@@ -205,9 +205,20 @@ namespace LookAndPlayForm.FixDetector
             Console.WriteLine("FixDetector. Process data Right: done");
         }
 
-        int convertirTimeStampMicro2Milli(long timeStampMicro)
+        int convertirTimeStampMicro2Milli(long timeStampMicroLong)
         {
-            int timeStampMili = Convert.ToInt32(timeStampMicro / (long)1000);
+            long timeStampMiliLong;
+            int timeStampMili;
+
+            timeStampMiliLong = timeStampMicroLong / (long)1000;
+
+            // http://stackoverflow.com/questions/858904/can-i-convert-long-to-int
+            // It'll do exactly what you want (discarding MSBs and taking LSBs) in unchecked context (which is the compiler default). It'll throw OverflowException in checked context if the value doesn't fit in an int: int myIntValue = unchecked((int)myLongValue);
+            timeStampMili = (int)timeStampMiliLong; 
+            //Turn-off sign bit (MSB)
+            timeStampMili = timeStampMili & int.MaxValue;
+
+            //int timeStampMili = Convert.ToInt32(timeStampMicro / (long)1000);
 
             //try
             //{
