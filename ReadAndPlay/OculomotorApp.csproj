@@ -455,7 +455,6 @@
     <None Include="Resources\MrPatchOculomotorAssessmentKitAgreement.rtf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Readme.txt" />
     <Content Include="Resources\Animales\boxer.gif" />
     <Content Include="Resources\Animales\cachorritoSubir.gif" />
     <Content Include="Resources\Animales\catAndFox.gif" />
