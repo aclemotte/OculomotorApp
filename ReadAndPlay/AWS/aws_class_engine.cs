@@ -45,6 +45,35 @@ namespace LookAndPlayForm.BackupClass
             }
         }
 
+        public static void BackupDB(aws_class_data aws_data)
+        {
+            try
+            {
+                //zip file name
+                var zipfilePath = string.Empty;
+                zipfilePath = string.Format("{0}.zip", aws_data.FileToUpload);
+
+                //create zip file                                          
+                using (var zip = new ZipFile())
+                {
+                    zip.AddFile(aws_data.FileToUpload);
+                    zip.Save(zipfilePath);
+                }
+
+                aws_data.FileToUpload = zipfilePath;
+                //upload to aws
+                UploadFile(aws_data);
+
+                //delete local zip file
+                File.Delete(zipfilePath);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
+                //File.WriteAllText("lastError.txt", string.Format("Last Error @{0}: {1}", DateTime.Now, ex.GetBaseException()));
+            }
+        }
+
         private static void UploadFile(aws_class_data aws_data)
         {
             using (var client = new Amazon.S3.AmazonS3Client(aws_data.AwsAccessKey, aws_data.AwsSecretKey, Amazon.RegionEndpoint.EUCentral1))

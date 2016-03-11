@@ -408,14 +408,14 @@ namespace LookAndPlayForm.InitialForm
         //cerrando app      
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //LookAndPlayForm.HomeForm.UpdatingDBForm updatingDBForm = new LookAndPlayForm.HomeForm.UpdatingDBForm();
-            //updatingDBForm.Show();
+            LookAndPlayForm.HomeForm.UpdatingDBForm updatingDBForm = new LookAndPlayForm.HomeForm.UpdatingDBForm();
+            updatingDBForm.Show();
 
             //updateLogFile();
             //aws_class_engine.UpdateErrorFile(Program.datosCompartidos.institutionName);
-            ////aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
-            //backupDB();
-            //updatingDBForm.Close();            
+            //aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
+            backupDB();
+            updatingDBForm.Close();            
         }
 
         /// <summary>
@@ -426,9 +426,9 @@ namespace LookAndPlayForm.InitialForm
             //subir los datos a la nube
             aws_class_data aws_data = new aws_class_data();
             aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
-            aws_data.FileToUpload = CData.DataFolder;
+            aws_data.FileToUpload = CData.DataBasePath;
 
-            aws_class_engine.BackupTest(aws_data);
+            aws_class_engine.BackupDB(aws_data);
         }
 
         private void updateLogFile()
