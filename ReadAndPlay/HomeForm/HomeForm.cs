@@ -260,6 +260,8 @@ namespace LookAndPlayForm.InitialForm
                             Resumen.Resumen reviewReading = new Resumen.Resumen(true, true, null, null, null);
                             reviewReading.ShowDialog();
 
+                            backupTest();
+
                             if (reviewReading.closeApp)
                             {
                                 reviewReading.Dispose();
@@ -333,6 +335,8 @@ namespace LookAndPlayForm.InitialForm
                             ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null, null, null);
                             reviewPersuit.ShowDialog();
 
+                            backupTest();
+
                             if (reviewPersuit.closeApp)
                             {
                                 reviewPersuit.Dispose();
@@ -378,8 +382,6 @@ namespace LookAndPlayForm.InitialForm
         }
 
 
-        #region new test methods
-
         private void releaseEyeTracker()
         {
             Program.eyeTrackingEngine.Dispose();
@@ -394,22 +396,8 @@ namespace LookAndPlayForm.InitialForm
             //datos del tracker
             Program.datosCompartidos.LogEyeTrackerData.saveData2File();
 
-            aws_class_data aws_data = new aws_class_data();
-            aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
-            aws_data.FileToUpload = DataConverter.OldTypeDirectory(Program.datosCompartidos.startTimeTest, Program.datosCompartidos.activeUser);
-
-            aws_class_engine.BackupTest(aws_data);
-
-
-            //subir los datos a la nube
-            //backupDB();
-
             Program.datosCompartidos.number_of_screening_done++;
         }
-
-        #endregion
-
-
 
         //cerrando app      
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -445,6 +433,16 @@ namespace LookAndPlayForm.InitialForm
             aws_data.FileToUpload = CData.DataBasePath;
 
             aws_class_engine.BackupDB(aws_data);
+        }
+
+
+        private void backupTest()
+        {
+            aws_class_data aws_data = new aws_class_data();
+            aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
+            aws_data.FileToUpload = DataConverter.OldTypeDirectory(Program.datosCompartidos.startTimeTest, Program.datosCompartidos.activeUser);
+
+            aws_class_engine.BackupTest(aws_data);
         }
 
         private void updateLogFile()
