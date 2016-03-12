@@ -358,11 +358,15 @@
     <EmbeddedResource Include="CommentsForm\CommentsForm.resx">
       <DependentUpon>CommentsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConfigurationReadingForm\ConfigurationReadingForm.en.resx">
+      <DependentUpon>ConfigurationReadingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfigurationReadingForm\ConfigurationReadingForm.es.resx">
       <DependentUpon>ConfigurationReadingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigurationReadingForm\ConfigurationReadingForm.resx">
       <DependentUpon>ConfigurationReadingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsentForm\consentForm.resx">
       <DependentUpon>consentForm.cs</DependentUpon>
@@ -393,6 +397,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm\UpdatingDBForm.resx">
       <DependentUpon>UpdatingDBForm.cs</DependentUpon>

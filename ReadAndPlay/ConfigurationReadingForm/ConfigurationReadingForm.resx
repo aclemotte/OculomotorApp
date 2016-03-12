@@ -209,13 +209,16 @@
   <data name="&gt;&gt;radioButtonSilentReading.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="comboBoxSampleText.Text" xml:space="preserve">
-    <value>Sample texts</value>
+  <data name="&gt;&gt;buttonOk.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="labelVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 13</value>
+  </data>
+  <data name="buttonOk.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="&gt;&gt;radioButtonOutloudReading.Name" xml:space="preserve">
@@ -229,6 +232,9 @@
   </data>
   <data name="&gt;&gt;labelVersion.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="comboBoxSampleText.Items9" xml:space="preserve">
+    <value>Level 7. Text 87</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ConfigurationReadingForm</value>
@@ -268,9 +274,6 @@
   <data name="radioButtonSilentReading.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 28</value>
   </data>
-  <data name="comboBoxSampleText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 32</value>
-  </data>
   <data name="labelCopyright.TabIndex" type="System.Int32, mscorlib">
     <value>50</value>
   </data>
@@ -279,6 +282,9 @@
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Reading test configuration</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -295,8 +301,8 @@
   <data name="comboBoxSampleText.Location" type="System.Drawing.Point, System.Drawing">
     <value>310, 155</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 60</value>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="comboBoxSampleText.Items11" xml:space="preserve">
     <value>Level 7. Text 89</value>
@@ -304,8 +310,8 @@
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>38</value>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 24</value>
@@ -358,9 +364,6 @@
   <data name="label4.Text" xml:space="preserve">
     <value>2. Choose what kind of reading: </value>
   </data>
-  <data name="&gt;&gt;buttonOk.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="radioButtonOutloudReading.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
   </data>
@@ -370,14 +373,11 @@
   <data name="label3.Text" xml:space="preserve">
     <value>move when you read</value>
   </data>
-  <data name="radioButtonSilentReading.Text" xml:space="preserve">
-    <value>Silent reading test</value>
+  <data name="comboBoxSampleText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 32</value>
   </data>
   <data name="radioButtonOutloudReading.Location" type="System.Drawing.Point, System.Drawing">
     <value>310, 315</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -385,8 +385,8 @@
   <data name="&gt;&gt;comboBoxSampleText.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="comboBoxSampleText.Items2" xml:space="preserve">
-    <value>Level 1. Text 3</value>
+  <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="labelVersion.Text" xml:space="preserve">
     <value>Version</value>
@@ -403,8 +403,8 @@
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 271</value>
+  <data name="radioButtonSilentReading.Text" xml:space="preserve">
+    <value>Silent reading test</value>
   </data>
   <data name="comboBoxSampleText.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
@@ -414,9 +414,6 @@
   </data>
   <data name="&gt;&gt;comboBoxSampleText.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="comboBoxSampleText.Items5" xml:space="preserve">
     <value>Level 2. Text 17</value>
@@ -436,8 +433,8 @@
   <data name="comboBoxSampleText.Items3" xml:space="preserve">
     <value>Level 2. Text 15</value>
   </data>
-  <data name="labelVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 398</value>
+  <data name="comboBoxSampleText.Items2" xml:space="preserve">
+    <value>Level 1. Text 3</value>
   </data>
   <data name="radioButtonSilentReading.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -466,8 +463,8 @@
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 158</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Reading test configuration</value>
+  <data name="labelVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 398</value>
   </data>
   <data name="labelVersion.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -481,14 +478,14 @@
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 25</value>
   </data>
   <data name="labelCopyright.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 25</value>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 271</value>
   </data>
   <data name="labelCopyright.Text" xml:space="preserve">
     <value>© All rights reserved. Mr Patch 2015</value>
@@ -508,11 +505,14 @@
   <data name="buttonOk.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 60</value>
+  </data>
   <data name="buttonOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>356, 395</value>
   </data>
-  <data name="comboBoxSampleText.Items9" xml:space="preserve">
-    <value>Level 7. Text 87</value>
+  <data name="&gt;&gt;radioButtonOutloudReading.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="buttonOk.Text" xml:space="preserve">
     <value>Ok</value>
@@ -520,8 +520,8 @@
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
   </data>
-  <data name="buttonOk.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 14.25pt</value>
+  <data name="comboBoxSampleText.Text" xml:space="preserve">
+    <value>Sample texts</value>
   </data>
   <data name="&gt;&gt;radioButtonSilentReading.Name" xml:space="preserve">
     <value>radioButtonSilentReading</value>
@@ -538,6 +538,9 @@
   <data name="&gt;&gt;labelCopyright.Name" xml:space="preserve">
     <value>labelCopyright</value>
   </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
   <data name="&gt;&gt;radioButtonSilentReading.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -553,11 +556,11 @@
   <data name="comboBoxSampleText.Items" xml:space="preserve">
     <value>Level 1. Text 1</value>
   </data>
-  <data name="labelVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 13</value>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;radioButtonOutloudReading.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
