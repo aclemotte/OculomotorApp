@@ -22,7 +22,7 @@ namespace LookAndPlayForm.InitialForm
     public partial class HomeForm : Form
     {
         ClassLogData data2Log;
-        bool loginForms;
+        bool showHomeForm;//To distinguish when it comes from the "Home" window or windows "Review"
 
 
         public HomeForm()
@@ -33,7 +33,7 @@ namespace LookAndPlayForm.InitialForm
 
             data2Log = new ClassLogData();
             data2Log.Date = DateTime.Now.ToString("dd/MM/yyyy");
-            loginForms = true;
+            showHomeForm = true;
         }
 
         private void buttonReviewTest_Click(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace LookAndPlayForm.InitialForm
 
                 data2Log.Time_start = DateTime.Now.ToString("HH:mm:ss");
 
-                if (loginForms)
+                if (showHomeForm)
                 {
                     //tester search
                     TesterLoginForm fTester = new TesterLoginForm();
@@ -273,14 +273,14 @@ namespace LookAndPlayForm.InitialForm
                             {
                                 if (reviewReading.toHome)
                                 {
-                                    loginForms = true;
+                                    showHomeForm = true;
                                     reviewReading.Dispose();
                                     reviewReading = null;
                                     this.Show();
                                 }
                                 else
                                 {
-                                    loginForms = false;
+                                    showHomeForm = false;
                                     reviewReading.Dispose();
                                     reviewReading = null;
                                     buttonNewTest_Click(this, EventArgs.Empty);
@@ -349,14 +349,14 @@ namespace LookAndPlayForm.InitialForm
                             {
                                 if (reviewPersuit.toHome)
                                 {
-                                    loginForms = true;
+                                    showHomeForm = true;
                                     reviewPersuit.Dispose();
                                     reviewPersuit = null;
                                     this.Show();
                                 }
                                 else
                                 {
-                                    loginForms = false;
+                                    showHomeForm = false;
                                     reviewPersuit.Dispose();
                                     reviewPersuit = null;
                                     buttonNewTest_Click(this, EventArgs.Empty);

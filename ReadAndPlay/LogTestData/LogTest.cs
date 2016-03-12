@@ -67,7 +67,7 @@ namespace LookAndPlayForm
             testData.filter_type = settings.filtertypeSelected.ToString();
             testData.typeTestDone = Program.datosCompartidos.testSelected;
             testData.readingTestTypeDone = Program.datosCompartidos.readingTestTypeSelected;
-            testData.image2read = Program.datosCompartidos.image2read;
+            testData.image2read = getReadingTestTypeDone();
             testData.assemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             DataBaseWorker.SaveTestData(testData, Program.datosCompartidos.activeUser, "");
@@ -75,6 +75,22 @@ namespace LookAndPlayForm
             string path = DataConverter.OldTypeDirectory(Program.datosCompartidos.startTimeTest, Program.datosCompartidos.activeUser);
             DataValidation.CheckDirectoryPath(path, true, FileAttributes.Hidden);
             File.WriteAllText(path + @"\testData.json", JsonConvert.SerializeObject(testData));
+        }
+
+        string getReadingTestTypeDone()
+        {
+            switch(Program.datosCompartidos.testSelected)
+            {
+                case TestType.reading:
+                    return Program.datosCompartidos.image2read;
+                    //break;
+                case TestType.persuit:
+                    return "";
+                    //break;
+                default:
+                    return "";
+                    //break;
+            }
         }
 
         #endregion
