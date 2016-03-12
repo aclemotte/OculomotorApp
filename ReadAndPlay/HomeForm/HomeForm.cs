@@ -415,7 +415,8 @@ namespace LookAndPlayForm.InitialForm
             }
             catch (Exception ex)
             {
-                ex = ex;
+                MessageBox.Show((ex.GetBaseException().ToString()));
+                ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             }
 
             //backupDB();
