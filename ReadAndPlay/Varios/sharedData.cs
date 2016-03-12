@@ -21,7 +21,6 @@ namespace LookAndPlayForm
         public string activeTester { get; set; }
         public string image2read { get; set; }
         public string startTimeTest { get; set; }//ojo que se pueden correr varios test sin cerrar la app
-        public int number_of_screening_done { get; set; }
         public TestType testSelected { get; set; }
         public ReadingTestType readingTestTypeSelected { get; set; }
         public string institutionName { get; set; }
@@ -34,7 +33,6 @@ namespace LookAndPlayForm
             eyeNotFound = true;
             image2read = "";
             startTimeTest = DataConverter.GetCurrentTime();
-            number_of_screening_done = 0;
         }
 
         /// <summary>

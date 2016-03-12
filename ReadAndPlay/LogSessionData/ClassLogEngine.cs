@@ -26,7 +26,6 @@ namespace LookAndPlayForm.LogData
                     data.Tester + "," +
                     data.Patient + "," +
                     data.testDone + "," +
-                    data.number_of_screening_done + "," +
                     data.AssemblyVersion);
             }
         }
@@ -91,7 +90,6 @@ namespace LookAndPlayForm.LogData
                                     log.Tester = entry[3];
                                     log.Patient = entry[4];
                                     log.testDone = entry[5];
-                                    log.number_of_screening_done = int.Parse(entry[6]);
                                     log.AssemblyVersion = entry[7];
                                     data.Add(log);
                                 }

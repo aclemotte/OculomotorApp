@@ -32,9 +32,7 @@ namespace LookAndPlayForm.InitialForm
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             data2Log = new ClassLogData();
-            DateTime now = DateTime.Now;
-            data2Log.Date = now.ToString("dd/MM/yyyy");
-            data2Log.Time_start = now.ToString("HH:mm:ss");
+            data2Log.Date = DateTime.Now.ToString("dd/MM/yyyy");
             loginForms = true;
         }
 
@@ -103,6 +101,8 @@ namespace LookAndPlayForm.InitialForm
             try
             {
                 this.Hide();
+
+                data2Log.Time_start = DateTime.Now.ToString("HH:mm:ss");
 
                 if (loginForms)
                 {
@@ -255,6 +255,7 @@ namespace LookAndPlayForm.InitialForm
                         if (Program.datosCompartidos.no_se_cancelo_el_test)
                         {
                             saveData();
+                            updateLogFile();
 
                             //review reading test
                             Resumen.Resumen reviewReading = new Resumen.Resumen(true, true, null, null, null);
@@ -330,6 +331,7 @@ namespace LookAndPlayForm.InitialForm
                         if (Program.datosCompartidos.no_se_cancelo_el_test)
                         {
                             saveData();
+                            updateLogFile();
 
                             //review pursuit test
                             ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null, null, null);
@@ -395,8 +397,6 @@ namespace LookAndPlayForm.InitialForm
 
             //datos del tracker
             Program.datosCompartidos.LogEyeTrackerData.saveData2File();
-
-            Program.datosCompartidos.number_of_screening_done++;
         }
 
         //cerrando app      
@@ -451,7 +451,6 @@ namespace LookAndPlayForm.InitialForm
         {
             data2Log.Time_end = DateTime.Now.ToString("HH:mm:ss");
             data2Log.testDone = Program.datosCompartidos.testSelected.ToString();
-            data2Log.number_of_screening_done = Program.datosCompartidos.number_of_screening_done;
             data2Log.AssemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             ClassLogEngine.Log(data2Log);
