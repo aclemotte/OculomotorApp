@@ -405,8 +405,9 @@ namespace LookAndPlayForm.InitialForm
             LookAndPlayForm.HomeForm.UpdatingDBForm updatingDBForm = new LookAndPlayForm.HomeForm.UpdatingDBForm();
             updatingDBForm.Show();
 
-            //updateLogFile();
             aws_class_engine.UpdateErrorFile(Program.datosCompartidos.institutionName);
+            aws_class_engine.UpdateLogFile(Program.datosCompartidos.institutionName);
+
             //aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
 
             try
@@ -455,7 +456,6 @@ namespace LookAndPlayForm.InitialForm
 
             ClassLogEngine.Log(data2Log);
 
-            aws_class_engine.UpdateLogFile(Program.datosCompartidos.institutionName);
         }
 
         private void pictureBoxIngles_Click(object sender, EventArgs e)
