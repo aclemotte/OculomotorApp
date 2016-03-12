@@ -23,5 +23,8 @@ namespace LookAndPlayForm.Utility
         public static string FileName_PursuitData = "persuitData.json";
         public static string FileName_Comments = "fixData.json";
         public static string FileName_EyeTrackerData = "eyetrackerData.json";
+
+
+        public static string TempDataFolder = DataFolder + @"\UnsyncedData";
     }
 }

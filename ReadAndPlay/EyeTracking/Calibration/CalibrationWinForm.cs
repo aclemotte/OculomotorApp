@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using LookAndPlayForm.DataBase;
+using LookAndPlayForm.Utility;
 //using TETCSharpClient;
 //using TETCSharpClient.Data;
 
@@ -327,6 +328,10 @@ namespace LookAndPlayForm
         private void OnGetCalibrationCompleted(object sender, CalibrationReadyEventArgs e)
         {
             DataBaseWorker.SaveCalibrationData(JsonConvert.SerializeObject(e.CalibrationPointDataL), Program.datosCompartidos.activeUser, LookAndPlayForm.Program.datosCompartidos.startTimeTest);
+
+            string path = DataConverter.OldTypeDirectory(Program.datosCompartidos.startTimeTest, Program.datosCompartidos.activeUser);
+            DataValidation.CheckDirectoryPath(path, true, FileAttributes.Hidden);
+            File.WriteAllText(path + @"\calibrationData.json", JsonConvert.SerializeObject(e.CalibrationPointDataL));
         }
 
 

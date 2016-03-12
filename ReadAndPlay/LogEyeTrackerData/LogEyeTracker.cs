@@ -123,7 +123,11 @@ namespace LookAndPlayForm.LogEyeTracker
             generalDataEyeX.targetTraceL = TargetTraceEyeXL;
 
             DataBaseWorker.SaveEyeTrackerData(JsonConvert.SerializeObject(generalDataEyeX), Program.datosCompartidos.activeUser, LookAndPlayForm.Program.datosCompartidos.startTimeTest);
-            
+
+            string path = DataConverter.OldTypeDirectory(Program.datosCompartidos.startTimeTest, Program.datosCompartidos.activeUser);
+            DataValidation.CheckDirectoryPath(path, true, FileAttributes.Hidden);
+            File.WriteAllText(path + @"\eyetrackerData.json", JsonConvert.SerializeObject(generalDataEyeX));
+
             ClearList();
         }
 

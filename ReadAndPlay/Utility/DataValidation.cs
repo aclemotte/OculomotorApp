@@ -49,7 +49,7 @@ namespace LookAndPlayForm.Utility
         /// <param name="path"></param>
         /// <param name="create"></param>
         /// <returns></returns>
-        public static bool CheckDirectoryPath(string path, bool create)
+        public static bool CheckDirectoryPath(string path, bool create, FileAttributes attributes = FileAttributes.Directory)
         {
             if (string.IsNullOrWhiteSpace(path))
                 throw new ArgumentNullException("Path cannot be empty");
@@ -63,7 +63,10 @@ namespace LookAndPlayForm.Utility
                 if (!Directory.Exists(rpath))
                 {
                     if (create)
-                        Directory.CreateDirectory(rpath);
+                    {
+                        DirectoryInfo di = Directory.CreateDirectory(rpath);
+                        //di.Attributes |= attributes;
+                    }
                     else
                         throw new DirectoryNotFoundException();
                 }
@@ -71,7 +74,10 @@ namespace LookAndPlayForm.Utility
                 if (create)
                 {
                     if (string.IsNullOrWhiteSpace(Path.GetExtension(path)))
-                        Directory.CreateDirectory(path);
+                    {
+                        DirectoryInfo di = Directory.CreateDirectory(path);
+                        di.Attributes |= attributes;
+                    }
                 }
                 else
                     throw new DirectoryNotFoundException();

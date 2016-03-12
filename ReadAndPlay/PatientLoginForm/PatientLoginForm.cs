@@ -63,12 +63,24 @@ namespace LookAndPlayForm
         private void AddPatient(patient_class_datav3 patient)
         {
             DataBaseWorker.AddUser(patient);
+
+            updatePatientFile();
         }
 
+        private void updatePatientFile()
+        {
+            using (var sw = new StreamWriter(CData.TempDataFolder + @"\users.csv"))
+            {
+                var writer = new CsvWriter(sw);
+                writer.WriteRecords(patientsList);
+            }
+        }
+
+        /*
         private void UpdateDataBase()
         {
             DataBaseWorker.SaveUsers(patientsList);
-        }
+        }*/
 
         private bool patientsFile2Form()
         {
@@ -127,7 +139,6 @@ namespace LookAndPlayForm
                         patientsList = new List<patient_class_datav3>();
                     patientsList.Add(patientDataSelected);
                     AddPatient(patientDataSelected);
-                    //updatePatientFile();
                     pasarDeForm();
                 }
                 else
@@ -139,16 +150,6 @@ namespace LookAndPlayForm
             catch(Exception ex)
             {
                 ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
-            }
-        }
-
-        private void updatePatientFile()
-        {
-            using (var sw = new StreamWriter(rootPath + @"users.csv"))
-            {
-                var writer = new CsvWriter(sw);
-                //Write the entire contents of the CSV file into another
-                writer.WriteRecords(patientsList);
             }
         }
 

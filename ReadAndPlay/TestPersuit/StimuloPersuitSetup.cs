@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using LookAndPlayForm.DataBase;
+using LookAndPlayForm.Utility;
 
 namespace LookAndPlayForm.TestPersuit
 {
@@ -78,6 +79,10 @@ namespace LookAndPlayForm.TestPersuit
         public void SavePersuitData()
         {
             DataBaseWorker.SavePursuitData(JsonConvert.SerializeObject(this), Program.datosCompartidos.activeUser, LookAndPlayForm.Program.datosCompartidos.startTimeTest);
+
+            string path = DataConverter.OldTypeDirectory(Program.datosCompartidos.startTimeTest, Program.datosCompartidos.activeUser);
+            DataValidation.CheckDirectoryPath(path, true, FileAttributes.Hidden);
+            File.WriteAllText(path + @"\persuitData.json", JsonConvert.SerializeObject(this));
         }
     }
 

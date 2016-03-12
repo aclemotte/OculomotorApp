@@ -132,5 +132,18 @@ namespace LookAndPlayForm.Utility
         }
 
         #endregion
+
+        public static string OldTypeDirectory(string time, string user)
+        {
+            DateTime dt = DateTime.Parse(time);
+            string newtime = dt.ToString("yyyy-MM-dd-HH-mm-ss");
+
+            /*
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MrPatchData\" +
+                            LookAndPlayForm.Program.datosCompartidos.startTimeTest +
+                            @"-us" + Program.datosCompartidos.activeUser + @"\";*/
+
+            return CData.TempDataFolder + "\\" + newtime + "-us" + user;
+        }
     }
 }

@@ -23,7 +23,6 @@ namespace LookAndPlayForm.BackupClass
                 var zipfilePath = string.Empty;
                 zipfilePath = string.Format("{0}.zip", Path.GetFileName(aws_data.FileToUpload));
 
-
                 //create zip file                                          
                 using (var zip = new ZipFile())
                 {
@@ -113,7 +112,6 @@ namespace LookAndPlayForm.BackupClass
             UpdateMetaData(CData.DataBasePath, AwsS3FolderName);
         }
 
-
         public static void UpdateLogFile(string AwsS3FolderName)
         {
             string fileName = CData.DataFolder + @"\log.txt";
@@ -123,6 +121,18 @@ namespace LookAndPlayForm.BackupClass
         public static void UpdateErrorFile(string AwsS3FolderName)
         {
             string fileName = CData.DataFolder + @"\error.txt";
+            UpdateMetaData(fileName, AwsS3FolderName);
+        }
+
+        public static void UpdateTestersFile(string AwsS3FolderName)
+        {
+            string fileName = CData.DataFolder + @"\testers.csv";
+            UpdateMetaData(fileName, AwsS3FolderName);
+        }
+
+        public static void UpdateUsersFile(string AwsS3FolderName)
+        {
+            string fileName = CData.DataFolder + @"\users.csv";
             UpdateMetaData(fileName, AwsS3FolderName);
         }
 

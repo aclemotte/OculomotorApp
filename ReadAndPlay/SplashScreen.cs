@@ -46,7 +46,7 @@ namespace LookAndPlayForm
         {
             labelVersion.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             worker.DoWork += worker_DoWork;
-            worker.RunWorkerCompleted += worker_RunWorkerCompleted;
+            worker.RunWorkerCompleted += worker_RunWorkerCompleted;            
         }
 
         #endregion
@@ -61,8 +61,9 @@ namespace LookAndPlayForm
         /// <param name="args"></param>
         private void worker_DoWork(object sender, DoWorkEventArgs args)
         {
-            DataBaseWorker.CreateDataBase(CData.DataBasePath);
+            DataBaseWorker.CreateDataBase(CData.DataBasePath);            
             DataBaseWorker.ConvertExistingDataFrom(CData.DataFolder);
+            DataValidation.CheckDirectoryPath(CData.TempDataFolder, true, System.IO.FileAttributes.Hidden);
         }
 
         private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs args)

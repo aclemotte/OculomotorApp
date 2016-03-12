@@ -7,6 +7,7 @@ using FixDet;
 using LookAndPlayForm.LogEyeTracker;
 using Newtonsoft.Json;
 using LookAndPlayForm.DataBase;
+using LookAndPlayForm.Utility;
 
 namespace LookAndPlayForm.FixDetector
 {
@@ -105,6 +106,11 @@ namespace LookAndPlayForm.FixDetector
         {
             FixDataJson = JsonConvert.SerializeObject(fixData);
             DataBaseWorker.SaveFixData(FixDataJson, user_id, date);
+
+            string path = DataConverter.OldTypeDirectory(date, user_id);
+            DataValidation.CheckDirectoryPath(path, true, FileAttributes.Hidden);
+            File.WriteAllText(path + @"\fixData.json", FixDataJson);
+
             //FixDataFound = true;
         }
 

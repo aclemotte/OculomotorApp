@@ -71,6 +71,10 @@ namespace LookAndPlayForm
             testData.assemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             DataBaseWorker.SaveTestData(testData, Program.datosCompartidos.activeUser, "");
+
+            string path = DataConverter.OldTypeDirectory(Program.datosCompartidos.startTimeTest, Program.datosCompartidos.activeUser);
+            DataValidation.CheckDirectoryPath(path, true, FileAttributes.Hidden);
+            File.WriteAllText(path + @"\testData.json", JsonConvert.SerializeObject(testData));
         }
 
         #endregion

@@ -118,7 +118,7 @@ namespace LookAndPlayForm.InitialForm
                         return;
                     }
 
-                    //aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
+                    aws_class_engine.UpdateTestersFile(Program.datosCompartidos.institutionName);
                     data2Log.Tester = fTester.testerDataSelected.tester_name;
                     Program.datosCompartidos.activeTester = fTester.testerDataSelected.tester_id;
                     fTester.Dispose();
@@ -158,7 +158,7 @@ namespace LookAndPlayForm.InitialForm
                         }
                     }
 
-                    //aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
+                    aws_class_engine.UpdateUsersFile(Program.datosCompartidos.institutionName);
                     data2Log.Patient = patientLoginForm.patientDataSelected.user_name;
                     Program.datosCompartidos.activeUser = patientLoginForm.patientDataSelected.user_id;
 
@@ -394,6 +394,12 @@ namespace LookAndPlayForm.InitialForm
             //datos del tracker
             Program.datosCompartidos.LogEyeTrackerData.saveData2File();
 
+            aws_class_data aws_data = new aws_class_data();
+            aws_data.AwsS3FolderName = Program.datosCompartidos.institutionName;
+            aws_data.FileToUpload = DataConverter.OldTypeDirectory(Program.datosCompartidos.startTimeTest, Program.datosCompartidos.activeUser);
+
+            aws_class_engine.BackupTest(aws_data);
+
 
             //subir los datos a la nube
             //backupDB();
@@ -412,9 +418,19 @@ namespace LookAndPlayForm.InitialForm
             updatingDBForm.Show();
 
             //updateLogFile();
-            //aws_class_engine.UpdateErrorFile(Program.datosCompartidos.institutionName);
+            aws_class_engine.UpdateErrorFile(Program.datosCompartidos.institutionName);
             //aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
-            backupDB();
+
+            try
+            {
+                Directory.Delete(CData.TempDataFolder, true);
+            }
+            catch (Exception ex)
+            {
+                ex = ex;
+            }
+
+            //backupDB();
             updatingDBForm.Close();            
         }
 

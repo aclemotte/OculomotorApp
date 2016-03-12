@@ -120,7 +120,7 @@ namespace LookAndPlayForm.TesterID
                         testersList = new List<TesterLoginEngineData>();
                     testersList.Add(testerDataSelected);
                     AddTester(testerDataSelected);
-                    //updateTestersFile();
+                    
                     pasarDeForm();
                 }
                 else
@@ -138,6 +138,17 @@ namespace LookAndPlayForm.TesterID
         private void AddTester(TesterLoginEngineData newtester)
         {
             DataBaseWorker.AddTester(newtester);
+
+            updateTestersFile();
+        }
+
+        private void updateTestersFile()
+        {
+            using (var sw = new StreamWriter(CData.TempDataFolder + @"\testers.csv"))
+            {
+                var writer = new CsvWriter(sw);
+                writer.WriteRecords(testersList);
+            }
         }
 
         private void pasarDeForm()
