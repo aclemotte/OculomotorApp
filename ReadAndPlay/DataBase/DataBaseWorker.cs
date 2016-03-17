@@ -498,7 +498,7 @@ namespace LookAndPlayForm.DataBase
         private static TestType GetTestType(string path)
         {
             if (File.Exists(path + @"\" + CData.FileName_PursuitData))
-                return TestType.persuit;
+                return TestType.pursuit;
             else
                 return TestType.reading;
         }

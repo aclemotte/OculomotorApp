@@ -25,7 +25,7 @@ namespace LookAndPlayForm.SelectTest
         {
             if (radioButtonPersuit.Checked)
             {
-               Program.datosCompartidos.testSelected = TestType.persuit;
+               Program.datosCompartidos.testSelected = TestType.pursuit;
                closeApp = false;
             }
             else if (radioButtonReading.Checked )

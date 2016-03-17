@@ -84,7 +84,7 @@ namespace LookAndPlayForm
                 case TestType.reading:
                     return Program.datosCompartidos.image2read;
                     //break;
-                case TestType.persuit:
+                case TestType.pursuit:
                     return "";
                     //break;
                 default:

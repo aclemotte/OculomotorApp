@@ -64,7 +64,7 @@ namespace LookAndPlayForm.InitialForm
                             else
                                 this.Show();
                             break;
-                        case LookAndPlayForm.TestType.persuit:
+                        case LookAndPlayForm.TestType.pursuit:
 
                             if (string.IsNullOrWhiteSpace(searchTest.PursuitData))
                                 throw new ArgumentNullException("No pursuit data was found");
@@ -293,7 +293,7 @@ namespace LookAndPlayForm.InitialForm
                         }
                         break;
 
-                    case TestType.persuit:
+                    case TestType.pursuit:
 
                         //instruction pursuit test
                         InstructionPursuitForm.InstructionPursuit instructionPursuit = new InstructionPursuitForm.InstructionPursuit();

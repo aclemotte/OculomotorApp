@@ -187,7 +187,7 @@ namespace LookAndPlayForm.Review
                     string date = row.Cells["DateUTC"].Value.ToString();
                     string patient = row.Cells["Patient"].Value.ToString();
                     string ttype = row.Cells["Test"].Value.ToString();
-                    TestType = (ttype == "reading") ? TestType.reading : TestType.persuit;
+                    TestType = (ttype == "reading") ? TestType.reading : TestType.pursuit;
                     string user_id = row.Cells["PatientID"].Value.ToString();
                     TestData = DataBaseWorker.LoadTestDataByDateAndID(date, user_id);
                     EyeTrackerData = DataBaseWorker.LoadEyeTrackerData(date, user_id);
