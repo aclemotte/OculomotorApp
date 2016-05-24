@@ -491,6 +491,7 @@ namespace LookAndPlayForm.Resumen
         private void buttonSave_Click(object sender, EventArgs e)
         {
             LookAndPlayForm.SaveForm.SaveForm.toPng(this);
+            MessageBox.Show("The review was saved in your desktop");
         }
     }
 }
