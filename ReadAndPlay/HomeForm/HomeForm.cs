@@ -255,13 +255,13 @@ namespace LookAndPlayForm.InitialForm
                         if (Program.datosCompartidos.no_se_cancelo_el_test)
                         {
                             saveData();
-                            updateLogFile();
+                            //updateLogFile();
 
                             //review reading test
                             Resumen.Resumen reviewReading = new Resumen.Resumen(true, true, null, null, null);
                             reviewReading.ShowDialog();
 
-                            backupTest();
+                            //backupTest();
 
                             if (reviewReading.closeApp)
                             {
@@ -331,13 +331,13 @@ namespace LookAndPlayForm.InitialForm
                         if (Program.datosCompartidos.no_se_cancelo_el_test)
                         {
                             saveData();
-                            updateLogFile();
+                            //updateLogFile();
 
                             //review pursuit test
                             ReviewPersuit.ReviewPersuit reviewPersuit = new ReviewPersuit.ReviewPersuit(true, true, null, null, null);
                             reviewPersuit.ShowDialog();
 
-                            backupTest();
+                            //backupTest();
 
                             if (reviewPersuit.closeApp)
                             {
@@ -402,6 +402,7 @@ namespace LookAndPlayForm.InitialForm
         //cerrando app      
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            /*
             LookAndPlayForm.HomeForm.UpdatingDBForm updatingDBForm = new LookAndPlayForm.HomeForm.UpdatingDBForm();
             updatingDBForm.Show();
 
@@ -410,6 +411,9 @@ namespace LookAndPlayForm.InitialForm
 
             //aws_class_engine.UpdateDataBaseFile(Program.datosCompartidos.institutionName);
 
+            //backupDB();
+            updatingDBForm.Close();            
+            */
             try
             {
                 Directory.Delete(CData.TempDataFolder, true);
@@ -420,8 +424,6 @@ namespace LookAndPlayForm.InitialForm
                 ErrorLog.ErrorLog.toErrorFile(ex.GetBaseException().ToString());
             }
 
-            //backupDB();
-            updatingDBForm.Close();            
         }
 
         /// <summary>
@@ -436,7 +438,6 @@ namespace LookAndPlayForm.InitialForm
 
             aws_class_engine.BackupDB(aws_data);
         }
-
 
         private void backupTest()
         {
