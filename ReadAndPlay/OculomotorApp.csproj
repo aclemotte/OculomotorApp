@@ -262,7 +262,7 @@
     <Compile Include="Review\SearchTestForm.Designer.cs">
       <DependentUpon>SearchTestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SaveForm\SaveFormToPdf.cs" />
+    <Compile Include="SaveForm\SaveForm.cs" />
     <Compile Include="TesterNewForm\TesterNewForm.cs">
       <SubType>Form</SubType>
     </Compile>

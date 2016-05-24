@@ -8,14 +8,30 @@ using LookAndPlayForm.Utility;
 
 namespace LookAndPlayForm.SaveForm
 {
-    public static class SaveFormToPdf
+    public static class SaveForm
     {
-        public static void saveForm1(System.Windows.Forms.Form form2Save)
+        /// <summary>
+        /// Guarda el form form2Save en el escritorio como PNG.
+        /// </summary>
+        /// <param name="form2Save"></param>
+        public static void toPng(System.Windows.Forms.Form form2Save)
         {
             using (var bmp = new System.Drawing.Bitmap(form2Save.Width, form2Save.Height))
             {
                 form2Save.DrawToBitmap(bmp, new System.Drawing.Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(CData.ImagesFolder + @"\" + CData.PNGName);
+                bmp.Save(CData.ImagesFolder + @"\" + CData.PNGName);                
+            }
+        }
+
+
+        /// <summary>
+        /// Guarda el form form2Save en el escritorio como PDF. Tiene problemas porque la imagen en el pdf es muy grande
+        /// </summary>
+        /// <param name="form2Save"></param>
+        public static void toPdf(System.Windows.Forms.Form form2Save)
+        {
+            using (var bmp = new System.Drawing.Bitmap(form2Save.Width, form2Save.Height))
+            {
                 Document doc = new Document(PageSize.A4);
                 try
                 {

@@ -490,7 +490,7 @@ namespace LookAndPlayForm.Resumen
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            LookAndPlayForm.SaveForm.SaveFormToPdf.saveForm1(this);
+            LookAndPlayForm.SaveForm.SaveForm.toPng(this);
         }
     }
 }
