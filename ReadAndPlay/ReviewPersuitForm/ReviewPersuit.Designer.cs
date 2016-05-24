@@ -49,6 +49,7 @@
             this.labelCopyright = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
             this.buttonNewTest = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartHorizontalGaze)).BeginInit();
             this.statusStripResumen.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +72,8 @@
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chartHorizontalGaze.Legends.Add(legend1);
-            this.chartHorizontalGaze.Location = new System.Drawing.Point(22, 24);
+            this.chartHorizontalGaze.Location = new System.Drawing.Point(29, 30);
+            this.chartHorizontalGaze.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartHorizontalGaze.Name = "chartHorizontalGaze";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
@@ -98,7 +100,7 @@
             this.chartHorizontalGaze.Series.Add(series3);
             this.chartHorizontalGaze.Series.Add(series4);
             this.chartHorizontalGaze.Series.Add(series5);
-            this.chartHorizontalGaze.Size = new System.Drawing.Size(846, 550);
+            this.chartHorizontalGaze.Size = new System.Drawing.Size(1128, 677);
             this.chartHorizontalGaze.TabIndex = 0;
             this.chartHorizontalGaze.Text = "chartPersuitData";
             // 
@@ -107,9 +109,10 @@
             this.labelZoomGuide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelZoomGuide.AutoSize = true;
             this.labelZoomGuide.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelZoomGuide.Location = new System.Drawing.Point(18, 580);
+            this.labelZoomGuide.Location = new System.Drawing.Point(24, 714);
+            this.labelZoomGuide.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelZoomGuide.Name = "labelZoomGuide";
-            this.labelZoomGuide.Size = new System.Drawing.Size(426, 24);
+            this.labelZoomGuide.Size = new System.Drawing.Size(541, 29);
             this.labelZoomGuide.TabIndex = 2;
             this.labelZoomGuide.Text = "You can select an horizontal area to make a zoom";
             // 
@@ -117,9 +120,10 @@
             // 
             this.buttonHome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHome.Location = new System.Drawing.Point(881, 540);
+            this.buttonHome.Location = new System.Drawing.Point(1175, 665);
+            this.buttonHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonHome.Name = "buttonHome";
-            this.buttonHome.Size = new System.Drawing.Size(141, 34);
+            this.buttonHome.Size = new System.Drawing.Size(188, 42);
             this.buttonHome.TabIndex = 3;
             this.buttonHome.Text = "Home";
             this.buttonHome.UseVisualStyleBackColor = true;
@@ -127,11 +131,13 @@
             // 
             // statusStripResumen
             // 
+            this.statusStripResumen.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripResumen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelFileName});
-            this.statusStripResumen.Location = new System.Drawing.Point(0, 651);
+            this.statusStripResumen.Location = new System.Drawing.Point(0, 800);
             this.statusStripResumen.Name = "statusStripResumen";
-            this.statusStripResumen.Size = new System.Drawing.Size(1034, 26);
+            this.statusStripResumen.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStripResumen.Size = new System.Drawing.Size(1379, 33);
             this.statusStripResumen.TabIndex = 4;
             this.statusStripResumen.Text = "statusStrip1";
             // 
@@ -139,7 +145,7 @@
             // 
             this.toolStripStatusLabelFileName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelFileName.Name = "toolStripStatusLabelFileName";
-            this.toolStripStatusLabelFileName.Size = new System.Drawing.Size(87, 21);
+            this.toolStripStatusLabelFileName.Size = new System.Drawing.Size(108, 28);
             this.toolStripStatusLabelFileName.Text = "File Name: ";
             // 
             // checkBoxR
@@ -150,9 +156,10 @@
             this.checkBoxR.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxR.ForeColor = System.Drawing.Color.Blue;
-            this.checkBoxR.Location = new System.Drawing.Point(901, 164);
+            this.checkBoxR.Location = new System.Drawing.Point(1206, 202);
+            this.checkBoxR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxR.Name = "checkBoxR";
-            this.checkBoxR.Size = new System.Drawing.Size(72, 28);
+            this.checkBoxR.Size = new System.Drawing.Size(91, 33);
             this.checkBoxR.TabIndex = 28;
             this.checkBoxR.Text = "Right";
             this.checkBoxR.UseVisualStyleBackColor = true;
@@ -165,9 +172,10 @@
             this.checkBoxL.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxL.ForeColor = System.Drawing.Color.Green;
-            this.checkBoxL.Location = new System.Drawing.Point(901, 124);
+            this.checkBoxL.Location = new System.Drawing.Point(1204, 153);
+            this.checkBoxL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxL.Name = "checkBoxL";
-            this.checkBoxL.Size = new System.Drawing.Size(58, 28);
+            this.checkBoxL.Size = new System.Drawing.Size(74, 33);
             this.checkBoxL.TabIndex = 27;
             this.checkBoxL.Text = "Left";
             this.checkBoxL.UseVisualStyleBackColor = true;
@@ -176,9 +184,11 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(879, 93);
+            this.groupBox2.Location = new System.Drawing.Point(1172, 114);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(143, 109);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(191, 134);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Plot Gaze";
@@ -187,9 +197,10 @@
             // 
             this.buttonPlot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPlot.Location = new System.Drawing.Point(881, 24);
+            this.buttonPlot.Location = new System.Drawing.Point(1175, 30);
+            this.buttonPlot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonPlot.Name = "buttonPlot";
-            this.buttonPlot.Size = new System.Drawing.Size(141, 34);
+            this.buttonPlot.Size = new System.Drawing.Size(188, 42);
             this.buttonPlot.TabIndex = 30;
             this.buttonPlot.Text = "Plot";
             this.buttonPlot.UseVisualStyleBackColor = true;
@@ -199,9 +210,10 @@
             // 
             this.buttonComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonComment.Location = new System.Drawing.Point(881, 222);
+            this.buttonComment.Location = new System.Drawing.Point(1175, 273);
+            this.buttonComment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonComment.Name = "buttonComment";
-            this.buttonComment.Size = new System.Drawing.Size(141, 34);
+            this.buttonComment.Size = new System.Drawing.Size(188, 42);
             this.buttonComment.TabIndex = 31;
             this.buttonComment.Text = "Comments";
             this.buttonComment.UseVisualStyleBackColor = true;
@@ -211,9 +223,10 @@
             // 
             this.labelCopyright.AutoSize = true;
             this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCopyright.Location = new System.Drawing.Point(19, 627);
+            this.labelCopyright.Location = new System.Drawing.Point(25, 772);
+            this.labelCopyright.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(178, 13);
+            this.labelCopyright.Size = new System.Drawing.Size(236, 17);
             this.labelCopyright.TabIndex = 52;
             this.labelCopyright.Text = "© All rights reserved. Mr Patch 2016";
             // 
@@ -223,9 +236,10 @@
             this.labelVersion.AutoSize = true;
             this.labelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelVersion.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelVersion.Location = new System.Drawing.Point(19, 611);
+            this.labelVersion.Location = new System.Drawing.Point(25, 752);
+            this.labelVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(42, 13);
+            this.labelVersion.Size = new System.Drawing.Size(56, 17);
             this.labelVersion.TabIndex = 51;
             this.labelVersion.Text = "Version";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -234,19 +248,34 @@
             // 
             this.buttonNewTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonNewTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewTest.Location = new System.Drawing.Point(881, 487);
+            this.buttonNewTest.Location = new System.Drawing.Point(1175, 599);
+            this.buttonNewTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonNewTest.Name = "buttonNewTest";
-            this.buttonNewTest.Size = new System.Drawing.Size(141, 34);
+            this.buttonNewTest.Size = new System.Drawing.Size(188, 42);
             this.buttonNewTest.TabIndex = 53;
             this.buttonNewTest.Text = "New test";
             this.buttonNewTest.UseVisualStyleBackColor = true;
             this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(1175, 333);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(188, 42);
+            this.buttonSave.TabIndex = 54;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // ReviewPersuit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 677);
+            this.ClientSize = new System.Drawing.Size(1379, 833);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonNewTest);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.labelVersion);
@@ -260,6 +289,7 @@
             this.Controls.Add(this.labelZoomGuide);
             this.Controls.Add(this.chartHorizontalGaze);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ReviewPersuit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Review Pursuit Test";
@@ -286,6 +316,7 @@
         private System.Windows.Forms.Label labelCopyright;
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Button buttonNewTest;
+        private System.Windows.Forms.Button buttonSave;
 
     }
 }

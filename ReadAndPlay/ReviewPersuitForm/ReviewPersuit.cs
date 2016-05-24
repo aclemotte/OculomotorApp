@@ -209,5 +209,10 @@ namespace ReviewPersuit
             closeApp = false;
             this.Close();
         }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            LookAndPlayForm.SaveForm.SaveForm.toPng(this);
+        }
     }
 }
