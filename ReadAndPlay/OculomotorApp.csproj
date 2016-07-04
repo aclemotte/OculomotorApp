@@ -477,6 +477,12 @@
     <Content Include="Resources\Banderas\banderaInglaterra.png" />
     <Content Include="Resources\MrPatch32.ico" />
     <None Include="Resources\Persuit\dotGrey.png" />
+    <Content Include="Resources\Textos\Tamil-6-8ys-Doctor.JPG" />
+    <Content Include="Resources\Textos\Tamil-6-8ys-Police.Man.JPG" />
+    <Content Include="Resources\Textos\Tamil-8-11ys-Fire.Man.JPG" />
+    <Content Include="Resources\Textos\Tamil-8-11ys-Save.Animals.JPG" />
+    <Content Include="Resources\Textos\Tamil-8-11ys-Save.Trees.JPG" />
+    <Content Include="Resources\Textos\Tamil-8-11ys-Save.Water.JPG" />
     <Content Include="Resources\Textos\TextoEs1.png" />
     <Content Include="Resources\Textos\TextoIn1.png" />
     <Content Include="Resources\Textos\TextoIn2.PNG" />

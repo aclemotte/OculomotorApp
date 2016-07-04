@@ -1297,7 +1297,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Oculomotor App"
         "ProductCode" = "8:{EE9F9567-5A91-4F03-94D9-563F84D56890}"
-        "PackageCode" = "8:{3A019C49-A001-4AD3-B1F8-E1159429D8D4}"
+        "PackageCode" = "8:{CCA61BD7-5A82-497D-A1D8-C7906B24B573}"
         "UpgradeCode" = "8:{D1289E79-E680-4920-B703-0FFD44BDC58E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
