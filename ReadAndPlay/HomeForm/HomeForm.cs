@@ -468,6 +468,12 @@ namespace LookAndPlayForm.InitialForm
             ChangeLanguage("es", this);
         }
 
+
+        private void pictureBoxTamil_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("ta", this);
+        }
+
         private void pictureBoxAleman_Click(object sender, EventArgs e)
         {
 

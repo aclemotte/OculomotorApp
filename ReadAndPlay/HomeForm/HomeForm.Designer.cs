@@ -37,8 +37,10 @@
             this.labelCopyright = new System.Windows.Forms.Label();
             this.pictureBoxIngles = new System.Windows.Forms.PictureBox();
             this.pictureBoxEspanhol = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTamil = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIngles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEspanhol)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTamil)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonNewTest
@@ -92,10 +94,19 @@
             this.pictureBoxEspanhol.TabStop = false;
             this.pictureBoxEspanhol.Click += new System.EventHandler(this.pictureBoxEspanhol_Click);
             // 
+            // pictureBoxTamil
+            // 
+            resources.ApplyResources(this.pictureBoxTamil, "pictureBoxTamil");
+            this.pictureBoxTamil.Image = global::LookAndPlayForm.Properties.Resources.banderaIndia;
+            this.pictureBoxTamil.Name = "pictureBoxTamil";
+            this.pictureBoxTamil.TabStop = false;
+            this.pictureBoxTamil.Click += new System.EventHandler(this.pictureBoxTamil_Click);
+            // 
             // HomeForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBoxTamil);
             this.Controls.Add(this.pictureBoxEspanhol);
             this.Controls.Add(this.pictureBoxIngles);
             this.Controls.Add(this.labelCopyright);
@@ -112,6 +123,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HomeForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIngles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEspanhol)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTamil)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +139,6 @@
         private System.Windows.Forms.Label labelCopyright;
         private System.Windows.Forms.PictureBox pictureBoxIngles;
         private System.Windows.Forms.PictureBox pictureBoxEspanhol;
+        private System.Windows.Forms.PictureBox pictureBoxTamil;
     }
 }
