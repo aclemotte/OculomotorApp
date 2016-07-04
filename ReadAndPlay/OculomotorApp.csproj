@@ -477,6 +477,7 @@
     <None Include="Resources\MrPatch-logo-horizontal.png" />
     <Content Include="Resources\Banderas\banderaAlemania.png" />
     <Content Include="Resources\Banderas\banderaEspanha.jpg" />
+    <Content Include="Resources\Banderas\banderaIndia.jpg" />
     <Content Include="Resources\Banderas\banderaInglaterra.png" />
     <Content Include="Resources\MrPatch32.ico" />
     <None Include="Resources\Persuit\dotGrey.png" />
