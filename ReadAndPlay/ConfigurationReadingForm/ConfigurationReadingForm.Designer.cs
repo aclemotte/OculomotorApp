@@ -61,11 +61,7 @@
             resources.GetString("comboBoxSampleText.Items2"),
             resources.GetString("comboBoxSampleText.Items3"),
             resources.GetString("comboBoxSampleText.Items4"),
-            resources.GetString("comboBoxSampleText.Items5"),
-            resources.GetString("comboBoxSampleText.Items6"),
-            resources.GetString("comboBoxSampleText.Items7"),
-            resources.GetString("comboBoxSampleText.Items8"),
-            resources.GetString("comboBoxSampleText.Items9")});
+            resources.GetString("comboBoxSampleText.Items5")});
             this.comboBoxSampleText.Name = "comboBoxSampleText";
             this.comboBoxSampleText.SelectedValueChanged += new System.EventHandler(this.comboBoxSampleText_SelectedValueChanged);
             // 

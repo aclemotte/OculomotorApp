@@ -368,6 +368,9 @@
       <DependentUpon>ConfigurationReadingForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConfigurationReadingForm\ConfigurationReadingForm.ta.resx">
+      <DependentUpon>ConfigurationReadingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsentForm\consentForm.resx">
       <DependentUpon>consentForm.cs</DependentUpon>
       <SubType>Designer</SubType>

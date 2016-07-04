@@ -129,34 +129,22 @@
     <value>201, 41</value>
   </data>
   <data name="comboBoxSampleText.Items" xml:space="preserve">
-    <value>Nivel 1. Texto 1</value>
+    <value>Level 1. 6-8 years. Police Man</value>
   </data>
   <data name="comboBoxSampleText.Items1" xml:space="preserve">
-    <value>Nivel 1. Texto 2</value>
+    <value>Level 1. 6-8 years. Doctor</value>
   </data>
   <data name="comboBoxSampleText.Items2" xml:space="preserve">
-    <value>Nivel 1. Texto 3</value>
+    <value>Level 2. 8-11 years. Fire Man</value>
   </data>
   <data name="comboBoxSampleText.Items3" xml:space="preserve">
-    <value>Nivel 1. Texto 4</value>
+    <value>Level 2. 8-11 years. Save Animals</value>
   </data>
   <data name="comboBoxSampleText.Items4" xml:space="preserve">
-    <value>Nivel 2. Texto 5</value>
+    <value>Level 2. 8-11 years. Save Trees</value>
   </data>
   <data name="comboBoxSampleText.Items5" xml:space="preserve">
-    <value>Nivel 2. Texto 6</value>
-  </data>
-  <data name="comboBoxSampleText.Items6" xml:space="preserve">
-    <value>Nivel 3. Texto 7</value>
-  </data>
-  <data name="comboBoxSampleText.Items7" xml:space="preserve">
-    <value>Nivel 3. Texto 8</value>
-  </data>
-  <data name="comboBoxSampleText.Items8" xml:space="preserve">
-    <value>Nivel 4. Texto 9</value>
-  </data>
-  <data name="comboBoxSampleText.Items9" xml:space="preserve">
-    <value>Nivel 4. Texto 10</value>
+    <value>Level 2. 8-11 years. Save Water</value>
   </data>
   <data name="comboBoxSampleText.Location" type="System.Drawing.Point, System.Drawing">
     <value>413, 191</value>
@@ -166,9 +154,6 @@
   </data>
   <data name="comboBoxSampleText.Size" type="System.Drawing.Size, System.Drawing">
     <value>261, 37</value>
-  </data>
-  <data name="comboBoxSampleText.Text" xml:space="preserve">
-    <value>Textos</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>33, 194</value>
@@ -241,9 +226,6 @@
   </data>
   <data name="labelCopyright.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 17</value>
-  </data>
-  <data name="labelCopyright.Text" xml:space="preserve">
-    <value>© All rights reserved. Mr Patch 2016</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>8, 16</value>
@@ -326,5 +308,8 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
 </root>
