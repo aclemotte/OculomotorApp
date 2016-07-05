@@ -34,7 +34,7 @@ namespace LookAndPlayForm.Varios
             { "Level 7. Text 87",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText87, 100)},            
             { "Level 7. Text 88",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText88, 109)},            
             { "Level 7. Text 89",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText89, 116)},     
-            //español
+            //Español
             { "Nivel 1. Texto 1",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText1Esp, 64)},
             { "Nivel 1. Texto 2",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText2Esp, 62)},            
             { "Nivel 1. Texto 3",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText3Esp, 60)},            
@@ -44,8 +44,14 @@ namespace LookAndPlayForm.Varios
             { "Nivel 3. Texto 7",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText7Esp, 61)},            
             { "Nivel 3. Texto 8",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText8Esp, 60)},            
             { "Nivel 4. Texto 9",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText9Esp, 121)},            
-            { "Nivel 4. Texto 10",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText10Esp, 122)}
-
+            { "Nivel 4. Texto 10",  new imageProperties(LookAndPlayForm.Properties.Resources.visagraphText10Esp, 122)},
+            //Tamil
+            { "Police Man. 6-8 years",      new imageProperties(LookAndPlayForm.Properties.Resources.Tamil_6_8ys_Police_Man, 63)},
+            { "Doctor. 6-8 years",          new imageProperties(LookAndPlayForm.Properties.Resources.Tamil_6_8ys_Doctor, 61)},
+            { "Fire Man. 8-11 years",       new imageProperties(LookAndPlayForm.Properties.Resources.Tamil_8_11ys_Fire_Man, 70)},
+            { "Save Animals. 8-11 years",   new imageProperties(LookAndPlayForm.Properties.Resources.Tamil_8_11ys_Save_Animals, 56)},
+            { "Save Trees. 8-11 years",     new imageProperties(LookAndPlayForm.Properties.Resources.Tamil_8_11ys_Save_Trees, 66)},
+            { "Save Water. 8-11 years",     new imageProperties(LookAndPlayForm.Properties.Resources.Tamil_8_11ys_Save_Water, 58)}
         };
 
         public struct imageProperties
